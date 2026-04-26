@@ -18,24 +18,24 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 text-brand-primary">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border text-text">
+        <div className="ds-container">
+          <div className="flex items-center justify-between h-[68px] lg:h-[76px]">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group shrink-0">
-              <span className="text-xl font-extrabold tracking-tight">
-                DIAMANTI <span className="font-light">BROKER</span>
+              <span className="text-xl font-bold tracking-tight text-dark">
+                DIAMANTI <span className="font-normal text-muted">BROKER</span>
               </span>
             </Link>
 
-            {/* Desktop Nav */}
-            <nav className="hidden xl:flex items-center gap-6">
+            {/* Desktop Nav (Center) */}
+            <nav className="hidden lg:flex items-center justify-center flex-1 gap-8 px-8">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-brand-accent ${
-                    location.pathname === item.path ? 'text-brand-accent' : 'text-brand-secondary'
+                  className={`text-[13px] xl:text-[14px] font-semibold uppercase tracking-wider transition-colors hover:text-accent ${
+                    location.pathname === item.path ? 'text-accent' : 'text-text'
                   }`}
                 >
                   {item.label}
@@ -44,29 +44,31 @@ export function Header() {
             </nav>
 
             {/* Desktop Right Actions */}
-            <div className="hidden xl:flex items-center gap-4 shrink-0">
-              <a href="tel:TODO_PHONE" className="flex items-center gap-2 text-sm font-bold hover:text-brand-accent transition-colors">
-                <Phone size={18} />
-                <span className="sr-only lg:not-sr-only">Chiama</span>
-              </a>
-              <a href="TODO_WHATSAPP" target="_blank" rel="noreferrer" className="flex items-center justify-center w-10 h-10 bg-green-500 hover:bg-green-600 text-white rounded-full transition-colors">
-                <MessageSquare size={18} />
-              </a>
-              <Link to="/consulenza" className="bg-brand-primary hover:bg-brand-dark text-white font-bold py-2.5 px-6 rounded transition-colors text-sm uppercase tracking-wider">
+            <div className="hidden lg:flex items-center gap-5 shrink-0">
+              <div className="flex items-center gap-4 border-r border-border pr-5">
+                <a href="tel:TODO_PHONE" className="text-text hover:text-accent transition-colors flex items-center gap-2">
+                  <Phone size={18} strokeWidth={2} />
+                  <span className="text-sm font-semibold">Chiama</span>
+                </a>
+                <a href="TODO_WHATSAPP" target="_blank" rel="noreferrer" className="text-green-600 hover:text-green-700 transition-colors" title="Scrivici su WhatsApp">
+                  <MessageSquare size={20} strokeWidth={2} />
+                </a>
+              </div>
+              <Link to="/consulenza" className="flex items-center justify-center h-[42px] px-[18px] rounded-sm bg-dark text-white font-semibold text-[14px] hover:bg-dark-soft transition-colors">
                 Richiedi consulenza
               </Link>
             </div>
 
             {/* Mobile Actions & Toggle */}
-            <div className="xl:hidden flex items-center gap-4">
-              <a href="tel:TODO_PHONE" className="p-2 text-brand-primary">
-                <Phone size={22} />
+            <div className="lg:hidden flex items-center gap-4 shrink-0">
+              <a href="tel:TODO_PHONE" className="p-1.5 text-text">
+                <Phone size={20} strokeWidth={2} />
               </a>
-              <a href="TODO_WHATSAPP" target="_blank" rel="noreferrer" className="p-2 text-green-500">
-                <MessageSquare size={22} />
+              <a href="TODO_WHATSAPP" target="_blank" rel="noreferrer" className="p-1.5 text-green-600">
+                <MessageSquare size={20} strokeWidth={2} />
               </a>
-              <button className="p-2 text-brand-primary" onClick={() => setIsOpen(!isOpen)}>
-                {isOpen ? <X size={28} /> : <Menu size={28} />}
+              <button className="p-1.5 text-text" onClick={() => setIsOpen(!isOpen)}>
+                {isOpen ? <X size={26} strokeWidth={2} /> : <Menu size={26} strokeWidth={2} />}
               </button>
             </div>
           </div>
@@ -77,46 +79,32 @@ export function Header() {
           {isOpen && (
             <motion.nav
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: '100vh' }}
               exit={{ opacity: 0, height: 0 }}
-              className="xl:hidden bg-white border-t border-gray-200 overflow-hidden"
+              className="lg:hidden bg-white fixed top-[68px] left-0 right-0 bottom-0 overflow-y-auto"
             >
-              <div className="container mx-auto px-6 py-6 flex flex-col gap-6">
+              <div className="px-5 py-8 flex flex-col gap-8">
                 {navItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
                     onClick={() => setIsOpen(false)}
-                    className="text-lg font-bold text-brand-primary hover:text-brand-accent transition-colors uppercase tracking-wider"
+                    className="text-lg font-bold text-text hover:text-accent transition-colors"
                   >
                     {item.label}
                   </Link>
                 ))}
+                
+                <div className="mt-4 pt-8 border-t border-border">
+                  <Link to="/consulenza" onClick={() => setIsOpen(false)} className="flex items-center justify-center h-[52px] w-full rounded-md bg-dark text-white font-semibold text-base">
+                    Richiedi consulenza
+                  </Link>
+                </div>
               </div>
             </motion.nav>
           )}
         </AnimatePresence>
       </header>
-
-      {/* Mobile Sticky Bottom Bar */}
-      <div className="xl:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
-        <div className="flex items-center justify-between h-16 px-2">
-          <a href="tel:TODO_PHONE" className="flex-1 flex flex-col items-center justify-center text-brand-primary hover:text-brand-accent transition-colors">
-            <Phone size={20} className="mb-1" />
-            <span className="text-[10px] font-bold uppercase tracking-wider">Chiama</span>
-          </a>
-          <div className="w-px h-8 bg-gray-200"></div>
-          <a href="TODO_WHATSAPP" target="_blank" rel="noreferrer" className="flex-1 flex flex-col items-center justify-center text-green-600 hover:text-green-700 transition-colors">
-            <MessageSquare size={20} className="mb-1" />
-            <span className="text-[10px] font-bold uppercase tracking-wider">WhatsApp</span>
-          </a>
-          <div className="w-px h-8 bg-gray-200"></div>
-          <Link to="/consulenza" className="flex-1 flex flex-col items-center justify-center text-brand-accent hover:text-brand-primary transition-colors">
-            <Car size={20} className="mb-1" />
-            <span className="text-[10px] font-bold uppercase tracking-wider">Consulenza</span>
-          </Link>
-        </div>
-      </div>
     </>
   );
 }

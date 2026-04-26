@@ -6,66 +6,107 @@ export default function Home() {
   return (
     <div className="bg-brand-light min-h-screen font-sans text-brand-primary">
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[500px] lg:h-[600px] flex items-center justify-center pt-20">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0 bg-brand-dark">
-          <img 
-            src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=2000" 
-            alt="Auto premium in salone" 
-            className="w-full h-full object-cover opacity-30 mix-blend-overlay"
-          />
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10 w-full mt-8 lg:mt-0">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
-              Compra l’auto giusta <br className="hidden md:block" /> senza rischiare brutte sorprese.
-            </h1>
-            <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
-              Diamanti Broker ti affianca nella ricerca, verifica e acquisto della tua prossima auto in Italia e in Europa. Controlliamo storico, documenti, prezzo, garanzia e pratiche, così puoi scegliere con più sicurezza e meno stress.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/consulenza" className="w-full sm:w-auto bg-brand-accent hover:bg-blue-700 text-white font-bold py-4 px-8 rounded transition-all text-sm uppercase tracking-wider shadow-lg">
-                Richiedi una consulenza gratuita
-              </Link>
-              <Link to="/veicoli" className="w-full sm:w-auto bg-transparent border border-white text-white hover:bg-white hover:text-brand-primary font-bold py-4 px-8 rounded transition-all text-sm uppercase tracking-wider">
-                Guarda le auto disponibili
-              </Link>
-            </div>
+      <section className="bg-dark text-white pt-[124px] pb-[56px] lg:pt-[172px] lg:pb-[88px] relative overflow-hidden">
+        {/* Subtle background glow or pattern */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+        
+        <div className="ds-container relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-center">
             
-            <div className="mt-6 flex flex-col items-center">
-              <a href="TODO_WHATSAPP" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-white hover:text-green-400 font-bold transition-colors mb-2">
-                <MessageCircle size={20} className="text-green-500" />
-                Scrivici su WhatsApp
-              </a>
-              <p className="text-xs text-gray-400 max-w-sm text-center">
-                Risposta rapida. Nessun impegno. Analizziamo insieme modello, budget e tempi.
+            {/* Left Column: Copy & Actions */}
+            <div className="lg:col-span-6 flex flex-col items-start text-left">
+              <span className="text-accent text-[12px] md:text-[13px] font-bold uppercase tracking-[0.15em] mb-4 md:mb-6">
+                Car broker · Auto premium · Importazione
+              </span>
+              
+              <h1 className="text-[36px] lg:text-[clamp(40px,4.5vw,64px)] leading-[1.1] lg:leading-[1.05] font-bold text-white mb-6">
+                Trova l’auto giusta, <br className="hidden xl:block" />senza rischiare <br className="hidden xl:block" />brutte sorprese.
+              </h1>
+              
+              <p className="text-[16px] lg:text-[18px] leading-[1.6] lg:leading-[1.7] text-gray-300 mb-8 max-w-[620px]">
+                Diamanti Broker ti affianca nella ricerca, verifica e acquisto della tua prossima auto in Italia e in Europa, gestendo controlli, trattativa, pratiche e consegna.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center w-full sm:w-auto gap-4 mb-6">
+                <Link to="/consulenza" className="w-full sm:w-auto flex items-center justify-center h-[52px] px-[24px] rounded-xl bg-accent hover:opacity-90 text-white font-semibold text-[15px] transition-opacity">
+                  Richiedi consulenza
+                </Link>
+                <Link to="/veicoli" className="w-full sm:w-auto flex items-center justify-center h-[52px] px-[24px] rounded-xl border border-gray-600 hover:border-white hover:bg-white/5 text-white font-semibold text-[15px] transition-all">
+                  Vedi auto disponibili
+                </Link>
+              </div>
+
+              <div className="flex items-center gap-3 mb-2">
+                <a href="TODO_WHATSAPP" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[15px] font-semibold hover:text-green-400 transition-colors">
+                  <MessageCircle size={20} className="text-green-500" strokeWidth={2} />
+                  Parla con noi su WhatsApp
+                </a>
+              </div>
+              <p className="text-[13px] text-gray-400">
+                Analizziamo modello, budget e tempi prima di proporti qualsiasi auto.
               </p>
             </div>
+
+            {/* Right Column: Visual */}
+            <div className="lg:col-span-6 mt-6 lg:mt-0 relative">
+              <div className="relative aspect-[4/3] md:aspect-[16/10] lg:aspect-[4/3] rounded-[24px] overflow-hidden shadow-2xl">
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent z-10 mix-blend-multiply"></div>
+                
+                <img 
+                  src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=1200" 
+                  alt="Auto premium selezionata dal broker" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Floating Card */}
+              <div className="absolute -bottom-6 -left-2 md:-left-6 lg:-bottom-10 lg:-left-12 bg-white rounded-[18px] p-[20px] shadow-soft z-20 w-[240px] border border-gray-100">
+                <ul className="flex flex-col gap-4">
+                  <li className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-primary shrink-0">
+                      <ShieldCheck size={16} strokeWidth={2} />
+                    </div>
+                    <span className="text-[14px] font-semibold text-text leading-tight">Storico verificato</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-primary shrink-0">
+                      <FileText size={16} strokeWidth={2} />
+                    </div>
+                    <span className="text-[14px] font-semibold text-text leading-tight">Pratiche gestite</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-primary shrink-0">
+                      <CheckCircle2 size={16} strokeWidth={2} />
+                    </div>
+                    <span className="text-[14px] font-semibold text-text leading-tight">Consegna e supporto</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* 2. TRUST BAR */}
-      <section className="bg-white border-b border-gray-200 py-6 relative z-20 shadow-sm overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="flex overflow-x-auto pb-4 md:pb-0 hide-scrollbar md:flex-wrap md:justify-center gap-x-8 gap-y-6 md:divide-x divide-gray-200 snap-x">
-            {[
-              { icon: FileText, title: 'Storico e documenti', desc: 'Verifica prima della proposta' },
-              { icon: ShieldCheck, title: 'Controlli anti-sorprese', desc: 'Chilometri, provenienza, manutenzione' },
-              { icon: CheckCircle2, title: 'Pratiche gestite', desc: 'Trasporto, immatricolazione, consegna' },
-              { icon: Banknote, title: 'Finanziamento', desc: 'Soluzioni su misura' },
-              { icon: Car, title: 'Permuta', desc: 'Valutazione della tua auto' }
-            ].map((item, i) => (
-              <div key={i} className={`flex items-start gap-3 min-w-[240px] md:min-w-0 snap-start ${i !== 0 ? 'md:pl-8' : ''}`}>
-                <item.icon className="text-brand-accent shrink-0 mt-1" size={24} strokeWidth={1.5} />
-                <div className="flex flex-col">
-                  <span className="text-sm font-bold text-brand-primary leading-tight">{item.title}</span>
-                  <span className="text-xs font-medium text-brand-secondary mt-0.5">{item.desc}</span>
+      <section className="relative z-30 -mt-10 mb-12">
+        <div className="ds-container">
+          <div className="bg-white rounded-[20px] p-[24px] md:p-[28px] border border-border shadow-soft">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[16px] lg:gap-[24px]">
+              {[
+                { icon: Search, title: 'Ricerca su misura', desc: 'In base a modello, budget e priorità reali.' },
+                { icon: ShieldCheck, title: 'Verifiche prima della proposta', desc: 'Storico, chilometri, documenti e provenienza.' },
+                { icon: FileText, title: 'Pratiche gestite', desc: 'Trattativa, trasporto, immatricolazione e consegna.' },
+                { icon: Award, title: 'Supporto completo', desc: 'Finanziamento, permuta e assistenza post-vendita.' }
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col items-start text-left p-4 hover:bg-surface rounded-xl transition-colors">
+                  <item.icon className="text-accent mb-4" size={24} strokeWidth={1.5} />
+                  <h3 className="text-[15px] lg:text-[16px] font-semibold text-text mb-1 leading-tight">{item.title}</h3>
+                  <p className="text-[14px] text-muted leading-relaxed">{item.desc}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -350,16 +391,6 @@ export default function Home() {
         </div>
       </section>
       
-      {/* STICKY WHATSAPP (Mobile optimized) */}
-      <a 
-        href="https://wa.me/393331234567" 
-        target="_blank" 
-        rel="noreferrer"
-        className="fixed bottom-6 right-6 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 hover:scale-110 transition-all z-50 animate-bounce"
-        aria-label="Contattaci su WhatsApp"
-      >
-        <MessageCircle size={28} />
-      </a>
     </div>
   );
 }
