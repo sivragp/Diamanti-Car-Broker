@@ -1,4 +1,4 @@
-import { Search, Check, X, ShieldCheck, Euro, Headset, Target, Clock, Star, MapPin, Building2, Mail, Phone, Instagram, Facebook, Linkedin, Settings } from 'lucide-react';
+import { Search, Check, X, ShieldCheck, Euro, Headset, Target, Clock, Star, MapPin, Building2, Mail, Phone, Instagram, Facebook, Linkedin, Settings, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
