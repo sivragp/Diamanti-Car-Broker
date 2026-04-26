@@ -23,52 +23,56 @@ export default function Home() {
 
   return (
     <div className="pt-20">
-      {/* Hero Section - Full Page Background with Multi-Car Image */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-primary pt-24 pb-12">
-        {/* Background Image Layer */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=2400" 
-            alt="Human-centered consultancy" 
-            className="w-full h-full object-cover opacity-50 scale-105"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent"></div>
-        </div>
-
+      {/* Hero Section - Split Layout */}
+      <section ref={formRef} id="trova-auto" className="relative min-h-[90vh] flex items-center overflow-hidden bg-neutral-warm pt-32 pb-20">
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl"
-          >
-            <div className="flex items-center gap-2 mb-8 uppercase tracking-[0.3em] text-[10px] font-black text-accent">
-               <div className="w-8 h-[2px] bg-accent"></div>
-               Elite Automotive Brokerage
-            </div>
-            <h1 className="text-5xl md:text-7xl lg:text-[7.5rem] font-black leading-[0.85] mb-8 text-white uppercase tracking-tighter">
-              La Tua Prossima <br/>
-              <span className="text-accent italic font-serif lowercase">esperienza.</span> <br/>
-              <span className="text-white/90">Certificata.</span>
-            </h1>
-            <p className="text-lg md:text-2xl text-gray-200 mb-12 max-w-xl leading-relaxed font-medium">
-              Siamo consulenti al servizio delle persone. Cerchiamo la perfezione tecnica tra i migliori stock europei per far sì che il tuo unico pensiero sia guidare.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6">
-              <button 
-                onClick={() => formRef.current?.scrollIntoView({ behavior: 'smooth' })}
-                className="btn-primary py-5 px-10 text-sm ring-4 ring-accent/20"
-              >
-                Configura la tua ricerca 
-                <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-              <Link to="/chi-siamo" className="flex items-center justify-center gap-2 border border-white/20 hover:bg-white/10 text-white font-black py-5 px-10 rounded-lg transition-all text-sm uppercase tracking-widest bg-white/5 backdrop-blur-sm">
-                Il Nostro Approccio
-              </Link>
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 items-center">
+            
+            {/* Left Column - Text and Interactive Form */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="w-full flex flex-col justify-center"
+            >
+              <div className="flex items-center gap-2 mb-6 uppercase tracking-[0.3em] text-[10px] font-black text-accent">
+                 <div className="w-8 h-[2px] bg-accent"></div>
+                 Elite Automotive Brokerage
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[0.9] mb-6 text-primary uppercase tracking-tighter">
+                La Tua Prossima <br/>
+                <span className="text-accent italic font-serif lowercase">esperienza.</span> <br/>
+                Certificata.
+              </h1>
+              <p className="text-base md:text-lg text-text-muted mb-10 max-w-xl leading-relaxed font-medium">
+                Configura la tua ricerca. Troviamo la perfezione tecnica tra i migliori stock europei.
+              </p>
+              
+              <div className="w-full relative z-20">
+                <MultiStepForm initialBrand={selectedBrand} />
+              </div>
+            </motion.div>
+
+            {/* Right Column - Image on Light Background */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative hidden xl:flex items-center justify-center h-full min-h-[600px] w-full"
+            >
+              {/* Decorative Background Elements */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-white/80 rounded-full blur-3xl z-0"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-accent/5 rounded-full blur-3xl z-0"></div>
+              
+              {/* Isolated Car Image - mix-blend-multiply hides the white background, leaving only the car */}
+              <img 
+                src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=1200" 
+                alt="Premium Car" 
+                className="w-full h-auto object-contain mix-blend-multiply z-10 scale-[1.15] drop-shadow-2xl translate-x-4"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -167,18 +171,6 @@ export default function Home() {
               </Link>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Multi Step Form Anchor */}
-      <section id="trova-auto" ref={formRef} className="section-padding bg-neutral-warm">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-20">
-             <span className="text-accent font-black text-[10px] uppercase tracking-[0.3em] block mb-4">Configuratore</span>
-             <h2 className="text-4xl md:text-6xl font-black text-primary uppercase tracking-tighter">Inizia il tuo viaggio.</h2>
-             <p className="text-text-muted font-medium mt-4">Compila i dettagli e ricevi una consulenza preliminare gratuita.</p>
-          </div>
-          <MultiStepForm initialBrand={selectedBrand} />
         </div>
       </section>
 

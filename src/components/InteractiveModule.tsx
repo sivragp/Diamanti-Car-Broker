@@ -81,16 +81,16 @@ export function MultiStepForm({ initialBrand }: { initialBrand?: string }) {
         />
       </div>
 
-      <div className="p-10 md:p-16">
-        <header className="mb-12">
-          <span className="text-accent font-black text-[10px] uppercase tracking-[0.3em] block mb-4">Fase {step} di 4</span>
-          <h3 className="text-3xl md:text-5xl font-black text-primary uppercase tracking-tighter leading-none">
-            {step === 1 && <><span className="font-serif italic lowercase text-accent block text-2xl mb-1">Iniziamo dal</span> tuo desiderio.</>}
-            {step === 2 && <><span className="font-serif italic lowercase text-accent block text-2xl mb-1">Diamo</span> forma tecnica.</>}
-            {step === 3 && <><span className="font-serif italic lowercase text-accent block text-2xl mb-1">Scegli la tua</span> icona.</>}
-            {step === 4 && <><span className="font-serif italic lowercase text-accent block text-2xl mb-1">Siamo pronti</span> a sentirti.</>}
+      <div className="p-8 md:p-12">
+        <header className="mb-10">
+          <span className="text-accent font-black text-[10px] uppercase tracking-[0.3em] block mb-3">Fase {step} di 4</span>
+          <h3 className="text-2xl md:text-4xl font-black text-primary uppercase tracking-tighter leading-none">
+            {step === 1 && <><span className="font-serif italic lowercase text-accent block text-xl md:text-2xl mb-1">Iniziamo dal</span> tuo desiderio.</>}
+            {step === 2 && <><span className="font-serif italic lowercase text-accent block text-xl md:text-2xl mb-1">Diamo</span> forma tecnica.</>}
+            {step === 3 && <><span className="font-serif italic lowercase text-accent block text-xl md:text-2xl mb-1">Scegli la tua</span> icona.</>}
+            {step === 4 && <><span className="font-serif italic lowercase text-accent block text-xl md:text-2xl mb-1">Siamo pronti</span> a sentirti.</>}
           </h3>
-          <p className="text-text-muted mt-4 font-medium">
+          <p className="text-text-muted mt-3 font-medium text-sm md:text-base">
             {step === 1 && "Raccontaci che tipo di auto immagini e il tuo budget ideale."}
             {step === 2 && "Pochi dettagli tecnici per restringere il campo alla perfezione."}
             {step === 3 && "Seleziona i marchi che ti fanno battere il cuore."}
