@@ -1,396 +1,447 @@
-import { Search, MapPin, Calendar, Fuel, Settings, CheckCircle2, Star, ArrowRight, Play, MessageCircle, FileText, ShieldCheck, Car, Banknote, Clock, Award } from 'lucide-react';
-import { BRANDS, AVAILABLE_CARS } from '../constants';
+import { Search, Check, X, ShieldCheck, Euro, Headset, Target, Clock, Star, MapPin, Building2, Mail, Phone, Instagram, Facebook, Linkedin, Settings } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <div className="bg-brand-light min-h-screen font-sans text-brand-primary">
+    <div className="bg-surface min-h-screen font-sans text-text pt-[80px]">
+      
       {/* 1. HERO SECTION */}
-      <section className="bg-dark text-white pt-[124px] pb-[56px] lg:pt-[172px] lg:pb-[88px] relative overflow-hidden">
-        {/* Subtle background glow or pattern */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+      <section className="relative h-[600px] flex flex-col justify-center items-center text-center">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0 bg-brand-dark">
+          <img 
+            src="https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?auto=format&fit=crop&q=80&w=2000" 
+            alt="Auto in movimento" 
+            className="w-full h-full object-cover opacity-50 mix-blend-overlay"
+          />
+        </div>
+
+        <div className="ds-container relative z-10 w-full mb-20 mt-10">
+          <div className="max-w-3xl">
+            <h1 className="text-[40px] md:text-[56px] lg:text-[64px] font-bold text-white mb-6 leading-[1.1] text-left">
+              Troviamo l'auto giusta <br/>per te, senza farti <br/>perdere tempo.
+            </h1>
+            <p className="text-[16px] md:text-[18px] text-white/90 mb-10 max-w-xl text-left leading-relaxed font-light">
+              Cerchi un'auto nuova o usata? La cerchiamo noi su tutto il mercato, verifichiamo ogni dettaglio e te la consegniamo a casa, pronta all'uso.
+            </p>
+          </div>
+        </div>
+
+        {/* SEARCH FORM OVERLAY */}
+        <div className="absolute bottom-[-40px] md:bottom-[-60px] left-0 right-0 z-20 px-4">
+          <div className="ds-container">
+            <div className="bg-white rounded-xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] p-6 md:p-8 border border-gray-100">
+              <h3 className="font-serif text-[20px] md:text-[24px] font-bold text-brand-dark mb-6 text-left">Richiedi la tua auto, la cerchiamo noi per te.</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+                <div className="flex flex-col text-left">
+                  <label className="text-[12px] font-bold uppercase tracking-wider text-muted mb-2">Tipologia</label>
+                  <input type="text" placeholder="SUV, Berlina, City car..." className="w-full border border-gray-200 rounded-lg h-12 px-4 text-[14px] focus:outline-none focus:border-brand-primary" />
+                </div>
+                <div className="flex flex-col text-left">
+                  <label className="text-[12px] font-bold uppercase tracking-wider text-muted mb-2">Marca</label>
+                  <select className="w-full border border-gray-200 rounded-lg h-12 px-4 text-[14px] focus:outline-none focus:border-brand-primary bg-white">
+                    <option>Seleziona marca</option>
+                  </select>
+                </div>
+                <div className="flex flex-col text-left">
+                  <label className="text-[12px] font-bold uppercase tracking-wider text-muted mb-2">Modello</label>
+                  <select className="w-full border border-gray-200 rounded-lg h-12 px-4 text-[14px] focus:outline-none focus:border-brand-primary bg-white">
+                    <option>Seleziona modello</option>
+                  </select>
+                </div>
+                <div className="flex flex-col text-left">
+                  <label className="text-[12px] font-bold uppercase tracking-wider text-muted mb-2">Alimentazione</label>
+                  <select className="w-full border border-gray-200 rounded-lg h-12 px-4 text-[14px] focus:outline-none focus:border-brand-primary bg-white">
+                    <option>Benzina, Diesel...</option>
+                  </select>
+                </div>
+                <div className="flex flex-col text-left">
+                  <label className="text-[12px] font-bold uppercase tracking-wider text-muted mb-2">Prezzo</label>
+                  <div className="flex gap-2">
+                    <input type="text" placeholder="Budget massimo" className="w-full border border-gray-200 rounded-lg h-12 px-4 text-[14px] focus:outline-none focus:border-brand-primary" />
+                    <button className="bg-brand-dark hover:bg-brand-primary text-white h-12 px-6 rounded-lg text-[14px] font-semibold whitespace-nowrap transition-colors flex items-center justify-center gap-2">
+                      Invia richiesta <span className="ml-1">→</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. BRANDS */}
+      <section className="bg-brand-dark pt-32 pb-12 text-center text-white">
+        <div className="ds-container">
+          <p className="text-[14px] text-white/60 mb-8 font-medium">Lavoriamo con i marchi dei leader auto</p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70">
+            {/* SVG Logos Placeholders for mockup matching */}
+            <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center"><span className="text-[10px]">MB</span></div>
+            <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center"><span className="text-[10px]">BMW</span></div>
+            <div className="w-12 h-6 flex items-center justify-center"><span className="text-[12px] font-bold">Audi</span></div>
+            <div className="w-12 h-6 flex items-center justify-center"><span className="text-[12px] font-serif">Porsche</span></div>
+            <div className="w-12 h-8 flex items-center justify-center"><span className="text-[10px] text-center leading-tight">LAND<br/>ROVER</span></div>
+            <div className="w-8 h-10 flex items-center justify-center"><span className="text-[16px] font-serif">T</span></div>
+            <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center"><span className="text-[10px]">VW</span></div>
+            <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center"><span className="text-[10px]">L</span></div>
+            <div className="w-8 h-2 bg-white/40 rounded-full"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. DIAMANTI CAR BROKER 4 CARDS */}
+      <section className="py-20 bg-white">
+        <div className="ds-container">
+          <h2 className="text-center text-[32px] md:text-[40px] font-serif mb-16 font-bold text-brand-dark">Diamanti Car Broker</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: Search, title: 'Ricerca su misura', text: 'Troviamo l\'auto perfetta per te tra migliaia di opportunità, anche introvabili.' },
+              { icon: Euro, title: 'Nessun costo aggiuntivo', text: 'Il nostro servizio è gratuito per te: siamo remunerati dalla concessionaria.' },
+              { icon: ShieldCheck, title: 'Verifica e trasparenza', text: 'Controlli approfonditi, cronologia e documenti verificati per la massima sicurezza.' },
+              { icon: MapPin, title: 'Consegna a domicilio', text: 'Ovunque tu sia, te la consegniamo a casa tua con la massima cura.' }
+            ].map((item, i) => (
+              <div key={i} className="border border-gray-200 rounded-2xl p-8 text-center flex flex-col items-center hover:shadow-soft transition-shadow bg-white">
+                <div className="w-16 h-16 rounded-full bg-brand-dark text-white flex items-center justify-center mb-6">
+                  <item.icon size={28} strokeWidth={1.5} />
+                </div>
+                <h3 className="font-serif text-[20px] font-bold text-brand-dark mb-4">{item.title}</h3>
+                <p className="text-[15px] text-muted leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. VS SECTION */}
+      <section className="py-20 bg-surface">
+        <div className="ds-container max-w-[1000px]">
+          <h2 className="text-center text-[32px] md:text-[40px] font-serif font-bold mb-16 max-w-2xl mx-auto leading-tight text-brand-dark">
+            Perché contattare un car broker prima di cercare l'auto da solo
+          </h2>
+          
+          <div className="relative">
+            {/* VS Badge */}
+            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-brand-dark rounded-full text-white font-serif font-bold text-xl items-center justify-center z-10 shadow-xl border-4 border-surface">
+              VS
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+              {/* Left Column (Positive) */}
+              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100">
+                <ul className="flex flex-col gap-6">
+                  {[
+                    'Risparmi tempo, soldi e stress',
+                    'Accesso a offerte esclusive e introvabili',
+                    'Nessun vincolo con brand o rivenditori',
+                    'Trattativa esperta al tuo servizio',
+                    'Verifiche tecniche e storiche sempre incluse',
+                    'Supporto dedicato dall\'inizio alla fine'
+                  ].map((text, i) => (
+                    <li key={i} className="flex items-start gap-4">
+                      <div className="mt-1 w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center shrink-0">
+                        <Check size={14} className="text-brand-dark" />
+                      </div>
+                      <span className="text-[16px] text-brand-dark font-medium leading-tight">{text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Right Column (Negative) */}
+              <div className="bg-[#eef2f6] rounded-3xl p-8 md:p-10 border border-gray-200">
+                <ul className="flex flex-col gap-6">
+                  <li className="flex items-start gap-4">
+                    <div className="mt-1 w-6 h-6 rounded-full border border-gray-400 flex items-center justify-center shrink-0">
+                      <X size={14} className="text-brand-dark" />
+                    </div>
+                    <span className="text-[16px] text-brand-dark font-bold leading-tight">Cercare da solo è più rischioso</span>
+                  </li>
+                  {[
+                    'Offerte limitate ai canali pubblici',
+                    'Rischio di costi nascosti e sorprese',
+                    'Trattative senza leva e senza comparabilità',
+                    'Perdita di tempo tra annunci e venditori privati',
+                    'Nessun supporto burocratico né post-vendita'
+                  ].map((text, i) => (
+                    <li key={i} className="flex items-start gap-4">
+                      <div className="mt-1 w-6 h-6 rounded-full bg-brand-dark flex items-center justify-center shrink-0">
+                        <X size={14} className="text-white" />
+                      </div>
+                      <span className="text-[16px] text-brand-dark leading-tight">{text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. COME FUNZIONA */}
+      <section className="py-20 bg-white">
+        <div className="ds-container">
+          <h2 className="text-center text-[32px] md:text-[40px] font-serif font-bold text-brand-dark mb-16">Come funziona</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12 max-w-5xl mx-auto relative">
+            {/* Connecting lines for desktop */}
+            <div className="hidden md:block absolute top-[60px] left-[15%] right-[15%] border-t border-dashed border-gray-300 z-0"></div>
+            <div className="hidden md:block absolute top-[270px] left-[15%] right-[15%] border-t border-dashed border-gray-300 z-0"></div>
+            
+            {[
+              { num: 1, icon: Phone, title: 'Primo contatto', text: 'Breve call per capire esigenze, budget e tempistiche.' },
+              { num: 2, icon: Target, title: 'Profilazione auto', text: 'Definiamo tipologia, marca, modello e priorità.' },
+              { num: 3, icon: Search, title: 'Ricerca mirata', text: 'Selezioniamo le migliori opportunità sul mercato.' },
+              { num: 4, icon: ShieldCheck, title: 'Verifica e proposta', text: 'Controlli, analisi e presentazione delle opzioni adatte.' },
+              { num: 5, icon: Settings, title: 'Gestione acquisto', text: 'Supporto nella trattativa, pratiche e coordinamento.' },
+              { num: 6, icon: MapPin, title: 'Consegna a domicilio', text: 'L\'auto arriva a casa tua pronta all\'uso.' }
+            ].map((step, i) => (
+              <div key={i} className="relative z-10 flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-full bg-brand-dark text-white font-serif text-xl flex items-center justify-center mb-6 border-4 border-white shadow-sm">
+                  {step.num}
+                </div>
+                <div className="bg-white border border-gray-200 rounded-2xl p-6 w-full h-full flex flex-col items-center shadow-sm">
+                  <step.icon className="text-brand-dark mb-4 opacity-80" size={24} strokeWidth={1.5} />
+                  <h3 className="font-serif text-[18px] font-bold text-brand-dark mb-3">{step.title}</h3>
+                  <p className="text-[14px] text-muted leading-relaxed">{step.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. BANNER TAYCAN */}
+      <section className="py-12 bg-white">
+        <div className="ds-container">
+          <div className="bg-surface rounded-[24px] overflow-hidden flex flex-col md:flex-row items-center border border-gray-100">
+            <div className="w-full md:w-1/2 h-[300px] md:h-auto self-stretch">
+              <img src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&q=80&w=1200" alt="Porsche Taycan" className="w-full h-full object-cover" />
+            </div>
+            <div className="w-full md:w-1/2 p-10 md:p-16 flex flex-col items-start bg-surface">
+              <h2 className="text-[28px] md:text-[36px] font-serif font-bold text-brand-dark mb-6 leading-tight">
+                Non abbiamo l'auto in showroom.
+              </h2>
+              <p className="text-[16px] md:text-[18px] text-muted mb-8 leading-relaxed">
+                Perché ogni ricerca è unica. Troviamo l'auto giusta per te, non quella che abbiamo in pronta consegna.
+              </p>
+              <Link to="/come-funziona" className="bg-brand-dark hover:bg-brand-primary text-white h-12 px-8 rounded-lg text-[15px] font-semibold flex items-center justify-center gap-2 transition-colors">
+                Scopri come funziona <span>→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. PERCHÉ SCEGLIERE (5 cols) */}
+      <section className="py-20 bg-white border-t border-gray-100">
+        <div className="ds-container">
+          <h2 className="text-center text-[32px] md:text-[40px] font-serif font-bold text-brand-dark mb-16">Perché scegliere Diamanti Car Broker</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gray-200">
+            {[
+              { icon: buildingIcon, title: 'Indipendenza totale', text: 'Non siamo legati a marchi o concessionarie, lavoriamo solo per te.' },
+              { icon: diamondIcon, title: 'Esperienza e rete', text: 'Accesso a una rete selezionata di partner e canali esclusivi in Italia ed Europa.' },
+              { icon: clockIcon, title: 'Competenza e passione', text: 'Anni di esperienza nel settore auto al servizio delle tue esigenze.' },
+              { icon: shieldIcon, title: 'Verifica garantita', text: 'Ogni veicolo viene sottoposto a rigorosi controlli prima della consegna.' },
+              { icon: headsetIcon, title: 'Supporto end-to-end', text: 'Ti seguiamo in ogni fase, anche dopo la consegna dell\'auto.' }
+            ].map((item, i) => (
+              <div key={i} className={`flex flex-col items-center pt-8 md:pt-0 ${i !== 0 ? 'md:pl-8' : ''}`}>
+                <div className="mb-6 h-12 flex items-center justify-center">
+                  {item.icon}
+                </div>
+                <h3 className="text-[16px] font-bold text-brand-dark mb-3">{item.title}</h3>
+                <p className="text-[13px] text-muted leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. FOUNDER */}
+      <section className="py-20 bg-surface">
+        <div className="ds-container">
+          <div className="bg-white rounded-[24px] overflow-hidden flex flex-col md:flex-row items-center border border-gray-100 shadow-sm">
+            <div className="w-full md:w-1/2 p-10 md:p-16 flex flex-col items-start">
+              <h2 className="text-[32px] md:text-[40px] font-serif font-bold text-brand-dark mb-6 leading-tight">
+                Ciao, sono Thomas di<br/>Diamanti Car Broker
+              </h2>
+              <p className="text-[16px] md:text-[18px] text-muted mb-6 leading-relaxed">
+                La mia missione è trovarti l'auto perfetta, senza stress e senza rischi. Mi occupo di ogni dettaglio, dalla ricerca alla consegna, con trasparenza e competenza.
+              </p>
+              <p className="text-[16px] md:text-[18px] text-brand-dark font-bold mb-10 leading-relaxed">
+                Tu raccontami cosa cerchi, al resto pensiamo noi.
+              </p>
+              <Link to="/chi-siamo" className="bg-brand-dark hover:bg-brand-primary text-white h-12 px-8 rounded-lg text-[15px] font-semibold flex items-center justify-center transition-colors">
+                Scopri di più
+              </Link>
+            </div>
+            <div className="w-full md:w-1/2 h-[400px] md:h-auto self-stretch">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" alt="Thomas - Founder" className="w-full h-full object-cover object-top" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. TESTIMONIALS */}
+      <section className="py-20 bg-white">
+        <div className="ds-container">
+          <h2 className="text-center text-[32px] md:text-[40px] font-serif font-bold text-brand-dark mb-16">Cosa dicono i clienti</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { img: "https://images.unsplash.com/photo-1556189250-72ba954cfc2b?auto=format&fit=crop&q=80&w=800", text: "Servizio impeccabile. Thomas ha trovato l'auto perfetta in tempi record. Consigliatissimo!", name: "Marco R.", car: "BMW X5" },
+              { img: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=800", text: "Professionale, trasparente e sempre disponibile. Consegna a domicilio puntuale e senza pensieri.", name: "Luca B.", car: "Audi Q5 Sportback" },
+              { img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=800", text: "Non avrei mai trovato questa auto a queste condizioni. TOP service!", name: "Alessandro T.", car: "Mercedes GLC" }
+            ].map((review, i) => (
+              <div key={i} className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-soft transition-shadow flex flex-col">
+                <div className="h-[200px] w-full">
+                  <img src={review.img} alt={review.car} className="w-full h-full object-cover" />
+                </div>
+                <div className="p-8 flex flex-col flex-1">
+                  <div className="flex gap-1 mb-4">
+                    {[1,2,3,4,5].map(star => <Star key={star} size={16} fill="#F59E0B" color="#F59E0B" />)}
+                  </div>
+                  <p className="text-[15px] text-muted mb-6 flex-1 italic leading-relaxed">"{review.text}"</p>
+                  <p className="text-[14px] font-bold text-brand-dark">{review.name} – {review.car}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Pagination dots mock */}
+          <div className="flex justify-center gap-2 mt-10">
+            <div className="w-2.5 h-2.5 rounded-full bg-brand-dark"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. PRE-FOOTER CTA */}
+      <section className="relative py-24 bg-brand-dark text-white overflow-hidden">
+        {/* Background headlight image right aligned */}
+        <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-40">
+          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1200" alt="Headlights" className="w-full h-full object-cover object-left" />
+        </div>
+        {/* Dark gradient to blend the image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/90 to-transparent"></div>
         
         <div className="ds-container relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-center">
-            
-            {/* Left Column: Copy & Actions */}
-            <div className="lg:col-span-6 flex flex-col items-start text-left">
-              <span className="text-accent text-[12px] md:text-[13px] font-bold uppercase tracking-[0.15em] mb-4 md:mb-6">
-                Car broker · Auto premium · Importazione
-              </span>
-              
-              <h1 className="text-[36px] lg:text-[clamp(40px,4.5vw,64px)] leading-[1.1] lg:leading-[1.05] font-bold text-white mb-6">
-                Trova l’auto giusta, <br className="hidden xl:block" />senza rischiare <br className="hidden xl:block" />brutte sorprese.
-              </h1>
-              
-              <p className="text-[16px] lg:text-[18px] leading-[1.6] lg:leading-[1.7] text-gray-300 mb-8 max-w-[620px]">
-                Diamanti Broker ti affianca nella ricerca, verifica e acquisto della tua prossima auto in Italia e in Europa, gestendo controlli, trattativa, pratiche e consegna.
-              </p>
-
-              <div className="flex flex-col sm:flex-row items-center w-full sm:w-auto gap-4 mb-6">
-                <Link to="/consulenza" className="w-full sm:w-auto flex items-center justify-center h-[52px] px-[24px] rounded-xl bg-accent hover:opacity-90 text-white font-semibold text-[15px] transition-opacity">
-                  Richiedi consulenza
-                </Link>
-                <Link to="/veicoli" className="w-full sm:w-auto flex items-center justify-center h-[52px] px-[24px] rounded-xl border border-gray-600 hover:border-white hover:bg-white/5 text-white font-semibold text-[15px] transition-all">
-                  Vedi auto disponibili
-                </Link>
-              </div>
-
-              <div className="flex items-center gap-3 mb-2">
-                <a href="TODO_WHATSAPP" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[15px] font-semibold hover:text-green-400 transition-colors">
-                  <MessageCircle size={20} className="text-green-500" strokeWidth={2} />
-                  Parla con noi su WhatsApp
-                </a>
-              </div>
-              <p className="text-[13px] text-gray-400">
-                Analizziamo modello, budget e tempi prima di proporti qualsiasi auto.
-              </p>
-            </div>
-
-            {/* Right Column: Visual */}
-            <div className="lg:col-span-6 mt-6 lg:mt-0 relative">
-              <div className="relative aspect-[4/3] md:aspect-[16/10] lg:aspect-[4/3] rounded-[24px] overflow-hidden shadow-2xl">
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent z-10 mix-blend-multiply"></div>
-                
-                <img 
-                  src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=1200" 
-                  alt="Auto premium selezionata dal broker" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Floating Card */}
-              <div className="absolute -bottom-6 -left-2 md:-left-6 lg:-bottom-10 lg:-left-12 bg-white rounded-[18px] p-[20px] shadow-soft z-20 w-[240px] border border-gray-100">
-                <ul className="flex flex-col gap-4">
-                  <li className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-primary shrink-0">
-                      <ShieldCheck size={16} strokeWidth={2} />
-                    </div>
-                    <span className="text-[14px] font-semibold text-text leading-tight">Storico verificato</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-primary shrink-0">
-                      <FileText size={16} strokeWidth={2} />
-                    </div>
-                    <span className="text-[14px] font-semibold text-text leading-tight">Pratiche gestite</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-primary shrink-0">
-                      <CheckCircle2 size={16} strokeWidth={2} />
-                    </div>
-                    <span className="text-[14px] font-semibold text-text leading-tight">Consegna e supporto</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 2. TRUST BAR */}
-      <section className="relative z-30 -mt-10 mb-12">
-        <div className="ds-container">
-          <div className="bg-white rounded-[20px] p-[24px] md:p-[28px] border border-border shadow-soft">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[16px] lg:gap-[24px]">
-              {[
-                { icon: Search, title: 'Ricerca su misura', desc: 'In base a modello, budget e priorità reali.' },
-                { icon: ShieldCheck, title: 'Verifiche prima della proposta', desc: 'Storico, chilometri, documenti e provenienza.' },
-                { icon: FileText, title: 'Pratiche gestite', desc: 'Trattativa, trasporto, immatricolazione e consegna.' },
-                { icon: Award, title: 'Supporto completo', desc: 'Finanziamento, permuta e assistenza post-vendita.' }
-              ].map((item, i) => (
-                <div key={i} className="flex flex-col items-start text-left p-4 hover:bg-surface rounded-xl transition-colors">
-                  <item.icon className="text-accent mb-4" size={24} strokeWidth={1.5} />
-                  <h3 className="text-[15px] lg:text-[16px] font-semibold text-text mb-1 leading-tight">{item.title}</h3>
-                  <p className="text-[14px] text-muted leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. SEARCH BAR */}
-      <section className="py-12 bg-brand-light">
-        <div className="container mx-auto px-4">
-          <div className="bg-white p-4 rounded shadow-md border border-gray-100 flex flex-col md:flex-row items-center gap-3 max-w-5xl mx-auto">
-            <div className="flex-1 w-full border-b md:border-b-0 md:border-r border-gray-200 px-4 py-2">
-              <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Marca</label>
-              <select className="w-full bg-transparent text-brand-primary text-sm font-semibold focus:outline-none appearance-none cursor-pointer">
-                <option value="">Tutte le marche</option>
-                {BRANDS.map(b => <option key={b.id} value={b.id}>{b.name}</option>)}
-              </select>
-            </div>
-            <div className="flex-1 w-full border-b md:border-b-0 md:border-r border-gray-200 px-4 py-2">
-              <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Modello</label>
-              <select className="w-full bg-transparent text-brand-primary text-sm font-semibold focus:outline-none appearance-none cursor-pointer">
-                <option value="">Tutti i Modelli</option>
-              </select>
-            </div>
-            <div className="flex-1 w-full border-b md:border-b-0 md:border-r border-gray-200 px-4 py-2">
-              <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Budget</label>
-              <select className="w-full bg-transparent text-brand-primary text-sm font-semibold focus:outline-none appearance-none cursor-pointer">
-                <option value="">Tutti i Prezzi</option>
-                <option value="20k">Fino a 20.000€</option>
-                <option value="40k">Fino a 40.000€</option>
-                <option value="60k">Fino a 60.000€</option>
-              </select>
-            </div>
-            <div className="flex-1 w-full border-b md:border-b-0 md:border-r border-gray-200 px-4 py-2">
-              <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Alimentazione</label>
-              <select className="w-full bg-transparent text-brand-primary text-sm font-semibold focus:outline-none appearance-none cursor-pointer">
-                <option value="">Qualsiasi</option>
-                <option value="Benzina">Benzina</option>
-                <option value="Diesel">Diesel</option>
-                <option value="Elettrica">Elettrica</option>
-                <option value="Ibrida">Ibrida</option>
-              </select>
-            </div>
-            <button className="bg-brand-primary hover:bg-brand-dark text-white font-bold py-4 px-8 rounded transition-colors flex items-center justify-center gap-2 w-full md:w-auto uppercase text-sm tracking-wider">
-              <Search size={18} />
-              Trova la mia auto
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. VEHICLE CARDS */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-10 border-b border-gray-200 pb-4">
-            <div>
-              <h2 className="text-3xl font-extrabold text-brand-primary mb-2">Veicoli Disponibili</h2>
-              <p className="text-brand-secondary font-medium">Auto selezionate, verificate e pronte per te.</p>
-            </div>
-            <Link to="/veicoli" className="text-sm font-bold text-brand-accent hover:underline flex items-center gap-1 mt-4 md:mt-0 uppercase tracking-wider">
-              Vedi tutto <ArrowRight size={16} />
+          <div className="max-w-2xl">
+            <h2 className="text-[36px] md:text-[48px] font-serif font-bold mb-6 leading-tight">
+              Hai già in mente la tua <br/>prossima auto?
+            </h2>
+            <p className="text-[18px] text-white/80 mb-10 leading-relaxed font-light">
+              Parlane con Thomas di Diamanti Car Broker.<br/>
+              La cerchiamo noi, per te.
+            </p>
+            <Link to="/consulenza" className="inline-flex bg-white hover:bg-gray-100 text-brand-dark h-14 px-8 rounded-lg text-[15px] font-bold items-center justify-center transition-colors">
+              Richiedi ora la tua ricerca <span className="ml-2">→</span>
             </Link>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {AVAILABLE_CARS.map(car => (
-              <div key={car.id} className="bg-white rounded border border-gray-200 overflow-hidden group hover:shadow-xl transition-all flex flex-col">
-                <div className="relative h-56 overflow-hidden bg-gray-100">
-                  <div className="absolute top-2 left-2 flex flex-col gap-1 z-10">
-                    <span className="bg-white/90 text-brand-primary border border-gray-200 text-[10px] font-bold px-2 py-1 uppercase rounded-sm backdrop-blur-sm shadow-sm flex items-center gap-1">
-                      <CheckCircle2 size={10} className="text-green-600" /> Storico verificato
-                    </span>
-                    <span className="bg-brand-primary text-white text-[10px] font-bold px-2 py-1 uppercase rounded-sm shadow-sm">
-                      Garanzia Inclusa
-                    </span>
-                  </div>
-                  <img src={car.imageUrl} alt={car.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                </div>
-                <div className="p-5 flex flex-col flex-1">
-                  <div className="text-xs text-brand-secondary font-bold uppercase tracking-wider mb-1">{car.name.split(' ')[0]}</div>
-                  <h3 className="font-extrabold text-brand-primary text-lg mb-4 leading-tight">{car.name} {car.model}</h3>
-                  
-                  <div className="grid grid-cols-2 gap-y-3 gap-x-2 text-xs text-brand-secondary font-medium mb-6">
-                    <div className="flex items-center gap-1.5"><Calendar size={14} className="text-gray-400" /> {car.year}</div>
-                    <div className="flex items-center gap-1.5"><Settings size={14} className="text-gray-400" /> {car.gearbox}</div>
-                    <div className="flex items-center gap-1.5"><Fuel size={14} className="text-gray-400" /> {car.fuel}</div>
-                    <div className="flex items-center gap-1.5"><MapPin size={14} className="text-gray-400" /> {car.km} km</div>
-                  </div>
-                  
-                  <div className="mt-auto">
-                    <div className="flex flex-col mb-4">
-                      <span className="font-black text-xl text-brand-primary">€ {car.price}</span>
-                      <span className="text-xs text-gray-500 font-medium">Rata indicativa da € 350/mese</span>
-                    </div>
-                    
-                    <div className="flex gap-2">
-                      <Link to={`/auto/${car.id}`} className="flex-1 bg-brand-light border border-gray-200 hover:border-brand-primary text-brand-primary font-bold py-2.5 rounded text-center transition-colors text-xs uppercase tracking-wider flex items-center justify-center">
-                        Vedi scheda
-                      </Link>
-                      <a href={`https://wa.me/393331234567?text=Info su ${car.name}`} target="_blank" rel="noreferrer" className="w-12 flex items-center justify-center bg-green-500 hover:bg-green-600 text-white rounded transition-colors">
-                        <MessageCircle size={20} />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* 5. COME FUNZIONA (5 STEP) */}
-      <section className="py-20 bg-brand-dark text-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-extrabold mb-4">Come funziona il servizio di Car Brokerage</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto font-medium">Un processo collaudato in 5 step per farti avere l'auto dei tuoi sogni, senza alcuno stress o preoccupazione.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
-            {/* Connecting line for desktop */}
-            <div className="hidden md:block absolute top-8 left-10 right-10 h-0.5 bg-brand-secondary z-0"></div>
-
-            {[
-              { step: '01', icon: Car, title: 'Raccontaci l’auto che cerchi', desc: 'Definiamo insieme marca, modello, budget e caratteristiche irrinunciabili.' },
-              { step: '02', icon: Search, title: 'Analizziamo il mercato', desc: 'Cerchiamo la migliore offerta tra rete ufficiale e canali B2B in Europa.' },
-              { step: '03', icon: ShieldCheck, title: 'Verifichiamo il veicolo', desc: 'Controlliamo lo storico tagliandi, sinistri e chilometri effettivi.' },
-              { step: '04', icon: FileText, title: 'Gestiamo trattativa e pratiche', desc: 'Negoziamo il prezzo migliore e gestiamo l\'immatricolazione o i passaggi.' },
-              { step: '05', icon: Award, title: 'Consegna e assistenza', desc: 'Ti consegniamo l\'auto chiavi in mano, con garanzia valida in tutta Europa.' }
-            ].map((item, i) => (
-              <div key={i} className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full bg-brand-primary border-4 border-brand-dark flex items-center justify-center text-brand-accent mb-6 shadow-xl relative">
-                  <item.icon size={28} />
-                  <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-brand-accent text-white text-xs font-bold flex items-center justify-center border-2 border-brand-dark">{item.step}</div>
+      {/* 11. FOOTER INCLUDED IN HOME PER MOCKUP */}
+      <footer className="bg-[#0a0f18] text-white/70 pt-20 pb-8 border-t border-white/10">
+        <div className="ds-container">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
+            
+            {/* Logo Col */}
+            <div className="lg:col-span-1 flex flex-col">
+              <Link to="/" className="flex items-center gap-3 mb-6">
+                <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
+                  <path d="M20 2L2 12L20 38L38 12L20 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+                  <path d="M2 12H38" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M12 12L20 38L28 12" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+                  <path d="M20 2L12 12" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M20 2L28 12" stroke="currentColor" strokeWidth="1.5"/>
+                </svg>
+                <div className="flex flex-col">
+                  <span className="text-[16px] text-white font-serif tracking-widest leading-none">DIAMANTI</span>
+                  <span className="text-[8px] text-white/80 font-sans tracking-[0.3em] font-light mt-1">CAR BROKER</span>
                 </div>
-                <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. ACQUISTO SICURO */}
-      <section className="py-20 bg-brand-light border-y border-gray-200">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-extrabold text-brand-primary mb-4">Acquisto Sicuro Garantito</h2>
-            <p className="text-brand-secondary max-w-2xl mx-auto font-medium">Perché affidarsi a noi invece di acquistare da un privato o da un concessionario generico.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: FileText, title: 'Controllo Storico', desc: 'Verifica incidenti pregressi e integrità del telaio tramite database internazionali.' },
-              { icon: Clock, title: 'Verifica Chilometri', desc: 'Accertamento del reale chilometraggio certificato dai centri assistenza ufficiali.' },
-              { icon: ShieldCheck, title: 'Controllo Documenti', desc: 'Verifica pendenze, fermi amministrativi e regolarità dei documenti di circolazione.' },
-              { icon: MapPin, title: 'Provenienza Certificata', desc: 'Selezioniamo solo auto provenienti da reti ufficiali o parchi auto aziendali certificati.' },
-              { icon: Award, title: 'Garanzia Inclusa', desc: 'Garanzia guasti estendibile valida in tutta Europa per viaggiare senza pensieri.' },
-              { icon: Banknote, title: 'Prezzo Chiavi in Mano', desc: 'Nessun costo nascosto. Nel preventivo è già incluso trasporto, collaudo e immatricolazione.' },
-              { icon: CheckCircle2, title: 'Supporto Post-Vendita', desc: 'Rimaniamo a tua disposizione anche dopo la consegna per qualsiasi necessità o tagliando.' }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white p-6 rounded border border-gray-200 flex flex-col hover:shadow-md transition-shadow">
-                <item.icon className="text-brand-accent mb-4" size={32} strokeWidth={1.5} />
-                <h3 className="text-base font-bold text-brand-primary mb-2 uppercase tracking-wide">{item.title}</h3>
-                <p className="text-brand-secondary text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. VENDI O PERMUTA */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-stretch border border-gray-200 rounded overflow-hidden shadow-lg">
-            <div className="w-full lg:w-1/2 relative bg-brand-primary">
-              <img 
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=1200" 
-                alt="Vendi la tua auto" 
-                className="w-full h-full object-cover opacity-60 mix-blend-overlay"
-              />
-              <div className="absolute inset-0 p-10 flex flex-col justify-center text-white">
-                <h2 className="text-3xl font-extrabold mb-6">Vendi o dai in permuta la tua auto</h2>
-                <p className="text-white/80 mb-8 leading-relaxed font-light text-lg">
-                  Massimizza il valore del tuo usato. Lo acquistiamo direttamente o lo scaliamo dal prezzo della tua nuova auto. Valutazione rapida, sicura e senza impegno basata sui reali valori di mercato.
-                </p>
-                <ul className="space-y-4 font-medium">
-                  <li className="flex items-center gap-3"><CheckCircle2 className="text-white" size={20} /> Valutazione immediata e gratuita</li>
-                  <li className="flex items-center gap-3"><CheckCircle2 className="text-white" size={20} /> Pagamento sicuro e tracciabile</li>
-                  <li className="flex items-center gap-3"><CheckCircle2 className="text-white" size={20} /> Nessuna perdita di tempo con privati</li>
-                </ul>
+              </Link>
+              <p className="text-[13px] leading-relaxed mb-6">
+                Troviamo l'auto giusta per te, senza farti perdere tempo.
+              </p>
+              <div className="flex gap-4">
+                <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Facebook size={14} /></a>
+                <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Instagram size={14} /></a>
+                <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Linkedin size={14} /></a>
               </div>
             </div>
-            <div className="w-full lg:w-1/2 p-10 bg-white flex flex-col justify-center">
-              <h3 className="text-xl font-bold text-brand-primary mb-6">Inserisci i dati della tua auto</h3>
-              <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Marca</label>
-                    <input type="text" className="w-full bg-gray-50 border border-gray-200 text-brand-primary p-3 outline-none rounded focus:border-brand-accent focus:bg-white transition-colors" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Modello</label>
-                    <input type="text" className="w-full bg-gray-50 border border-gray-200 text-brand-primary p-3 outline-none rounded focus:border-brand-accent focus:bg-white transition-colors" />
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Anno</label>
-                    <input type="text" className="w-full bg-gray-50 border border-gray-200 text-brand-primary p-3 outline-none rounded focus:border-brand-accent focus:bg-white transition-colors" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Chilometri</label>
-                    <input type="text" className="w-full bg-gray-50 border border-gray-200 text-brand-primary p-3 outline-none rounded focus:border-brand-accent focus:bg-white transition-colors" />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Il tuo Telefono</label>
-                  <input type="tel" className="w-full bg-gray-50 border border-gray-200 text-brand-primary p-3 outline-none rounded focus:border-brand-accent focus:bg-white transition-colors" />
-                </div>
-                <button type="button" className="w-full bg-brand-primary hover:bg-brand-dark text-white font-bold py-4 rounded transition-colors uppercase tracking-wider mt-4">
-                  Richiedi valutazione gratuita
-                </button>
-              </form>
+
+            {/* Links Cols */}
+            <div>
+              <h4 className="text-white font-bold text-[14px] mb-6">Servizi</h4>
+              <ul className="flex flex-col gap-3 text-[13px]">
+                <li><Link to="#" className="hover:text-white transition-colors">Ricerca auto su misura</Link></li>
+                <li><Link to="#" className="hover:text-white transition-colors">Auto nuove</Link></li>
+                <li><Link to="#" className="hover:text-white transition-colors">Auto usate e km 0</Link></li>
+                <li><Link to="#" className="hover:text-white transition-colors">Verifica e controllo</Link></li>
+                <li><Link to="#" className="hover:text-white transition-colors">Consegna a domicilio</Link></li>
+                <li><Link to="#" className="hover:text-white transition-colors">Supporto pratiche</Link></li>
+              </ul>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* 8. RECENSIONI */}
-      <section className="py-20 bg-brand-light border-t border-gray-200">
-        <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-extrabold text-brand-primary mb-2">Cosa dicono di noi</h2>
-            <p className="text-brand-secondary font-medium">Recensioni verificate da clienti reali.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { name: 'Luigi Ferrari', source: 'Recensione Google', title: 'Serietà e competenza', text: 'Ho affidato a loro la ricerca della mia nuova Audi dalla Germania. Servizio impeccabile, auto arrivata perfetta e pratiche sbrigate in tempi record. Assolutamente consigliato per chi vuole un servizio premium.' },
-              { name: 'Barbara Rossi', source: 'Recensione AutoScout24', title: 'Acquisto sicuro e trasparente', text: 'Primo acquisto tramite broker e non potevo scegliere di meglio. Mi hanno inviato tutta la documentazione, certificato i km e gestito tutto l\'iter. L\'auto è esattamente come promessa.' },
-              { name: 'Francesco Di Matteo', source: 'Recensione Google', title: 'Professionisti del settore', text: 'Esperienza super positiva. Non solo mi hanno trovato il modello esatto che cercavo (introvabile in Italia), ma mi hanno anche fatto risparmiare e ritirato il mio usato. Bravi.' }
-            ].map((review, i) => (
-              <div key={i} className="p-8 bg-white border border-gray-200 rounded flex flex-col">
-                <div className="flex justify-between items-start mb-4">
-                  <div className="flex gap-1 text-yellow-400">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
-                  </div>
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{review.source}</span>
-                </div>
-                <h4 className="font-extrabold text-brand-primary text-lg mb-3">{review.title}</h4>
-                <p className="text-brand-secondary text-sm mb-6 leading-relaxed flex-1">"{review.text}"</p>
-                <div className="text-sm font-bold text-brand-primary pt-4 border-t border-gray-100">{review.name}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            <div>
+              <h4 className="text-white font-bold text-[14px] mb-6">Come funziona</h4>
+              <ul className="flex flex-col gap-3 text-[13px]">
+                <li><Link to="#" className="hover:text-white transition-colors">Il nostro metodo</Link></li>
+                <li><Link to="#" className="hover:text-white transition-colors">Le fasi del servizio</Link></li>
+                <li><Link to="#" className="hover:text-white transition-colors">Domande frequenti</Link></li>
+                <li><Link to="#" className="hover:text-white transition-colors">Condizioni di servizio</Link></li>
+              </ul>
+            </div>
 
-      {/* 9. GUIDE */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="mb-12 text-center md:text-left">
-            <h2 className="text-3xl font-extrabold text-brand-primary mb-2">Guide per acquistare senza rischi</h2>
-            <p className="text-brand-secondary font-medium">Informazioni utili scritte dai nostri esperti.</p>
+            <div>
+              <h4 className="text-white font-bold text-[14px] mb-6">Informazioni</h4>
+              <ul className="flex flex-col gap-3 text-[13px]">
+                <li><Link to="#" className="hover:text-white transition-colors">Chi siamo</Link></li>
+                <li><Link to="#" className="hover:text-white transition-colors">Perché sceglierci</Link></li>
+                <li><Link to="#" className="hover:text-white transition-colors">Dicono di noi</Link></li>
+                <li><Link to="#" className="hover:text-white transition-colors">Privacy e cookie</Link></li>
+              </ul>
+            </div>
+
+            {/* Contacts Col */}
+            <div className="lg:col-span-1">
+              <h4 className="text-white font-bold text-[14px] mb-6">Contatti</h4>
+              <ul className="flex flex-col gap-4 text-[13px]">
+                <li className="flex items-center gap-3">
+                  <Phone size={16} className="text-white/50" />
+                  <span>+39 123 456 7890</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Mail size={16} className="text-white/50" />
+                  <span>info@diamanticarbroker.it</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <MapPin size={16} className="text-white/50 shrink-0 mt-0.5" />
+                  <span className="leading-relaxed">Operiamo in tutta Italia<br/>e in Europa</span>
+                </li>
+              </ul>
+            </div>
+
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { img: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&q=80&w=800', title: 'Come funziona l’importazione auto dalla Germania' },
-              { img: 'https://images.unsplash.com/photo-1620882814836-88a2c88ec6e7?auto=format&fit=crop&q=80&w=800', title: 'Cosa controllare prima di comprare un’auto usata' },
-              { img: 'https://images.unsplash.com/photo-1503376713356-1a7071eb26a3?auto=format&fit=crop&q=80&w=800', title: 'Garanzia auto usata: tutto quello che c\'è da sapere' },
-              { img: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&q=80&w=800', title: 'Finanziamento auto usata: come scegliere il migliore' }
-            ].map((news, i) => (
-              <div key={i} className="bg-white rounded border border-gray-200 overflow-hidden cursor-pointer group flex flex-col">
-                <div className="h-40 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors z-10"></div>
-                  <img src={news.img} alt={news.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                </div>
-                <div className="p-5 flex-1 flex flex-col justify-center">
-                  <h3 className="font-bold text-sm leading-snug group-hover:text-brand-accent transition-colors text-brand-primary">{news.title}</h3>
-                </div>
-              </div>
-            ))}
+
+          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-[11px] text-white/50">
+            <p>© 2024 Diamanti Car Broker - Tutti i diritti riservati.</p>
+            <p className="mt-2 md:mt-0">P.IVA 12345678901</p>
           </div>
         </div>
-      </section>
-      
+      </footer>
+
     </div>
   );
 }
+
+// Icon helpers for 5-col section
+const buildingIcon = <Building2 size={28} className="text-brand-dark opacity-80" strokeWidth={1.5} />;
+const diamondIcon = <svg width="28" height="28" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" className="text-brand-dark opacity-80"><path d="M20 2L2 12L20 38L38 12L20 2Z"/><path d="M2 12H38"/><path d="M12 12L20 38L28 12"/><path d="M20 2L12 12"/><path d="M20 2L28 12"/></svg>;
+const clockIcon = <Clock size={28} className="text-brand-dark opacity-80" strokeWidth={1.5} />;
+const shieldIcon = <ShieldCheck size={28} className="text-brand-dark opacity-80" strokeWidth={1.5} />;
+const headsetIcon = <Headset size={28} className="text-brand-dark opacity-80" strokeWidth={1.5} />;

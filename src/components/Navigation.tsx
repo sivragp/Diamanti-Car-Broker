@@ -8,34 +8,43 @@ export function Header() {
   const location = useLocation();
 
   const navItems = [
-    { label: 'Veicoli', path: '/veicoli' },
-    { label: 'Ricerca su richiesta', path: '/ricerca' },
-    { label: 'Importazione', path: '/importazione' },
-    { label: 'Metodo Diamanti', path: '/metodo' },
-    { label: 'Vendi / Permuta', path: '/vendi' },
-    { label: 'Recensioni', path: '/recensioni' },
+    { label: 'HOME', path: '/' },
+    { label: 'CHI SIAMO', path: '/chi-siamo' },
+    { label: 'SERVIZI', path: '/servizi' },
+    { label: 'COME FUNZIONA', path: '/come-funziona' },
+    { label: 'PERCHÉ NOI', path: '/perche-noi' },
+    { label: 'CONTATTI', path: '/contatti' },
   ];
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border text-text">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-brand-dark text-white border-b border-white/10">
         <div className="ds-container">
-          <div className="flex items-center justify-between h-[68px] lg:h-[76px]">
+          <div className="flex items-center justify-between h-[80px]">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group shrink-0">
-              <span className="text-xl font-bold tracking-tight text-dark">
-                DIAMANTI <span className="font-normal text-muted">BROKER</span>
-              </span>
+              {/* Diamond Icon Placeholder - using SVG since it's a specific logo */}
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
+                <path d="M20 2L2 12L20 38L38 12L20 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+                <path d="M2 12H38" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M12 12L20 38L28 12" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+                <path d="M20 2L12 12" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M20 2L28 12" stroke="currentColor" strokeWidth="1.5"/>
+              </svg>
+              <div className="flex flex-col">
+                <span className="text-[20px] font-serif tracking-widest leading-none">DIAMANTI</span>
+                <span className="text-[10px] font-sans tracking-[0.3em] font-light mt-1 opacity-80">CAR BROKER</span>
+              </div>
             </Link>
 
-            {/* Desktop Nav (Center) */}
-            <nav className="hidden lg:flex items-center justify-center flex-1 gap-8 px-8">
+            {/* Desktop Nav */}
+            <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`text-[13px] xl:text-[14px] font-semibold uppercase tracking-wider transition-colors hover:text-accent ${
-                    location.pathname === item.path ? 'text-accent' : 'text-text'
+                  className={`text-[11px] font-semibold uppercase tracking-[0.1em] transition-colors hover:text-white/70 ${
+                    location.pathname === item.path ? 'text-white' : 'text-white/90'
                   }`}
                 >
                   {item.label}
@@ -43,32 +52,10 @@ export function Header() {
               ))}
             </nav>
 
-            {/* Desktop Right Actions */}
-            <div className="hidden lg:flex items-center gap-5 shrink-0">
-              <div className="flex items-center gap-4 border-r border-border pr-5">
-                <a href="tel:TODO_PHONE" className="text-text hover:text-accent transition-colors flex items-center gap-2">
-                  <Phone size={18} strokeWidth={2} />
-                  <span className="text-sm font-semibold">Chiama</span>
-                </a>
-                <a href="TODO_WHATSAPP" target="_blank" rel="noreferrer" className="text-green-600 hover:text-green-700 transition-colors" title="Scrivici su WhatsApp">
-                  <MessageSquare size={20} strokeWidth={2} />
-                </a>
-              </div>
-              <Link to="/consulenza" className="flex items-center justify-center h-[42px] px-[18px] rounded-sm bg-dark text-white font-semibold text-[14px] hover:bg-dark-soft transition-colors">
-                Richiedi consulenza
-              </Link>
-            </div>
-
-            {/* Mobile Actions & Toggle */}
-            <div className="lg:hidden flex items-center gap-4 shrink-0">
-              <a href="tel:TODO_PHONE" className="p-1.5 text-text">
-                <Phone size={20} strokeWidth={2} />
-              </a>
-              <a href="TODO_WHATSAPP" target="_blank" rel="noreferrer" className="p-1.5 text-green-600">
-                <MessageSquare size={20} strokeWidth={2} />
-              </a>
-              <button className="p-1.5 text-text" onClick={() => setIsOpen(!isOpen)}>
-                {isOpen ? <X size={26} strokeWidth={2} /> : <Menu size={26} strokeWidth={2} />}
+            {/* Mobile Toggle */}
+            <div className="lg:hidden flex items-center shrink-0">
+              <button className="p-2 text-white" onClick={() => setIsOpen(!isOpen)}>
+                {isOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
               </button>
             </div>
           </div>
