@@ -98,66 +98,92 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="bg-brand-dark text-white pt-20 pb-8 text-sm">
-      <div className="container mx-auto px-4">
+    <footer className="bg-[#0a0f18] text-white/70 pt-20 pb-8 border-t border-white/10">
+      <div className="ds-container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
-          {/* Logo Column */}
-          <div className="lg:col-span-2">
-            <span className="text-2xl font-extrabold tracking-tight mb-4 block text-white">
-              DIAMANTI <span className="font-light">BROKER</span>
-            </span>
-            <p className="text-gray-400 leading-relaxed mb-6 font-medium pr-8">
-              Siamo specializzati nella ricerca, selezione e importazione di auto premium in tutta Europa. Affidati a professionisti per un acquisto sicuro e senza sorprese, chiavi in mano.
+          
+          {/* Logo Col */}
+          <div className="lg:col-span-1 flex flex-col">
+            <Link to="/" className="flex items-center gap-3 mb-6">
+              <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
+                <path d="M20 2L2 12L20 38L38 12L20 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+                <path d="M2 12H38" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M12 12L20 38L28 12" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+                <path d="M20 2L12 12" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M20 2L28 12" stroke="currentColor" strokeWidth="1.5"/>
+              </svg>
+              <div className="flex flex-col">
+                <span className="text-[16px] text-white font-serif tracking-widest leading-none">DIAMANTI</span>
+                <span className="text-[8px] text-white/80 font-sans tracking-[0.3em] font-light mt-1">CAR BROKER</span>
+              </div>
+            </Link>
+            <p className="text-[13px] leading-relaxed mb-6">
+              Troviamo l'auto giusta per te, senza farti perdere tempo.
             </p>
-            <div className="text-gray-400 space-y-2">
-              <p className="flex items-center gap-2"><MapPin size={16} /> Via dell'Automotive 12, 20100 Milano (MI)</p>
-              <p className="flex items-center gap-2"><Phone size={16} /> +39 333 123 4567</p>
-              <p className="flex items-center gap-2"><MessageSquare size={16} /> <a href="mailto:info@diamantibroker.com" className="hover:text-white transition-colors">info@diamantibroker.com</a></p>
-              <p className="flex items-center gap-2"><ShieldCheck size={16} /> P.IVA 12345678901</p>
+            <div className="flex gap-4">
+              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Facebook size={14} /></a>
+              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Instagram size={14} /></a>
+              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Linkedin size={14} /></a>
             </div>
           </div>
 
-          {/* Links Columns */}
+          {/* Links Cols */}
           <div>
-            <h4 className="font-bold mb-4 uppercase tracking-wider text-white">Menu Sito</h4>
-            <ul className="flex flex-col gap-2">
-              <li><Link to="/" className="text-gray-400 hover:text-brand-accent transition-colors font-medium">Home</Link></li>
-              <li><Link to="/azienda" className="text-gray-400 hover:text-brand-accent transition-colors font-medium">Azienda</Link></li>
-              <li><Link to="/veicoli" className="text-gray-400 hover:text-brand-accent transition-colors font-medium">Veicoli Disponibili</Link></li>
-              <li><Link to="/acquisto" className="text-gray-400 hover:text-brand-accent transition-colors font-medium">Servizio Broker</Link></li>
-              <li><Link to="/servizi" className="text-gray-400 hover:text-brand-accent transition-colors font-medium">Finanziamenti</Link></li>
-              <li><Link to="/news" className="text-gray-400 hover:text-brand-accent transition-colors font-medium">Guide Acquisto</Link></li>
+            <h4 className="text-white font-bold text-[14px] mb-6">Servizi</h4>
+            <ul className="flex flex-col gap-3 text-[13px]">
+              <li><Link to="#" className="hover:text-white transition-colors">Ricerca auto su misura</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Auto nuove</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Auto usate e km 0</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Verifica e controllo</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Consegna a domicilio</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Supporto pratiche</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 uppercase tracking-wider text-white">Assistenza</h4>
-            <ul className="flex flex-col gap-2">
-              <li><a href="https://wa.me/393331234567" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-brand-accent transition-colors font-medium flex items-center gap-2">Chat WhatsApp</a></li>
-              <li><Link to="/contatti" className="text-gray-400 hover:text-brand-accent transition-colors font-medium">Contattaci</Link></li>
-              <li><Link to="/valutazione" className="text-gray-400 hover:text-brand-accent transition-colors font-medium">Vendi la tua auto</Link></li>
-              <li><Link to="/faq" className="text-gray-400 hover:text-brand-accent transition-colors font-medium">Domande Frequenti</Link></li>
+            <h4 className="text-white font-bold text-[14px] mb-6">Come funziona</h4>
+            <ul className="flex flex-col gap-3 text-[13px]">
+              <li><Link to="#" className="hover:text-white transition-colors">Il nostro metodo</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Le fasi del servizio</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Domande frequenti</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Condizioni di servizio</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 uppercase tracking-wider text-white">Legale</h4>
-            <ul className="flex flex-col gap-2">
-              <li><Link to="/privacy" className="text-gray-400 hover:text-white transition-colors font-medium">Privacy Policy</Link></li>
-              <li><Link to="/cookie" className="text-gray-400 hover:text-white transition-colors font-medium">Cookie Policy</Link></li>
-              <li><Link to="/condizioni" className="text-gray-400 hover:text-white transition-colors font-medium">Termini e Condizioni</Link></li>
-              <li><Link to="/garanzia" className="text-gray-400 hover:text-white transition-colors font-medium">Informativa Garanzia</Link></li>
+            <h4 className="text-white font-bold text-[14px] mb-6">Informazioni</h4>
+            <ul className="flex flex-col gap-3 text-[13px]">
+              <li><Link to="#" className="hover:text-white transition-colors">Chi siamo</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Perché sceglierci</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Dicono di noi</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Privacy e cookie</Link></li>
             </ul>
           </div>
+
+          {/* Contacts Col */}
+          <div className="lg:col-span-1">
+            <h4 className="text-white font-bold text-[14px] mb-6">Contatti</h4>
+            <ul className="flex flex-col gap-4 text-[13px]">
+              <li className="flex items-center gap-3">
+                <Phone size={16} className="text-white/50" />
+                <span>+39 123 456 7890</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail size={16} className="text-white/50" />
+                <span>info@diamanticarbroker.it</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin size={16} className="text-white/50 shrink-0 mt-0.5" />
+                <span className="leading-relaxed">Operiamo in tutta Italia<br/>e in Europa</span>
+              </li>
+            </ul>
+          </div>
+
         </div>
-        
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 font-medium text-xs uppercase tracking-wider">
-          <p>
-            © {new Date().getFullYear()} Diamanti Broker S.r.l. Tutti i diritti riservati.
-          </p>
-          <div className="flex gap-4">
-             <span>Sviluppato con dedizione</span>
-          </div>
+
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-[11px] text-white/50">
+          <p>© 2024 Diamanti Car Broker - Tutti i diritti riservati.</p>
+          <p className="mt-2 md:mt-0">P.IVA 12345678901</p>
         </div>
       </div>
     </footer>
