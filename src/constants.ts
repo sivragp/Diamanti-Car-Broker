@@ -55,3 +55,72 @@ export const CASE_STUDIES: CaseStudy[] = [
     imageUrl: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800'
   }
 ];
+
+export interface AvailableCar {
+  id: string;
+  name: string;
+  brand: string;
+  model: string;
+  km: string;
+  year: string;
+  fuel: string;
+  gearbox: string;
+  price: string;
+  imageUrl: string;
+  tags: string[];
+}
+
+export const AVAILABLE_CARS: AvailableCar[] = [
+  {
+    id: 'c1',
+    name: 'Audi Q3 Sportback',
+    brand: 'Audi',
+    model: '35 TDI S tronic S line',
+    km: '35.000',
+    year: '2022',
+    fuel: 'Diesel',
+    gearbox: 'Automatico',
+    price: '38.900',
+    imageUrl: 'https://images.unsplash.com/photo-1606611013016-969c19ba27bb?auto=format&fit=crop&q=80&w=800',
+    tags: ['Pronta Consegna']
+  },
+  {
+    id: 'c2',
+    name: 'BMW Serie 4 Gran Coupé',
+    brand: 'BMW',
+    model: '420d M Sport',
+    km: '18.500',
+    year: '2023',
+    fuel: 'Diesel Mild-Hybrid',
+    gearbox: 'Automatico',
+    price: '49.500',
+    imageUrl: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=800',
+    tags: ['Nuovo Arrivo']
+  },
+  {
+    id: 'c3',
+    name: 'Mercedes-Benz GLC',
+    brand: 'Mercedes',
+    model: '220 d 4MATIC Premium',
+    km: '42.000',
+    year: '2021',
+    fuel: 'Diesel',
+    gearbox: 'Automatico',
+    price: '44.900',
+    imageUrl: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=800',
+    tags: []
+  },
+  {
+    id: 'c4',
+    name: 'Porsche Macan',
+    brand: 'Porsche',
+    model: '2.0',
+    km: '28.000',
+    year: '2022',
+    fuel: 'Benzina',
+    gearbox: 'Automatico',
+    price: '68.000',
+    imageUrl: 'https://images.unsplash.com/photo-1503376713356-1a7071eb26a3?auto=format&fit=crop&q=80&w=800',
+    tags: ['Super Promo']
+  }
+];

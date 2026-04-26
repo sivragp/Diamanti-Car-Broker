@@ -1,26 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", serif;
   
-  --color-primary: #0A192F;        /* Deep Navy Blue */
-  --color-primary-light: #172A45;  /* Lighter Navy */
-  --color-secondary: #F8FAFC;      
+  --color-primary: #0F172A;
+  --color-primary-light: #1E293B;
+  --color-secondary: #F8FAFC;
   
-  --color-accent: #D4AF37;         /* Professional Gold */
-  --color-accent-hover: #B5952F;
-  --color-accent-secondary: #0A192F;
+  --color-accent: #3B82F6;
+  --color-accent-hover: #2563EB;
+  --color-accent-secondary: #0F172A;
   
-  --color-neutral-soft: #FFFFFF;   /* Pure White */
-  --color-neutral-warm: #F8FAFC;   /* Very Light Slate */
-  --color-neutral-border: #E2E8F0; /* Light Gray Border */
-  --color-text-main: #0F172A;      /* Dark Navy Text */
-  --color-text-muted: #64748B;     /* Muted Slate */
+  --color-neutral-soft: #FFFFFF;
+  --color-neutral-warm: #F1F5F9;
+  --color-neutral-border: #E2E8F0;
+  --color-text-main: #0F172A;
+  --color-text-muted: #64748B;
 
-  --shadow-premium: 0 10px 30px -10px rgba(10, 25, 47, 0.08);
-  --shadow-premium-hover: 0 20px 40px -15px rgba(10, 25, 47, 0.12);
+  --shadow-premium: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-premium-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
 }
 
 @layer utilities {
