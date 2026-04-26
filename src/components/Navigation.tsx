@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Phone, MessageSquare, Car, ShieldCheck, User, Info, HelpCircle, FileText, Star } from 'lucide-react';
+import { Menu, X, Phone, MessageSquare, Car, ShieldCheck } from 'lucide-react';
 import { useState } from 'react';
 
 export function Header() {
@@ -17,34 +17,33 @@ export function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-neutral-border text-primary shadow-premium">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-border text-primary shadow-sm transition-all">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="bg-primary p-2.5 rounded-xl group-hover:bg-accent transition-all duration-500 shadow-lg group-hover:shadow-accent/40">
-              <Car size={24} className="text-white" />
+            <div className="bg-primary p-2 rounded-lg group-hover:bg-accent transition-colors duration-300">
+              <Car size={22} className="text-white" />
             </div>
-            <span className="text-xl md:text-2xl font-black tracking-tighter uppercase">
-              DIAMANTI <span className="text-accent">BROKER</span>
+            <span className="text-xl md:text-2xl font-serif font-bold tracking-tight">
+              Diamanti <span className="text-accent italic">Broker</span>
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-[10px] font-black uppercase tracking-[0.2em] transition-all hover:text-accent relative group/link ${
-                  location.pathname === item.path ? 'text-accent' : 'text-primary'
+                className={`text-xs font-semibold uppercase tracking-widest transition-colors hover:text-accent relative group/link ${
+                  location.pathname === item.path ? 'text-accent' : 'text-text-muted'
                 }`}
               >
                 {item.label}
-                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-500 group-hover/link:w-full ${location.pathname === item.path ? 'w-full' : ''}`}></span>
               </Link>
             ))}
-            <Link to="/contatti" className="btn-primary py-3 px-8 text-[10px] font-black uppercase tracking-widest bg-primary hover:bg-accent border-0">
-              Inizia Ora
+            <Link to="/contatti" className="bg-primary hover:bg-primary-light text-white text-xs font-semibold uppercase tracking-widest py-3 px-6 rounded-lg transition-colors ml-4">
+              Consulenza
             </Link>
           </nav>
 
@@ -59,18 +58,18 @@ export function Header() {
       <AnimatePresence>
         {isOpen && (
           <motion.nav
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden bg-white border-t border-neutral-border shadow-2xl overflow-hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-white border-t border-neutral-border overflow-hidden"
           >
-            <div className="container mx-auto px-6 py-12 flex flex-col gap-8">
+            <div className="container mx-auto px-6 py-8 flex flex-col gap-6">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className="text-xl font-black uppercase tracking-tighter hover:text-accent transition-colors"
+                  className="text-lg font-serif font-semibold text-primary hover:text-accent transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -78,9 +77,9 @@ export function Header() {
               <Link
                 to="/contatti"
                 onClick={() => setIsOpen(false)}
-                className="btn-primary"
+                className="mt-4 bg-primary text-white text-center py-4 rounded-lg font-semibold"
               >
-                Parla con un consulente
+                Prenota Consulenza
               </Link>
             </div>
           </motion.nav>
@@ -92,80 +91,77 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-white pt-32 pb-12 overflow-hidden relative">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
-          <div className="flex flex-col gap-8">
+    <footer className="bg-primary text-white pt-24 pb-10">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div className="flex flex-col gap-6">
             <Link to="/" className="flex items-center gap-3">
-              <div className="bg-accent p-2 rounded-xl">
-                <Car size={24} className="text-white" />
+              <div className="bg-accent p-2 rounded-lg">
+                <Car size={22} className="text-white" />
               </div>
-              <span className="text-xl font-black tracking-tighter uppercase">
-                Diamanti Broker
+              <span className="text-xl font-serif font-bold tracking-tight">
+                Diamanti <span className="italic">Broker</span>
               </span>
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-xs font-medium">
-              L'eccellenza nella consulenza automobilistica. Difendiamo il tuo investimento cercando la perfezione nel mercato europeo.
+            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+              L'eccellenza nella consulenza automobilistica. Gestiamo il tuo investimento cercando la perfezione nel mercato europeo.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-500">
-                <MessageSquare size={20} />
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent transition-colors">
+                <MessageSquare size={18} />
               </a>
-              <a href="#" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-500">
-                <Phone size={20} />
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent transition-colors">
+                <Phone size={18} />
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] mb-8 text-gray-500">Navigazione</h4>
-            <ul className="flex flex-col gap-4">
-              <li><Link to="/come-funziona" className="text-sm font-bold text-gray-400 hover:text-accent transition-colors">Il Nostro Metodo</Link></li>
-              <li><Link to="/servizi" className="text-sm font-bold text-gray-400 hover:text-accent transition-colors">I Servizi</Link></li>
-              <li><Link to="/storie" className="text-sm font-bold text-gray-400 hover:text-accent transition-colors">Successi & Testimonials</Link></li>
-              <li><Link to="/chi-siamo" className="text-sm font-bold text-gray-400 hover:text-accent transition-colors">Azienda & Vision</Link></li>
+            <h4 className="text-xs font-semibold uppercase tracking-widest mb-6 text-gray-500">Navigazione</h4>
+            <ul className="flex flex-col gap-3">
+              <li><Link to="/come-funziona" className="text-sm text-gray-400 hover:text-accent transition-colors">Il Nostro Metodo</Link></li>
+              <li><Link to="/servizi" className="text-sm text-gray-400 hover:text-accent transition-colors">I Servizi</Link></li>
+              <li><Link to="/storie" className="text-sm text-gray-400 hover:text-accent transition-colors">Successi & Testimonials</Link></li>
+              <li><Link to="/chi-siamo" className="text-sm text-gray-400 hover:text-accent transition-colors">Azienda & Vision</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] mb-8 text-gray-500">Supporto</h4>
-            <ul className="flex flex-col gap-4">
-              <li><Link to="/faq" className="text-sm font-bold text-gray-400 hover:text-accent transition-colors">Centro Assistenza</Link></li>
-              <li><Link to="/risorse" className="text-sm font-bold text-gray-400 hover:text-accent transition-colors">Guide Anti-Fregatura</Link></li>
-              <li><Link to="/contatti" className="text-sm font-bold text-gray-400 hover:text-accent transition-colors">Canali di Contatto</Link></li>
-              <li><Link to="/privacy" className="text-sm font-bold text-gray-400 hover:text-accent transition-colors">Note Legali</Link></li>
+            <h4 className="text-xs font-semibold uppercase tracking-widest mb-6 text-gray-500">Supporto</h4>
+            <ul className="flex flex-col gap-3">
+              <li><Link to="/faq" className="text-sm text-gray-400 hover:text-accent transition-colors">Centro Assistenza</Link></li>
+              <li><Link to="/risorse" className="text-sm text-gray-400 hover:text-accent transition-colors">Guide Anti-Fregatura</Link></li>
+              <li><Link to="/contatti" className="text-sm text-gray-400 hover:text-accent transition-colors">Contatti</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] mb-8 text-gray-500">Contatti Diretti</h4>
-            <ul className="flex flex-col gap-6">
-              <li className="flex gap-4 items-start">
-                <Phone size={18} className="text-accent mt-0.5" />
-                <span className="text-gray-200 text-sm font-bold">+39 333 123 4567</span>
+            <h4 className="text-xs font-semibold uppercase tracking-widest mb-6 text-gray-500">Contatti Diretti</h4>
+            <ul className="flex flex-col gap-4">
+              <li className="flex gap-3 items-start">
+                <Phone size={18} className="text-accent shrink-0" />
+                <span className="text-gray-300 text-sm">+39 333 123 4567</span>
               </li>
-              <li className="flex gap-4 items-start">
-                <MessageSquare size={18} className="text-accent mt-0.5" />
-                <span className="text-gray-200 text-sm font-bold">broker@diamanti.it</span>
+              <li className="flex gap-3 items-start">
+                <MessageSquare size={18} className="text-accent shrink-0" />
+                <span className="text-gray-300 text-sm">broker@diamanti.it</span>
               </li>
-              <li className="bg-white/5 border border-white/10 p-6 rounded-2xl flex gap-4 items-center">
-                <ShieldCheck size={28} className="text-accent" />
-                <span className="text-[10px] font-black uppercase tracking-widest leading-relaxed">Qualità & Sicurezza <br/>Brokeraggio Certificato</span>
+              <li className="mt-4 bg-white/5 border border-white/10 p-4 rounded-xl flex gap-3 items-center">
+                <ShieldCheck size={24} className="text-accent shrink-0" />
+                <span className="text-xs uppercase tracking-widest leading-relaxed text-gray-300 font-semibold">Brokeraggio <br/>Certificato</span>
               </li>
             </ul>
           </div>
         </div>
         
-        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-gray-500 text-[10px] uppercase tracking-widest font-bold">
-            © {new Date().getFullYear()} Diamanti Broker - P.IVA 01234567890.
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-500 text-xs">
+            © {new Date().getFullYear()} Diamanti Broker - P.IVA 01234567890. Tutti i diritti riservati.
           </p>
-          <div className="flex gap-8">
-             <span className="text-gray-600 text-[10px] uppercase font-bold tracking-widest">Torino</span>
-             <span className="text-gray-600 text-[10px] uppercase font-bold tracking-widest">Milano</span>
-             <span className="text-gray-600 text-[10px] uppercase font-bold tracking-widest">Monaco</span>
+          <div className="flex gap-6">
+             <span className="text-gray-500 text-xs font-semibold uppercase tracking-widest">Torino</span>
+             <span className="text-gray-500 text-xs font-semibold uppercase tracking-widest">Milano</span>
+             <span className="text-gray-500 text-xs font-semibold uppercase tracking-widest">Monaco</span>
           </div>
         </div>
       </div>
