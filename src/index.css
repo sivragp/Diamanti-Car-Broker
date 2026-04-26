@@ -10,6 +10,7 @@
   --color-brand-primary: #121b2f; /* Lighter navy for buttons/accents */
   --color-brand-light: #f8fafc; /* Light gray for sections */
   --color-brand-accent: #121b2f;
+  --color-brand-secondary: #334155; /* Restored for backwards compatibility */
   
   --color-bg: #ffffff;
   --color-surface: #f1f5f9;
