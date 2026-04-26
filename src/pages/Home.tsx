@@ -215,18 +215,18 @@ export default function Home() {
       {/* 6. BANNER TAYCAN */}
       <section className="py-12 bg-white">
         <div className="ds-container">
-          <div className="bg-[#f8fafc] rounded-[24px] overflow-hidden flex flex-col md:flex-row items-center border border-gray-100">
-            <div className="w-full md:w-1/2 h-[350px] md:h-auto self-stretch">
+          <div className="bg-[#f8fafc] rounded-[24px] overflow-hidden flex flex-col md:flex-row items-center border border-gray-100 max-h-[400px]">
+            <div className="w-full md:w-1/2 h-[250px] md:h-[400px]">
               <img src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&q=80&w=1200" alt="Porsche Taycan" className="w-full h-full object-cover" />
             </div>
-            <div className="w-full md:w-1/2 p-12 md:p-20 flex flex-col items-start bg-[#f8fafc]">
-              <h2 className="text-[32px] md:text-[36px] font-serif font-bold text-[#0A1526] mb-6 leading-tight">
+            <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col items-start bg-[#f8fafc] justify-center h-full">
+              <h2 className="text-[26px] md:text-[32px] font-serif font-bold text-[#0A1526] mb-4 leading-tight">
                 Non abbiamo l'auto in showroom.
               </h2>
-              <p className="text-[16px] md:text-[18px] text-muted mb-8 leading-relaxed font-sans">
+              <p className="text-[15px] md:text-[16px] text-muted mb-6 leading-relaxed font-sans">
                 Perché ogni ricerca è unica. Troviamo l'auto giusta per te, non quella che abbiamo in pronta consegna.
               </p>
-              <Link to="/come-funziona" className="bg-[#0A1526] hover:bg-gray-800 text-white h-[48px] px-8 rounded-md text-[14px] font-bold flex items-center justify-center gap-2 transition-colors">
+              <Link to="/come-funziona" className="bg-[#0A1526] hover:bg-gray-800 text-white h-[44px] px-6 rounded-md text-[14px] font-bold flex items-center justify-center gap-2 transition-colors">
                 Scopri come funziona <span>→</span>
               </Link>
             </div>
@@ -262,25 +262,25 @@ export default function Home() {
       </section>
 
       {/* 8. FOUNDER */}
-      <section className="py-24 bg-[#f8fafc]">
+      <section className="py-16 md:py-24 bg-[#f8fafc]">
         <div className="ds-container">
-          <div className="bg-white rounded-none md:rounded-[24px] overflow-hidden flex flex-col md:flex-row items-center border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.02)]">
-            <div className="w-full md:w-1/2 p-12 md:p-20 flex flex-col items-start">
-              <h2 className="text-[36px] font-serif font-bold text-[#0A1526] mb-6 leading-[1.1]">
+          <div className="bg-white rounded-none md:rounded-[24px] overflow-hidden flex flex-col md:flex-row items-center border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.02)] max-h-auto md:max-h-[460px]">
+            <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col items-start justify-center h-full">
+              <h2 className="text-[28px] md:text-[34px] font-serif font-bold text-[#0A1526] mb-4 leading-[1.15]">
                 Ciao, sono Thomas di<br/>Diamanti Car Broker
               </h2>
-              <p className="text-[16px] text-[#0A1526] mb-6 leading-relaxed">
+              <p className="text-[15px] text-[#0A1526] mb-4 leading-relaxed">
                 La mia missione è trovarti l'auto perfetta, senza stress e senza rischi. Mi occupo di ogni dettaglio, dalla ricerca alla consegna, con trasparenza e competenza.
               </p>
-              <p className="text-[16px] text-[#0A1526] mb-10 leading-relaxed font-sans">
+              <p className="text-[15px] text-[#0A1526] mb-8 leading-relaxed font-sans font-medium">
                 Tu raccontami cosa cerchi, al resto pensiamo noi.
               </p>
-              <Link to="/chi-siamo" className="bg-[#0A1526] hover:bg-gray-800 text-white h-[46px] px-8 rounded-md text-[14px] font-bold flex items-center justify-center transition-colors">
+              <Link to="/chi-siamo" className="bg-[#0A1526] hover:bg-gray-800 text-white h-[44px] px-6 rounded-md text-[14px] font-bold flex items-center justify-center transition-colors">
                 Scopri di più
               </Link>
             </div>
-            <div className="w-full md:w-1/2 h-[450px] md:h-auto self-stretch">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" alt="Thomas - Founder" className="w-full h-full object-cover object-top" />
+            <div className="w-full md:w-1/2 h-[350px] md:h-[460px]">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" alt="Thomas - Founder" className="w-full h-full object-cover object-[center_20%]" />
             </div>
           </div>
         </div>
