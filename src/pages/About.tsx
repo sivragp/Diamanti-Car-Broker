@@ -1,115 +1,282 @@
-import { motion } from 'motion/react';
-import { Users, ShieldCheck, CheckCircle2, Globe } from 'lucide-react';
+import { CheckCircle2, Target, Eye, Gem, Users, Award, Search, Handshake, Settings, Network, FileText, Car, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function About() {
+  const goldColor = "#cda34f";
+
   return (
-    <div className="pt-20">
-      {/* Hero */}
-      <section className="bg-neutral-soft py-24 border-b border-neutral-border overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-accent/5 -skew-x-12 translate-x-1/2"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <span className="text-accent font-black text-[10px] uppercase tracking-[0.3em] flex items-center gap-2 mb-6">
-              <div className="w-10 h-px bg-accent"></div>
-              Corporate Profile
-            </span>
-            <h1 className="text-5xl md:text-[7rem] font-black text-primary uppercase tracking-tighter mb-8 leading-[0.85]">
-              L'Eccellenza <br/>umana nella <span className="text-accent italic font-serif normal-case lowercase">consulenza.</span>
-            </h1>
-            <p className="text-xl text-text-muted font-medium leading-relaxed max-w-xl">
-              Non siamo solo algoritmi o database. Siamo persone che ascoltano persone, mettendo la propria esperienza al servizio della tua tranquillità.
-            </p>
+    <div className="bg-surface min-h-screen font-sans text-text pt-[80px]">
+      
+      {/* 1. HERO CHI SIAMO */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="ds-container">
+          <div className="flex flex-col md:flex-row items-center gap-16">
+            <div className="w-full md:w-1/2 flex flex-col items-start text-left">
+              <h1 className="text-[40px] md:text-[50px] font-serif font-bold text-[#0A1526] mb-8 leading-tight">
+                Chi siamo
+              </h1>
+              <div className="space-y-6 text-[#0A1526] text-[16px] leading-relaxed">
+                <p>
+                  Diamanti Car Broker nasce per semplificare la ricerca e l'acquisto dell'auto giusta.
+                </p>
+                <p>
+                  <strong>Sono Thomas</strong>, fondatore di Diamanti Car Broker, e insieme <strong>al mio team</strong> accompagniamo ogni cliente in tutte le fasi del processo, con un approccio su misura, trasparente e orientato al dettaglio.
+                </p>
+                <p>
+                  Il nostro obiettivo è trasformare ogni richiesta in una soluzione concreta, sicura e in linea con le tue aspettative.
+                </p>
+              </div>
+              
+              <div className="mt-12">
+                <div className="font-serif italic text-[42px] text-[#cda34f] mb-2 leading-none">
+                  Thomas
+                </div>
+                <div className="text-[14px] font-bold text-[#0A1526]">Fondatore</div>
+                <div className="text-[13px] text-muted">Diamanti Car Broker</div>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 h-[500px]">
+              <img 
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" 
+                alt="Thomas - Fondatore" 
+                className="w-full h-full object-cover object-[center_20%] shadow-lg"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Corporate Philosophy */}
-      <section className="section-padding bg-white overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-            <div className="relative">
-               <div className="absolute inset-0 bg-accent/10 rounded-[40px] rotate-3 -z-10"></div>
-               <img 
-                 src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1200" 
-                 alt="Diamanti Car Broker Team" 
-                 className="rounded-[40px] shadow-premium relative z-10 w-full h-[500px] object-cover"
-                 referrerPolicy="no-referrer"
-               />
-               <div className="absolute -bottom-8 -left-8 bg-white text-primary p-8 rounded-3xl shadow-2xl border border-neutral-border hidden md:block z-20">
-                  <div className="flex items-center gap-4">
-                    <img 
-                      src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200" 
-                      alt="Thomas - Founder" 
-                      className="w-16 h-16 rounded-xl object-cover"
-                      referrerPolicy="no-referrer"
-                    />
+      {/* 2. MISSION E VISION */}
+      <section className="py-12 bg-white pb-20">
+        <div className="ds-container">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-[#0A1526] p-10 md:p-14 flex flex-col items-center text-center shadow-lg">
+              <Target size={48} strokeWidth={1.5} className="text-[#cda34f] mb-6" />
+              <h3 className="font-serif text-[28px] font-bold text-white mb-4">La nostra missione</h3>
+              <p className="text-white/80 leading-relaxed text-[15px]">
+                Rendere l'acquisto di un'auto un'esperienza più semplice, sicura ed efficiente, eliminando incertezze e perdite di tempo.
+              </p>
+            </div>
+            <div className="bg-[#0A1526] p-10 md:p-14 flex flex-col items-center text-center shadow-lg">
+              <Eye size={48} strokeWidth={1.5} className="text-[#cda34f] mb-6" />
+              <h3 className="font-serif text-[28px] font-bold text-white mb-4">La nostra visione</h3>
+              <p className="text-white/80 leading-relaxed text-[15px]">
+                Ridefinire il modo in cui le persone cercano e acquistano auto, attraverso consulenza, selezione e supporto di fiducia.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. I VALORI */}
+      <section className="py-16 bg-[#f8fafc] border-t border-gray-100">
+        <div className="ds-container max-w-[1400px]">
+          <h2 className="text-center text-[32px] md:text-[36px] font-serif font-bold text-[#0A1526] mb-16">
+            I valori che guidano ogni ricerca
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+            {[
+              { icon: Gem, title: 'Trasparenza', text: 'Informazioni chiare e comunicazione sempre onesta.' },
+              { icon: Users, title: 'Ascolto', text: 'Ascoltiamo davvero le tue esigenze per proporre solo il giusto.' },
+              { icon: Award, title: 'Competenza', text: 'Conoscenza del mercato e analisi approfondite per scelte consapevoli.' },
+              { icon: Search, title: 'Selezione accurata', text: 'Valutiamo ogni dettaglio per offrirti solo auto di qualità.' },
+              { icon: Handshake, title: 'Supporto completo', text: 'Ti seguiamo in ogni fase, fino alla consegna e oltre.' }
+            ].map((val, i) => (
+              <div key={i} className="bg-white border border-gray-100 p-8 flex flex-col items-center text-center shadow-[0_5px_20px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
+                <div className="w-16 h-16 rounded-full border border-[#cda34f]/30 flex items-center justify-center mb-6">
+                  <val.icon className="text-[#cda34f]" size={32} strokeWidth={1.5} />
+                </div>
+                <h4 className="font-bold text-[#0A1526] text-[16px] mb-3">{val.title}</h4>
+                <p className="text-[13px] text-muted leading-relaxed">{val.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. PERCHÉ I CLIENTI SCELGONO... */}
+      <section className="bg-[#f6f7f9] flex flex-col md:flex-row">
+        <div className="w-full md:w-1/2 bg-[#0A1526] py-20 px-8 md:pl-[max(2rem,calc((100vw-1280px)/2))] md:pr-16 flex flex-col justify-center">
+          <div className="max-w-xl ml-auto w-full">
+            <h2 className="text-[32px] md:text-[40px] font-serif font-bold text-white mb-10 leading-tight">
+              Perché i clienti scelgono<br/>Diamanti Car Broker
+            </h2>
+            <ul className="space-y-6">
+              {[
+                'Risparmio di tempo: ci occupiamo noi di tutto',
+                'Ricerca mirata e personalizzata',
+                'Riduzione dei rischi e delle sorprese',
+                'Supporto nella trattativa e nel prezzo',
+                'Verifica approfondita del veicolo',
+                'Gestione pratiche e consegna senza pensieri'
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-4 text-white/90 text-[16px]">
+                  <CheckCircle2 className="text-[#cda34f] shrink-0" size={24} strokeWidth={2} />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="w-full md:w-1/2 py-20 px-8 md:pr-[max(2rem,calc((100vw-1280px)/2))] md:pl-16 flex flex-col justify-center gap-6">
+          <div className="max-w-xl w-full space-y-6">
+            {[
+              { icon: Settings, title: 'Approccio su misura', text: 'Ogni ricerca è unica come te. Nessuna proposta generica, solo soluzioni mirate.' },
+              { icon: Network, title: 'Rete selezionata', text: 'Collaboriamo con partner e canali affidabili per garantirti il meglio del mercato.' },
+              { icon: FileText, title: 'Supporto end-to-end', text: 'Siamo al tuo fianco dalla prima consulenza fino alla consegna e oltre.' }
+            ].map((card, i) => (
+              <div key={i} className="bg-white p-8 border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex gap-6 items-start">
+                <card.icon className="text-[#cda34f] shrink-0 mt-1" size={36} strokeWidth={1.5} />
+                <div>
+                  <h4 className="font-bold text-[#0A1526] text-[18px] mb-2">{card.title}</h4>
+                  <p className="text-[15px] text-muted leading-relaxed">{card.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. IL NOSTRO METODO */}
+      <section className="py-24 bg-white">
+        <div className="ds-container">
+          <h2 className="text-center text-[36px] font-serif font-bold text-[#0A1526] mb-20">Il nostro metodo</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-16 gap-x-8">
+            {[
+              { num: 1, icon: Users, title: 'Ascolto iniziale', text: 'Conosciamo le tue esigenze, il budget e le preferenze per impostare la ricerca ideale.' },
+              { num: 2, icon: FileText, title: 'Definizione del profilo auto', text: 'Definiamo insieme il profilo perfetto: modello, allestimento, condizioni e obiettivi.' },
+              { num: 3, icon: Search, title: 'Ricerca personalizzata', text: 'Attiviamo la nostra rete e analizziamo le migliori opportunità sul mercato, in Italia e all\'estero.' },
+              { num: 4, icon: CheckCircle2, title: 'Verifica e selezione', text: 'Controlliamo ogni dettaglio: storia, condizioni, documenti e costi di gestione.' },
+              { num: 5, icon: FileText, title: 'Gestione trattativa e pratiche', text: 'Negoziazione trasparente, gestione pratiche burocratiche e contrattuali senza stress.' },
+              { num: 6, icon: Car, title: 'Consegna e supporto', text: 'Consegna dell\'auto e assistenza post-acquisto: restiamo al tuo fianco anche dopo.' }
+            ].map((step, i) => (
+              <div key={i} className="relative flex flex-col">
+                <div className="bg-white border border-gray-100 p-8 pt-10 h-full flex flex-col shadow-sm">
+                  <div className="absolute -top-[20px] -left-[10px] w-12 h-12 rounded-full bg-[#0A1526] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[4px] border-white">
+                    {step.num}
+                  </div>
+                  <div className="flex items-start gap-5">
+                    <step.icon className="text-[#cda34f] shrink-0" size={32} strokeWidth={1.5} />
                     <div>
-                      <div className="text-2xl font-black mb-1 font-serif">Thomas</div>
-                      <div className="text-[10px] uppercase font-bold tracking-widest text-accent">Founder & CEO</div>
+                      <h3 className="font-bold text-[#0A1526] text-[16px] mb-3 leading-tight">{step.title}</h3>
+                      <p className="text-[14px] text-muted leading-relaxed">{step.text}</p>
                     </div>
                   </div>
-               </div>
-            </div>
-            <div>
-              <span className="text-accent-secondary font-black text-[10px] uppercase tracking-[0.3em] flex items-center gap-2 mb-4">
-                 Our Mission
-              </span>
-              <h2 className="text-4xl md:text-6xl font-black text-primary uppercase tracking-tighter mb-8 leading-[1]">Oltre l'auto, una <span className="font-serif italic lowercase text-accent">relazione.</span></h2>
-              <div className="space-y-6 text-text-muted font-medium text-lg leading-relaxed">
-                <p>
-                  Diamanti Car Broker nasce dalla passione di <strong>Thomas</strong> per l'eccellenza meccanica e il desiderio di riportare la fiducia al centro del mercato automobilistico.
-                </p>
-                <p>
-                  Siamo cresciuti trasformandoci da un ambizioso progetto individuale a una realtà strutturata, mantenendo l'anima di una boutique: ogni pratica è gestita con la stessa cura che riserveremmo alla nostra auto personale.
-                </p>
-                <p>
-                  Non abbiamo stock, non abbiamo piazzali da svuotare. Abbiamo solo i tuoi interessi. Operiamo come i tuoi consulenti di fiducia, coordinando esperti e logistici in tutta Europa per garantirti un acquisto sicuro, trasparente e senza stress.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Corporate Values */}
-      <section className="section-padding bg-neutral-warm">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-neutral-border rounded-[40px] overflow-hidden border border-neutral-border shadow-premium">
-            {[
-              { t: "Indipendenza", d: "La nostra struttura è slegata da qualsiasi mandato di marchio, assicurando una consulenza oggettiva e orientata al miglior rapporto qualità-prezzo.", icon: <Globe size={24} /> },
-              { t: "Metodologia Dati", d: "Applichiamo protocolli di verifica rigorosi. Ogni vettura deve superare oltre 150 test prima di essere proposta ai nostri clienti.", icon: <ShieldCheck size={24} /> },
-              { t: "Soluzioni Team", d: "Una squadra di specialisti gestisce ogni fase: dalla negoziazione broker-to-dealer alla burocrazia internazionale.", icon: <Users size={24} /> },
-            ].map((v, i) => (
-              <div key={i} className="bg-white p-12 lg:p-20 group hover:bg-neutral-soft transition-colors duration-500">
-                <div className="w-14 h-14 rounded-2xl bg-primary text-white flex items-center justify-center mb-8 group-hover:bg-accent transition-colors">
-                  {v.icon}
                 </div>
-                <h4 className="text-2xl font-black text-primary uppercase tracking-tighter mb-4">{v.t}</h4>
-                <p className="text-text-muted font-medium leading-relaxed">{v.d}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* stats section */}
-      <section className="py-24 bg-white border-y border-neutral-border">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+      {/* 6. PARLIAMO E IL TEAM */}
+      <section className="bg-[#0A1526] py-24">
+        <div className="ds-container">
+          <div className="flex flex-col md:flex-row items-center gap-16">
+            <div className="w-full md:w-1/2 relative h-[450px]">
+              <img 
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" 
+                alt="Thomas Team" 
+                className="w-2/3 h-[350px] object-cover object-[center_20%] absolute left-0 top-0 border-[6px] border-[#0A1526]"
+              />
+              <img 
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=600" 
+                alt="Discussione Team" 
+                className="w-2/3 h-[300px] object-cover absolute right-0 bottom-0 border-[6px] border-[#0A1526]"
+              />
+            </div>
+            <div className="w-full md:w-1/2 flex flex-col items-start text-left">
+              <h2 className="text-[36px] font-serif font-bold text-[#cda34f] mb-8">
+                Parliamo e il team
+              </h2>
+              <div className="space-y-6 text-white/90 text-[16px] leading-relaxed">
+                <p>
+                  Thomas, insieme al suo team, segue ogni cliente con attenzione e dedizione, trasformando ogni richiesta in un progetto di ricerca su misura.
+                </p>
+                <p>
+                  La fiducia, la discrezione e la conoscenza del mercato sono alla base di ogni relazione.
+                </p>
+                <p>
+                  Il nostro team lavora con passione per offrirti il massimo, sempre.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. LA FIDUCIA DEI CLIENTI (Copied from Home essentially) */}
+      <section className="py-24 bg-[#f8fafc]">
+        <div className="ds-container">
+          <h2 className="text-center text-[36px] font-serif font-bold text-[#0A1526] mb-16">La fiducia dei clienti</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { l: "Brokeraggio Certificato", v: "Premium" },
-              { l: "Mercati Monitorati", v: "UE + Extra" },
-              { l: "Tasso Soddisfazione", v: "99.8%" },
-              { l: "Anni di Expertise", v: "+15" },
-            ].map((s, i) => (
-              <div key={i} className="text-center">
-                 <div className="text-4xl font-black text-primary mb-2 italic tracking-tighter">{s.v}</div>
-                 <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-text-muted">{s.l}</div>
+              {
+                img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=800',
+                text: 'Servizio impeccabile. Thomas e il suo team hanno trovato l\'auto perfetta per me. Trasparenti, professionali e sempre disponibili. Consigliatissimi!',
+                car: 'BMW X3',
+                city: 'Consegnata a Milano'
+              },
+              {
+                img: 'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=800',
+                text: 'Mi hanno seguito in ogni fase, dalla ricerca alla consegna. Nessuno stress, massima competenza e un\'auto che corrisponde esattamente alle mie aspettative.',
+                car: 'Audi Q5',
+                city: 'Consegnata a Roma'
+              },
+              {
+                img: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=800',
+                text: 'Finalmente un servizio che fa davvero la differenza. Competenti, rapidi e super affidabili. La mia GLC è stata una scelta perfetta!',
+                car: 'Mercedes GLC',
+                city: 'Consegnata a Torino'
+              }
+            ].map((review, i) => (
+              <div key={i} className="bg-white border border-gray-100 flex flex-col shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-full">
+                <div className="h-[220px] w-full relative">
+                  <img src={review.img} alt={review.car} className="w-full h-full object-cover" />
+                </div>
+                <div className="p-8 flex flex-col flex-grow">
+                  <div className="flex gap-1 mb-4">
+                    {[1,2,3,4,5].map(star => <Star key={star} size={14} className="fill-[#F59E0B] text-[#F59E0B]" />)}
+                  </div>
+                  <p className="font-serif italic text-[#0A1526] text-[16px] leading-relaxed mb-8 flex-grow">
+                    "{review.text}"
+                  </p>
+                  <div>
+                    <div className="font-bold text-[#0A1526] text-[14px] uppercase tracking-wider">{review.car}</div>
+                    <div className="text-[12px] text-muted mt-1">{review.city}</div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* 8. CTA PRE-FOOTER */}
+      <section className="bg-[#0a0f18] text-white">
+        <div className="ds-container">
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="w-full md:w-1/2 py-20 pr-10">
+              <h2 className="text-[36px] md:text-[44px] font-serif font-bold mb-6 leading-tight">
+                Parliamo della tua <br/>prossima auto?
+              </h2>
+              <p className="text-white/70 text-[16px] mb-10 leading-relaxed max-w-md">
+                Raccontaci cosa stai cercando: ti aiutiamo a trovare la soluzione giusta con un servizio su misura.
+              </p>
+              <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#cda34f] hover:bg-[#b88f40] text-[#0A1526] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
+                Richiedi consulenza
+              </Link>
+            </div>
+            <div className="w-full md:w-1/2 h-[400px] md:h-[500px] relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f18] via-transparent to-transparent z-10"></div>
+              <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=1200" alt="Dettaglio auto premium" className="w-full h-full object-cover opacity-60" />
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
