@@ -8,12 +8,13 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <section className="relative h-[550px] flex flex-col justify-center items-center text-center">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0 bg-[#0A1526]">
+        <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?auto=format&fit=crop&q=80&w=2000" 
             alt="Auto in movimento" 
-            className="w-full h-full object-cover opacity-40 mix-blend-overlay"
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1526]/80 via-[#0A1526]/50 to-[#0A1526]/30"></div>
         </div>
 
         <div className="ds-container relative z-10 w-full mb-16 mt-0">
