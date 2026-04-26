@@ -98,7 +98,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Search, title: 'Ricerca su misura', text: 'Troviamo l\'auto perfetta per te tra migliaia di opportunità, anche introvabili.' },
-              { icon: Euro, title: 'Nessun costo aggiuntivo', text: 'Il nostro servizio è gratuito per te: siamo remunerati dalla concessionaria.' },
+              { icon: CheckCircle2, title: 'Nessun costo aggiuntivo', text: 'Il nostro servizio è gratuito per te: siamo remunerati dalla concessionaria.' },
               { icon: ShieldCheck, title: 'Verifica e trasparenza', text: 'Controlli approfonditi, cronologia e documenti verificati per la massima sicurezza.' },
               { icon: MapPin, title: 'Consegna a domicilio', text: 'Ovunque tu sia, te la consegniamo a casa tua con la massima cura.' }
             ].map((item, i) => (
@@ -190,7 +190,7 @@ export default function Home() {
             <div className="hidden md:block absolute top-[260px] left-[15%] right-[15%] border-t-[2px] border-dotted border-gray-200 z-0"></div>
             
             {[
-              { num: 1, icon: Phone, title: 'Primo contatto', text: 'Breve call per capire esigenze, budget e tempistiche.' },
+              { num: 1, icon: CheckCircle2, title: 'Primo contatto', text: 'Breve call per capire esigenze, budget e tempistiche.' },
               { num: 2, icon: Target, title: 'Profilazione auto', text: 'Definiamo tipologia, marca, modello e priorità.' },
               { num: 3, icon: Search, title: 'Ricerca mirata', text: 'Selezioniamo le migliori opportunità sul mercato.' },
               { num: 4, icon: ShieldCheck, title: 'Verifica e proposta', text: 'Controlli, analisi e presentazione delle opzioni adatte.' },
@@ -241,11 +241,11 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-gray-100 px-4">
             {[
-              { icon: buildingIcon, title: 'Indipendenza totale', text: 'Non siamo legati a marchi o concessionarie, lavoriamo solo per te.' },
-              { icon: diamondIcon, title: 'Esperienza e rete', text: 'Accesso a una rete selezionata di partner e canali esclusivi in Italia ed Europa.' },
-              { icon: clockIcon, title: 'Competenza e passione', text: 'Anni di esperienza nel settore auto al servizio delle tue esigenze.' },
-              { icon: shieldIcon, title: 'Verifica garantita', text: 'Ogni veicolo viene sottoposto a rigorosi controlli prima della consegna.' },
-              { icon: headsetIcon, title: 'Supporto end-to-end', text: 'Ti seguiamo in ogni fase, anche dopo la consegna dell\'auto.' }
+              { icon: <ShieldCheck size={24} strokeWidth={1.5} />, title: 'Indipendenza totale', text: 'Non siamo legati a marchi o concessionarie, lavoriamo solo per te.' },
+              { icon: <Star size={24} strokeWidth={1.5} />, title: 'Esperienza e rete', text: 'Accesso a una rete selezionata di partner e canali esclusivi in Italia ed Europa.' },
+              { icon: <CheckCircle2 size={24} strokeWidth={1.5} />, title: 'Competenza e passione', text: 'Anni di esperienza nel settore auto al servizio delle tue esigenze.' },
+              { icon: <Search size={24} strokeWidth={1.5} />, title: 'Verifica garantita', text: 'Ogni veicolo viene sottoposto a rigorosi controlli prima della consegna.' },
+              { icon: <Settings size={24} strokeWidth={1.5} />, title: 'Supporto end-to-end', text: 'Ti seguiamo in ogni fase, anche dopo la consegna dell\'auto.' }
             ].map((item, i) => (
               <div key={i} className={`flex flex-col items-center pt-8 md:pt-0 ${i !== 0 ? 'md:pl-6 lg:pl-10' : ''} ${i !== 4 ? 'md:pr-6 lg:pr-10' : ''}`}>
                 <div className="mb-5 h-12 flex items-center justify-center">
