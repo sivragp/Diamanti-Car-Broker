@@ -1,26 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,900;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", serif;
   
-  --color-primary: #1A1A1A;
-  --color-primary-light: #2D2D2D;
-  --color-secondary: #F3F4F6;
+  --color-primary: #0A192F;        /* Deep Navy Blue */
+  --color-primary-light: #172A45;  /* Lighter Navy */
+  --color-secondary: #F8FAFC;      
   
-  --color-accent: #FF6B35;
-  --color-accent-hover: #E85A2A;
-  --color-accent-secondary: #D90429;
+  --color-accent: #D4AF37;         /* Professional Gold */
+  --color-accent-hover: #B5952F;
+  --color-accent-secondary: #0A192F;
   
-  --color-neutral-soft: #FDFBFA;
-  --color-neutral-warm: #F7F3F0;
-  --color-neutral-border: #E8E2DD;
-  --color-text-main: #1A1A1A;
-  --color-text-muted: #7A7267;
+  --color-neutral-soft: #FFFFFF;   /* Pure White */
+  --color-neutral-warm: #F8FAFC;   /* Very Light Slate */
+  --color-neutral-border: #E2E8F0; /* Light Gray Border */
+  --color-text-main: #0F172A;      /* Dark Navy Text */
+  --color-text-muted: #64748B;     /* Muted Slate */
 
-  --shadow-premium: 0 10px 30px -10px rgba(50, 40, 30, 0.08);
-  --shadow-premium-hover: 0 20px 40px -15px rgba(50, 40, 30, 0.12);
+  --shadow-premium: 0 10px 30px -10px rgba(10, 25, 47, 0.08);
+  --shadow-premium-hover: 0 20px 40px -15px rgba(10, 25, 47, 0.12);
 }
 
 @layer utilities {
