@@ -1,4 +1,4 @@
-import { Search, Check, X, ShieldCheck, Euro, Headset, Target, Clock, Star, MapPin, Building2, Mail, Phone, Instagram, Facebook, Linkedin, Settings, CheckCircle2 } from 'lucide-react';
+import { Search, Check, X, ShieldCheck, Target, Star, MapPin, Settings, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -352,9 +352,3 @@ export default function Home() {
   );
 }
 
-// Icon helpers for 5-col section
-const buildingIcon = <Building2 size={24} strokeWidth={1.5} />;
-const diamondIcon = <svg width="24" height="24" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"><path d="M20 2L2 12L20 38L38 12L20 2Z"/><path d="M2 12H38"/><path d="M12 12L20 38L28 12"/><path d="M20 2L12 12"/><path d="M20 2L28 12"/></svg>;
-const clockIcon = <Check size={24} strokeWidth={1.5} />;
-const shieldIcon = <CheckCircle2 size={24} strokeWidth={1.5} />;
-const headsetIcon = <Headset size={24} strokeWidth={1.5} />;

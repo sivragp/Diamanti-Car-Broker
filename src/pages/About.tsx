@@ -1,8 +1,7 @@
-import { CheckCircle2, Target, Eye, Gem, Users, Award, Search, Handshake, Settings, Network, FileText, Car, Star } from 'lucide-react';
+import { CheckCircle2, Target, Search, ShieldCheck, Star, Users, Globe, Settings, Car, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function About() {
-  const goldColor = "#cda34f";
 
   return (
     <div className="bg-surface min-h-screen font-sans text-text pt-[80px]">
@@ -58,7 +57,7 @@ export default function About() {
               </p>
             </div>
             <div className="bg-[#0A1526] p-10 md:p-14 flex flex-col items-center text-center shadow-lg">
-              <Eye size={48} strokeWidth={1.5} className="text-[#cda34f] mb-6" />
+              <Search size={48} strokeWidth={1.5} className="text-[#cda34f] mb-6" />
               <h3 className="font-serif text-[28px] font-bold text-white mb-4">La nostra visione</h3>
               <p className="text-white/80 leading-relaxed text-[15px]">
                 Ridefinire il modo in cui le persone cercano e acquistano auto, attraverso consulenza, selezione e supporto di fiducia.
@@ -76,11 +75,11 @@ export default function About() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
             {[
-              { icon: Gem, title: 'Trasparenza', text: 'Informazioni chiare e comunicazione sempre onesta.' },
+              { icon: Star, title: 'Trasparenza', text: 'Informazioni chiare e comunicazione sempre onesta.' },
               { icon: Users, title: 'Ascolto', text: 'Ascoltiamo davvero le tue esigenze per proporre solo il giusto.' },
-              { icon: Award, title: 'Competenza', text: 'Conoscenza del mercato e analisi approfondite per scelte consapevoli.' },
+              { icon: ShieldCheck, title: 'Competenza', text: 'Conoscenza del mercato e analisi approfondite per scelte consapevoli.' },
               { icon: Search, title: 'Selezione accurata', text: 'Valutiamo ogni dettaglio per offrirti solo auto di qualità.' },
-              { icon: Handshake, title: 'Supporto completo', text: 'Ti seguiamo in ogni fase, fino alla consegna e oltre.' }
+              { icon: CheckCircle2, title: 'Supporto completo', text: 'Ti seguiamo in ogni fase, fino alla consegna e oltre.' }
             ].map((val, i) => (
               <div key={i} className="bg-white border border-gray-100 p-8 flex flex-col items-center text-center shadow-[0_5px_20px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
                 <div className="w-16 h-16 rounded-full border border-[#cda34f]/30 flex items-center justify-center mb-6">
@@ -122,8 +121,8 @@ export default function About() {
           <div className="max-w-xl w-full space-y-6">
             {[
               { icon: Settings, title: 'Approccio su misura', text: 'Ogni ricerca è unica come te. Nessuna proposta generica, solo soluzioni mirate.' },
-              { icon: Network, title: 'Rete selezionata', text: 'Collaboriamo con partner e canali affidabili per garantirti il meglio del mercato.' },
-              { icon: FileText, title: 'Supporto end-to-end', text: 'Siamo al tuo fianco dalla prima consulenza fino alla consegna e oltre.' }
+              { icon: Globe, title: 'Rete selezionata', text: 'Collaboriamo con partner e canali affidabili per garantirti il meglio del mercato.' },
+              { icon: ShieldCheck, title: 'Supporto end-to-end', text: 'Siamo al tuo fianco dalla prima consulenza fino alla consegna e oltre.' }
             ].map((card, i) => (
               <div key={i} className="bg-white p-8 border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex gap-6 items-start">
                 <card.icon className="text-[#cda34f] shrink-0 mt-1" size={36} strokeWidth={1.5} />
@@ -145,10 +144,10 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-y-16 gap-x-8">
             {[
               { num: 1, icon: Users, title: 'Ascolto iniziale', text: 'Conosciamo le tue esigenze, il budget e le preferenze per impostare la ricerca ideale.' },
-              { num: 2, icon: FileText, title: 'Definizione del profilo auto', text: 'Definiamo insieme il profilo perfetto: modello, allestimento, condizioni e obiettivi.' },
+              { num: 2, icon: Check, title: 'Definizione del profilo auto', text: 'Definiamo insieme il profilo perfetto: modello, allestimento, condizioni e obiettivi.' },
               { num: 3, icon: Search, title: 'Ricerca personalizzata', text: 'Attiviamo la nostra rete e analizziamo le migliori opportunità sul mercato, in Italia e all\'estero.' },
               { num: 4, icon: CheckCircle2, title: 'Verifica e selezione', text: 'Controlliamo ogni dettaglio: storia, condizioni, documenti e costi di gestione.' },
-              { num: 5, icon: FileText, title: 'Gestione trattativa e pratiche', text: 'Negoziazione trasparente, gestione pratiche burocratiche e contrattuali senza stress.' },
+              { num: 5, icon: ShieldCheck, title: 'Gestione trattativa e pratiche', text: 'Negoziazione trasparente, gestione pratiche burocratiche e contrattuali senza stress.' },
               { num: 6, icon: Car, title: 'Consegna e supporto', text: 'Consegna dell\'auto e assistenza post-acquisto: restiamo al tuo fianco anche dopo.' }
             ].map((step, i) => (
               <div key={i} className="relative flex flex-col">
