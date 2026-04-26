@@ -11,8 +11,6 @@ export function Header() {
     { label: 'HOME', path: '/' },
     { label: 'CHI SIAMO', path: '/chi-siamo' },
     { label: 'SERVIZI', path: '/servizi' },
-    { label: 'COME FUNZIONA', path: '/come-funziona' },
-    { label: 'PERCHÉ NOI', path: '/perche-noi' },
     { label: 'CONTATTI', path: '/contatti' },
   ];
 
