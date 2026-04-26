@@ -6,63 +6,64 @@ export default function Home() {
   return (
     <div className="bg-brand-light min-h-screen font-sans text-brand-primary">
       {/* 1. HERO SECTION */}
-      <section className="relative h-[650px] flex items-center justify-center">
+      <section className="relative min-h-[500px] lg:h-[600px] flex items-center justify-center pt-20">
         {/* Background Image */}
         <div className="absolute inset-0 z-0 bg-brand-dark">
           <img 
             src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=2000" 
-            alt="Luxury Car Brokerage" 
-            className="w-full h-full object-cover opacity-40 mix-blend-overlay"
+            alt="Auto premium in salone" 
+            className="w-full h-full object-cover opacity-30 mix-blend-overlay"
           />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10 w-full mt-16">
+        <div className="container mx-auto px-4 relative z-10 w-full mt-8 lg:mt-0">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="text-white/90 text-sm font-semibold tracking-widest uppercase mb-4 block">
-              Car broker specializzato in auto premium e importazione
-            </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
-              La tua prossima auto,<br/> trovata e verificata da un broker esperto.
+              Compra l’auto giusta <br className="hidden md:block" /> senza rischiare brutte sorprese.
             </h1>
             <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
-              Cerchiamo, selezioniamo e gestiamo l’acquisto della tua auto in Italia e in Europa: controlli, trattativa, pratiche, finanziamento e consegna.
+              Diamanti Broker ti affianca nella ricerca, verifica e acquisto della tua prossima auto in Italia e in Europa. Controlliamo storico, documenti, prezzo, garanzia e pratiche, così puoi scegliere con più sicurezza e meno stress.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="w-full sm:w-auto bg-brand-accent hover:bg-blue-700 text-white font-bold py-4 px-8 rounded transition-all text-sm uppercase tracking-wider shadow-lg">
-                Richiedi ricerca personalizzata
-              </button>
-              <button className="w-full sm:w-auto bg-transparent border border-white text-white hover:bg-white hover:text-brand-primary font-bold py-4 px-8 rounded transition-all text-sm uppercase tracking-wider">
-                Vedi veicoli disponibili
-              </button>
+              <Link to="/consulenza" className="w-full sm:w-auto bg-brand-accent hover:bg-blue-700 text-white font-bold py-4 px-8 rounded transition-all text-sm uppercase tracking-wider shadow-lg">
+                Richiedi una consulenza gratuita
+              </Link>
+              <Link to="/veicoli" className="w-full sm:w-auto bg-transparent border border-white text-white hover:bg-white hover:text-brand-primary font-bold py-4 px-8 rounded transition-all text-sm uppercase tracking-wider">
+                Guarda le auto disponibili
+              </Link>
             </div>
             
-            <a href="https://wa.me/393331234567" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 mt-8 text-white/90 hover:text-white text-sm font-medium transition-colors">
-              <MessageCircle size={20} />
-              Contattaci subito su WhatsApp
-            </a>
+            <div className="mt-6 flex flex-col items-center">
+              <a href="TODO_WHATSAPP" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-white hover:text-green-400 font-bold transition-colors mb-2">
+                <MessageCircle size={20} className="text-green-500" />
+                Scrivici su WhatsApp
+              </a>
+              <p className="text-xs text-gray-400 max-w-sm text-center">
+                Risposta rapida. Nessun impegno. Analizziamo insieme modello, budget e tempi.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* 2. TRUST BAR */}
-      <section className="bg-white border-b border-gray-200 py-6 relative z-20 shadow-sm">
+      <section className="bg-white border-b border-gray-200 py-6 relative z-20 shadow-sm overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-gray-200">
+          <div className="flex overflow-x-auto pb-4 md:pb-0 hide-scrollbar md:flex-wrap md:justify-center gap-x-8 gap-y-6 md:divide-x divide-gray-200 snap-x">
             {[
-              { val: '+500', text: 'Auto consegnate' },
-              { val: '10', text: 'Anni di esperienza' },
-              { icon: ShieldCheck, text: 'Storico veicolo verificato' },
-              { icon: FileText, text: 'Pratiche e import gestite' },
-              { icon: Banknote, text: 'Finanziamento e permuta' }
+              { icon: FileText, title: 'Storico e documenti', desc: 'Verifica prima della proposta' },
+              { icon: ShieldCheck, title: 'Controlli anti-sorprese', desc: 'Chilometri, provenienza, manutenzione' },
+              { icon: CheckCircle2, title: 'Pratiche gestite', desc: 'Trasporto, immatricolazione, consegna' },
+              { icon: Banknote, title: 'Finanziamento', desc: 'Soluzioni su misura' },
+              { icon: Car, title: 'Permuta', desc: 'Valutazione della tua auto' }
             ].map((item, i) => (
-              <div key={i} className={`flex items-center gap-3 ${i !== 0 ? 'md:pl-8' : ''} pt-4 md:pt-0 w-full md:w-auto justify-center`}>
-                {item.val ? (
-                  <span className="text-2xl font-black text-brand-primary">{item.val}</span>
-                ) : (
-                  <item.icon className="text-brand-accent" size={28} />
-                )}
-                <span className="text-sm font-medium text-brand-secondary leading-tight max-w-[120px]">{item.text}</span>
+              <div key={i} className={`flex items-start gap-3 min-w-[240px] md:min-w-0 snap-start ${i !== 0 ? 'md:pl-8' : ''}`}>
+                <item.icon className="text-brand-accent shrink-0 mt-1" size={24} strokeWidth={1.5} />
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-brand-primary leading-tight">{item.title}</span>
+                  <span className="text-xs font-medium text-brand-secondary mt-0.5">{item.desc}</span>
+                </div>
               </div>
             ))}
           </div>

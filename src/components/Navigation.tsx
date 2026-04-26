@@ -8,71 +8,116 @@ export function Header() {
   const location = useLocation();
 
   const navItems = [
-    { label: 'Home', path: '/' },
-    { label: 'Azienda', path: '/azienda' },
     { label: 'Veicoli', path: '/veicoli' },
-    { label: 'Acquisto', path: '/acquisto' },
-    { label: 'Servizi', path: '/servizi' },
-    { label: 'Contatti', path: '/contatti' },
+    { label: 'Ricerca su richiesta', path: '/ricerca' },
+    { label: 'Importazione', path: '/importazione' },
+    { label: 'Metodo Diamanti', path: '/metodo' },
+    { label: 'Vendi / Permuta', path: '/vendi' },
+    { label: 'Recensioni', path: '/recensioni' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 text-brand-primary">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3 group">
-            <span className="text-xl font-extrabold tracking-tight">
-              DIAMANTI <span className="font-light">BROKER</span>
-            </span>
-          </Link>
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 text-brand-primary">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-3 group shrink-0">
+              <span className="text-xl font-extrabold tracking-tight">
+                DIAMANTI <span className="font-light">BROKER</span>
+              </span>
+            </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-brand-accent ${
-                  location.pathname === item.path ? 'text-brand-accent' : 'text-brand-secondary'
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Mobile Toggle */}
-          <button className="lg:hidden p-2 text-brand-primary" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.nav
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-gray-200 overflow-hidden"
-          >
-            <div className="container mx-auto px-6 py-6 flex flex-col gap-6">
+            {/* Desktop Nav */}
+            <nav className="hidden xl:flex items-center gap-6">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className="text-lg font-bold text-brand-primary hover:text-brand-accent transition-colors uppercase tracking-wider"
+                  className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-brand-accent ${
+                    location.pathname === item.path ? 'text-brand-accent' : 'text-brand-secondary'
+                  }`}
                 >
                   {item.label}
                 </Link>
               ))}
+            </nav>
+
+            {/* Desktop Right Actions */}
+            <div className="hidden xl:flex items-center gap-4 shrink-0">
+              <a href="tel:TODO_PHONE" className="flex items-center gap-2 text-sm font-bold hover:text-brand-accent transition-colors">
+                <Phone size={18} />
+                <span className="sr-only lg:not-sr-only">Chiama</span>
+              </a>
+              <a href="TODO_WHATSAPP" target="_blank" rel="noreferrer" className="flex items-center justify-center w-10 h-10 bg-green-500 hover:bg-green-600 text-white rounded-full transition-colors">
+                <MessageSquare size={18} />
+              </a>
+              <Link to="/consulenza" className="bg-brand-primary hover:bg-brand-dark text-white font-bold py-2.5 px-6 rounded transition-colors text-sm uppercase tracking-wider">
+                Richiedi consulenza
+              </Link>
             </div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
-    </header>
+
+            {/* Mobile Actions & Toggle */}
+            <div className="xl:hidden flex items-center gap-4">
+              <a href="tel:TODO_PHONE" className="p-2 text-brand-primary">
+                <Phone size={22} />
+              </a>
+              <a href="TODO_WHATSAPP" target="_blank" rel="noreferrer" className="p-2 text-green-500">
+                <MessageSquare size={22} />
+              </a>
+              <button className="p-2 text-brand-primary" onClick={() => setIsOpen(!isOpen)}>
+                {isOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.nav
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="xl:hidden bg-white border-t border-gray-200 overflow-hidden"
+            >
+              <div className="container mx-auto px-6 py-6 flex flex-col gap-6">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-bold text-brand-primary hover:text-brand-accent transition-colors uppercase tracking-wider"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
+      </header>
+
+      {/* Mobile Sticky Bottom Bar */}
+      <div className="xl:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+        <div className="flex items-center justify-between h-16 px-2">
+          <a href="tel:TODO_PHONE" className="flex-1 flex flex-col items-center justify-center text-brand-primary hover:text-brand-accent transition-colors">
+            <Phone size={20} className="mb-1" />
+            <span className="text-[10px] font-bold uppercase tracking-wider">Chiama</span>
+          </a>
+          <div className="w-px h-8 bg-gray-200"></div>
+          <a href="TODO_WHATSAPP" target="_blank" rel="noreferrer" className="flex-1 flex flex-col items-center justify-center text-green-600 hover:text-green-700 transition-colors">
+            <MessageSquare size={20} className="mb-1" />
+            <span className="text-[10px] font-bold uppercase tracking-wider">WhatsApp</span>
+          </a>
+          <div className="w-px h-8 bg-gray-200"></div>
+          <Link to="/consulenza" className="flex-1 flex flex-col items-center justify-center text-brand-accent hover:text-brand-primary transition-colors">
+            <Car size={20} className="mb-1" />
+            <span className="text-[10px] font-bold uppercase tracking-wider">Consulenza</span>
+          </Link>
+        </div>
+      </div>
+    </>
   );
 }
 
