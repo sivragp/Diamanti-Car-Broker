@@ -72,21 +72,105 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. BRANDS */}
-      <section className="bg-[#0A1526] pt-[120px] pb-14 text-center text-white">
+      {/* 2. BRANDS - Infinite scrolling carousel */}
+      <section className="bg-[#0A1526] pt-[120px] pb-14 text-center text-white overflow-hidden">
         <div className="ds-container">
           <p className="text-[14px] text-white/60 mb-10 font-sans">Lavoriamo con i marchi dei leader auto</p>
-          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-60">
-            {/* SVG Logos Placeholders for mockup matching */}
-            <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center"><span className="text-[10px]">MB</span></div>
-            <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center"><span className="text-[10px]">BMW</span></div>
-            <div className="w-12 h-6 flex items-center justify-center"><span className="text-[12px] font-bold">Audi</span></div>
-            <div className="w-12 h-6 flex items-center justify-center"><span className="text-[12px] font-serif">Porsche</span></div>
-            <div className="w-12 h-8 flex items-center justify-center"><span className="text-[10px] text-center leading-tight">LAND<br/>ROVER</span></div>
-            <div className="w-8 h-10 flex items-center justify-center"><span className="text-[16px] font-serif">T</span></div>
-            <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center"><span className="text-[10px]">VW</span></div>
-            <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center"><span className="text-[10px]">L</span></div>
-            <div className="w-8 h-2 bg-white/40 rounded-full"></div>
+        </div>
+        
+        <div className="relative w-full">
+          {/* Fade edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0A1526] to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0A1526] to-transparent z-10"></div>
+          
+          {/* Scrolling track */}
+          <div className="flex animate-scroll-brands">
+            {/* First set */}
+            {[
+              { name: 'Mercedes-Benz', slug: 'mercedes-benz' },
+              { name: 'BMW', slug: 'bmw' },
+              { name: 'Audi', slug: 'audi' },
+              { name: 'Porsche', slug: 'porsche' },
+              { name: 'Volkswagen', slug: 'volkswagen' },
+              { name: 'Toyota', slug: 'toyota' },
+              { name: 'Ferrari', slug: 'ferrari' },
+              { name: 'Lamborghini', slug: 'lamborghini' },
+              { name: 'Maserati', slug: 'maserati' },
+              { name: 'Alfa Romeo', slug: 'alfa-romeo' },
+              { name: 'Land Rover', slug: 'land-rover' },
+              { name: 'Jaguar', slug: 'jaguar' },
+              { name: 'Volvo', slug: 'volvo' },
+              { name: 'Tesla', slug: 'tesla' },
+              { name: 'Ford', slug: 'ford' },
+              { name: 'Hyundai', slug: 'hyundai' },
+              { name: 'Kia', slug: 'kia' },
+              { name: 'Nissan', slug: 'nissan' },
+              { name: 'Honda', slug: 'honda' },
+              { name: 'Mazda', slug: 'mazda' },
+              { name: 'Peugeot', slug: 'peugeot' },
+              { name: 'Renault', slug: 'renault' },
+              { name: 'FIAT', slug: 'fiat' },
+              { name: 'MINI', slug: 'mini' }
+            ].map((brand, i) => (
+              <div key={`a-${i}`} className="flex-shrink-0 w-[140px] h-[60px] mx-6 flex items-center justify-center opacity-50 hover:opacity-90 transition-opacity">
+                <img 
+                  src={`https://cdn.simpleicons.org/${brand.slug.replace(/-/g, '')}/ffffff`} 
+                  alt={brand.name} 
+                  className="h-[32px] w-auto max-w-[100px] object-contain"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    if (target.parentElement) {
+                      target.parentElement.innerHTML = `<span class="text-[13px] font-bold tracking-wider text-white/70 uppercase">${brand.name}</span>`;
+                    }
+                  }}
+                />
+              </div>
+            ))}
+            {/* Duplicate set for seamless loop */}
+            {[
+              { name: 'Mercedes-Benz', slug: 'mercedes-benz' },
+              { name: 'BMW', slug: 'bmw' },
+              { name: 'Audi', slug: 'audi' },
+              { name: 'Porsche', slug: 'porsche' },
+              { name: 'Volkswagen', slug: 'volkswagen' },
+              { name: 'Toyota', slug: 'toyota' },
+              { name: 'Ferrari', slug: 'ferrari' },
+              { name: 'Lamborghini', slug: 'lamborghini' },
+              { name: 'Maserati', slug: 'maserati' },
+              { name: 'Alfa Romeo', slug: 'alfa-romeo' },
+              { name: 'Land Rover', slug: 'land-rover' },
+              { name: 'Jaguar', slug: 'jaguar' },
+              { name: 'Volvo', slug: 'volvo' },
+              { name: 'Tesla', slug: 'tesla' },
+              { name: 'Ford', slug: 'ford' },
+              { name: 'Hyundai', slug: 'hyundai' },
+              { name: 'Kia', slug: 'kia' },
+              { name: 'Nissan', slug: 'nissan' },
+              { name: 'Honda', slug: 'honda' },
+              { name: 'Mazda', slug: 'mazda' },
+              { name: 'Peugeot', slug: 'peugeot' },
+              { name: 'Renault', slug: 'renault' },
+              { name: 'FIAT', slug: 'fiat' },
+              { name: 'MINI', slug: 'mini' }
+            ].map((brand, i) => (
+              <div key={`b-${i}`} className="flex-shrink-0 w-[140px] h-[60px] mx-6 flex items-center justify-center opacity-50 hover:opacity-90 transition-opacity">
+                <img 
+                  src={`https://cdn.simpleicons.org/${brand.slug.replace(/-/g, '')}/ffffff`} 
+                  alt={brand.name} 
+                  className="h-[32px] w-auto max-w-[100px] object-contain"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    if (target.parentElement) {
+                      target.parentElement.innerHTML = `<span class="text-[13px] font-bold tracking-wider text-white/70 uppercase">${brand.name}</span>`;
+                    }
+                  }}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -42,6 +42,21 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+  .animate-scroll-brands {
+    animation: scroll-brands 40s linear infinite;
+  }
+  .animate-scroll-brands:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes scroll-brands {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @layer base {
