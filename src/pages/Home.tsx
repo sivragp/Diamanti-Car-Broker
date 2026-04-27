@@ -176,8 +176,12 @@ export default function Home() {
       </section>
 
       {/* 3. DIAMANTI CAR BROKER 4 CARDS */}
-      <section className="py-24 bg-white">
-        <div className="ds-container">
+      <section className="py-24 bg-white relative overflow-hidden">
+        {/* Decorative car silhouette - faded right */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[300px] opacity-[0.04] pointer-events-none">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800" alt="" className="w-full h-full object-contain" />
+        </div>
+        <div className="ds-container relative z-10">
           <h2 className="text-center text-[36px] font-serif mb-16 font-bold text-[#0A1526]">Diamanti Car Broker</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -261,11 +265,28 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* Happy customer lifestyle strip */}
+          <div className="mt-16 grid grid-cols-3 gap-4 rounded-2xl overflow-hidden">
+            <div className="h-[160px]">
+              <img src="https://images.unsplash.com/photo-1449965408869-ebd3fee7710d?auto=format&fit=crop&q=80&w=600" alt="Cliente felice con auto" className="w-full h-full object-cover" />
+            </div>
+            <div className="h-[160px]">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" alt="Consulente auto" className="w-full h-full object-cover" />
+            </div>
+            <div className="h-[160px]">
+              <img src="https://images.unsplash.com/photo-1494976388531-d1058494ceb8?auto=format&fit=crop&q=80&w=600" alt="Consegna auto" className="w-full h-full object-cover" />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* 5. COME FUNZIONA */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white relative overflow-hidden">
+        {/* Subtle background lifestyle image */}
+        <div className="absolute left-0 bottom-0 w-[400px] h-[350px] opacity-[0.04] pointer-events-none">
+          <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=600" alt="" className="w-full h-full object-cover" />
+        </div>
         <div className="ds-container">
           <h2 className="text-center text-[36px] font-serif font-bold text-[#0A1526] mb-20">Come funziona</h2>
           
@@ -320,8 +341,12 @@ export default function Home() {
       </section>
 
       {/* 7. PERCHÉ SCEGLIERE (5 cols) */}
-      <section className="py-24 bg-white border-t border-gray-100">
-        <div className="ds-container max-w-[1400px]">
+      <section className="py-24 bg-white border-t border-gray-100 relative overflow-hidden">
+        {/* Decorative fleet image top-right */}
+        <div className="absolute right-0 top-0 w-[600px] h-[250px] opacity-[0.035] pointer-events-none">
+          <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=800" alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="ds-container max-w-[1400px] relative z-10">
           <h2 className="text-center text-[36px] font-serif font-bold text-[#0A1526] mb-16">Perché scegliere Diamanti Car Broker</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-gray-100 px-4">
