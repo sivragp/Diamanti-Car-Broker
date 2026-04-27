@@ -14,7 +14,7 @@ export default function Home() {
             alt="Auto in movimento" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1526]/80 via-[#0A1526]/50 to-[#0A1526]/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1526]/70 via-[#0A1526]/40 to-transparent"></div>
         </div>
 
         <div className="ds-container relative z-10 w-full mb-16 mt-0">
@@ -30,8 +30,12 @@ export default function Home() {
 
         {/* SEARCH FORM OVERLAY */}
         <div className="absolute bottom-[-50px] md:bottom-[-60px] left-0 right-0 z-20 px-4">
-          <div className="ds-container">
-            <div className="bg-white rounded-xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] p-8 border border-gray-100">
+          <div className="ds-container relative">
+            {/* Decorative car wheel behind form */}
+            <div className="absolute right-[-20px] top-[-40px] w-32 h-32 opacity-20 hidden lg:block pointer-events-none">
+              <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=300" alt="" className="w-full h-full object-contain rotate-[15deg]" />
+            </div>
+            <div className="bg-white rounded-xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] p-8 border border-gray-100 relative z-10">
               <h3 className="font-serif text-[22px] font-bold text-[#0A1526] mb-6 text-left">Richiedi la tua auto, la cerchiamo noi per te.</h3>
               
               <div className="grid grid-cols-1 md:grid-cols-5 gap-5 items-end">
@@ -178,8 +182,8 @@ export default function Home() {
       {/* 3. DIAMANTI CAR BROKER 4 CARDS */}
       <section className="py-24 bg-white relative overflow-hidden">
         {/* Decorative car silhouette - faded right */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[300px] opacity-[0.04] pointer-events-none">
-          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800" alt="" className="w-full h-full object-contain" />
+        <div className="absolute right-[-100px] top-1/2 -translate-y-1/2 w-[800px] h-[600px] opacity-[0.15] pointer-events-none">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1200" alt="" className="w-full h-full object-contain" />
         </div>
         <div className="ds-container relative z-10">
           <h2 className="text-center text-[36px] font-serif mb-16 font-bold text-[#0A1526]">Diamanti Car Broker</h2>
@@ -267,15 +271,15 @@ export default function Home() {
           </div>
 
           {/* Happy customer lifestyle strip */}
-          <div className="mt-16 grid grid-cols-3 gap-4 rounded-2xl overflow-hidden">
-            <div className="h-[160px]">
-              <img src="https://images.unsplash.com/photo-1449965408869-ebd3fee7710d?auto=format&fit=crop&q=80&w=600" alt="Cliente felice con auto" className="w-full h-full object-cover" />
+          <div className="mt-16 grid grid-cols-3 gap-8">
+            <div className="h-[320px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03]">
+              <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=800" alt="Cliente felice alla guida" className="w-full h-full object-cover" />
             </div>
-            <div className="h-[160px]">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" alt="Consulente auto" className="w-full h-full object-cover" />
+            <div className="h-[320px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03]">
+              <img src="https://images.unsplash.com/photo-1517524285303-d6fc683dddf8?auto=format&fit=crop&q=80&w=800" alt="Consegna auto premium" className="w-full h-full object-cover" />
             </div>
-            <div className="h-[160px]">
-              <img src="https://images.unsplash.com/photo-1494976388531-d1058494ceb8?auto=format&fit=crop&q=80&w=600" alt="Consegna auto" className="w-full h-full object-cover" />
+            <div className="h-[320px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03]">
+              <img src="https://images.unsplash.com/photo-1562515009-519284ca627b?auto=format&fit=crop&q=80&w=800" alt="Soddisfazione post acquisto" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -283,9 +287,12 @@ export default function Home() {
 
       {/* 5. COME FUNZIONA */}
       <section className="py-24 bg-white relative overflow-hidden">
-        {/* Subtle background lifestyle image */}
-        <div className="absolute left-0 bottom-0 w-[400px] h-[350px] opacity-[0.04] pointer-events-none">
-          <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=600" alt="" className="w-full h-full object-cover" />
+        {/* Decorative car images framing the section */}
+        <div className="absolute left-[-50px] top-[10%] w-[400px] h-[300px] opacity-[0.1] pointer-events-none rotate-[-15deg]">
+          <img src="https://images.unsplash.com/photo-1494976388531-d1058494ceb8?auto=format&fit=crop&q=80&w=800" alt="" className="w-full h-full object-cover rounded-3xl" />
+        </div>
+        <div className="absolute right-[-50px] bottom-[10%] w-[400px] h-[300px] opacity-[0.1] pointer-events-none rotate-[15deg]">
+          <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800" alt="" className="w-full h-full object-cover rounded-3xl" />
         </div>
         <div className="ds-container">
           <h2 className="text-center text-[36px] font-serif font-bold text-[#0A1526] mb-20">Come funziona</h2>
@@ -343,8 +350,8 @@ export default function Home() {
       {/* 7. PERCHÉ SCEGLIERE (5 cols) */}
       <section className="py-24 bg-white border-t border-gray-100 relative overflow-hidden">
         {/* Decorative fleet image top-right */}
-        <div className="absolute right-0 top-0 w-[600px] h-[250px] opacity-[0.035] pointer-events-none">
-          <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=800" alt="" className="w-full h-full object-cover" />
+        <div className="absolute right-[-100px] top-[-50px] w-[700px] h-[400px] opacity-[0.08] pointer-events-none rotate-[-5deg]">
+          <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1200" alt="" className="w-full h-full object-cover" />
         </div>
         <div className="ds-container max-w-[1400px] relative z-10">
           <h2 className="text-center text-[36px] font-serif font-bold text-[#0A1526] mb-16">Perché scegliere Diamanti Car Broker</h2>
@@ -372,8 +379,12 @@ export default function Home() {
       </section>
 
       {/* 8. FOUNDER */}
-      <section className="py-16 md:py-24 bg-[#f8fafc]">
-        <div className="ds-container">
+      <section className="py-16 md:py-24 bg-[#f8fafc] relative overflow-hidden">
+        {/* More prominent car background for founder section */}
+        <div className="absolute left-[-50px] top-[-50px] w-[700px] h-[500px] opacity-[0.12] pointer-events-none rotate-[5deg]">
+          <img src="https://images.unsplash.com/photo-1493238507154-203aa98ed081?auto=format&fit=crop&q=80&w=1200" alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="ds-container relative z-10">
           <div className="bg-white rounded-none md:rounded-[24px] overflow-hidden flex flex-col md:flex-row items-center border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.02)] max-h-auto md:max-h-[460px]">
             <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col items-start justify-center h-full">
               <h2 className="text-[28px] md:text-[34px] font-serif font-bold text-[#0A1526] mb-4 leading-[1.15]">

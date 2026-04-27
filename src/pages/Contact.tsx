@@ -199,12 +199,13 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="rounded-xl overflow-hidden h-[280px]">
+              <div className="rounded-xl overflow-hidden h-[320px] shadow-lg relative group">
                 <img
-                  src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800"
-                  alt="Auto premium"
-                  className="w-full h-full object-cover"
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
+                  alt="Thomas - Consulente"
+                  className="w-full h-full object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1526]/60 to-transparent"></div>
               </div>
             </div>
 
