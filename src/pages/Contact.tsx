@@ -16,7 +16,7 @@ export default function Contact() {
             alt="Auto premium"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[#0A1526]/70"></div>
+          <div className="absolute inset-0 bg-[#061629]/70"></div>
         </div>
 
         <div className="ds-container relative z-10 text-center">
@@ -32,8 +32,8 @@ export default function Contact() {
               { icon: Clock, title: 'Prenota una call', line1: 'Scegli il momento giusto', line2: 'per parlare con noi', line3: 'Consultazione gratuita' }
             ].map((item, i) => (
               <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-8 text-center flex flex-col items-center hover:bg-white/15 transition-colors">
-                <div className="w-14 h-14 rounded-full border border-[#cda34f]/50 flex items-center justify-center mb-5">
-                  <item.icon className="text-[#cda34f]" size={24} strokeWidth={1.5} />
+                <div className="w-14 h-14 rounded-full border border-[#0c438f]/50 flex items-center justify-center mb-5">
+                  <item.icon className="text-[#0c438f]" size={24} strokeWidth={1.5} />
                 </div>
                 <h3 className="font-bold text-white text-[16px] mb-3">{item.title}</h3>
                 <p className="text-white/80 text-[13px] leading-relaxed">{item.line1}</p>
@@ -52,7 +52,7 @@ export default function Contact() {
 
             {/* Left - Form */}
             <div className="w-full lg:w-3/5">
-              <h2 className="text-[32px] md:text-[38px] font-serif font-bold text-[#0A1526] mb-4 leading-tight">
+              <h2 className="text-[32px] md:text-[38px] font-serif font-bold text-[#061629] mb-4 leading-tight">
                 Raccontaci quale auto<br/>stai cercando
               </h2>
               <p className="text-[15px] text-muted mb-10 leading-relaxed">
@@ -62,24 +62,24 @@ export default function Contact() {
               <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert('Richiesta inviata!'); }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#0A1526] mb-2">Nome e cognome *</label>
-                    <input type="text" placeholder="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#0A1526]" required />
+                    <label className="text-[12px] font-bold text-[#061629] mb-2">Nome e cognome *</label>
+                    <input type="text" placeholder="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#0A1526] mb-2">Email *</label>
-                    <input type="email" placeholder="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#0A1526]" required />
+                    <label className="text-[12px] font-bold text-[#061629] mb-2">Email *</label>
+                    <input type="email" placeholder="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                 </div>
 
                 <div className="flex flex-col text-left">
-                  <label className="text-[12px] font-bold text-[#0A1526] mb-2">Telefono</label>
-                  <input type="tel" placeholder="Es. 345 678 9010" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#0A1526]" />
+                  <label className="text-[12px] font-bold text-[#061629] mb-2">Telefono</label>
+                  <input type="tel" placeholder="Es. 345 678 9010" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#0A1526] mb-2">Tipologia auto *</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#0A1526] bg-white appearance-none" required>
+                    <label className="text-[12px] font-bold text-[#061629] mb-2">Tipologia auto *</label>
+                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
                       <option>Seleziona...</option>
                       <option>SUV</option>
                       <option>Berlina</option>
@@ -89,8 +89,8 @@ export default function Contact() {
                     </select>
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#0A1526] mb-2">Marca</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#0A1526] bg-white appearance-none">
+                    <label className="text-[12px] font-bold text-[#061629] mb-2">Marca</label>
+                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option>Seleziona...</option>
                     </select>
                   </div>
@@ -98,14 +98,14 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#0A1526] mb-2">Modello</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#0A1526] bg-white appearance-none">
+                    <label className="text-[12px] font-bold text-[#061629] mb-2">Modello</label>
+                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option>Seleziona...</option>
                     </select>
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#0A1526] mb-2">Alimentazione</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#0A1526] bg-white appearance-none">
+                    <label className="text-[12px] font-bold text-[#061629] mb-2">Alimentazione</label>
+                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option>Seleziona...</option>
                       <option>Benzina</option>
                       <option>Diesel</option>
@@ -119,8 +119,8 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#0A1526] mb-2">Budget</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#0A1526] bg-white appearance-none">
+                    <label className="text-[12px] font-bold text-[#061629] mb-2">Budget</label>
+                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option>Seleziona...</option>
                       <option>Fino a 15.000€</option>
                       <option>15.000€ - 25.000€</option>
@@ -130,8 +130,8 @@ export default function Contact() {
                     </select>
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#0A1526] mb-2">Tempistica</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#0A1526] bg-white appearance-none">
+                    <label className="text-[12px] font-bold text-[#061629] mb-2">Tempistica</label>
+                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option>Seleziona...</option>
                       <option>Entro 1 mese</option>
                       <option>1-3 mesi</option>
@@ -141,33 +141,33 @@ export default function Contact() {
                 </div>
 
                 <div className="flex flex-col text-left">
-                  <label className="text-[12px] font-bold text-[#0A1526] mb-3">Permuta? *</label>
+                  <label className="text-[12px] font-bold text-[#061629] mb-3">Permuta? *</label>
                   <div className="flex gap-6">
-                    <label className="flex items-center gap-2 text-[14px] text-[#0A1526] cursor-pointer">
-                      <input type="radio" name="permuta" value="si" className="w-4 h-4 accent-[#0A1526]" /> Sì
+                    <label className="flex items-center gap-2 text-[14px] text-[#061629] cursor-pointer">
+                      <input type="radio" name="permuta" value="si" className="w-4 h-4 accent-[#061629]" /> Sì
                     </label>
-                    <label className="flex items-center gap-2 text-[14px] text-[#0A1526] cursor-pointer">
-                      <input type="radio" name="permuta" value="no" className="w-4 h-4 accent-[#0A1526]" defaultChecked /> No
+                    <label className="flex items-center gap-2 text-[14px] text-[#061629] cursor-pointer">
+                      <input type="radio" name="permuta" value="no" className="w-4 h-4 accent-[#061629]" defaultChecked /> No
                     </label>
                   </div>
                 </div>
 
                 <div className="flex flex-col text-left">
-                  <label className="text-[12px] font-bold text-[#0A1526] mb-2">Messaggio / Esigenze specifiche</label>
+                  <label className="text-[12px] font-bold text-[#061629] mb-2">Messaggio / Esigenze specifiche</label>
                   <textarea
                     placeholder="Raccontaci le tue esigenze, preferenze, optional indispensabili..."
-                    className="w-full border border-gray-200 rounded-md p-4 text-[14px] focus:outline-none focus:border-[#0A1526] min-h-[120px] resize-none"
+                    className="w-full border border-gray-200 rounded-md p-4 text-[14px] focus:outline-none focus:border-[#061629] min-h-[120px] resize-none"
                   />
                 </div>
 
                 <div className="flex items-start gap-3 pt-2">
-                  <input type="checkbox" id="privacy" className="w-4 h-4 accent-[#0A1526] mt-1 shrink-0" required />
+                  <input type="checkbox" id="privacy" className="w-4 h-4 accent-[#061629] mt-1 shrink-0" required />
                   <label htmlFor="privacy" className="text-[12px] text-muted leading-relaxed">
                     Letti i dati sono di nostro servizio. Tratteremo le tue informazioni con la massima riservatezza.
                   </label>
                 </div>
 
-                <button type="submit" className="w-full bg-[#0A1526] hover:bg-gray-800 text-white h-[50px] rounded-md text-[14px] font-bold transition-colors mt-2">
+                <button type="submit" className="w-full bg-[#061629] hover:bg-gray-800 text-white h-[50px] rounded-md text-[14px] font-bold transition-colors mt-2">
                   Invia richiesta
                 </button>
               </form>
@@ -175,8 +175,8 @@ export default function Contact() {
 
             {/* Right - Sidebar */}
             <div className="w-full lg:w-2/5 flex flex-col gap-6">
-              <div className="bg-[#f8fafc] border border-gray-100 rounded-xl p-8">
-                <h3 className="font-serif text-[24px] font-bold text-[#0A1526] mb-8 leading-tight">
+              <div className="bg-[#f6f8fb] border border-gray-100 rounded-xl p-8">
+                <h3 className="font-serif text-[24px] font-bold text-[#061629] mb-8 leading-tight">
                   Ti ricontattiamo con una consulenza personalizzata
                 </h3>
 
@@ -187,11 +187,11 @@ export default function Contact() {
                     { icon: ShieldCheck, title: 'Supporto fino alla consegna', text: 'Ti seguiamo in ogni fase, fino alla consegna a domicilio.' }
                   ].map((item, i) => (
                     <div key={i} className="flex gap-5 items-start">
-                      <div className="w-12 h-12 rounded-full bg-[#0A1526] text-white flex items-center justify-center shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-[#061629] text-white flex items-center justify-center shrink-0">
                         <item.icon size={20} strokeWidth={1.5} />
                       </div>
                       <div>
-                        <h4 className="font-bold text-[#0A1526] text-[15px] mb-1">{item.title}</h4>
+                        <h4 className="font-bold text-[#061629] text-[15px] mb-1">{item.title}</h4>
                         <p className="text-[13px] text-muted leading-relaxed">{item.text}</p>
                       </div>
                     </div>
@@ -205,7 +205,7 @@ export default function Contact() {
                   alt="Thomas - Consulente"
                   className="w-full h-full object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1526]/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#061629]/60 to-transparent"></div>
               </div>
             </div>
 
@@ -214,20 +214,20 @@ export default function Contact() {
       </section>
 
       {/* 3. VS - Perché contattarci */}
-      <section className="py-20 bg-[#f8fafc] border-t border-gray-100">
+      <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
         <div className="ds-container max-w-[1000px]">
-          <h2 className="text-center text-[32px] md:text-[36px] font-serif font-bold mb-16 text-[#0A1526] leading-tight">
+          <h2 className="text-center text-[32px] md:text-[36px] font-serif font-bold mb-16 text-[#061629] leading-tight">
             Perché contattarci prima di cercare l'auto da solo
           </h2>
 
           <div className="relative">
-            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60px] h-[60px] bg-[#0A1526] rounded-full text-white font-serif font-bold text-[22px] items-center justify-center z-10 border-4 border-[#f8fafc]">
+            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60px] h-[60px] bg-[#061629] rounded-full text-white font-serif font-bold text-[22px] items-center justify-center z-10 border-4 border-[#f6f8fb]">
               VS
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <div className="bg-white rounded-2xl p-10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-gray-100">
-                <h3 className="font-bold text-[#0A1526] text-[16px] mb-8">Contattaci prima e ottieni vantaggi reali</h3>
+                <h3 className="font-bold text-[#061629] text-[16px] mb-8">Contattaci prima e ottieni vantaggi reali</h3>
                 <ul className="flex flex-col gap-5">
                   {[
                     'Risparmi tempo',
@@ -239,16 +239,16 @@ export default function Contact() {
                   ].map((text, i) => (
                     <li key={i} className="flex items-center gap-4">
                       <div className="w-[22px] h-[22px] rounded-full border border-gray-200 flex items-center justify-center shrink-0">
-                        <Check size={12} className="text-[#0A1526]" strokeWidth={3} />
+                        <Check size={12} className="text-[#061629]" strokeWidth={3} />
                       </div>
-                      <span className="text-[14px] text-[#0A1526] font-sans">{text}</span>
+                      <span className="text-[14px] text-[#061629] font-sans">{text}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div className="bg-[#eff2f6] rounded-2xl p-10 border border-transparent">
-                <h3 className="font-bold text-[#0A1526] text-[16px] mb-8">Cercare da solo significa</h3>
+                <h3 className="font-bold text-[#061629] text-[16px] mb-8">Cercare da solo significa</h3>
                 <ul className="flex flex-col gap-5">
                   {[
                     'Perdere ore tra annunci e trattative',
@@ -258,10 +258,10 @@ export default function Contact() {
                     'Affrontare da solo burocrazia e passaggi'
                   ].map((text, i) => (
                     <li key={i} className="flex items-center gap-4">
-                      <div className="w-[22px] h-[22px] rounded-full bg-[#0A1526] flex items-center justify-center shrink-0">
+                      <div className="w-[22px] h-[22px] rounded-full bg-[#061629] flex items-center justify-center shrink-0">
                         <X size={12} className="text-white" strokeWidth={3} />
                       </div>
-                      <span className="text-[14px] text-[#0A1526] font-sans">{text}</span>
+                      <span className="text-[14px] text-[#061629] font-sans">{text}</span>
                     </li>
                   ))}
                 </ul>
@@ -272,7 +272,7 @@ export default function Contact() {
       </section>
 
       {/* 4. PARLI DIRETTAMENTE CON NOI */}
-      <section className="bg-[#0A1526] py-20">
+      <section className="bg-[#061629] py-20">
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2 flex flex-col items-start">
@@ -283,7 +283,7 @@ export default function Contact() {
                 Thomas e il suo team seguono ogni richiesta con attenzione e riservatezza. Ti accompagniamo dal primo contatto fino alla consegna dell'auto, con professionalità e passione.
               </p>
               <div className="mb-8">
-                <div className="font-serif italic text-[38px] text-[#cda34f] mb-2 leading-none">Thomas Diamanti</div>
+                <div className="font-serif italic text-[38px] text-[#0c438f] mb-2 leading-none">Thomas Diamanti</div>
                 <div className="text-white/60 text-[13px]">Fondatore, Diamanti Car Broker</div>
               </div>
               <img
@@ -301,8 +301,8 @@ export default function Contact() {
                 { icon: MapPin, title: 'Consegna a domicilio', text: 'Ti consegniamo l\'auto pronta all\'uso direttamente a casa tua.' }
               ].map((item, i) => (
                 <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6 flex gap-5 items-start hover:bg-white/10 transition-colors">
-                  <div className="w-12 h-12 rounded-full border border-[#cda34f]/40 flex items-center justify-center shrink-0">
-                    <item.icon className="text-[#cda34f]" size={22} strokeWidth={1.5} />
+                  <div className="w-12 h-12 rounded-full border border-[#0c438f]/40 flex items-center justify-center shrink-0">
+                    <item.icon className="text-[#0c438f]" size={22} strokeWidth={1.5} />
                   </div>
                   <div>
                     <h4 className="font-bold text-white text-[16px] mb-1">{item.title}</h4>
@@ -318,7 +318,7 @@ export default function Contact() {
       {/* 5. INFORMAZIONI UTILI */}
       <section className="py-20 bg-white">
         <div className="ds-container">
-          <h2 className="text-center text-[36px] font-serif font-bold text-[#0A1526] mb-16">Informazioni utili</h2>
+          <h2 className="text-center text-[36px] font-serif font-bold text-[#061629] mb-16">Informazioni utili</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -329,9 +329,9 @@ export default function Contact() {
             ].map((item, i) => (
               <div key={i} className="border border-gray-100 rounded-xl p-8 text-center flex flex-col items-center">
                 <div className="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center mb-5">
-                  <item.icon className="text-[#0A1526]" size={24} strokeWidth={1.5} />
+                  <item.icon className="text-[#061629]" size={24} strokeWidth={1.5} />
                 </div>
-                <h3 className="font-bold text-[#0A1526] text-[16px] mb-3">{item.title}</h3>
+                <h3 className="font-bold text-[#061629] text-[16px] mb-3">{item.title}</h3>
                 {item.lines.map((line, j) => (
                   <p key={j} className="text-[13px] text-muted leading-relaxed">{line}</p>
                 ))}
@@ -342,9 +342,9 @@ export default function Contact() {
       </section>
 
       {/* 6. DOMANDE FREQUENTI */}
-      <section className="py-20 bg-[#f8fafc] border-t border-gray-100">
+      <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
         <div className="ds-container max-w-3xl">
-          <h2 className="text-center text-[36px] font-serif font-bold text-[#0A1526] mb-16">Domande frequenti</h2>
+          <h2 className="text-center text-[36px] font-serif font-bold text-[#061629] mb-16">Domande frequenti</h2>
 
           <div className="space-y-4">
             {[
@@ -357,7 +357,7 @@ export default function Contact() {
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
                 >
-                  <span className="font-bold text-[#0A1526] text-[15px] pr-4">{faq.q}</span>
+                  <span className="font-bold text-[#061629] text-[15px] pr-4">{faq.q}</span>
                   <ChevronDown className={`text-muted shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} size={20} />
                 </button>
                 {openFaq === i && (
@@ -374,7 +374,7 @@ export default function Contact() {
       {/* 7. CTA PRE-FOOTER */}
       <section className="py-20 bg-white border-t border-gray-100">
         <div className="ds-container text-center max-w-2xl">
-          <h2 className="text-[36px] md:text-[44px] font-serif font-bold text-[#0A1526] mb-6 leading-tight">
+          <h2 className="text-[36px] md:text-[44px] font-serif font-bold text-[#061629] mb-6 leading-tight">
             Hai già in mente la tua prossima auto?
           </h2>
           <p className="text-[16px] text-muted mb-4 leading-relaxed">
@@ -383,7 +383,7 @@ export default function Contact() {
           <p className="text-[16px] text-muted mb-10 leading-relaxed">
             Diamanti Car Broker. Semplice, sicuro, su misura per te.
           </p>
-          <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#cda34f] hover:bg-[#b88f40] text-[#0A1526] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
+          <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-[#061629] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
             Richiedi consulenza
           </Link>
         </div>

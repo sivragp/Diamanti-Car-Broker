@@ -15,7 +15,7 @@ export default function Services() {
           <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1200" alt="" className="w-full h-full object-contain" />
         </div>
         <div className="ds-container text-center relative z-10">
-          <h1 className="text-[40px] md:text-[50px] font-serif font-bold text-[#0A1526] mb-6">
+          <h1 className="text-[40px] md:text-[50px] font-serif font-bold text-[#061629] mb-6">
             Cosa possiamo fare per te
           </h1>
           <p className="text-[16px] text-muted max-w-2xl mx-auto leading-relaxed mb-4">
@@ -33,10 +33,10 @@ export default function Services() {
               { icon: Settings, title: 'Gestione completa', text: 'Trattativa, pratiche, contrattualistica e consegna chiavi in mano.' }
             ].map((item, i) => (
               <div key={i} className="border border-gray-100 rounded-xl p-8 text-center flex flex-col items-center hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-shadow bg-white">
-                <div className="w-14 h-14 rounded-full bg-[#0A1526] text-white flex items-center justify-center mb-6">
+                <div className="w-14 h-14 rounded-full bg-[#061629] text-white flex items-center justify-center mb-6">
                   <item.icon size={22} strokeWidth={1.5} />
                 </div>
-                <h3 className="font-serif text-[17px] font-bold text-[#0A1526] mb-3">{item.title}</h3>
+                <h3 className="font-serif text-[17px] font-bold text-[#061629] mb-3">{item.title}</h3>
                 <p className="text-[13px] text-muted leading-relaxed">{item.text}</p>
               </div>
             ))}
@@ -45,9 +45,9 @@ export default function Services() {
       </section>
 
       {/* 2. I NOSTRI SERVIZI NEL DETTAGLIO */}
-      <section className="py-20 bg-[#f8fafc] border-t border-gray-100">
+      <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
         <div className="ds-container">
-          <h2 className="text-center text-[36px] font-serif font-bold text-[#0A1526] mb-16">
+          <h2 className="text-center text-[36px] font-serif font-bold text-[#061629] mb-16">
             I nostri servizi nel dettaglio
           </h2>
 
@@ -62,10 +62,10 @@ export default function Services() {
             ].map((step, i) => (
               <div key={i} className="relative flex flex-col">
                 <div className="bg-white border border-gray-100 p-8 pt-10 h-full flex flex-col shadow-sm">
-                  <div className="absolute -top-[20px] left-4 w-12 h-12 rounded-full bg-[#0A1526] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[4px] border-[#f8fafc]">
+                  <div className="absolute -top-[20px] left-4 w-12 h-12 rounded-full bg-[#061629] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[4px] border-[#f6f8fb]">
                     {step.num}
                   </div>
-                  <h3 className="font-bold text-[#0A1526] text-[16px] mb-3 leading-tight">{step.title}</h3>
+                  <h3 className="font-bold text-[#061629] text-[16px] mb-3 leading-tight">{step.title}</h3>
                   <p className="text-[14px] text-muted leading-relaxed">{step.text}</p>
                 </div>
               </div>
@@ -77,19 +77,19 @@ export default function Services() {
       {/* 3. VS SECTION */}
       <section className="py-20 bg-white">
         <div className="ds-container max-w-[1000px]">
-          <h2 className="text-center text-[32px] md:text-[36px] font-serif font-bold mb-16 text-[#0A1526] leading-tight">
+          <h2 className="text-center text-[32px] md:text-[36px] font-serif font-bold mb-16 text-[#061629] leading-tight">
             Perché affidarti a noi invece di fare tutto da solo
           </h2>
 
           <div className="relative">
-            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60px] h-[60px] bg-[#0A1526] rounded-full text-white font-serif font-bold text-[22px] items-center justify-center z-10 border-4 border-white">
+            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60px] h-[60px] bg-[#061629] rounded-full text-white font-serif font-bold text-[22px] items-center justify-center z-10 border-4 border-white">
               VS
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {/* Left - Con Diamanti */}
               <div className="bg-white rounded-2xl p-10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-gray-100">
-                <h3 className="font-bold text-[#0A1526] text-[18px] mb-8">Con Diamanti Car Broker</h3>
+                <h3 className="font-bold text-[#061629] text-[18px] mb-8">Con Diamanti Car Broker</h3>
                 <ul className="flex flex-col gap-5">
                   {[
                     'Risparmi tempo e riduci lo stress',
@@ -101,9 +101,9 @@ export default function Services() {
                   ].map((text, i) => (
                     <li key={i} className="flex items-center gap-4">
                       <div className="w-[22px] h-[22px] rounded-full border border-gray-200 flex items-center justify-center shrink-0">
-                        <Check size={12} className="text-[#0A1526]" strokeWidth={3} />
+                        <Check size={12} className="text-[#061629]" strokeWidth={3} />
                       </div>
-                      <span className="text-[15px] text-[#0A1526] font-sans">{text}</span>
+                      <span className="text-[15px] text-[#061629] font-sans">{text}</span>
                     </li>
                   ))}
                 </ul>
@@ -111,7 +111,7 @@ export default function Services() {
 
               {/* Right - Da solo */}
               <div className="bg-[#eff2f6] rounded-2xl p-10 border border-transparent">
-                <h3 className="font-bold text-[#0A1526] text-[18px] mb-8">Cercando da solo</h3>
+                <h3 className="font-bold text-[#061629] text-[18px] mb-8">Cercando da solo</h3>
                 <ul className="flex flex-col gap-5">
                   {[
                     'Tempo perso fra annunci e trattative',
@@ -122,10 +122,10 @@ export default function Services() {
                     'Gestione burocratica complessa'
                   ].map((text, i) => (
                     <li key={i} className="flex items-center gap-4">
-                      <div className="w-[22px] h-[22px] rounded-full bg-[#0A1526] flex items-center justify-center shrink-0">
+                      <div className="w-[22px] h-[22px] rounded-full bg-[#061629] flex items-center justify-center shrink-0">
                         <X size={12} className="text-white" strokeWidth={3} />
                       </div>
-                      <span className="text-[15px] text-[#0A1526] font-sans">{text}</span>
+                      <span className="text-[15px] text-[#061629] font-sans">{text}</span>
                     </li>
                   ))}
                 </ul>
@@ -136,9 +136,9 @@ export default function Services() {
       </section>
 
       {/* 4. COME LAVORIAMO - 5 step orizzontali */}
-      <section className="py-20 bg-[#f8fafc] border-t border-gray-100">
+      <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
         <div className="ds-container">
-          <h2 className="text-center text-[36px] font-serif font-bold text-[#0A1526] mb-16">Come lavoriamo</h2>
+          <h2 className="text-center text-[36px] font-serif font-bold text-[#061629] mb-16">Come lavoriamo</h2>
 
           <div className="relative">
             {/* Connection line */}
@@ -153,11 +153,11 @@ export default function Services() {
                 { num: 5, icon: MapPin, title: 'Consegna', text: 'Ti consegniamo l\'auto pronta, direttamente a domicilio.' }
               ].map((step, i) => (
                 <div key={i} className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-14 h-14 rounded-full bg-[#0A1526] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[6px] border-[#f8fafc] mb-5">
+                  <div className="w-14 h-14 rounded-full bg-[#061629] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[6px] border-[#f6f8fb] mb-5">
                     {step.num}
                   </div>
-                  <step.icon className="text-[#0A1526] mb-3 opacity-80" size={24} strokeWidth={1.5} />
-                  <h3 className="font-bold text-[#0A1526] text-[14px] mb-2">{step.title}</h3>
+                  <step.icon className="text-[#061629] mb-3 opacity-80" size={24} strokeWidth={1.5} />
+                  <h3 className="font-bold text-[#061629] text-[14px] mb-2">{step.title}</h3>
                   <p className="text-[12px] text-muted leading-relaxed">{step.text}</p>
                 </div>
               ))}
@@ -167,19 +167,19 @@ export default function Services() {
       </section>
 
       {/* 5. BANNER - Non vendiamo auto in stock */}
-      <section className="bg-[#0A1526] relative overflow-hidden">
+      <section className="bg-[#061629] relative overflow-hidden">
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/2 py-20 pr-10">
               <h2 className="text-[32px] md:text-[40px] font-serif font-bold text-white mb-6 leading-tight">
                 Non vendiamo auto in stock:<br/>
-                troviamo quella <span className="text-[#cda34f] italic">giusta per te</span>.
+                troviamo quella <span className="text-[#0c438f] italic">giusta per te</span>.
               </h2>
               <p className="text-white/70 text-[16px] mb-10 leading-relaxed max-w-md">
                 Il nostro lavoro parte sempre da te, non da un magazzino o da un listino.<br/>
                 Ogni ricerca è su misura, per offrirti solo ciò che risponde davvero.
               </p>
-              <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-white hover:bg-gray-100 text-[#0A1526] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
+              <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-white hover:bg-gray-100 text-[#061629] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
                 Parla con un consulente
               </Link>
             </div>
@@ -199,7 +199,7 @@ export default function Services() {
       {/* 6. UN SERVIZIO DAVVERO COMPLETO */}
       <section className="py-20 bg-white">
         <div className="ds-container">
-          <h2 className="text-center text-[36px] font-serif font-bold text-[#0A1526] mb-16">
+          <h2 className="text-center text-[36px] font-serif font-bold text-[#061629] mb-16">
             Un servizio davvero completo
           </h2>
 
@@ -212,9 +212,9 @@ export default function Services() {
             ].map((item, i) => (
               <div key={i} className="border border-gray-100 rounded-xl p-8 text-center flex flex-col items-center hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-shadow bg-white">
                 <div className="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center mb-6">
-                  <item.icon className="text-[#0A1526]" size={24} strokeWidth={1.5} />
+                  <item.icon className="text-[#061629]" size={24} strokeWidth={1.5} />
                 </div>
-                <h3 className="font-bold text-[#0A1526] text-[16px] mb-3">{item.title}</h3>
+                <h3 className="font-bold text-[#061629] text-[16px] mb-3">{item.title}</h3>
                 <p className="text-[13px] text-muted leading-relaxed">{item.text}</p>
               </div>
             ))}
@@ -239,9 +239,9 @@ export default function Services() {
       </section>
 
       {/* 7. DOMANDE FREQUENTI */}
-      <section className="py-20 bg-[#f8fafc] border-t border-gray-100">
+      <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
         <div className="ds-container max-w-3xl">
-          <h2 className="text-center text-[36px] font-serif font-bold text-[#0A1526] mb-16">Domande frequenti</h2>
+          <h2 className="text-center text-[36px] font-serif font-bold text-[#061629] mb-16">Domande frequenti</h2>
 
           <div className="space-y-4">
             {[
@@ -255,7 +255,7 @@ export default function Services() {
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
                 >
-                  <span className="font-bold text-[#0A1526] text-[15px] pr-4">{faq.q}</span>
+                  <span className="font-bold text-[#061629] text-[15px] pr-4">{faq.q}</span>
                   <ChevronDown className={`text-muted shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} size={20} />
                 </button>
                 {openFaq === i && (
@@ -272,14 +272,14 @@ export default function Services() {
       {/* 8. CTA PRE-FOOTER */}
       <section className="py-24 bg-white border-t border-gray-100">
         <div className="ds-container text-center max-w-2xl">
-          <h2 className="text-[36px] md:text-[44px] font-serif font-bold text-[#0A1526] mb-6 leading-tight italic">
+          <h2 className="text-[36px] md:text-[44px] font-serif font-bold text-[#061629] mb-6 leading-tight italic">
             Raccontaci quale <span className="not-italic">auto</span><br/>stai cercando.
           </h2>
           <p className="text-[16px] text-muted mb-10 leading-relaxed">
             Condividi le tue esigenze e ti proporremo le migliori<br/>
             opportunità, selezionate per te.
           </p>
-          <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#cda34f] hover:bg-[#b88f40] text-[#0A1526] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
+          <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-[#061629] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
             Richiedi consulenza
           </Link>
         </div>

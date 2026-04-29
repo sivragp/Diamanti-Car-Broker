@@ -11,10 +11,10 @@ export default function About() {
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2 flex flex-col items-start text-left">
-              <h1 className="text-[40px] md:text-[50px] font-serif font-bold text-[#0A1526] mb-8 leading-tight">
+              <h1 className="text-[40px] md:text-[50px] font-serif font-bold text-[#061629] mb-8 leading-tight">
                 Chi siamo
               </h1>
-              <div className="space-y-6 text-[#0A1526] text-[16px] leading-relaxed">
+              <div className="space-y-6 text-[#061629] text-[16px] leading-relaxed">
                 <p>
                   Diamanti Car Broker nasce per semplificare la ricerca e l'acquisto dell'auto giusta.
                 </p>
@@ -27,10 +27,10 @@ export default function About() {
               </div>
               
               <div className="mt-12">
-                <div className="font-serif italic text-[42px] text-[#cda34f] mb-2 leading-none">
+                <div className="font-serif italic text-[42px] text-[#0c438f] mb-2 leading-none">
                   Thomas
                 </div>
-                <div className="text-[14px] font-bold text-[#0A1526]">Fondatore</div>
+                <div className="text-[14px] font-bold text-[#061629]">Fondatore</div>
                 <div className="text-[13px] text-muted">Diamanti Car Broker</div>
               </div>
             </div>
@@ -49,15 +49,15 @@ export default function About() {
       <section className="py-12 bg-white pb-20">
         <div className="ds-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-[#0A1526] p-10 md:p-14 flex flex-col items-center text-center shadow-lg">
-              <Target size={48} strokeWidth={1.5} className="text-[#cda34f] mb-6" />
+            <div className="bg-[#061629] p-10 md:p-14 flex flex-col items-center text-center shadow-lg">
+              <Target size={48} strokeWidth={1.5} className="text-[#0c438f] mb-6" />
               <h3 className="font-serif text-[28px] font-bold text-white mb-4">La nostra missione</h3>
               <p className="text-white/80 leading-relaxed text-[15px]">
                 Rendere l'acquisto di un'auto un'esperienza più semplice, sicura ed efficiente, eliminando incertezze e perdite di tempo.
               </p>
             </div>
-            <div className="bg-[#0A1526] p-10 md:p-14 flex flex-col items-center text-center shadow-lg">
-              <Search size={48} strokeWidth={1.5} className="text-[#cda34f] mb-6" />
+            <div className="bg-[#061629] p-10 md:p-14 flex flex-col items-center text-center shadow-lg">
+              <Search size={48} strokeWidth={1.5} className="text-[#0c438f] mb-6" />
               <h3 className="font-serif text-[28px] font-bold text-white mb-4">La nostra visione</h3>
               <p className="text-white/80 leading-relaxed text-[15px]">
                 Ridefinire il modo in cui le persone cercano e acquistano auto, attraverso consulenza, selezione e supporto di fiducia.
@@ -68,9 +68,9 @@ export default function About() {
       </section>
 
       {/* 3. I VALORI */}
-      <section className="py-16 bg-[#f8fafc] border-t border-gray-100">
+      <section className="py-16 bg-[#f6f8fb] border-t border-gray-100">
         <div className="ds-container max-w-[1400px]">
-          <h2 className="text-center text-[32px] md:text-[36px] font-serif font-bold text-[#0A1526] mb-16">
+          <h2 className="text-center text-[32px] md:text-[36px] font-serif font-bold text-[#061629] mb-16">
             I valori che guidano ogni ricerca
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
@@ -82,10 +82,10 @@ export default function About() {
               { icon: CheckCircle2, title: 'Supporto completo', text: 'Ti seguiamo in ogni fase, fino alla consegna e oltre.' }
             ].map((val, i) => (
               <div key={i} className="bg-white border border-gray-100 p-8 flex flex-col items-center text-center shadow-[0_5px_20px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
-                <div className="w-16 h-16 rounded-full border border-[#cda34f]/30 flex items-center justify-center mb-6">
-                  <val.icon className="text-[#cda34f]" size={32} strokeWidth={1.5} />
+                <div className="w-16 h-16 rounded-full border border-[#0c438f]/30 flex items-center justify-center mb-6">
+                  <val.icon className="text-[#0c438f]" size={32} strokeWidth={1.5} />
                 </div>
-                <h4 className="font-bold text-[#0A1526] text-[16px] mb-3">{val.title}</h4>
+                <h4 className="font-bold text-[#061629] text-[16px] mb-3">{val.title}</h4>
                 <p className="text-[13px] text-muted leading-relaxed">{val.text}</p>
               </div>
             ))}
@@ -95,7 +95,7 @@ export default function About() {
 
       {/* 4. PERCHÉ I CLIENTI SCELGONO... */}
       <section className="bg-[#f6f7f9] flex flex-col md:flex-row">
-        <div className="w-full md:w-1/2 bg-[#0A1526] py-20 px-8 md:pl-[max(2rem,calc((100vw-1280px)/2))] md:pr-16 flex flex-col justify-center">
+        <div className="w-full md:w-1/2 bg-[#061629] py-20 px-8 md:pl-[max(2rem,calc((100vw-1280px)/2))] md:pr-16 flex flex-col justify-center">
           <div className="max-w-xl ml-auto w-full">
             <h2 className="text-[32px] md:text-[40px] font-serif font-bold text-white mb-10 leading-tight">
               Perché i clienti scelgono<br/>Diamanti Car Broker
@@ -110,7 +110,7 @@ export default function About() {
                 'Gestione pratiche e consegna senza pensieri'
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-4 text-white/90 text-[16px]">
-                  <CheckCircle2 className="text-[#cda34f] shrink-0" size={24} strokeWidth={2} />
+                  <CheckCircle2 className="text-[#0c438f] shrink-0" size={24} strokeWidth={2} />
                   <span>{item}</span>
                 </li>
               ))}
@@ -125,9 +125,9 @@ export default function About() {
               { icon: ShieldCheck, title: 'Supporto end-to-end', text: 'Siamo al tuo fianco dalla prima consulenza fino alla consegna e oltre.' }
             ].map((card, i) => (
               <div key={i} className="bg-white p-8 border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex gap-6 items-start">
-                <card.icon className="text-[#cda34f] shrink-0 mt-1" size={36} strokeWidth={1.5} />
+                <card.icon className="text-[#0c438f] shrink-0 mt-1" size={36} strokeWidth={1.5} />
                 <div>
-                  <h4 className="font-bold text-[#0A1526] text-[18px] mb-2">{card.title}</h4>
+                  <h4 className="font-bold text-[#061629] text-[18px] mb-2">{card.title}</h4>
                   <p className="text-[15px] text-muted leading-relaxed">{card.text}</p>
                 </div>
               </div>
@@ -139,7 +139,7 @@ export default function About() {
       {/* 5. IL NOSTRO METODO */}
       <section className="py-24 bg-white">
         <div className="ds-container">
-          <h2 className="text-center text-[36px] font-serif font-bold text-[#0A1526] mb-20">Il nostro metodo</h2>
+          <h2 className="text-center text-[36px] font-serif font-bold text-[#061629] mb-20">Il nostro metodo</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-y-16 gap-x-8">
             {[
@@ -152,13 +152,13 @@ export default function About() {
             ].map((step, i) => (
               <div key={i} className="relative flex flex-col">
                 <div className="bg-white border border-gray-100 p-8 pt-10 h-full flex flex-col shadow-sm">
-                  <div className="absolute -top-[20px] -left-[10px] w-12 h-12 rounded-full bg-[#0A1526] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[4px] border-white">
+                  <div className="absolute -top-[20px] -left-[10px] w-12 h-12 rounded-full bg-[#061629] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[4px] border-white">
                     {step.num}
                   </div>
                   <div className="flex items-start gap-5">
-                    <step.icon className="text-[#cda34f] shrink-0" size={32} strokeWidth={1.5} />
+                    <step.icon className="text-[#0c438f] shrink-0" size={32} strokeWidth={1.5} />
                     <div>
-                      <h3 className="font-bold text-[#0A1526] text-[16px] mb-3 leading-tight">{step.title}</h3>
+                      <h3 className="font-bold text-[#061629] text-[16px] mb-3 leading-tight">{step.title}</h3>
                       <p className="text-[14px] text-muted leading-relaxed">{step.text}</p>
                     </div>
                   </div>
@@ -170,23 +170,23 @@ export default function About() {
       </section>
 
       {/* 6. PARLIAMO E IL TEAM */}
-      <section className="bg-[#0A1526] py-24">
+      <section className="bg-[#061629] py-24">
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2 relative h-[450px]">
               <img 
                 src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" 
                 alt="Thomas Team" 
-                className="w-2/3 h-[350px] object-cover object-[center_20%] absolute left-0 top-0 border-[6px] border-[#0A1526]"
+                className="w-2/3 h-[350px] object-cover object-[center_20%] absolute left-0 top-0 border-[6px] border-[#061629]"
               />
               <img 
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=600" 
                 alt="Discussione Team" 
-                className="w-2/3 h-[300px] object-cover absolute right-0 bottom-0 border-[6px] border-[#0A1526]"
+                className="w-2/3 h-[300px] object-cover absolute right-0 bottom-0 border-[6px] border-[#061629]"
               />
             </div>
             <div className="w-full md:w-1/2 flex flex-col items-start text-left">
-              <h2 className="text-[36px] font-serif font-bold text-[#cda34f] mb-8">
+              <h2 className="text-[36px] font-serif font-bold text-[#0c438f] mb-8">
                 Parliamo e il team
               </h2>
               <div className="space-y-6 text-white/90 text-[16px] leading-relaxed">
@@ -206,9 +206,9 @@ export default function About() {
       </section>
 
       {/* 7. LA FIDUCIA DEI CLIENTI (Copied from Home essentially) */}
-      <section className="py-24 bg-[#f8fafc]">
+      <section className="py-24 bg-[#f6f8fb]">
         <div className="ds-container">
-          <h2 className="text-center text-[36px] font-serif font-bold text-[#0A1526] mb-16">La fiducia dei clienti</h2>
+          <h2 className="text-center text-[36px] font-serif font-bold text-[#061629] mb-16">La fiducia dei clienti</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -239,11 +239,11 @@ export default function About() {
                   <div className="flex gap-1 mb-4">
                     {[1,2,3,4,5].map(star => <Star key={star} size={14} className="fill-[#F59E0B] text-[#F59E0B]" />)}
                   </div>
-                  <p className="font-serif italic text-[#0A1526] text-[16px] leading-relaxed mb-8 flex-grow">
+                  <p className="font-serif italic text-[#061629] text-[16px] leading-relaxed mb-8 flex-grow">
                     "{review.text}"
                   </p>
                   <div>
-                    <div className="font-bold text-[#0A1526] text-[14px] uppercase tracking-wider">{review.car}</div>
+                    <div className="font-bold text-[#061629] text-[14px] uppercase tracking-wider">{review.car}</div>
                     <div className="text-[12px] text-muted mt-1">{review.city}</div>
                   </div>
                 </div>
@@ -254,7 +254,7 @@ export default function About() {
       </section>
 
       {/* 8. CTA PRE-FOOTER */}
-      <section className="bg-[#0a0f18] text-white">
+      <section className="bg-[#061629] text-white">
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/2 py-20 pr-10">
@@ -264,12 +264,12 @@ export default function About() {
               <p className="text-white/70 text-[16px] mb-10 leading-relaxed max-w-md">
                 Raccontaci cosa stai cercando: ti aiutiamo a trovare la soluzione giusta con un servizio su misura.
               </p>
-              <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#cda34f] hover:bg-[#b88f40] text-[#0A1526] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
+              <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-[#061629] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
                 Richiedi consulenza
               </Link>
             </div>
             <div className="w-full md:w-1/2 h-[400px] md:h-[500px] relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f18] via-transparent to-transparent z-10"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#061629] via-transparent to-transparent z-10"></div>
               <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=1200" alt="Dettaglio auto premium" className="w-full h-full object-cover opacity-60" />
             </div>
           </div>
