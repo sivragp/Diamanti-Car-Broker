@@ -27,7 +27,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Phone, title: 'Telefono', line1: '+39 345 678 9012', line2: 'Lun-Ven 9:00-19:00', line3: 'Sab 9:00-13:00' },
-              { icon: Mail, title: 'Email', line1: 'info@diamanticarbroker.it', line2: 'Scrivici e ti', line3: 'risponderemo presto' },
+              { icon: Mail, title: 'Email', line1: 'info@diamantiautomobili.it', line2: 'Scrivici e ti', line3: 'risponderemo presto' },
               { icon: Star, title: 'WhatsApp', line1: 'Scrivici per una', line2: 'risposta veloce', line3: 'Rapido e diretto' },
               { icon: Clock, title: 'Prenota una call', line1: 'Scegli il momento giusto', line2: 'per parlare con noi', line3: 'Consultazione gratuita' }
             ].map((item, i) => (
@@ -284,7 +284,7 @@ export default function Contact() {
               </p>
               <div className="mb-8">
                 <div className="font-serif italic text-[38px] text-[#0c438f] mb-2 leading-none">Thomas Diamanti</div>
-                <div className="text-white/60 text-[13px]">Fondatore, Diamanti Car Broker</div>
+                <div className="text-white/60 text-[13px]">Fondatore, Diamanti Automobili</div>
               </div>
               <img
                 src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=500"
@@ -381,7 +381,7 @@ export default function Contact() {
             Contattaci oggi stesso: ti aiutiamo a trovarla con il metodo
           </p>
           <p className="text-[16px] text-muted mb-10 leading-relaxed">
-            Diamanti Car Broker. Semplice, sicuro, su misura per te.
+            Diamanti Automobili. Semplice, sicuro, su misura per te.
           </p>
           <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-[#061629] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
             Richiedi consulenza

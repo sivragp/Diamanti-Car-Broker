@@ -89,7 +89,7 @@ export default function Services() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {/* Left - Con Diamanti */}
               <div className="bg-white rounded-2xl p-10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-gray-100">
-                <h3 className="font-bold text-[#061629] text-[18px] mb-8">Con Diamanti Car Broker</h3>
+                <h3 className="font-bold text-[#061629] text-[18px] mb-8">Con Diamanti Automobili</h3>
                 <ul className="flex flex-col gap-5">
                   {[
                     'Risparmi tempo e riduci lo stress',
@@ -166,18 +166,18 @@ export default function Services() {
         </div>
       </section>
 
-      {/* 5. BANNER - Non vendiamo auto in stock */}
+      {/* 5. BANNER - Ampia scelta veicoli */}
       <section className="bg-[#061629] relative overflow-hidden">
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/2 py-20 pr-10">
               <h2 className="text-[32px] md:text-[40px] font-serif font-bold text-white mb-6 leading-tight">
-                Non vendiamo auto in stock:<br/>
-                troviamo quella <span className="text-[#0c438f] italic">giusta per te</span>.
+                Ampia scelta 5000+ veicoli:<br/>
+                selezioniamo quello <span className="text-[#0c438f] italic">giusto per te</span>.
               </h2>
               <p className="text-white/70 text-[16px] mb-10 leading-relaxed max-w-md">
-                Il nostro lavoro parte sempre da te, non da un magazzino o da un listino.<br/>
-                Ogni ricerca è su misura, per offrirti solo ciò che risponde davvero.
+                Ogni giorno valutiamo opportunità disponibili, km 0, aziendali e usato premium.<br/>
+                Tu ci dici cosa cerchi, noi filtriamo solo le opzioni davvero adatte.
               </p>
               <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-white hover:bg-gray-100 text-[#061629] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
                 Parla con un consulente
@@ -245,7 +245,7 @@ export default function Services() {
 
           <div className="space-y-4">
             {[
-              { q: 'Come funziona il servizio di car broker?', a: 'Tu ci racconti cosa cerchi: modello, budget, utilizzo, preferenze, tempistiche. Noi attiviamo la ricerca e ti presentiamo le migliori opportunità e ti accompagniamo fino alla consegna dell\'auto.' },
+              { q: 'Come funziona il servizio di consulente auto?', a: 'Tu ci racconti cosa cerchi: modello, budget, utilizzo, preferenze, tempistiche. Noi attiviamo la ricerca e ti presentiamo le migliori opportunità e ti accompagniamo fino alla consegna dell\'auto.' },
               { q: 'Posso richiedere qualsiasi marca o modello?', a: 'Sì, lavoriamo su qualsiasi marca e modello. La nostra ricerca è personalizzata al 100% sulle tue esigenze specifiche.' },
               { q: 'Mi aiutate con la verifica dell\'auto?', a: 'Assolutamente. Ogni veicolo che proponiamo viene verificato in termini di storia, condizioni, documenti e chilometraggio reale.' },
               { q: 'Consegnate anche fuori città?', a: 'Sì, effettuiamo consegne a domicilio in tutta Italia. Organizziamo il trasporto in modo sicuro e puntuale.' }

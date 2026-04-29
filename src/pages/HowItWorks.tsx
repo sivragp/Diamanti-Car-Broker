@@ -60,7 +60,7 @@ export default function HowItWorks() {
               { 
                 step: "04", 
                 title: "Negoziazione & Protezione Legale", 
-                text: "Siamo broker, non venditori. Trattiamo il prezzo con il venditore per ottenere lo sconto massimo. Gestiamo noi i contratti per garantire che ogni clausola ti tuteli.",
+                text: "Siamo consulenti, non venditori. Trattiamo il prezzo con il venditore per ottenere lo sconto massimo. Gestiamo noi i contratti per garantire che ogni clausola ti tuteli.",
                 details: ["Massimizzazione sconto", "Revisione legale contratti", "Gestione pagamenti sicuri"],
                 icon: <BadgeCheck size={22} />
               },

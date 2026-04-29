@@ -32,7 +32,7 @@ export function Header() {
               </svg>
               <div className="flex flex-col">
                 <span className="text-[18px] font-extrabold tracking-[0.14em] leading-none">DIAMANTI</span>
-                <span className="text-[9px] font-bold tracking-[0.28em] mt-1 text-[#5f6b7a]">CAR BROKER</span>
+                <span className="text-[9px] font-bold tracking-[0.28em] mt-1 text-[#5f6b7a]">AUTOMOBILI</span>
               </div>
             </Link>
 
@@ -113,7 +113,7 @@ export function Footer() {
               </svg>
               <div className="flex flex-col">
                 <span className="text-[16px] text-white font-extrabold tracking-[0.14em] leading-none">DIAMANTI</span>
-                <span className="text-[8px] text-white/80 font-bold tracking-[0.3em] mt-1">CAR BROKER</span>
+                <span className="text-[8px] text-white/80 font-bold tracking-[0.3em] mt-1">AUTOMOBILI</span>
               </div>
             </Link>
             <p className="text-[13px] leading-relaxed mb-6">
@@ -169,7 +169,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-white/50" />
-                <span>info@diamanticarbroker.it</span>
+                <span>info@diamantiautomobili.it</span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-white/50 shrink-0 mt-0.5" />
@@ -181,7 +181,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-[11px] text-white/50">
-          <p>© 2024 Diamanti Car Broker - Tutti i diritti riservati.</p>
+          <p>© 2024 Diamanti Automobili - Tutti i diritti riservati.</p>
           <p className="mt-2 md:mt-0">P.IVA 12345678901</p>
         </div>
       </div>

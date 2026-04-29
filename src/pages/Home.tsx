@@ -1,4 +1,4 @@
-import { Search, Check, X, ShieldCheck, Target, Star, MapPin, Settings, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Search, Check, X, ShieldCheck, Target, Star, MapPin, Settings, CheckCircle2, ArrowRight, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -182,14 +182,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. DIAMANTI CAR BROKER 4 CARDS */}
+      {/* 3. DIAMANTI AUTOMOBILI 4 CARDS */}
       <section className="py-16 bg-white relative overflow-hidden">
         {/* Decorative car silhouette - faded right */}
         <div className="absolute right-[-100px] top-1/2 -translate-y-1/2 w-[800px] h-[600px] opacity-[0.15] pointer-events-none">
           <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1200" alt="" className="w-full h-full object-contain" />
         </div>
         <div className="ds-container relative z-10">
-          <h2 className="text-center text-[30px] md:text-[34px] mb-12 font-extrabold text-[#061629]">Diamanti Car Broker</h2>
+          <h2 className="text-center text-[30px] md:text-[34px] mb-12 font-extrabold text-[#061629]">Diamanti Automobili</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -210,11 +210,100 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 4. PRONTA CONSEGNA */}
+      <section className="py-16 bg-[#f6f8fb] border-y border-[#e6ebf2] overflow-hidden">
+        <div className="ds-container">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+            <div>
+              <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Pronta consegna</p>
+              <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-tight">Auto disponibili ora</h2>
+            </div>
+            <Link to="/contatti" className="inline-flex h-[42px] items-center justify-center rounded-full bg-white px-5 text-[13px] font-bold text-[#0b2b5b] border border-[#d7e2ef] hover:bg-[#eef3f8] transition-colors">
+              Richiedi disponibilità <ArrowRight size={15} className="ml-2" />
+            </Link>
+          </div>
+
+          <div className="flex gap-5 overflow-x-auto hide-scrollbar snap-x snap-mandatory pb-4 -mx-5 px-5 lg:mx-0 lg:px-0">
+            {[
+              {
+                name: 'Audi Q5 40 TDI quattro',
+                tag: 'Nuova',
+                meta: '2024 · Diesel · Automatica',
+                km: '20.500 km',
+                price: '€ 52.900',
+                image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&q=80&w=900'
+              },
+              {
+                name: 'BMW 320d Touring M Sport',
+                tag: 'Aziendale',
+                meta: '2023 · Diesel · Automatica',
+                km: '18.900 km',
+                price: '€ 41.900',
+                image: 'https://images.unsplash.com/photo-1556189250-72ba954cfc2b?auto=format&fit=crop&q=80&w=900'
+              },
+              {
+                name: 'Mercedes GLC 220 d 4Matic',
+                tag: 'Km0',
+                meta: '2024 · Diesel · Automatica',
+                km: '5.000 km',
+                price: '€ 58.900',
+                image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=900'
+              },
+              {
+                name: 'Lexus NX 350h Executive',
+                tag: 'Ibrida',
+                meta: '2024 · Hybrid · Automatica',
+                km: '7.500 km',
+                price: '€ 49.900',
+                image: 'https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&q=80&w=900'
+              },
+              {
+                name: 'Porsche Macan Electric',
+                tag: 'Nuova',
+                meta: '2024 · Elettrica · Automatica',
+                km: '0 km',
+                price: '€ 79.900',
+                image: 'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&q=80&w=900'
+              },
+              {
+                name: 'Tesla Model Y Long Range',
+                tag: 'Km0',
+                meta: '2024 · Elettrica · Automatica',
+                km: '2.000 km',
+                price: '€ 54.900',
+                image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&q=80&w=900'
+              }
+            ].map((car, i) => (
+              <article key={i} className="snap-start shrink-0 w-[280px] md:w-[300px] bg-white rounded-lg border border-[#e6ebf2] overflow-hidden shadow-[0_14px_34px_-28px_rgba(6,22,41,0.38)]">
+                <div className="relative h-[176px]">
+                  <img src={car.image} alt={car.name} className="w-full h-full object-cover" />
+                  <span className="absolute top-3 left-3 rounded-full bg-[#1156bf] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wide text-white">{car.tag}</span>
+                  <button className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/88 text-[#061629] flex items-center justify-center backdrop-blur-sm" aria-label="Salva auto">
+                    <Heart size={16} strokeWidth={1.8} />
+                  </button>
+                </div>
+                <div className="p-5">
+                  <h3 className="text-[15px] font-extrabold text-[#061629] leading-tight mb-2">{car.name}</h3>
+                  <p className="text-[12px] text-[#5f6b7a] mb-1">{car.meta}</p>
+                  <p className="text-[12px] text-[#5f6b7a] mb-4">{car.km}</p>
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-[18px] font-extrabold text-[#061629]">{car.price}</p>
+                    <Link to="/contatti" className="inline-flex h-9 items-center justify-center rounded-full bg-[#0b2b5b] px-4 text-[12px] font-bold text-white hover:bg-[#0c438f] transition-colors">
+                      Info
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 4. VS SECTION */}
       <section className="py-16 bg-[#f6f8fb]">
         <div className="ds-container max-w-[1000px]">
           <h2 className="text-center text-[28px] md:text-[34px] font-extrabold mb-12 max-w-[800px] mx-auto leading-tight text-[#061629]">
-            Perché contattare un car broker prima di cercare l'auto da solo
+            Perché contattare un consulente auto prima di cercare l'auto da solo
           </h2>
           
           <div className="relative">
@@ -337,10 +426,10 @@ export default function Home() {
             </div>
             <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col items-start bg-[#f6f8fb] justify-center h-full">
               <h2 className="text-[26px] md:text-[32px] font-extrabold text-[#061629] mb-4 leading-tight">
-                Non abbiamo l'auto in showroom.
+                Ampia scelta 5000+ veicoli.
               </h2>
               <p className="text-[15px] md:text-[16px] text-muted mb-6 leading-relaxed font-sans">
-                Perché ogni ricerca è unica. Troviamo l'auto giusta per te, non quella che abbiamo in pronta consegna.
+                Selezioniamo ogni giorno opportunità disponibili, km 0, aziendali e usato premium in Italia ed Europa.
               </p>
               <Link to="/come-funziona" className="bg-[#0b2b5b] hover:bg-[#0c438f] text-white h-[44px] px-6 rounded-full text-[14px] font-bold flex items-center justify-center gap-2 transition-colors">
                 Scopri come funziona <span>→</span>
@@ -357,7 +446,7 @@ export default function Home() {
           <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1200" alt="" className="w-full h-full object-cover" />
         </div>
         <div className="ds-container max-w-[1400px] relative z-10">
-          <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-14">Perché scegliere Diamanti Car Broker</h2>
+          <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-14">Perché scegliere Diamanti Automobili</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-gray-100 px-4">
             {[
@@ -391,7 +480,7 @@ export default function Home() {
           <div className="bg-white rounded-none md:rounded-lg overflow-hidden flex flex-col md:flex-row items-center border border-[#e6ebf2] shadow-[0_16px_36px_-28px_rgba(6,22,41,0.36)] max-h-auto md:max-h-[460px]">
             <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col items-start justify-center h-full">
               <h2 className="text-[28px] md:text-[34px] font-extrabold text-[#061629] mb-4 leading-[1.15]">
-                Ciao, sono Thomas di<br/>Diamanti Car Broker
+                Ciao, sono Thomas di<br/>Diamanti Automobili
               </h2>
               <p className="text-[15px] text-[#061629] mb-4 leading-relaxed">
                 La mia missione è trovarti l'auto perfetta, senza stress e senza rischi. Mi occupo di ogni dettaglio, dalla ricerca alla consegna, con trasparenza e competenza.
@@ -460,7 +549,7 @@ export default function Home() {
               Hai già in mente la tua <br/>prossima auto?
             </h2>
             <p className="text-[17px] text-white/90 mb-8 leading-relaxed font-sans">
-              Parlane con Thomas di Diamanti Car Broker.<br/>
+              Parlane con Thomas di Diamanti Automobili.<br/>
               La cerchiamo noi, per te.
             </p>
             <Link to="/consulenza" className="inline-flex bg-white hover:bg-gray-100 text-[#061629] h-[46px] px-8 rounded-full text-[14px] font-bold items-center justify-center transition-colors">

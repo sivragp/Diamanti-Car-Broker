@@ -16,10 +16,10 @@ export default function About() {
               </h1>
               <div className="space-y-6 text-[#061629] text-[16px] leading-relaxed">
                 <p>
-                  Diamanti Car Broker nasce per semplificare la ricerca e l'acquisto dell'auto giusta.
+                  Diamanti Automobili nasce per semplificare la ricerca e l'acquisto dell'auto giusta.
                 </p>
                 <p>
-                  <strong>Sono Thomas</strong>, fondatore di Diamanti Car Broker, e insieme <strong>al mio team</strong> accompagniamo ogni cliente in tutte le fasi del processo, con un approccio su misura, trasparente e orientato al dettaglio.
+                  <strong>Sono Thomas</strong>, fondatore di Diamanti Automobili, e insieme <strong>al mio team</strong> accompagniamo ogni cliente in tutte le fasi del processo, con un approccio su misura, trasparente e orientato al dettaglio.
                 </p>
                 <p>
                   Il nostro obiettivo è trasformare ogni richiesta in una soluzione concreta, sicura e in linea con le tue aspettative.
@@ -31,7 +31,7 @@ export default function About() {
                   Thomas
                 </div>
                 <div className="text-[14px] font-bold text-[#061629]">Fondatore</div>
-                <div className="text-[13px] text-muted">Diamanti Car Broker</div>
+                <div className="text-[13px] text-muted">Diamanti Automobili</div>
               </div>
             </div>
             <div className="w-full md:w-1/2 h-[500px]">
@@ -98,7 +98,7 @@ export default function About() {
         <div className="w-full md:w-1/2 bg-[#061629] py-20 px-8 md:pl-[max(2rem,calc((100vw-1280px)/2))] md:pr-16 flex flex-col justify-center">
           <div className="max-w-xl ml-auto w-full">
             <h2 className="text-[32px] md:text-[40px] font-serif font-bold text-white mb-10 leading-tight">
-              Perché i clienti scelgono<br/>Diamanti Car Broker
+              Perché i clienti scelgono<br/>Diamanti Automobili
             </h2>
             <ul className="space-y-6">
               {[

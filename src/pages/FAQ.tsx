@@ -24,7 +24,7 @@ export default function FAQ() {
       a: "Assolutamente sì. Siamo esperti di importazione tedesca (mercato più vasto e trasparente). Gestiamo noi tutto il processo: perizia in loco, trasporto con bisarca e immatricolazione con targhe italiane."
     },
     {
-      q: "Perché dovrei pagare un broker invece di cercare da solo?",
+      q: "Perché dovrei pagare un consulente invece di cercare da solo?",
       a: "Per lo stesso motivo per cui ti affidi a un tecnico per ristrutturare casa. Noi abbiamo accesso a periti, strumenti di diagnosi e database km. Ti salviamo da fregature che potrebbero costarti migliaia di euro in riparazioni impreviste."
     },
     {
@@ -39,7 +39,7 @@ export default function FAQ() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6">Domande Frequenti</h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Tutto quello che devi sapere sul servizio di brokeraggio automobilistico. Trasparenza totale, prima di iniziare.
+            Tutto quello che devi sapere sul servizio di consulenza automobilistica. Trasparenza totale, prima di iniziare.
           </p>
         </div>
       </section>
