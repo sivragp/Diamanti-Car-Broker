@@ -10,8 +10,8 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?auto=format&fit=crop&q=80&w=2000" 
-            alt="Auto in movimento" 
+            src="/images/hero-bmw-road.png" 
+            alt="Auto sportive su strada panoramica" 
             className="w-full h-full object-cover"
           />
         </div>
