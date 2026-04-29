@@ -184,10 +184,6 @@ export default function Home() {
 
       {/* 3. DIAMANTI AUTOMOBILI 4 CARDS */}
       <section className="py-16 bg-white relative overflow-hidden">
-        {/* Decorative car silhouette - faded right */}
-        <div className="absolute right-[-100px] top-1/2 -translate-y-1/2 w-[800px] h-[600px] opacity-[0.15] pointer-events-none">
-          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1200" alt="" className="w-full h-full object-contain" />
-        </div>
         <div className="ds-container relative z-10">
           <h2 className="text-center text-[30px] md:text-[34px] mb-12 font-extrabold text-[#061629]">Diamanti Automobili</h2>
           
@@ -362,30 +358,11 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Happy customer lifestyle strip */}
-          <div className="mt-16 grid grid-cols-3 gap-8">
-            <div className="h-[300px] rounded-lg overflow-hidden shadow-[0_18px_42px_-25px_rgba(6,22,41,0.48)] transition-all duration-500 hover:scale-[1.02]">
-              <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=800" alt="Cliente felice alla guida" className="w-full h-full object-cover" />
-            </div>
-            <div className="h-[300px] rounded-lg overflow-hidden shadow-[0_18px_42px_-25px_rgba(6,22,41,0.48)] transition-all duration-500 hover:scale-[1.02]">
-              <img src="https://images.unsplash.com/photo-1517524285303-d6fc683dddf8?auto=format&fit=crop&q=80&w=800" alt="Consegna auto premium" className="w-full h-full object-cover" />
-            </div>
-            <div className="h-[300px] rounded-lg overflow-hidden shadow-[0_18px_42px_-25px_rgba(6,22,41,0.48)] transition-all duration-500 hover:scale-[1.02]">
-              <img src="https://images.unsplash.com/photo-1562515009-519284ca627b?auto=format&fit=crop&q=80&w=800" alt="Soddisfazione post acquisto" className="w-full h-full object-cover" />
-            </div>
-          </div>
         </div>
       </section>
 
       {/* 5. COME FUNZIONA */}
       <section className="py-16 bg-white relative overflow-hidden">
-        {/* Decorative car images framing the section */}
-        <div className="absolute left-[-50px] top-[10%] w-[400px] h-[300px] opacity-[0.1] pointer-events-none rotate-[-15deg]">
-          <img src="https://images.unsplash.com/photo-1494976388531-d1058494ceb8?auto=format&fit=crop&q=80&w=800" alt="" className="w-full h-full object-cover rounded-lg" />
-        </div>
-        <div className="absolute right-[-50px] bottom-[10%] w-[400px] h-[300px] opacity-[0.1] pointer-events-none rotate-[15deg]">
-          <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800" alt="" className="w-full h-full object-cover rounded-lg" />
-        </div>
         <div className="ds-container">
           <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">Come funziona</h2>
           
@@ -441,10 +418,6 @@ export default function Home() {
 
       {/* 7. PERCHÉ SCEGLIERE (5 cols) */}
       <section className="py-16 bg-white border-t border-[#e6ebf2] relative overflow-hidden">
-        {/* Decorative fleet image top-right */}
-        <div className="absolute right-[-100px] top-[-50px] w-[700px] h-[400px] opacity-[0.08] pointer-events-none rotate-[-5deg]">
-          <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1200" alt="" className="w-full h-full object-cover" />
-        </div>
         <div className="ds-container max-w-[1400px] relative z-10">
           <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-14">Perché scegliere Diamanti Automobili</h2>
           
