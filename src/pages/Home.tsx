@@ -14,16 +14,14 @@ export default function Home() {
             alt="Auto in movimento" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#061629]/92 via-[#061629]/48 to-[#061629]/8"></div>
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#061629] to-transparent"></div>
         </div>
 
         <div className="ds-container relative z-10 w-full mb-24 mt-0">
           <div className="max-w-2xl">
-            <h1 className="text-[38px] md:text-[52px] lg:text-[58px] font-extrabold text-white mb-6 leading-[1.08] text-left">
+            <h1 className="text-[38px] md:text-[52px] lg:text-[58px] font-extrabold text-white mb-6 leading-[1.08] text-left [text-shadow:_0_3px_22px_rgb(0_0_0_/_0.55)]">
               Troviamo l'auto giusta <br/>con il supporto di Thomas.
             </h1>
-            <p className="text-[16px] md:text-[18px] text-white/92 mb-8 max-w-[610px] text-left leading-[1.65] font-sans font-medium">
+            <p className="text-[16px] md:text-[18px] text-white mb-8 max-w-[610px] text-left leading-[1.65] font-sans font-medium [text-shadow:_0_2px_16px_rgb(0_0_0_/_0.55)]">
               Cerchi un'auto nuova o usata? La cerchiamo noi su tutto il mercato, verifichiamo ogni dettaglio e te la consegniamo a casa, pronta all'uso.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -41,33 +39,33 @@ export default function Home() {
         <div className="absolute bottom-[-42px] md:bottom-[-52px] left-0 right-0 z-20 px-4">
           <div className="ds-container relative">
             <div className="bg-white rounded-lg shadow-[0_22px_48px_-26px_rgba(6,22,41,0.45)] p-4 md:p-5 border border-[#e6ebf2] relative z-10">
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-3 items-end">
-                <div className="flex flex-col text-left">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1fr_1.55fr] gap-3 items-end">
+                <div className="flex flex-col text-left min-w-0">
                   <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Tipologia</label>
-                  <input type="text" placeholder="SUV, Berlina, City car..." className="w-full border-0 bg-white rounded-md h-[44px] px-2 text-[13px] font-semibold text-[#061629] focus:outline-none focus:ring-2 focus:ring-[#d9e6f7]" />
+                  <input type="text" placeholder="SUV, Berlina, City car..." className="w-full min-w-0 border-0 bg-white rounded-md h-[44px] px-3 text-[13px] font-semibold text-[#061629] truncate focus:outline-none focus:ring-2 focus:ring-[#d9e6f7]" />
                 </div>
-                <div className="flex flex-col text-left">
+                <div className="flex flex-col text-left min-w-0">
                   <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Marca</label>
-                  <select className="w-full border-0 bg-white rounded-md h-[44px] px-2 text-[13px] text-[#5f6b7a] focus:outline-none focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
+                  <select className="w-full min-w-0 border-0 bg-white rounded-md h-[44px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
                     <option>Seleziona marca</option>
                   </select>
                 </div>
-                <div className="flex flex-col text-left">
+                <div className="flex flex-col text-left min-w-0">
                   <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Modello</label>
-                  <select className="w-full border-0 bg-white rounded-md h-[44px] px-2 text-[13px] text-[#5f6b7a] focus:outline-none focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
+                  <select className="w-full min-w-0 border-0 bg-white rounded-md h-[44px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
                     <option>Seleziona modello</option>
                   </select>
                 </div>
-                <div className="flex flex-col text-left">
+                <div className="flex flex-col text-left min-w-0">
                   <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Alimentazione</label>
-                  <select className="w-full border-0 bg-white rounded-md h-[44px] px-2 text-[13px] text-[#5f6b7a] focus:outline-none focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
+                  <select className="w-full min-w-0 border-0 bg-white rounded-md h-[44px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
                     <option>Benzina, Diesel...</option>
                   </select>
                 </div>
-                <div className="flex flex-col text-left">
+                <div className="flex flex-col text-left min-w-0">
                   <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Prezzo</label>
-                  <div className="flex gap-2">
-                    <input type="text" placeholder="Budget massimo" className="w-full border-0 bg-white rounded-md h-[44px] px-2 text-[13px] font-semibold text-[#061629] focus:outline-none focus:ring-2 focus:ring-[#d9e6f7]" />
+                  <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-2">
+                    <input type="text" placeholder="Budget max" className="w-full min-w-0 border-0 bg-white rounded-md h-[44px] px-3 text-[13px] font-semibold text-[#061629] focus:outline-none focus:ring-2 focus:ring-[#d9e6f7]" />
                     <button className="bg-[#0b2b5b] hover:bg-[#0c438f] text-white h-[44px] px-5 rounded-md text-[13px] font-bold whitespace-nowrap transition-colors flex items-center justify-center gap-2">
                       <Search size={15} /> Cerca
                     </button>
@@ -444,14 +442,10 @@ export default function Home() {
       </section>
 
       {/* 8. FOUNDER */}
-      <section className="py-14 md:py-16 bg-[#f6f8fb] relative overflow-hidden">
-        {/* More prominent car background for founder section */}
-        <div className="absolute left-[-50px] top-[-50px] w-[700px] h-[500px] opacity-[0.12] pointer-events-none rotate-[5deg]">
-          <img src="https://images.unsplash.com/photo-1493238507154-203aa98ed081?auto=format&fit=crop&q=80&w=1200" alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="ds-container relative z-10">
-          <div className="bg-white rounded-none md:rounded-lg overflow-hidden flex flex-col md:flex-row items-center border border-[#e6ebf2] shadow-[0_16px_36px_-28px_rgba(6,22,41,0.36)] max-h-auto md:max-h-[460px]">
-            <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col items-start justify-center h-full">
+      <section className="bg-[#f6f8fb]">
+        <div className="grid grid-cols-1 md:grid-cols-2 w-full">
+          <div className="bg-white px-5 py-14 md:py-20 lg:pl-[max(2rem,calc((100vw-1260px)/2+2rem))] lg:pr-16 flex flex-col items-start justify-center">
+            <div className="max-w-[620px]">
               <h2 className="text-[28px] md:text-[34px] font-extrabold text-[#061629] mb-4 leading-[1.15]">
                 Ciao, sono Thomas di<br/>Diamanti Automobili
               </h2>
@@ -465,9 +459,9 @@ export default function Home() {
                 Scopri di più
               </Link>
             </div>
-            <div className="w-full md:w-1/2 h-[350px] md:h-[460px]">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" alt="Thomas - Founder" className="w-full h-full object-cover object-[center_20%]" />
-            </div>
+          </div>
+          <div className="w-full h-[360px] md:h-[560px]">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1000" alt="Thomas - Founder" className="w-full h-full object-cover object-[center_20%]" />
           </div>
         </div>
       </section>
