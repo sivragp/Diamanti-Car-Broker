@@ -360,31 +360,30 @@ export default function Home() {
       </section>
 
       {/* 5. COME FUNZIONA */}
-      <section className="py-16 bg-white relative overflow-hidden">
+      <section className="py-14 bg-white relative overflow-hidden">
         <div className="ds-container">
-          <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">Come funziona</h2>
+          <h2 className="text-center text-[24px] md:text-[28px] font-extrabold text-[#061629] mb-10">Come funziona</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-16 max-w-5xl mx-auto relative">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8 max-w-6xl mx-auto">
             {[
-              { num: 1, icon: CheckCircle2, title: 'Primo contatto', text: 'Breve call per capire esigenze, budget e tempistiche.' },
-              { num: 2, icon: Target, title: 'Profilazione auto', text: 'Definiamo tipologia, marca, modello e priorità.' },
-              { num: 3, icon: Search, title: 'Ricerca mirata', text: 'Selezioniamo le migliori opportunità sul mercato.' },
-              { num: 4, icon: ShieldCheck, title: 'Verifica e proposta', text: 'Controlli, analisi e presentazione delle opzioni adatte.' },
-              { num: 5, icon: Settings, title: 'Gestione acquisto', text: 'Supporto nella trattativa, pratiche e coordinamento.' },
-              { num: 6, icon: MapPin, title: 'Consegna a domicilio', text: 'L\'auto arriva a casa tua pronta all\'uso.' }
+              { icon: CheckCircle2, title: 'Briefing iniziale', text: 'Ci racconti esigenze, budget e preferenze.' },
+              { icon: Search, title: 'Ricerca selezionata', text: 'Troviamo le migliori auto disponibili sul mercato.' },
+              { icon: ShieldCheck, title: 'Proposta personalizzata', text: 'Ti presentiamo le opzioni più adatte con analisi e consigli.' },
+              { icon: MapPin, title: 'Consegna e supporto', text: 'Ci occupiamo di tutto fino alla consegna e oltre.' }
             ].map((step, i) => (
-              <div key={i} className="relative z-10 flex flex-col items-center text-center">
-                {i % 3 !== 2 && (
-                  <div className="hidden md:block absolute top-[24px] left-1/2 w-[calc(100%+3rem)] border-t-[2px] border-dotted border-[#dfe7f0] z-0"></div>
+              <div key={i} className="relative flex flex-col items-center text-center px-4">
+                {i !== 3 && (
+                  <div className="hidden md:flex absolute top-[19px] left-[calc(50%+38px)] right-[calc(-50%+38px)] items-center z-0">
+                    <div className="h-px flex-1 border-t border-dotted border-[#cfd9e6]"></div>
+                    <ArrowRight size={14} className="mx-2 text-[#0b2b5b]" strokeWidth={2.2} />
+                    <div className="h-px flex-1 border-t border-dotted border-[#cfd9e6]"></div>
+                  </div>
                 )}
-                <div className="absolute -top-[26px] w-12 h-12 rounded-full bg-[#0b2b5b] text-white font-sans font-bold text-[16px] flex items-center justify-center border-[5px] border-white">
-                  {step.num}
+                <div className="relative z-10 w-10 h-10 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-4 shadow-[0_10px_24px_-16px_rgba(6,22,41,0.5)]">
+                  <step.icon size={18} strokeWidth={1.9} />
                 </div>
-                <div className="bg-white border border-[#e6ebf2] rounded-lg pt-12 pb-8 px-6 w-full h-full flex flex-col items-center shadow-[0_12px_28px_-25px_rgba(6,22,41,0.32)]">
-                  <step.icon className="text-[#061629] mb-4 opacity-90" size={28} strokeWidth={1.5} />
-                  <h3 className="text-[16px] font-extrabold text-[#061629] mb-3">{step.title}</h3>
-                  <p className="text-[14px] text-muted leading-relaxed">{step.text}</p>
-                </div>
+                <h3 className="text-[14px] font-extrabold text-[#061629] mb-2 leading-tight">{step.title}</h3>
+                <p className="text-[12px] text-muted leading-relaxed max-w-[210px]">{step.text}</p>
               </div>
             ))}
           </div>
