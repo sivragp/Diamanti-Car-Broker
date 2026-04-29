@@ -365,10 +365,6 @@ export default function Home() {
           <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">Come funziona</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-16 max-w-5xl mx-auto relative">
-            {/* Connecting lines for desktop */}
-            <div className="hidden md:block absolute top-[28px] left-[15%] right-[15%] border-t-[2px] border-dotted border-gray-200 z-0"></div>
-            <div className="hidden md:block absolute top-[260px] left-[15%] right-[15%] border-t-[2px] border-dotted border-gray-200 z-0"></div>
-            
             {[
               { num: 1, icon: CheckCircle2, title: 'Primo contatto', text: 'Breve call per capire esigenze, budget e tempistiche.' },
               { num: 2, icon: Target, title: 'Profilazione auto', text: 'Definiamo tipologia, marca, modello e priorità.' },
@@ -378,6 +374,9 @@ export default function Home() {
               { num: 6, icon: MapPin, title: 'Consegna a domicilio', text: 'L\'auto arriva a casa tua pronta all\'uso.' }
             ].map((step, i) => (
               <div key={i} className="relative z-10 flex flex-col items-center text-center">
+                {i % 3 !== 2 && (
+                  <div className="hidden md:block absolute top-[24px] left-1/2 w-[calc(100%+3rem)] border-t-[2px] border-dotted border-[#dfe7f0] z-0"></div>
+                )}
                 <div className="absolute -top-[26px] w-12 h-12 rounded-full bg-[#0b2b5b] text-white font-sans font-bold text-[16px] flex items-center justify-center border-[5px] border-white">
                   {step.num}
                 </div>
