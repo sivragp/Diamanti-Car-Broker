@@ -10,10 +10,6 @@ export default function Services() {
 
       {/* 1. HERO - Cosa possiamo fare per te */}
       <section className="py-20 bg-white relative overflow-hidden">
-        {/* Decorative car silhouette */}
-        <div className="absolute right-[-100px] top-1/2 -translate-y-1/2 w-[700px] h-[500px] opacity-[0.1] pointer-events-none">
-          <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1200" alt="" className="w-full h-full object-contain" />
-        </div>
         <div className="ds-container text-center relative z-10">
           <h1 className="text-[40px] md:text-[50px] font-serif font-bold text-[#061629] mb-6">
             Cosa possiamo fare per te
@@ -169,8 +165,8 @@ export default function Services() {
       {/* 5. BANNER - Ampia scelta veicoli */}
       <section className="bg-[#061629] relative overflow-hidden">
         <div className="ds-container">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="w-full md:w-1/2 py-20 pr-10">
+          <div className="py-20">
+            <div className="max-w-2xl">
               <h2 className="text-[32px] md:text-[40px] font-serif font-bold text-white mb-6 leading-tight">
                 Ampia scelta 5000+ veicoli:<br/>
                 selezioniamo quello <span className="text-[#0c438f] italic">giusto per te</span>.
@@ -182,15 +178,6 @@ export default function Services() {
               <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-white hover:bg-gray-100 text-[#061629] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
                 Parla con un consulente
               </Link>
-            </div>
-            <div className="w-full md:w-1/2 h-[400px] md:h-[480px] relative">
-              <div className="rounded-xl overflow-hidden h-[320px] shadow-lg">
-                <img
-                  src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=800"
-                  alt="Cliente soddisfatto"
-                  className="w-full h-full object-cover"
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -218,22 +205,6 @@ export default function Services() {
                 <p className="text-[13px] text-muted leading-relaxed">{item.text}</p>
               </div>
             ))}
-          </div>
-
-          {/* Photo strip of car details */}
-          <div className="mt-20 grid grid-cols-4 gap-4">
-            <div className="h-[180px] rounded-xl overflow-hidden shadow-sm">
-              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=600" alt="Porsche Detail" className="w-full h-full object-cover" />
-            </div>
-            <div className="h-[180px] rounded-xl overflow-hidden shadow-sm">
-              <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=600" alt="Headlights" className="w-full h-full object-cover" />
-            </div>
-            <div className="h-[180px] rounded-xl overflow-hidden shadow-sm">
-              <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=600" alt="Luxury car" className="w-full h-full object-cover" />
-            </div>
-            <div className="h-[180px] rounded-xl overflow-hidden shadow-sm">
-              <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=600" alt="Porsche Profile" className="w-full h-full object-cover" />
-            </div>
           </div>
         </div>
       </section>
