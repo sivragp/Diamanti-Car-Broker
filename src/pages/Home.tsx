@@ -250,81 +250,66 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. PAIN → SOLUTION STORIES */}
+      {/* 4. IL VALORE DEL CONSULENTE — Asymmetric Comparison */}
       <section className="py-20 bg-[#f6f8fb] border-y border-[#e6ebf2]">
-        <div className="ds-container max-w-[1100px]">
+        <div className="ds-container max-w-[1180px]">
           <div className="text-center mb-14">
-            <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Storie vere</p>
-            <h2 className="text-[30px] md:text-[40px] font-extrabold text-[#061629] leading-[1.15] max-w-[820px] mx-auto">
-              Quattro storie. <span className="text-[#0c438f]">Quattro motivi per non cercare da soli.</span>
+            <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Il valore del consulente</p>
+            <h2 className="text-[30px] md:text-[42px] font-extrabold text-[#061629] leading-[1.15] max-w-[860px] mx-auto">
+              Da solo compri un'auto.{' '}
+              <span className="text-[#0c438f]">Con noi scegli l'auto giusta per te.</span>
             </h2>
-            <p className="text-[15px] md:text-[16px] text-muted max-w-[640px] mx-auto leading-relaxed mt-5">
-              Le frustrazioni reali di chi ha provato a fare da solo, e le risposte che diamo ogni giorno ai nostri clienti.
-            </p>
           </div>
 
-          <div className="flex flex-col gap-5">
-            {[
-              {
-                pain: 'Ho perso tre settimane tra annunci scaduti, foto false e venditori che sparivano nel nulla.',
-                solutionTitle: 'Filtriamo migliaia di proposte. Te ne presentiamo tre, e sono tutte reali.',
-                solutionTag: 'Scouting selezionato',
-                icon: Search,
-              },
-              {
-                pain: "Avevo trovato l'auto perfetta. Peccato che il chilometraggio fosse stato truccato.",
-                solutionTitle: 'Perizia 150 punti con diagnosi computerizzata e database km ufficiali. Niente sorprese.',
-                solutionTag: 'Verifica tecnica completa',
-                icon: ShieldCheck,
-              },
-              {
-                pain: 'Volevo una rata leggera. In concessionaria mi hanno proposto solo finanziamenti cari e brevi.',
-                solutionTitle: 'Finanziamenti su misura fino a 10 anni con i nostri partner bancari. Rata costruita sulle tue tasche.',
-                solutionTag: 'Finanziamento dedicato',
-                icon: CreditCard,
-              },
-              {
-                pain: 'Vivo in Sicilia. Le occasioni migliori erano tutte al Nord, irraggiungibili per me.',
-                solutionTitle: "Cerchiamo in tutta Europa e ti consegniamo l'auto sotto casa. Ovunque tu sia in Italia.",
-                solutionTag: 'Consegna a domicilio',
-                icon: Truck,
-              }
-            ].map((story, i) => (
-              <div key={i} className="grid grid-cols-1 md:grid-cols-2 rounded-lg overflow-hidden border border-[#e6ebf2] shadow-[0_14px_34px_-28px_rgba(6,22,41,0.4)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.45)] transition-shadow">
-                {/* Pain side */}
-                <div className="p-8 md:p-10 bg-white relative border-b md:border-b-0 md:border-r border-[#e6ebf2]">
-                  <span aria-hidden="true" className="absolute top-3 left-7 text-[68px] md:text-[88px] font-serif text-[#0c438f]/10 leading-none select-none pointer-events-none">“</span>
-                  <p className="relative text-[15px] md:text-[16.5px] italic text-[#061629] leading-[1.65] pt-7 pr-2">
-                    {story.pain}
-                  </p>
-                  <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#7b8794] mt-6 flex items-center gap-2">
-                    <span className="inline-block w-6 h-px bg-[#cfd9e6]"></span>
-                    Prima di Diamanti
-                  </p>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-5 md:gap-6 items-stretch">
+            {/* DA SOLO — smorzato */}
+            <div className="bg-[#eef1f5] rounded-lg p-7 md:p-8 border border-[#dde3ec] flex flex-col">
+              <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7b8794] mb-6">Da solo</p>
+              <ul className="flex flex-col gap-5">
+                {[
+                  'Subito, AutoScout e basta',
+                  'Visite di persona, weekend dopo weekend',
+                  'Una trattativa contro un venditore esperto',
+                  'Pratiche, trasporto e carte sulle tue spalle',
+                  'Nessuno a cui chiedere dopo la consegna',
+                ].map((text, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#a3adbb] mt-2 shrink-0"></span>
+                    <span className="text-[14px] text-[#6b7689] leading-[1.55] italic">{text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-                {/* Solution side */}
-                <div className="p-8 md:p-10 bg-[#061629] text-white relative flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-3 mb-5">
-                      <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                        <story.icon size={18} strokeWidth={1.8} />
-                      </div>
-                      <span className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-white/72">
-                        {story.solutionTag}
-                      </span>
+            {/* CON DIAMANTI — dominante */}
+            <div className="bg-[#061629] rounded-lg p-8 md:p-10 text-white relative overflow-hidden">
+              <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7ba6e4] mb-6">Con Diamanti</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-7 gap-y-6">
+                {[
+                  { icon: Search, title: 'Mercato Italia + Europa + canali privati', text: 'Anche le auto che non finiscono mai online.' },
+                  { icon: ShieldCheck, title: 'Perizia 150 punti + database km ufficiali', text: 'Zero sorprese, niente km truccati.' },
+                  { icon: CreditCard, title: 'Finanziamento dedicato fino a 10 anni', text: 'Con i nostri partner bancari, costruito su di te.' },
+                  { icon: Truck, title: 'Consegna a casa in tutta Italia', text: 'Immatricolata, lavata, pronta a partire.' },
+                  { icon: Wrench, title: 'Primo tagliando incluso dopo 5.000 km', text: 'Restiamo presenti anche dopo la consegna.' },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                      <item.icon size={18} strokeWidth={1.8} className="text-white" />
                     </div>
-                    <p className="text-[15px] md:text-[16.5px] text-white leading-[1.6] font-medium">
-                      {story.solutionTitle}
-                    </p>
+                    <div>
+                      <h3 className="text-[14px] font-extrabold leading-tight mb-1.5">{item.title}</h3>
+                      <p className="text-[13px] text-white/72 leading-[1.55]">{item.text}</p>
+                    </div>
                   </div>
-                  <div className="mt-6 flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#7ba6e4]">
-                    <ArrowRight size={14} strokeWidth={2.4} />
-                    La risposta Diamanti
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/contatti" className="inline-flex h-[46px] items-center justify-center rounded-full bg-[#0b2b5b] px-7 text-[13px] font-bold text-white hover:bg-[#0c438f] transition-colors gap-2">
+              Richiedi consulenza <ArrowRight size={15} />
+            </Link>
           </div>
         </div>
       </section>
