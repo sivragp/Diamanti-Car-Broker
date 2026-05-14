@@ -1,11 +1,19 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Phone, MessageSquare, Car, ShieldCheck, MapPin, Facebook, Instagram, Linkedin, Mail } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const navItems = [
     { label: 'Home', path: '/' },
@@ -17,23 +25,22 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 text-[#061629] border-b border-[#e6ebf2] backdrop-blur-md shadow-[0_8px_24px_rgba(6,22,41,0.05)]">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 text-white backdrop-blur-md transition-colors duration-300 ${
+          scrolled
+            ? 'bg-[#061629]/82 border-b border-white/5 shadow-[0_8px_24px_rgba(6,22,41,0.18)]'
+            : 'bg-[#061629] border-b border-transparent'
+        }`}
+      >
         <div className="ds-container">
           <div className="flex items-center justify-between h-[74px]">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group shrink-0">
-              {/* Diamond Icon Placeholder - using SVG since it's a specific logo */}
-              <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#0b2b5b]">
-                <path d="M20 2L2 12L20 38L38 12L20 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-                <path d="M2 12H38" stroke="currentColor" strokeWidth="1.5"/>
-                <path d="M12 12L20 38L28 12" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-                <path d="M20 2L12 12" stroke="currentColor" strokeWidth="1.5"/>
-                <path d="M20 2L28 12" stroke="currentColor" strokeWidth="1.5"/>
-              </svg>
-              <div className="flex flex-col">
-                <span className="text-[18px] font-extrabold tracking-[0.14em] leading-none">DIAMANTI</span>
-                <span className="text-[9px] font-bold tracking-[0.28em] mt-1 text-[#5f6b7a]">AUTOMOBILI</span>
-              </div>
+            <Link to="/" className="flex items-center shrink-0">
+              <img
+                src="/logo-diamanti.png"
+                alt="Diamanti Automobili — Consulente per l'acquisto di auto a Roma"
+                className="h-[58px] w-auto"
+              />
             </Link>
 
             {/* Desktop Nav */}
@@ -42,8 +49,10 @@ export function Header() {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`relative py-[29px] text-[12px] font-bold transition-colors hover:text-[#0c438f] ${
-                    location.pathname === item.path ? 'text-[#0c438f] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-[3px] after:bg-[#0c438f]' : 'text-[#061629]'
+                  className={`relative py-[29px] text-[12px] font-bold uppercase tracking-[0.14em] transition-colors hover:text-white ${
+                    location.pathname === item.path
+                      ? 'text-white after:absolute after:left-0 after:right-0 after:bottom-0 after:h-[3px] after:bg-white'
+                      : 'text-white/72'
                   }`}
                 >
                   {item.label}
@@ -53,7 +62,7 @@ export function Header() {
 
             {/* Mobile Toggle */}
             <div className="lg:hidden flex items-center shrink-0">
-              <button className="p-2 text-[#061629]" onClick={() => setIsOpen(!isOpen)}>
+              <button className="p-2 text-white" onClick={() => setIsOpen(!isOpen)}>
                 {isOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
               </button>
             </div>
@@ -67,7 +76,7 @@ export function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: '100dvh' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white fixed top-[74px] left-0 right-0 bottom-0 overflow-y-auto"
+              className="lg:hidden bg-[#061629] fixed top-[74px] left-0 right-0 bottom-0 overflow-y-auto"
             >
               <div className="px-5 py-8 flex flex-col gap-8">
                 {navItems.map((item) => (
@@ -75,14 +84,14 @@ export function Header() {
                     key={item.path}
                     to={item.path}
                     onClick={() => setIsOpen(false)}
-                    className="text-lg font-bold text-[#061629] hover:text-[#0c438f] transition-colors"
+                    className="text-lg font-bold text-white hover:text-[#7ba6e4] transition-colors"
                   >
                     {item.label}
                   </Link>
                 ))}
-                
-                <div className="mt-4 pt-8 border-t border-border">
-                  <Link to="/contatti" onClick={() => setIsOpen(false)} className="flex items-center justify-center h-[52px] w-full rounded-full bg-[#0b2b5b] text-white font-semibold text-base">
+
+                <div className="mt-4 pt-8 border-t border-white/10">
+                  <Link to="/contatti" onClick={() => setIsOpen(false)} className="flex items-center justify-center h-[52px] w-full rounded-full bg-white text-[#061629] font-semibold text-base">
                     Richiedi consulenza
                   </Link>
                 </div>
