@@ -205,13 +205,14 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="rounded-xl overflow-hidden h-[320px] shadow-lg relative group">
-                <img
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
-                  alt="Thomas - Consulente"
-                  className="w-full h-full object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#061629]/60 to-transparent"></div>
+              <div className="bg-[#061629] rounded-xl p-10 text-white shadow-lg flex flex-col justify-center">
+                <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#7ba6e4] mb-4">Il nostro team</p>
+                <h3 className="text-[22px] font-extrabold mb-4 leading-tight">
+                  Siamo qui per rispondere a tutte le tue domande.
+                </h3>
+                <p className="text-white/72 text-[14px] leading-relaxed">
+                  Il team di Diamanti Automobili è disponibile per consulenze su misura, valutazioni di permuta e simulazioni di finanziamento. Ti rispondiamo entro 24 ore lavorative.
+                </p>
               </div>
             </div>
 
@@ -282,21 +283,19 @@ export default function Contact() {
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2 flex flex-col items-start">
+              <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#7ba6e4] mb-4">Il nostro team</p>
               <h2 className="text-[32px] md:text-[38px] font-extrabold text-white mb-6 leading-tight">
                 Parli direttamente con noi
               </h2>
-              <p className="text-white/80 text-[15px] leading-relaxed mb-8 max-w-md">
-                Il team di Diamanti Automobili, guidato dal fondatore Thomas, segue ogni richiesta con attenzione e riservatezza. Ti accompagniamo dal primo contatto alla consegna dell'auto, con professionalità e passione.
+              <p className="text-white/80 text-[15px] leading-relaxed mb-6 max-w-md">
+                Il team di Diamanti Automobili segue ogni richiesta con attenzione e riservatezza. Ti accompagniamo dal primo contatto alla consegna dell'auto, con professionalità e passione.
               </p>
-              <div className="mb-8">
-                <div className="italic text-[38px] text-[#0c438f] mb-2 leading-none">Thomas Diamanti</div>
-                <div className="text-white/60 text-[13px]">Fondatore, Diamanti Automobili</div>
-              </div>
-              <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=500"
-                alt="Thomas Diamanti"
-                className="w-[300px] h-[350px] object-cover object-[center_20%] rounded-lg"
-              />
+              <p className="text-white/72 text-[14px] leading-relaxed mb-8 max-w-md">
+                Riceverai un singolo referente dedicato, che ti seguirà in tutte le fasi: briefing, ricerca, perizia, trattativa, consegna a domicilio e supporto post-vendita.
+              </p>
+              <Link to="/chi-siamo" className="inline-flex h-[44px] items-center justify-center rounded-full bg-white hover:bg-[#eef3f8] text-[#061629] px-6 text-[13px] font-bold transition-colors">
+                Scopri chi siamo
+              </Link>
             </div>
 
             <div className="w-full md:w-1/2 space-y-6">

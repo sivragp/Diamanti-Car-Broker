@@ -7,44 +7,37 @@ export default function About() {
   return (
     <div className="bg-surface min-h-screen font-sans text-text pt-[74px]">
       <SEO
-        title="Chi siamo — Thomas e il team Diamanti Automobili | Consulenti acquisto auto"
-        description="Thomas e il team di Diamanti Automobili: consulenti indipendenti specializzati nella ricerca, verifica e acquisto di auto premium. Sede a Roma, attivi in tutta Italia ed Europa."
+        title="Chi siamo — Diamanti Automobili | Consulenti acquisto auto"
+        description="Diamanti Automobili è un team di consulenti indipendenti specializzati nella ricerca, verifica e acquisto di auto premium. Sede a Roma, attivi in tutta Italia ed Europa."
         path="/chi-siamo"
       />
-      
+
       {/* 1. HERO CHI SIAMO */}
       <section className="py-16 md:py-24 bg-white">
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2 flex flex-col items-start text-left">
+              <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-4">Chi siamo</p>
               <h1 className="text-[40px] md:text-[50px] font-extrabold text-[#061629] mb-8 leading-tight">
-                Chi siamo
+                Diamanti Automobili
               </h1>
               <div className="space-y-6 text-[#061629] text-[16px] leading-relaxed">
                 <p>
                   Diamanti Automobili è il consulente indipendente che ti accompagna nell'acquisto della tua prossima auto: nuova, usata, km 0 o di importazione.
                 </p>
                 <p>
-                  <strong>Sono Thomas</strong>, fondatore di Diamanti Automobili. Insieme al nostro team seguiamo ogni cliente in tutte le fasi: dall'ascolto iniziale alla consegna, con un approccio su misura, trasparente e orientato al dettaglio.
+                  Fondata da Thomas Diamanti, con 6 anni di esperienza nel settore automobilistico, oggi è un team di consulenti che segue ogni cliente in tutte le fasi: dall'ascolto iniziale alla consegna, con un approccio su misura, trasparente e orientato al dettaglio.
                 </p>
                 <p>
                   Il nostro obiettivo è semplice: trasformare ogni richiesta in una scelta concreta, sicura e in linea con le tue aspettative.
                 </p>
               </div>
-              
-              <div className="mt-12">
-                <div className="italic text-[42px] text-[#0c438f] mb-2 leading-none">
-                  Thomas
-                </div>
-                <div className="text-[14px] font-bold text-[#061629]">Fondatore</div>
-                <div className="text-[13px] text-muted">Diamanti Automobili</div>
-              </div>
             </div>
             <div className="w-full md:w-1/2 h-[500px]">
               <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
-                alt="Thomas Diamanti, fondatore e consulente per l'acquisto auto a Roma"
-                className="w-full h-full object-cover object-[center_20%] shadow-lg"
+                src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&q=80&w=900"
+                alt="Auto premium selezionata dal team Diamanti Automobili"
+                className="w-full h-full object-cover shadow-lg"
               />
             </div>
           </div>
@@ -226,7 +219,7 @@ export default function About() {
                 name: 'Giorgio M.',
                 car: 'BMW X3',
                 city: 'Milano',
-                text: "Servizio impeccabile. Thomas e il suo team hanno trovato l'auto perfetta per me. Trasparenti, professionali e sempre disponibili. Consigliatissimi!"
+                text: "Servizio impeccabile. Il team di Diamanti Automobili ha trovato l'auto perfetta per me. Trasparenti, professionali e sempre disponibili. Consigliatissimi!"
               },
               {
                 initials: 'EF',

@@ -474,7 +474,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { initials: 'MR', text: "Servizio impeccabile. Thomas ha trovato l'auto perfetta in tempi record. Consigliatissimo!", name: 'Marco R.', car: 'BMW X5', city: 'Milano' },
+              { initials: 'MR', text: "Servizio impeccabile. Il team Diamanti ha trovato l'auto perfetta in tempi record. Consigliatissimo!", name: 'Marco R.', car: 'BMW X5', city: 'Milano' },
               { initials: 'LB', text: 'Professionale, trasparente e sempre disponibile. Consegna a domicilio puntuale e senza pensieri.', name: 'Luca B.', car: 'Audi Q5 Sportback', city: 'Roma' },
               { initials: 'AT', text: 'Non avrei mai trovato questa auto a queste condizioni. Servizio top.', name: 'Alessandro T.', car: 'Mercedes GLC', city: 'Torino' }
             ].map((review, i) => (
