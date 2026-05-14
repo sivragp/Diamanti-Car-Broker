@@ -278,12 +278,10 @@ export default function Home() {
                 </h3>
                 <ul className="flex flex-col gap-5">
                   {[
-                    "5.000+ veicoli analizzati ogni mese tra Italia ed Europa",
-                    'Perizia tecnica completa prima di firmare qualsiasi cosa',
-                    'Negoziazione condotta da chi tratta auto ogni giorno',
-                    'Pratiche, immatricolazione e consegna sotto casa',
-                    'Un solo referente, dal briefing al tagliando dei 5.000 km',
-                    'Zero vincoli con brand, concessionarie o magazzini',
+                    '5.000+ veicoli filtrati ogni mese: te ne arrivano 3, tutte reali',
+                    'Perizia tecnica completa prima di mettere una firma',
+                    'Trattativa quotidiana e leva contrattuale vera',
+                    'Pratiche, consegna a domicilio e tagliando inclusi',
                   ].map((text, i) => (
                     <li key={i} className="flex items-start gap-3.5">
                       <div className="w-[22px] h-[22px] rounded-full bg-white/12 border border-white/15 flex items-center justify-center shrink-0 mt-0.5">
@@ -303,12 +301,10 @@ export default function Home() {
                 </h3>
                 <ul className="flex flex-col gap-5">
                   {[
-                    'Annunci pubblici già visti, occasioni vere già perse',
-                    'Verifichi tu, sperando di non sbagliare',
-                    "Tratti con chi di auto ne ha viste migliaia",
-                    'Pratiche, trasporto e bolli sulle tue spalle',
-                    'Risolvi i problemi post-vendita da solo',
-                    'Nessun filtro tra te e chi vuole solo chiudere',
+                    'Centinaia di annunci pubblici, tutti già visti dagli altri',
+                    'Una verifica visiva e qualche foto sgranata',
+                    "Una trattativa contro chi tratta auto da vent'anni",
+                    'Bolli, trasporto e post-vendita sulle tue spalle',
                   ].map((text, i) => (
                     <li key={i} className="flex items-start gap-3.5">
                       <div className="w-[22px] h-[22px] rounded-full border border-[#d7e2ef] flex items-center justify-center shrink-0 mt-0.5">
@@ -320,6 +316,12 @@ export default function Home() {
                 </ul>
               </div>
             </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/contatti" className="inline-flex h-[46px] items-center justify-center rounded-full bg-[#0b2b5b] px-7 text-[13px] font-bold text-white hover:bg-[#0c438f] transition-colors gap-2">
+              Inizia con un consulente <ArrowRight size={15} />
+            </Link>
           </div>
         </div>
       </section>
