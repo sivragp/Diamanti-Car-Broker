@@ -250,66 +250,76 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. IL VALORE DEL CONSULENTE — Asymmetric Comparison */}
+      {/* 4. VS SECTION — Premium reload */}
       <section className="py-20 bg-[#f6f8fb] border-y border-[#e6ebf2]">
-        <div className="ds-container max-w-[1180px]">
+        <div className="ds-container max-w-[1100px]">
           <div className="text-center mb-14">
-            <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Il valore del consulente</p>
-            <h2 className="text-[30px] md:text-[42px] font-extrabold text-[#061629] leading-[1.15] max-w-[860px] mx-auto">
-              Da solo compri un'auto.{' '}
-              <span className="text-[#0c438f]">Con noi scegli l'auto giusta per te.</span>
+            <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Cercare un'auto</p>
+            <h2 className="text-[30px] md:text-[42px] font-extrabold text-[#061629] leading-[1.1] max-w-[780px] mx-auto">
+              Stesso obiettivo. <br className="hidden md:block" />
+              <span className="text-[#0c438f]">Due strade molto diverse.</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-5 md:gap-6 items-stretch">
-            {/* DA SOLO — smorzato */}
-            <div className="bg-[#eef1f5] rounded-lg p-7 md:p-8 border border-[#dde3ec] flex flex-col">
-              <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7b8794] mb-6">Da solo</p>
-              <ul className="flex flex-col gap-5">
-                {[
-                  'Subito, AutoScout e basta',
-                  'Visite di persona, weekend dopo weekend',
-                  'Una trattativa contro un venditore esperto',
-                  'Pratiche, trasporto e carte sulle tue spalle',
-                  'Nessuno a cui chiedere dopo la consegna',
-                ].map((text, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#a3adbb] mt-2 shrink-0"></span>
-                    <span className="text-[14px] text-[#6b7689] leading-[1.55] italic">{text}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* CON DIAMANTI — dominante */}
-            <div className="bg-[#061629] rounded-lg p-8 md:p-10 text-white relative overflow-hidden">
-              <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7ba6e4] mb-6">Con Diamanti</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-7 gap-y-6">
-                {[
-                  { icon: Search, title: 'Mercato Italia + Europa + canali privati', text: 'Anche le auto che non finiscono mai online.' },
-                  { icon: ShieldCheck, title: 'Perizia 150 punti + database km ufficiali', text: 'Zero sorprese, niente km truccati.' },
-                  { icon: CreditCard, title: 'Finanziamento dedicato fino a 10 anni', text: 'Con i nostri partner bancari, costruito su di te.' },
-                  { icon: Truck, title: 'Consegna a casa in tutta Italia', text: 'Immatricolata, lavata, pronta a partire.' },
-                  { icon: Wrench, title: 'Primo tagliando incluso dopo 5.000 km', text: 'Restiamo presenti anche dopo la consegna.' },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                      <item.icon size={18} strokeWidth={1.8} className="text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-[14px] font-extrabold leading-tight mb-1.5">{item.title}</h3>
-                      <p className="text-[13px] text-white/72 leading-[1.55]">{item.text}</p>
-                    </div>
-                  </div>
-                ))}
+          <div className="relative">
+            {/* Elegant "vs" badge */}
+            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 items-center justify-center pointer-events-none">
+              <div className="w-[64px] h-[64px] rounded-full bg-white shadow-[0_14px_28px_-10px_rgba(6,22,41,0.4)] border border-[#e6ebf2] flex items-center justify-center">
+                <span className="text-[20px] font-extrabold italic text-[#0c438f] font-serif leading-none">vs</span>
               </div>
             </div>
-          </div>
 
-          <div className="text-center mt-12">
-            <Link to="/contatti" className="inline-flex h-[46px] items-center justify-center rounded-full bg-[#0b2b5b] px-7 text-[13px] font-bold text-white hover:bg-[#0c438f] transition-colors gap-2">
-              Richiedi consulenza <ArrowRight size={15} />
-            </Link>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+              {/* CON DIAMANTI — dominant */}
+              <div className="bg-[#061629] rounded-lg p-8 md:p-10 text-white shadow-[0_22px_48px_-26px_rgba(6,22,41,0.55)] relative md:pr-14">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7ba6e4] mb-3">Con Diamanti</p>
+                <h3 className="text-[22px] md:text-[24px] font-extrabold leading-tight mb-8">
+                  L'auto giusta, scelta bene.
+                </h3>
+                <ul className="flex flex-col gap-5">
+                  {[
+                    "5.000+ veicoli analizzati ogni mese tra Italia ed Europa",
+                    'Perizia tecnica completa prima di firmare qualsiasi cosa',
+                    'Negoziazione condotta da chi tratta auto ogni giorno',
+                    'Pratiche, immatricolazione e consegna sotto casa',
+                    'Un solo referente, dal briefing al tagliando dei 5.000 km',
+                    'Zero vincoli con brand, concessionarie o magazzini',
+                  ].map((text, i) => (
+                    <li key={i} className="flex items-start gap-3.5">
+                      <div className="w-[22px] h-[22px] rounded-full bg-white/12 border border-white/15 flex items-center justify-center shrink-0 mt-0.5">
+                        <Check size={12} className="text-white" strokeWidth={3} />
+                      </div>
+                      <span className="text-[14.5px] text-white/95 leading-[1.55] font-medium">{text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* DA SOLO — whispered */}
+              <div className="bg-white rounded-lg p-8 md:p-10 border border-[#e6ebf2] md:pl-14">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7b8794] mb-3">Cercando da solo</p>
+                <h3 className="text-[22px] md:text-[24px] font-extrabold leading-tight mb-8 text-[#061629]">
+                  Un'auto, sperando bene.
+                </h3>
+                <ul className="flex flex-col gap-5">
+                  {[
+                    'Annunci pubblici già visti, occasioni vere già perse',
+                    'Verifichi tu, sperando di non sbagliare',
+                    "Tratti con chi di auto ne ha viste migliaia",
+                    'Pratiche, trasporto e bolli sulle tue spalle',
+                    'Risolvi i problemi post-vendita da solo',
+                    'Nessun filtro tra te e chi vuole solo chiudere',
+                  ].map((text, i) => (
+                    <li key={i} className="flex items-start gap-3.5">
+                      <div className="w-[22px] h-[22px] rounded-full border border-[#d7e2ef] flex items-center justify-center shrink-0 mt-0.5">
+                        <span className="w-[9px] h-[1.5px] bg-[#a3adbb] block"></span>
+                      </div>
+                      <span className="text-[14.5px] text-[#6b7689] leading-[1.55] italic">{text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
