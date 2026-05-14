@@ -457,31 +457,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. FOUNDER */}
-      <section className="bg-[#f6f8fb]">
-        <div className="grid grid-cols-1 md:grid-cols-2 w-full">
-          <div className="bg-white px-5 py-14 md:py-20 lg:pl-[max(2rem,calc((100vw-1260px)/2+2rem))] lg:pr-16 flex flex-col items-start justify-center">
-            <div className="max-w-[620px]">
-              <h2 className="text-[28px] md:text-[34px] font-extrabold text-[#061629] mb-4 leading-[1.15]">
-                Ciao, sono Thomas.<br/>Fondatore di Diamanti Automobili.
-              </h2>
-              <p className="text-[15px] text-[#061629] mb-4 leading-relaxed">
-                Con il nostro team trovo per te l'auto giusta, senza stress e senza rischi. Curiamo ogni dettaglio, dalla ricerca alla consegna, con trasparenza e competenza.
-              </p>
-              <p className="text-[15px] text-[#061629] mb-8 leading-relaxed font-sans font-medium">
-                Raccontaci cosa cerchi. Al resto pensiamo noi.
-              </p>
-              <Link to="/chi-siamo" className="bg-[#0b2b5b] hover:bg-[#0c438f] text-white h-[44px] px-6 rounded-full text-[14px] font-bold flex items-center justify-center transition-colors">
-                Scopri di più
-              </Link>
-            </div>
-          </div>
-          <div className="w-full h-[360px] md:h-[560px]">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1000" alt="Thomas, fondatore e consulente acquisto auto di Diamanti Automobili" className="w-full h-full object-cover object-[center_20%]" />
-          </div>
-        </div>
-      </section>
-
       {/* 9. TESTIMONIALS */}
       <section className="py-16 bg-white">
         <div className="ds-container">
