@@ -179,8 +179,8 @@ export default function About() {
             <div className="w-full md:w-1/2">
               <div className="relative rounded-lg overflow-hidden h-[450px] shadow-[0_22px_48px_-26px_rgba(0,0,0,0.6)]">
                 <img
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=900"
-                  alt="Il team Diamanti Automobili al lavoro"
+                  src="/images/team-diamanti.jpg"
+                  alt="Il team Diamanti Automobili nello showroom con il logo aziendale alle spalle"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#061629]/40 to-transparent"></div>
