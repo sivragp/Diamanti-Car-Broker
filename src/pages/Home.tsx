@@ -1,17 +1,23 @@
-import { Search, Check, X, ShieldCheck, Target, Star, MapPin, Settings, CheckCircle2, ArrowRight, Heart } from 'lucide-react';
+import { Search, Check, X, ShieldCheck, Star, MapPin, Settings, CheckCircle2, ArrowRight, Heart, Repeat, CreditCard, Truck, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 
 export default function Home() {
   return (
     <div className="bg-white min-h-screen font-sans text-text pt-[74px]">
+      <SEO
+        title="Diamanti Automobili — Consulente acquisto auto a Roma e in tutta Italia"
+        description="Consulente per l'acquisto di auto su misura: ricerca, verifica tecnica, negoziazione e consegna a domicilio. Auto nuove, usate, km 0 e di importazione. Sede a Roma, operiamo in tutta Italia."
+        path="/"
+      />
       
       {/* 1. HERO SECTION */}
-      <section className="relative h-[620px] flex flex-col justify-center items-center text-center">
+      <section className="relative min-h-[620px] flex flex-col justify-center items-center text-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/hero-bmw-road.png" 
-            alt="Auto sportive su strada panoramica" 
+          <img
+            src="/images/hero-bmw-road.png"
+            alt="Consulente acquisto auto Diamanti Automobili — auto premium in viaggio"
             className="w-full h-full object-cover"
           />
         </div>
@@ -19,16 +25,16 @@ export default function Home() {
         <div className="ds-container relative z-10 w-full mb-24 mt-0">
           <div className="max-w-2xl">
             <h1 className="text-[38px] md:text-[52px] lg:text-[58px] font-extrabold text-white mb-6 leading-[1.08] text-left [text-shadow:_0_3px_22px_rgb(0_0_0_/_0.55)]">
-              Troviamo l'auto giusta <br/>con il supporto di Thomas.
+              Troviamo l'auto giusta. <br/>Ovunque tu sia in Italia.
             </h1>
             <p className="text-[16px] md:text-[18px] text-white mb-8 max-w-[610px] text-left leading-[1.65] font-sans font-medium [text-shadow:_0_2px_16px_rgb(0_0_0_/_0.55)]">
-              Cerchi un'auto nuova o usata? La cerchiamo noi su tutto il mercato, verifichiamo ogni dettaglio e te la consegniamo a casa, pronta all'uso.
+              Diamanti Automobili è il consulente che cerca per te l'auto giusta — nuova, usata, km 0 o di importazione — la verifica nel dettaglio e te la consegna a casa. Permuta, finanziamenti fino a 10 anni e primo tagliando incluso. Da Roma in tutta Italia.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/consulenza" className="inline-flex h-[48px] items-center justify-center rounded-full bg-[#1156bf] px-7 text-[14px] font-bold text-white shadow-[0_14px_28px_-18px_rgba(17,86,191,0.9)] transition-colors hover:bg-[#0c438f]">
+              <Link to="/contatti" className="inline-flex h-[48px] items-center justify-center rounded-full bg-[#1156bf] px-7 text-[14px] font-bold text-white shadow-[0_14px_28px_-18px_rgba(17,86,191,0.9)] transition-colors hover:bg-[#0c438f]">
                 Richiedi consulenza <ArrowRight size={16} className="ml-2" />
               </Link>
-              <Link to="/servizi" className="inline-flex h-[48px] items-center justify-center rounded-full bg-white px-7 text-[14px] font-bold text-[#0b2b5b] shadow-[0_14px_28px_-18px_rgba(255,255,255,0.8)] transition-colors hover:bg-[#f6f8fb]">
+              <Link to="/servizi" className="inline-flex h-[48px] items-center justify-center rounded-full bg-white px-7 text-[14px] font-bold text-[#0b2b5b] shadow-[0_14px_28px_-18px_rgba(6,22,41,0.45)] transition-colors hover:bg-[#f6f8fb]">
                 Scopri il servizio
               </Link>
             </div>
@@ -36,7 +42,7 @@ export default function Home() {
         </div>
 
         {/* SEARCH FORM OVERLAY */}
-        <div className="absolute bottom-[-42px] md:bottom-[-52px] left-0 right-0 z-20 px-4">
+        <div className="relative md:absolute md:bottom-[-52px] left-0 right-0 z-20 px-4 mt-10 md:mt-0 mb-[-30px] md:mb-0">
           <div className="ds-container relative">
             <div className="bg-white rounded-lg shadow-[0_22px_48px_-26px_rgba(6,22,41,0.45)] p-4 md:p-5 border border-[#e6ebf2] relative z-10">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1fr_1.55fr] gap-3 items-end">
@@ -77,104 +83,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. BRANDS - Infinite scrolling carousel */}
-      <section className="bg-[#061629] pt-[112px] pb-12 text-center text-white overflow-hidden">
+      {/* 2. BRANDS - Infinite scrolling carousel with real logos */}
+      <section className="bg-[#061629] pt-16 md:pt-[112px] pb-14 text-center text-white overflow-hidden">
         <div className="ds-container">
-          <p className="text-[13px] text-white/72 mb-8 font-semibold">I brand con cui lavoriamo</p>
+          <p className="text-[12px] uppercase tracking-[0.22em] text-white/60 mb-10 font-bold">I brand con cui lavoriamo</p>
         </div>
-        
+
         <div className="relative w-full">
           {/* Fade edges */}
           <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#061629] to-transparent z-10"></div>
           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#061629] to-transparent z-10"></div>
-          
+
           {/* Scrolling track */}
-          <div className="flex animate-scroll-brands">
-            {/* First set */}
-            {[
-              { name: 'Mercedes-Benz', slug: 'mercedes-benz' },
-              { name: 'BMW', slug: 'bmw' },
-              { name: 'Audi', slug: 'audi' },
-              { name: 'Porsche', slug: 'porsche' },
-              { name: 'Volkswagen', slug: 'volkswagen' },
-              { name: 'Toyota', slug: 'toyota' },
-              { name: 'Ferrari', slug: 'ferrari' },
-              { name: 'Lamborghini', slug: 'lamborghini' },
-              { name: 'Maserati', slug: 'maserati' },
-              { name: 'Alfa Romeo', slug: 'alfa-romeo' },
-              { name: 'Land Rover', slug: 'land-rover' },
-              { name: 'Jaguar', slug: 'jaguar' },
-              { name: 'Volvo', slug: 'volvo' },
-              { name: 'Tesla', slug: 'tesla' },
-              { name: 'Ford', slug: 'ford' },
-              { name: 'Hyundai', slug: 'hyundai' },
-              { name: 'Kia', slug: 'kia' },
-              { name: 'Nissan', slug: 'nissan' },
-              { name: 'Honda', slug: 'honda' },
-              { name: 'Mazda', slug: 'mazda' },
-              { name: 'Peugeot', slug: 'peugeot' },
-              { name: 'Renault', slug: 'renault' },
-              { name: 'FIAT', slug: 'fiat' },
-              { name: 'MINI', slug: 'mini' }
-            ].map((brand, i) => (
-              <div key={`a-${i}`} className="flex-shrink-0 w-[140px] h-[60px] mx-6 flex items-center justify-center opacity-50 hover:opacity-90 transition-opacity">
-                <img 
-                  src={`https://cdn.simpleicons.org/${brand.slug.replace(/-/g, '')}/ffffff`} 
-                  alt={brand.name} 
-                  className="h-[32px] w-auto max-w-[100px] object-contain"
-                  loading="lazy"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    if (target.parentElement) {
-                      target.parentElement.innerHTML = `<span class="text-[13px] font-bold tracking-wider text-white/70 uppercase">${brand.name}</span>`;
-                    }
-                  }}
-                />
-              </div>
-            ))}
-            {/* Duplicate set for seamless loop */}
-            {[
-              { name: 'Mercedes-Benz', slug: 'mercedes-benz' },
-              { name: 'BMW', slug: 'bmw' },
-              { name: 'Audi', slug: 'audi' },
-              { name: 'Porsche', slug: 'porsche' },
-              { name: 'Volkswagen', slug: 'volkswagen' },
-              { name: 'Toyota', slug: 'toyota' },
-              { name: 'Ferrari', slug: 'ferrari' },
-              { name: 'Lamborghini', slug: 'lamborghini' },
-              { name: 'Maserati', slug: 'maserati' },
-              { name: 'Alfa Romeo', slug: 'alfa-romeo' },
-              { name: 'Land Rover', slug: 'land-rover' },
-              { name: 'Jaguar', slug: 'jaguar' },
-              { name: 'Volvo', slug: 'volvo' },
-              { name: 'Tesla', slug: 'tesla' },
-              { name: 'Ford', slug: 'ford' },
-              { name: 'Hyundai', slug: 'hyundai' },
-              { name: 'Kia', slug: 'kia' },
-              { name: 'Nissan', slug: 'nissan' },
-              { name: 'Honda', slug: 'honda' },
-              { name: 'Mazda', slug: 'mazda' },
-              { name: 'Peugeot', slug: 'peugeot' },
-              { name: 'Renault', slug: 'renault' },
-              { name: 'FIAT', slug: 'fiat' },
-              { name: 'MINI', slug: 'mini' }
-            ].map((brand, i) => (
-              <div key={`b-${i}`} className="flex-shrink-0 w-[140px] h-[60px] mx-6 flex items-center justify-center opacity-50 hover:opacity-90 transition-opacity">
-                <img 
-                  src={`https://cdn.simpleicons.org/${brand.slug.replace(/-/g, '')}/ffffff`} 
-                  alt={brand.name} 
-                  className="h-[32px] w-auto max-w-[100px] object-contain"
-                  loading="lazy"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    if (target.parentElement) {
-                      target.parentElement.innerHTML = `<span class="text-[13px] font-bold tracking-wider text-white/70 uppercase">${brand.name}</span>`;
-                    }
-                  }}
-                />
-              </div>
+          <div className="flex animate-scroll-brands items-center">
+            {[...Array(2)].map((_, dupIdx) => (
+              [
+                { name: 'Mercedes-Benz', slug: 'mercedes-benz' },
+                { name: 'BMW',           slug: 'bmw' },
+                { name: 'Audi',          slug: 'audi' },
+                { name: 'Porsche',       slug: 'porsche' },
+                { name: 'Volkswagen',    slug: 'volkswagen' },
+                { name: 'Ferrari',       slug: 'ferrari' },
+                { name: 'Lamborghini',   slug: 'lamborghini' },
+                { name: 'Maserati',      slug: 'maserati' },
+                { name: 'Alfa Romeo',    slug: 'alfa-romeo' },
+                { name: 'Land Rover',    slug: 'land-rover' },
+                { name: 'Jaguar',        slug: 'jaguar' },
+                { name: 'Volvo',         slug: 'volvo' },
+                { name: 'Tesla',         slug: 'tesla' },
+                { name: 'Mini',          slug: 'mini' },
+                { name: 'Toyota',        slug: 'toyota' },
+                { name: 'Ford',          slug: 'ford' },
+                { name: 'Fiat',          slug: 'fiat' },
+                { name: 'Jeep',          slug: 'jeep' },
+                { name: 'Peugeot',       slug: 'peugeot' },
+                { name: 'Renault',       slug: 'renault' }
+              ].map((brand, i) => (
+                <div
+                  key={`${dupIdx}-${i}`}
+                  className="flex-shrink-0 w-[180px] h-[90px] mx-4 flex items-center justify-center group"
+                >
+                  <img
+                    src={`/brands/${brand.slug}-white.svg`}
+                    alt={`Logo ${brand.name}`}
+                    className="max-h-[56px] max-w-[150px] w-auto h-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+                    loading="lazy"
+                  />
+                </div>
+              ))
             ))}
           </div>
         </div>
@@ -183,14 +139,15 @@ export default function Home() {
       {/* 3. DIAMANTI AUTOMOBILI 4 CARDS */}
       <section className="py-16 bg-white relative overflow-hidden">
         <div className="ds-container relative z-10">
-          <h2 className="text-center text-[30px] md:text-[34px] mb-12 font-extrabold text-[#061629]">Diamanti Automobili</h2>
-          
+          <p className="text-center text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Il nostro servizio</p>
+          <h2 className="text-center text-[30px] md:text-[34px] mb-12 font-extrabold text-[#061629]">Cosa facciamo per te</h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Search, title: 'Ricerca su misura', text: 'Troviamo l\'auto perfetta per te tra migliaia di opportunità, anche introvabili.' },
-              { icon: CheckCircle2, title: 'Nessun costo aggiuntivo', text: 'Il nostro servizio è gratuito per te: siamo remunerati dalla concessionaria.' },
-              { icon: ShieldCheck, title: 'Verifica e trasparenza', text: 'Controlli approfonditi, cronologia e documenti verificati per la massima sicurezza.' },
-              { icon: MapPin, title: 'Consegna a domicilio', text: 'Ovunque tu sia, te la consegniamo a casa tua con la massima cura.' }
+              { icon: Search, title: 'Ricerca auto su misura', text: "Cerchiamo l'auto giusta tra migliaia di opportunità in Italia e in Europa, anche tra quelle non pubblicate." },
+              { icon: CheckCircle2, title: 'Indipendenti e trasparenti', text: 'Non siamo legati a un marchio o a una concessionaria. Lavoriamo solo nel tuo interesse.' },
+              { icon: ShieldCheck, title: 'Verifica tecnica completa', text: 'Controlliamo storia, chilometraggio reale, condizioni e documenti prima di ogni acquisto.' },
+              { icon: MapPin, title: 'Consegna a domicilio', text: "Ti consegniamo l'auto pronta all'uso direttamente a casa tua, in tutta Italia." }
             ].map((item, i) => (
               <div key={i} className="border border-[#e6ebf2] rounded-lg p-7 text-center flex flex-col items-center shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow bg-white">
                 <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-6">
@@ -268,7 +225,7 @@ export default function Home() {
                 image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&q=80&w=900'
               }
             ].map((car, i) => (
-              <article key={i} className="snap-start shrink-0 w-[280px] md:w-[300px] bg-white rounded-lg border border-[#e6ebf2] overflow-hidden shadow-[0_14px_34px_-28px_rgba(6,22,41,0.38)]">
+              <article key={i} className="snap-start shrink-0 w-[240px] md:w-[300px] bg-white rounded-lg border border-[#e6ebf2] overflow-hidden shadow-[0_14px_34px_-28px_rgba(6,22,41,0.38)]">
                 <div className="relative h-[176px]">
                   <img src={car.image} alt={car.name} className="w-full h-full object-cover" />
                   <span className="absolute top-3 left-3 rounded-full bg-[#1156bf] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wide text-white">{car.tag}</span>
@@ -297,7 +254,7 @@ export default function Home() {
       <section className="py-16 bg-[#f6f8fb]">
         <div className="ds-container max-w-[1000px]">
           <h2 className="text-center text-[28px] md:text-[34px] font-extrabold mb-12 max-w-[800px] mx-auto leading-tight text-[#061629]">
-            Perché contattare un consulente auto prima di cercare l'auto da solo
+            Perché affidarsi a un consulente prima di cercare l'auto da soli
           </h2>
           
           <div className="relative">
@@ -335,14 +292,14 @@ export default function Home() {
                     <div className="w-[22px] h-[22px] rounded-full border border-gray-400 flex items-center justify-center shrink-0">
                       <X size={12} className="text-[#061629]" strokeWidth={3} />
                     </div>
-                    <span className="text-[16px] text-[#061629] font-bold">Cercare da solo è più rischioso</span>
+                    <span className="text-[16px] text-[#061629] font-bold">Cercare da soli è più rischioso</span>
                   </li>
                   {[
-                    'Offerte limitate ai canali pubblici',
-                    'Rischio di costi nascosti e sorprese',
-                    'Trattative senza leva e senza comparabilità',
-                    'Perdita di tempo tra annunci e venditori privati',
-                    'Nessun supporto burocratico né post-vendita'
+                    'Offerte limitate ai canali pubblici e portali generalisti',
+                    'Rischio di costi nascosti, km manomessi e sinistri non dichiarati',
+                    'Trattativa senza leva contrattuale né dati di mercato',
+                    'Ore perse tra annunci, telefonate e visite a vuoto',
+                    'Burocrazia, pratiche e post-vendita interamente sulle tue spalle'
                   ].map((text, i) => (
                     <li key={i} className="flex items-center gap-4">
                       <div className="w-[22px] h-[22px] rounded-full bg-[#061629] flex items-center justify-center shrink-0">
@@ -359,6 +316,67 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 4.5 TUTTO INCLUSO — 4 leve commerciali */}
+      <section className="py-20 bg-white relative overflow-hidden border-t border-[#e6ebf2]">
+        <div className="ds-container">
+          <div className="text-center mb-12">
+            <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Tutto compreso</p>
+            <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-tight max-w-[760px] mx-auto">
+              Non solo l'auto giusta. <span className="text-[#0c438f]">Tutto quello che ti serve.</span>
+            </h2>
+            <p className="text-[15px] md:text-[16px] text-muted max-w-[680px] mx-auto leading-relaxed mt-5">
+              Quattro vantaggi inclusi nel servizio Diamanti Automobili, pensati per togliere ogni ostacolo tra te e la tua prossima auto.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: Repeat,
+                tag: 'Permuta',
+                title: 'Valutiamo la tua auto attuale',
+                text: "Ci pensiamo noi a stimare il valore di mercato del tuo veicolo e a ritirarlo: niente annunci, niente perditempo. La permuta scala direttamente dal prezzo della nuova."
+              },
+              {
+                icon: CreditCard,
+                tag: 'Finanziamenti',
+                title: 'Rate fino a 10 anni',
+                text: 'Soluzioni di finanziamento personalizzate fino a 120 mesi, con i migliori partner bancari. Rata leggera, accesso a un’auto di livello superiore.'
+              },
+              {
+                icon: Truck,
+                tag: 'Consegna',
+                title: 'A casa tua, in tutta Italia',
+                text: 'Ti consegniamo l\'auto immatricolata, lavata e pronta a partire direttamente sotto casa. Da Bolzano a Trapani, senza mai prendere un treno.'
+              },
+              {
+                icon: Wrench,
+                tag: 'Tagliando incluso',
+                title: 'Primo tagliando gratis dopo 5.000 km',
+                text: 'Dopo i primi 5.000 km percorsi, il primo tagliando è offerto da noi presso officine selezionate. Perché ci siamo anche dopo la consegna.'
+              }
+            ].map((item, i) => (
+              <div key={i} className="relative bg-white border border-[#e6ebf2] rounded-lg p-7 flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.42)] hover:-translate-y-1 transition-all duration-300">
+                <span className="inline-flex self-start mb-5 rounded-full bg-[#0c438f]/8 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#0c438f]">
+                  {item.tag}
+                </span>
+                <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-5">
+                  <item.icon size={22} strokeWidth={1.6} />
+                </div>
+                <h3 className="text-[16px] font-extrabold text-[#061629] mb-3 leading-tight">{item.title}</h3>
+                <p className="text-[13px] text-muted leading-[1.65]">{item.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/servizi" className="inline-flex h-[46px] items-center justify-center rounded-full bg-[#0b2b5b] px-7 text-[13px] font-bold text-white hover:bg-[#0c438f] transition-colors gap-2">
+              Scopri tutti i vantaggi inclusi <ArrowRight size={15} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* 5. COME FUNZIONA */}
       <section className="py-14 bg-white relative overflow-hidden">
         <div className="ds-container">
@@ -366,10 +384,10 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8 max-w-6xl mx-auto">
             {[
-              { icon: CheckCircle2, title: 'Briefing iniziale', text: 'Ci racconti esigenze, budget e preferenze.' },
-              { icon: Search, title: 'Ricerca selezionata', text: 'Troviamo le migliori auto disponibili sul mercato.' },
-              { icon: ShieldCheck, title: 'Proposta personalizzata', text: 'Ti presentiamo le opzioni più adatte con analisi e consigli.' },
-              { icon: MapPin, title: 'Consegna e supporto', text: 'Ci occupiamo di tutto fino alla consegna e oltre.' }
+              { icon: CheckCircle2, title: 'Briefing iniziale', text: 'Raccogliamo esigenze, budget, utilizzo e preferenze.' },
+              { icon: Search, title: 'Ricerca selezionata', text: 'Analizziamo il mercato italiano ed europeo per individuare le migliori opportunità.' },
+              { icon: ShieldCheck, title: 'Proposta personalizzata', text: 'Ti presentiamo le opzioni migliori, con analisi tecnica e consigli dedicati.' },
+              { icon: MapPin, title: 'Consegna e supporto', text: "Gestiamo trattativa, pratiche e consegna a domicilio. E ci sentiamo anche dopo." }
             ].map((step, i) => (
               <div key={i} className="relative flex flex-col items-center text-center px-4">
                 {i !== 3 && (
@@ -399,10 +417,10 @@ export default function Home() {
             </div>
             <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col items-start bg-[#f6f8fb] justify-center h-full">
               <h2 className="text-[26px] md:text-[32px] font-extrabold text-[#061629] mb-4 leading-tight">
-                Ampia scelta 5000+ veicoli.
+                Oltre 5.000 veicoli analizzati ogni mese.
               </h2>
               <p className="text-[15px] md:text-[16px] text-muted mb-6 leading-relaxed font-sans">
-                Selezioniamo ogni giorno opportunità disponibili, km 0, aziendali e usato premium in Italia ed Europa.
+                Monitoriamo il mercato in tempo reale: auto nuove, km 0, aziendali e usato premium, in Italia e in Europa. Selezioniamo solo le proposte davvero adatte a te.
               </p>
               <Link to="/come-funziona" className="bg-[#0b2b5b] hover:bg-[#0c438f] text-white h-[44px] px-6 rounded-full text-[14px] font-bold flex items-center justify-center gap-2 transition-colors">
                 Scopri come funziona <span>→</span>
@@ -419,11 +437,11 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-gray-100 px-4">
             {[
-              { icon: <ShieldCheck size={24} strokeWidth={1.5} />, title: 'Indipendenza totale', text: 'Non siamo legati a marchi o concessionarie, lavoriamo solo per te.' },
-              { icon: <Star size={24} strokeWidth={1.5} />, title: 'Esperienza e rete', text: 'Accesso a una rete selezionata di partner e canali esclusivi in Italia ed Europa.' },
-              { icon: <CheckCircle2 size={24} strokeWidth={1.5} />, title: 'Competenza e passione', text: 'Anni di esperienza nel settore auto al servizio delle tue esigenze.' },
-              { icon: <Search size={24} strokeWidth={1.5} />, title: 'Verifica garantita', text: 'Ogni veicolo viene sottoposto a rigorosi controlli prima della consegna.' },
-              { icon: <Settings size={24} strokeWidth={1.5} />, title: 'Supporto end-to-end', text: 'Ti seguiamo in ogni fase, anche dopo la consegna dell\'auto.' }
+              { icon: <ShieldCheck size={24} strokeWidth={1.5} />, title: 'Indipendenza totale', text: 'Non siamo legati a marchi o concessionarie. Lavoriamo solo nel tuo interesse.' },
+              { icon: <Star size={24} strokeWidth={1.5} />, title: 'Rete consolidata', text: 'Accesso a partner e canali selezionati in Italia e in Europa, anche fuori dai portali pubblici.' },
+              { icon: <CheckCircle2 size={24} strokeWidth={1.5} />, title: 'Competenza specialistica', text: 'Anni di esperienza nel settore auto al servizio della tua scelta.' },
+              { icon: <Search size={24} strokeWidth={1.5} />, title: 'Perizia approfondita', text: 'Ogni veicolo è verificato nei dettagli prima di arrivare a te: tecnica, documenti, storia.' },
+              { icon: <Settings size={24} strokeWidth={1.5} />, title: 'Supporto end-to-end', text: 'Ti seguiamo dalla ricerca alla consegna, e anche dopo.' }
             ].map((item, i) => (
               <div key={i} className={`flex flex-col items-center pt-8 md:pt-0 ${i !== 0 ? 'md:pl-6 lg:pl-10' : ''} ${i !== 4 ? 'md:pr-6 lg:pr-10' : ''}`}>
                 <div className="mb-5 h-12 flex items-center justify-center">
@@ -445,13 +463,13 @@ export default function Home() {
           <div className="bg-white px-5 py-14 md:py-20 lg:pl-[max(2rem,calc((100vw-1260px)/2+2rem))] lg:pr-16 flex flex-col items-start justify-center">
             <div className="max-w-[620px]">
               <h2 className="text-[28px] md:text-[34px] font-extrabold text-[#061629] mb-4 leading-[1.15]">
-                Ciao, sono Thomas di<br/>Diamanti Automobili
+                Ciao, sono Thomas.<br/>Fondatore di Diamanti Automobili.
               </h2>
               <p className="text-[15px] text-[#061629] mb-4 leading-relaxed">
-                La mia missione è trovarti l'auto perfetta, senza stress e senza rischi. Mi occupo di ogni dettaglio, dalla ricerca alla consegna, con trasparenza e competenza.
+                Con il nostro team trovo per te l'auto giusta, senza stress e senza rischi. Curiamo ogni dettaglio, dalla ricerca alla consegna, con trasparenza e competenza.
               </p>
               <p className="text-[15px] text-[#061629] mb-8 leading-relaxed font-sans font-medium">
-                Tu raccontami cosa cerchi, al resto pensiamo noi.
+                Raccontaci cosa cerchi. Al resto pensiamo noi.
               </p>
               <Link to="/chi-siamo" className="bg-[#0b2b5b] hover:bg-[#0c438f] text-white h-[44px] px-6 rounded-full text-[14px] font-bold flex items-center justify-center transition-colors">
                 Scopri di più
@@ -459,7 +477,7 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full h-[360px] md:h-[560px]">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1000" alt="Thomas - Founder" className="w-full h-full object-cover object-[center_20%]" />
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1000" alt="Thomas, fondatore e consulente acquisto auto di Diamanti Automobili" className="w-full h-full object-cover object-[center_20%]" />
           </div>
         </div>
       </section>
@@ -468,33 +486,29 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="ds-container">
           <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-12">Cosa dicono i clienti</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { img: "https://images.unsplash.com/photo-1556189250-72ba954cfc2b?auto=format&fit=crop&q=80&w=800", text: "Servizio impeccabile. Thomas ha trovato l'auto perfetta in tempi record. Consigliatissimo!", name: "Marco R. – BMW X5" },
-              { img: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=800", text: "Professionale, trasparente e sempre disponibile. Consegna a domicilio puntuale e senza pensieri.", name: "Luca B. – Audi Q5 Sportback" },
-              { img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=800", text: "Non avrei mai trovato questa auto a queste condizioni. TOP service!", name: "Alessandro T. – Mercedes GLC" }
+              { initials: 'MR', text: "Servizio impeccabile. Thomas ha trovato l'auto perfetta in tempi record. Consigliatissimo!", name: 'Marco R.', car: 'BMW X5', city: 'Milano' },
+              { initials: 'LB', text: 'Professionale, trasparente e sempre disponibile. Consegna a domicilio puntuale e senza pensieri.', name: 'Luca B.', car: 'Audi Q5 Sportback', city: 'Roma' },
+              { initials: 'AT', text: 'Non avrei mai trovato questa auto a queste condizioni. Servizio top.', name: 'Alessandro T.', car: 'Mercedes GLC', city: 'Torino' }
             ].map((review, i) => (
-              <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg overflow-hidden hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow flex flex-col">
-                <div className="h-[220px] w-full">
-                  <img src={review.img} alt={review.name} className="w-full h-full object-cover" />
+              <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg p-8 hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow flex flex-col">
+                <div className="flex gap-[2px] mb-5">
+                  {[1,2,3,4,5].map(star => <Star key={star} size={14} fill="#F59E0B" color="#F59E0B" />)}
                 </div>
-                <div className="p-8 flex flex-col flex-1">
-                  <div className="flex gap-[2px] mb-5">
-                    {[1,2,3,4,5].map(star => <Star key={star} size={14} fill="#F59E0B" color="#F59E0B" />)}
+                <p className="italic text-[18px] text-[#061629] mb-8 flex-1 leading-[1.5]">"{review.text}"</p>
+                <div className="flex items-center gap-4 pt-6 border-t border-[#f0f3f7]">
+                  <div className="w-11 h-11 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center font-bold text-[13px] tracking-wide shrink-0">
+                    {review.initials}
                   </div>
-                  <p className="text-[15px] text-[#061629] mb-6 flex-1 italic leading-[1.6]">"{review.text}"</p>
-                  <p className="text-[13px] font-sans font-bold text-[#061629] uppercase tracking-wide">{review.name}</p>
+                  <div>
+                    <p className="text-[14px] font-bold text-[#061629] leading-tight">{review.name}</p>
+                    <p className="text-[12px] text-muted mt-0.5">{review.car} · {review.city}</p>
+                  </div>
                 </div>
               </div>
             ))}
-          </div>
-          
-          {/* Pagination dots mock */}
-          <div className="flex justify-center gap-3 mt-12">
-            <div className="w-2.5 h-2.5 rounded-full bg-[#061629]"></div>
-            <div className="w-2.5 h-2.5 rounded-full bg-gray-200"></div>
-            <div className="w-2.5 h-2.5 rounded-full bg-gray-200"></div>
           </div>
         </div>
       </section>
@@ -514,11 +528,11 @@ export default function Home() {
               Hai già in mente la tua <br/>prossima auto?
             </h2>
             <p className="text-[17px] text-white/90 mb-8 leading-relaxed font-sans">
-              Parlane con Thomas di Diamanti Automobili.<br/>
-              La cerchiamo noi, per te.
+              Parla con un consulente Diamanti Automobili.<br/>
+              La cerchiamo noi: con permuta, finanziamento fino a 10 anni e consegna a domicilio.
             </p>
-            <Link to="/consulenza" className="inline-flex bg-white hover:bg-gray-100 text-[#061629] h-[46px] px-8 rounded-full text-[14px] font-bold items-center justify-center transition-colors">
-              Richiedi ora la tua ricerca <span className="ml-2">→</span>
+            <Link to="/contatti" className="inline-flex bg-white hover:bg-gray-100 text-[#061629] h-[46px] px-8 rounded-full text-[14px] font-bold items-center justify-center transition-colors">
+              Richiedi una consulenza <span className="ml-2">→</span>
             </Link>
           </div>
         </div>

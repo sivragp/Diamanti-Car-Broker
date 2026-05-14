@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Header, Footer } from './components/Navigation';
 import Home from './pages/Home';
 import HowItWorks from './pages/HowItWorks';
@@ -7,13 +8,21 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
 
-// Placeholders for remaining pages
-const Storie = () => <div className="pt-24 min-h-screen container mx-auto px-4"><h1 className="text-4xl font-bold py-10 text-primary">Storie Vere & Case Studies</h1><p className="text-text-muted">Prossimamente una selezione completa dei nostri successi...</p></div>;
-const Risorse = () => <div className="pt-24 min-h-screen container mx-auto px-4"><h1 className="text-4xl font-bold py-10 text-primary">Risorse & Blog Anti-Fregature</h1><p className="text-text-muted">Articoli e guide in arrivo per aiutarti a scegliere l'auto usata perfetta.</p></div>;
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+const Storie = () => <div className="pt-24 min-h-screen container mx-auto px-4"><h1 className="text-4xl font-bold py-10 text-primary">Storie vere e case study</h1><p className="text-text-muted">Prossimamente una selezione completa dei nostri successi...</p></div>;
+const Risorse = () => <div className="pt-24 min-h-screen container mx-auto px-4"><h1 className="text-4xl font-bold py-10 text-primary">Risorse e blog anti-fregature</h1><p className="text-text-muted">Articoli e guide in arrivo per aiutarti a scegliere l'auto usata perfetta.</p></div>;
 
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-neutral-soft">
         <Header />
         <main className="flex-grow">
@@ -33,5 +42,3 @@ export default function App() {
     </Router>
   );
 }
-
-

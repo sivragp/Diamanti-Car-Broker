@@ -1,33 +1,39 @@
 import { CheckCircle2, Target, Search, ShieldCheck, Star, Users, Globe, Settings, Car, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 
 export default function About() {
 
   return (
-    <div className="bg-surface min-h-screen font-sans text-text pt-[80px]">
+    <div className="bg-surface min-h-screen font-sans text-text pt-[74px]">
+      <SEO
+        title="Chi siamo — Thomas e il team Diamanti Automobili | Consulenti acquisto auto"
+        description="Thomas e il team di Diamanti Automobili: consulenti indipendenti specializzati nella ricerca, verifica e acquisto di auto premium. Sede a Roma, attivi in tutta Italia ed Europa."
+        path="/chi-siamo"
+      />
       
       {/* 1. HERO CHI SIAMO */}
       <section className="py-16 md:py-24 bg-white">
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2 flex flex-col items-start text-left">
-              <h1 className="text-[40px] md:text-[50px] font-serif font-bold text-[#061629] mb-8 leading-tight">
+              <h1 className="text-[40px] md:text-[50px] font-extrabold text-[#061629] mb-8 leading-tight">
                 Chi siamo
               </h1>
               <div className="space-y-6 text-[#061629] text-[16px] leading-relaxed">
                 <p>
-                  Diamanti Automobili nasce per semplificare la ricerca e l'acquisto dell'auto giusta.
+                  Diamanti Automobili è il consulente indipendente che ti accompagna nell'acquisto della tua prossima auto: nuova, usata, km 0 o di importazione.
                 </p>
                 <p>
-                  <strong>Sono Thomas</strong>, fondatore di Diamanti Automobili, e insieme <strong>al mio team</strong> accompagniamo ogni cliente in tutte le fasi del processo, con un approccio su misura, trasparente e orientato al dettaglio.
+                  <strong>Sono Thomas</strong>, fondatore di Diamanti Automobili. Insieme al nostro team seguiamo ogni cliente in tutte le fasi: dall'ascolto iniziale alla consegna, con un approccio su misura, trasparente e orientato al dettaglio.
                 </p>
                 <p>
-                  Il nostro obiettivo è trasformare ogni richiesta in una soluzione concreta, sicura e in linea con le tue aspettative.
+                  Il nostro obiettivo è semplice: trasformare ogni richiesta in una scelta concreta, sicura e in linea con le tue aspettative.
                 </p>
               </div>
               
               <div className="mt-12">
-                <div className="font-serif italic text-[42px] text-[#0c438f] mb-2 leading-none">
+                <div className="italic text-[42px] text-[#0c438f] mb-2 leading-none">
                   Thomas
                 </div>
                 <div className="text-[14px] font-bold text-[#061629]">Fondatore</div>
@@ -35,9 +41,9 @@ export default function About() {
               </div>
             </div>
             <div className="w-full md:w-1/2 h-[500px]">
-              <img 
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" 
-                alt="Thomas - Fondatore" 
+              <img
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
+                alt="Thomas Diamanti, fondatore e consulente per l'acquisto auto a Roma"
                 className="w-full h-full object-cover object-[center_20%] shadow-lg"
               />
             </div>
@@ -49,18 +55,22 @@ export default function About() {
       <section className="py-12 bg-white pb-20">
         <div className="ds-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-[#061629] p-10 md:p-14 flex flex-col items-center text-center shadow-lg">
-              <Target size={48} strokeWidth={1.5} className="text-[#0c438f] mb-6" />
-              <h3 className="font-serif text-[28px] font-bold text-white mb-4">La nostra missione</h3>
+            <div className="bg-[#061629] rounded-lg p-10 md:p-14 flex flex-col items-center text-center shadow-[0_16px_34px_-26px_rgba(6,22,41,0.35)]">
+              <div className="w-16 h-16 rounded-full bg-white/10 text-white flex items-center justify-center mb-6">
+                <Target size={28} strokeWidth={1.5} />
+              </div>
+              <h3 className="text-[28px] font-bold text-white mb-4">La nostra missione</h3>
               <p className="text-white/80 leading-relaxed text-[15px]">
-                Rendere l'acquisto di un'auto un'esperienza più semplice, sicura ed efficiente, eliminando incertezze e perdite di tempo.
+                Rendere l'acquisto di un'auto un'esperienza semplice, sicura ed efficiente, eliminando incertezze, sorprese e perdite di tempo.
               </p>
             </div>
-            <div className="bg-[#061629] p-10 md:p-14 flex flex-col items-center text-center shadow-lg">
-              <Search size={48} strokeWidth={1.5} className="text-[#0c438f] mb-6" />
-              <h3 className="font-serif text-[28px] font-bold text-white mb-4">La nostra visione</h3>
+            <div className="bg-[#061629] rounded-lg p-10 md:p-14 flex flex-col items-center text-center shadow-[0_16px_34px_-26px_rgba(6,22,41,0.35)]">
+              <div className="w-16 h-16 rounded-full bg-white/10 text-white flex items-center justify-center mb-6">
+                <Search size={28} strokeWidth={1.5} />
+              </div>
+              <h3 className="text-[28px] font-bold text-white mb-4">La nostra visione</h3>
               <p className="text-white/80 leading-relaxed text-[15px]">
-                Ridefinire il modo in cui le persone cercano e acquistano auto, attraverso consulenza, selezione e supporto di fiducia.
+                Ridefinire il modo di cercare e acquistare auto in Italia: consulenza dedicata, selezione accurata e supporto di fiducia in ogni fase.
               </p>
             </div>
           </div>
@@ -70,7 +80,7 @@ export default function About() {
       {/* 3. I VALORI */}
       <section className="py-16 bg-[#f6f8fb] border-t border-gray-100">
         <div className="ds-container max-w-[1400px]">
-          <h2 className="text-center text-[32px] md:text-[36px] font-serif font-bold text-[#061629] mb-16">
+          <h2 className="text-center text-[32px] md:text-[36px] font-extrabold text-[#061629] mb-16">
             I valori che guidano ogni ricerca
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
@@ -97,7 +107,7 @@ export default function About() {
       <section className="bg-[#f6f7f9] flex flex-col md:flex-row">
         <div className="w-full md:w-1/2 bg-[#061629] py-20 px-8 md:pl-[max(2rem,calc((100vw-1280px)/2))] md:pr-16 flex flex-col justify-center">
           <div className="max-w-xl ml-auto w-full">
-            <h2 className="text-[32px] md:text-[40px] font-serif font-bold text-white mb-10 leading-tight">
+            <h2 className="text-[32px] md:text-[40px] font-extrabold text-white mb-10 leading-tight">
               Perché i clienti scelgono<br/>Diamanti Automobili
             </h2>
             <ul className="space-y-6">
@@ -139,7 +149,7 @@ export default function About() {
       {/* 5. IL NOSTRO METODO */}
       <section className="py-24 bg-white">
         <div className="ds-container">
-          <h2 className="text-center text-[36px] font-serif font-bold text-[#061629] mb-20">Il nostro metodo</h2>
+          <h2 className="text-center text-[36px] font-extrabold text-[#061629] mb-20">Il nostro metodo</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-y-16 gap-x-8">
             {[
@@ -173,31 +183,30 @@ export default function About() {
       <section className="bg-[#061629] py-24">
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="w-full md:w-1/2 relative h-[450px]">
-              <img 
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" 
-                alt="Thomas Team" 
-                className="w-2/3 h-[350px] object-cover object-[center_20%] absolute left-0 top-0 border-[6px] border-[#061629]"
-              />
-              <img 
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=600" 
-                alt="Discussione Team" 
-                className="w-2/3 h-[300px] object-cover absolute right-0 bottom-0 border-[6px] border-[#061629]"
-              />
+            <div className="w-full md:w-1/2">
+              <div className="relative rounded-lg overflow-hidden h-[450px] shadow-[0_22px_48px_-26px_rgba(0,0,0,0.6)]">
+                <img
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=900"
+                  alt="Il team Diamanti Automobili al lavoro"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#061629]/40 to-transparent"></div>
+              </div>
             </div>
             <div className="w-full md:w-1/2 flex flex-col items-start text-left">
-              <h2 className="text-[36px] font-serif font-bold text-[#0c438f] mb-8">
-                Parliamo e il team
+              <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-white/60 mb-4">Il team</p>
+              <h2 className="text-[36px] md:text-[40px] font-extrabold text-white mb-8 leading-tight">
+                Persone, non solo processi
               </h2>
-              <div className="space-y-6 text-white/90 text-[16px] leading-relaxed">
+              <div className="space-y-5 text-white/80 text-[16px] leading-relaxed">
                 <p>
-                  Thomas, insieme al suo team, segue ogni cliente con attenzione e dedizione, trasformando ogni richiesta in un progetto di ricerca su misura.
+                  Dietro ogni ricerca c'è un team di consulenti che segue il cliente con attenzione e dedizione, trasformando ogni richiesta in un progetto di ricerca su misura.
                 </p>
                 <p>
-                  La fiducia, la discrezione e la conoscenza del mercato sono alla base di ogni relazione.
+                  Fiducia, discrezione e una conoscenza profonda del mercato auto sono alla base di ogni relazione che costruiamo.
                 </p>
                 <p>
-                  Il nostro team lavora con passione per offrirti il massimo, sempre.
+                  Lavoriamo con passione, per dare a ogni cliente il meglio del mercato.
                 </p>
               </div>
             </div>
@@ -205,46 +214,49 @@ export default function About() {
         </div>
       </section>
 
-      {/* 7. LA FIDUCIA DEI CLIENTI (Copied from Home essentially) */}
+      {/* 7. LA FIDUCIA DEI CLIENTI */}
       <section className="py-24 bg-[#f6f8fb]">
         <div className="ds-container">
-          <h2 className="text-center text-[36px] font-serif font-bold text-[#061629] mb-16">La fiducia dei clienti</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <h2 className="text-center text-[32px] md:text-[36px] font-extrabold text-[#061629] mb-16">La fiducia dei clienti</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=800',
-                text: 'Servizio impeccabile. Thomas e il suo team hanno trovato l\'auto perfetta per me. Trasparenti, professionali e sempre disponibili. Consigliatissimi!',
+                initials: 'GM',
+                name: 'Giorgio M.',
                 car: 'BMW X3',
-                city: 'Consegnata a Milano'
+                city: 'Milano',
+                text: "Servizio impeccabile. Thomas e il suo team hanno trovato l'auto perfetta per me. Trasparenti, professionali e sempre disponibili. Consigliatissimi!"
               },
               {
-                img: 'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=800',
-                text: 'Mi hanno seguito in ogni fase, dalla ricerca alla consegna. Nessuno stress, massima competenza e un\'auto che corrisponde esattamente alle mie aspettative.',
+                initials: 'EF',
+                name: 'Elena F.',
                 car: 'Audi Q5',
-                city: 'Consegnata a Roma'
+                city: 'Roma',
+                text: "Mi hanno seguito in ogni fase, dalla ricerca alla consegna. Nessuno stress, massima competenza e un'auto che corrisponde esattamente alle mie aspettative."
               },
               {
-                img: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=800',
-                text: 'Finalmente un servizio che fa davvero la differenza. Competenti, rapidi e super affidabili. La mia GLC è stata una scelta perfetta!',
+                initials: 'AT',
+                name: 'Alessandro T.',
                 car: 'Mercedes GLC',
-                city: 'Consegnata a Torino'
+                city: 'Torino',
+                text: 'Finalmente un servizio che fa davvero la differenza. Competenti, rapidi e super affidabili. La mia GLC è stata una scelta perfetta.'
               }
             ].map((review, i) => (
-              <div key={i} className="bg-white border border-gray-100 flex flex-col shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-full">
-                <div className="h-[220px] w-full relative">
-                  <img src={review.img} alt={review.car} className="w-full h-full object-cover" />
+              <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg p-8 flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow">
+                <div className="flex gap-1 mb-5">
+                  {[1,2,3,4,5].map(star => <Star key={star} size={14} className="fill-[#F59E0B] text-[#F59E0B]" />)}
                 </div>
-                <div className="p-8 flex flex-col flex-grow">
-                  <div className="flex gap-1 mb-4">
-                    {[1,2,3,4,5].map(star => <Star key={star} size={14} className="fill-[#F59E0B] text-[#F59E0B]" />)}
+                <p className="italic text-[18px] text-[#061629] leading-[1.5] mb-8 flex-grow">
+                  "{review.text}"
+                </p>
+                <div className="flex items-center gap-4 pt-6 border-t border-[#f0f3f7]">
+                  <div className="w-11 h-11 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center font-bold text-[13px] tracking-wide shrink-0">
+                    {review.initials}
                   </div>
-                  <p className="font-serif italic text-[#061629] text-[16px] leading-relaxed mb-8 flex-grow">
-                    "{review.text}"
-                  </p>
                   <div>
-                    <div className="font-bold text-[#061629] text-[14px] uppercase tracking-wider">{review.car}</div>
-                    <div className="text-[12px] text-muted mt-1">{review.city}</div>
+                    <p className="text-[14px] font-bold text-[#061629] leading-tight">{review.name}</p>
+                    <p className="text-[12px] text-muted mt-0.5">{review.car} · Consegnata a {review.city}</p>
                   </div>
                 </div>
               </div>
@@ -258,13 +270,13 @@ export default function About() {
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/2 py-20 pr-10">
-              <h2 className="text-[36px] md:text-[44px] font-serif font-bold mb-6 leading-tight">
+              <h2 className="text-[36px] md:text-[44px] font-extrabold mb-6 leading-tight">
                 Parliamo della tua <br/>prossima auto?
               </h2>
               <p className="text-white/70 text-[16px] mb-10 leading-relaxed max-w-md">
                 Raccontaci cosa stai cercando: ti aiutiamo a trovare la soluzione giusta con un servizio su misura.
               </p>
-              <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-[#061629] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
+              <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[14px]">
                 Richiedi consulenza
               </Link>
             </div>

@@ -84,7 +84,7 @@ export function MultiStepForm({ initialBrand }: { initialBrand?: string }) {
       <div className="p-8 md:p-12">
         <header className="mb-10">
           <span className="text-accent font-semibold text-xs uppercase tracking-widest block mb-3">Fase {step} di 4</span>
-          <h3 className="text-2xl md:text-4xl font-serif text-primary leading-none">
+          <h3 className="text-2xl md:text-4xl text-primary leading-none">
             {step === 1 && <>Qual è la tua vettura ideale?</>}
             {step === 2 && <>Definiamo i dettagli tecnici.</>}
             {step === 3 && <>Scegli i tuoi marchi preferiti.</>}
@@ -322,7 +322,7 @@ export function BrandGrid({ onSelectBrand }: { onSelectBrand: (id: string) => vo
     <section className="py-24 bg-white relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-           <h2 className="text-3xl md:text-5xl font-serif text-primary mb-6">I Marchi Trattati</h2>
+           <h2 className="text-3xl md:text-5xl text-primary mb-6">I Marchi Trattati</h2>
            <p className="text-text-muted mt-6 max-w-xl mx-auto leading-relaxed">
              Operiamo principalmente con i migliori marchi premium tedeschi, garantendo standard qualitativi elevati su ogni singola vettura.
            </p>

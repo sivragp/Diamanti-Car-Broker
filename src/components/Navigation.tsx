@@ -65,7 +65,7 @@ export function Header() {
           {isOpen && (
             <motion.nav
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: '100vh' }}
+              animate={{ opacity: 1, height: '100dvh' }}
               exit={{ opacity: 0, height: 0 }}
               className="lg:hidden bg-white fixed top-[74px] left-0 right-0 bottom-0 overflow-y-auto"
             >
@@ -82,7 +82,7 @@ export function Header() {
                 ))}
                 
                 <div className="mt-4 pt-8 border-t border-border">
-                  <Link to="/consulenza" onClick={() => setIsOpen(false)} className="flex items-center justify-center h-[52px] w-full rounded-full bg-[#0b2b5b] text-white font-semibold text-base">
+                  <Link to="/contatti" onClick={() => setIsOpen(false)} className="flex items-center justify-center h-[52px] w-full rounded-full bg-[#0b2b5b] text-white font-semibold text-base">
                     Richiedi consulenza
                   </Link>
                 </div>
@@ -99,7 +99,7 @@ export function Footer() {
   return (
     <footer className="bg-[#061629] text-white/72 pt-14 pb-7 border-t border-white/10">
       <div className="ds-container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 mb-12">
           
           {/* Logo Col */}
           <div className="lg:col-span-1 flex flex-col">
@@ -117,7 +117,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-[13px] leading-relaxed mb-6">
-              Troviamo l'auto giusta per te, senza farti perdere tempo.
+              Il consulente che cerca, verifica e consegna la tua prossima auto. Da Roma, in tutta Italia.
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Facebook size={14} /></a>
@@ -130,32 +130,32 @@ export function Footer() {
           <div>
             <h4 className="text-white font-bold text-[14px] mb-5">Servizi</h4>
             <ul className="flex flex-col gap-3 text-[13px]">
-              <li><Link to="#" className="hover:text-white transition-colors">Ricerca auto su misura</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors">Auto nuove</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors">Auto usate e km 0</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors">Verifica e controllo</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors">Consegna a domicilio</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors">Supporto pratiche</Link></li>
+              <li><Link to="/servizi" className="hover:text-white transition-colors">Ricerca auto su misura</Link></li>
+              <li><Link to="/servizi" className="hover:text-white transition-colors">Auto nuove, usate e km 0</Link></li>
+              <li><Link to="/servizi" className="hover:text-white transition-colors">Permuta e valutazione</Link></li>
+              <li><Link to="/servizi" className="hover:text-white transition-colors">Finanziamenti fino a 10 anni</Link></li>
+              <li><Link to="/servizi" className="hover:text-white transition-colors">Verifica e controllo</Link></li>
+              <li><Link to="/servizi" className="hover:text-white transition-colors">Consegna a domicilio in tutta Italia</Link></li>
+              <li><Link to="/servizi" className="hover:text-white transition-colors">Primo tagliando incluso</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-bold text-[14px] mb-5">Come funziona</h4>
             <ul className="flex flex-col gap-3 text-[13px]">
-              <li><Link to="#" className="hover:text-white transition-colors">Il nostro metodo</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors">Le fasi del servizio</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors">Domande frequenti</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors">Condizioni di servizio</Link></li>
+              <li><Link to="/come-funziona" className="hover:text-white transition-colors">Il nostro metodo</Link></li>
+              <li><Link to="/come-funziona" className="hover:text-white transition-colors">Le fasi del servizio</Link></li>
+              <li><Link to="/faq" className="hover:text-white transition-colors">Domande frequenti</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-bold text-[14px] mb-5">Informazioni</h4>
             <ul className="flex flex-col gap-3 text-[13px]">
-              <li><Link to="#" className="hover:text-white transition-colors">Chi siamo</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors">Perché sceglierci</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors">Dicono di noi</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors">Privacy e cookie</Link></li>
+              <li><Link to="/chi-siamo" className="hover:text-white transition-colors">Chi siamo</Link></li>
+              <li><Link to="/chi-siamo" className="hover:text-white transition-colors">Perché sceglierci</Link></li>
+              <li><Link to="/chi-siamo" className="hover:text-white transition-colors">Dicono di noi</Link></li>
+              <li><Link to="/contatti" className="hover:text-white transition-colors">Contatti</Link></li>
             </ul>
           </div>
 

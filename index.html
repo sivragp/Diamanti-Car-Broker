@@ -1,14 +1,115 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diamanti Automobili | Ricerca, Verifica e Acquisto Auto Premium</title>
-    <meta name="description" content="Consulenza automobilistica specializzata nella ricerca, verifica e acquisto di auto nuove, usate, km0 e di importazione. Trasparenza, competenza e consegna chiavi in mano." />
+    <meta name="theme-color" content="#061629" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Diamanti Automobili — Consulente acquisto auto a Roma e in tutta Italia</title>
+    <meta name="description" content="Consulente per l'acquisto di auto su misura: ricerca, verifica tecnica, negoziazione e consegna a domicilio. Auto nuove, usate, km 0 e di importazione. Sede a Roma, operiamo in tutta Italia." />
+    <meta name="keywords" content="consulente acquisto auto, consulente automobilistico Roma, ricerca auto su misura, perizia auto usata, verifica auto usata, importazione auto Germania, auto km 0, auto usate garantite, consulenza acquisto auto, acquisto auto Roma" />
+    <meta name="author" content="Diamanti Automobili" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Geo (Roma) -->
+    <meta name="geo.region" content="IT-RM" />
+    <meta name="geo.placename" content="Roma" />
+    <meta name="geo.position" content="41.9028;12.4964" />
+    <meta name="ICBM" content="41.9028, 12.4964" />
+
+    <!-- Canonical (overridden per-page) -->
+    <link rel="canonical" href="https://diamanti-car-broker.vercel.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:site_name" content="Diamanti Automobili" />
+    <meta property="og:title" content="Diamanti Automobili — Consulente acquisto auto a Roma e in tutta Italia" />
+    <meta property="og:description" content="Consulente per l'acquisto di auto su misura: ricerca, verifica tecnica e consegna a domicilio. Sede a Roma, attivi in tutta Italia." />
+    <meta property="og:url" content="https://diamanti-car-broker.vercel.app/" />
+    <meta property="og:image" content="https://diamanti-car-broker.vercel.app/images/hero-bmw-road.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Diamanti Automobili — Consulente acquisto auto" />
+    <meta name="twitter:description" content="Ricerca, verifica e consegna della tua prossima auto. Sede a Roma, attivi in tutta Italia." />
+    <meta name="twitter:image" content="https://diamanti-car-broker.vercel.app/images/hero-bmw-road.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Preconnect font CDN (Inter + Fraunces caricati via CSS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- JSON-LD: Organization / AutomotiveBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutomotiveBusiness",
+      "@id": "https://diamanti-car-broker.vercel.app/#business",
+      "name": "Diamanti Automobili",
+      "alternateName": "Diamanti Automobili — Consulente acquisto auto",
+      "description": "Servizio di consulenza per l'acquisto di auto su misura: ricerca, verifica tecnica, importazione e consegna a domicilio.",
+      "url": "https://diamanti-car-broker.vercel.app/",
+      "logo": "https://diamanti-car-broker.vercel.app/favicon.svg",
+      "image": "https://diamanti-car-broker.vercel.app/images/hero-bmw-road.png",
+      "telephone": "+39 345 678 9012",
+      "email": "info@diamantiautomobili.it",
+      "priceRange": "€€-€€€€",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Roma",
+        "addressRegion": "RM",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.9028,
+        "longitude": 12.4964
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "Italia" },
+        { "@type": "AdministrativeArea", "name": "Lazio" },
+        { "@type": "City", "name": "Roma" }
+      ],
+      "knowsAbout": [
+        "consulenza acquisto auto",
+        "ricerca auto su misura",
+        "perizia auto usata",
+        "importazione auto dalla Germania",
+        "verifica chilometraggio auto",
+        "negoziazione prezzo auto",
+        "consegna auto a domicilio"
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "13:00"
+        }
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Thomas Diamanti",
+        "jobTitle": "Fondatore e Consulente acquisto auto"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

@@ -1,12 +1,18 @@
 import { Phone, Mail, MapPin, Clock, Check, X, CheckCircle2, Search, ShieldCheck, ChevronDown, Target, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { SEO } from '../components/SEO';
 
 export default function Contact() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="bg-surface min-h-screen font-sans text-text pt-[80px]">
+    <div className="bg-surface min-h-screen font-sans text-text pt-[74px]">
+      <SEO
+        title="Contatti — Richiedi una consulenza | Diamanti Automobili Roma"
+        description="Parla con un consulente per l'acquisto auto. Sede a Roma, operiamo in tutta Italia. Prima consulenza gratuita, risposta entro 24 ore. Telefono, email, WhatsApp o call."
+        path="/contatti"
+      />
 
       {/* 1. HERO - Come preferisci contattarci? */}
       <section className="relative py-20 overflow-hidden">
@@ -20,7 +26,7 @@ export default function Contact() {
         </div>
 
         <div className="ds-container relative z-10 text-center">
-          <h1 className="text-[40px] md:text-[50px] font-serif font-bold text-white mb-14">
+          <h1 className="text-[40px] md:text-[50px] font-extrabold text-white mb-14">
             Come preferisci contattarci?
           </h1>
 
@@ -52,11 +58,11 @@ export default function Contact() {
 
             {/* Left - Form */}
             <div className="w-full lg:w-3/5">
-              <h2 className="text-[32px] md:text-[38px] font-serif font-bold text-[#061629] mb-4 leading-tight">
+              <h2 className="text-[32px] md:text-[38px] font-extrabold text-[#061629] mb-4 leading-tight">
                 Raccontaci quale auto<br/>stai cercando
               </h2>
               <p className="text-[15px] text-muted mb-10 leading-relaxed">
-                Più informazioni ci fornisci, più la ricerca sarà mirata e in linea con le tue esigenze.
+                Più dettagli ci dai, più precisa e mirata sarà la nostra ricerca. Ti ricontattiamo entro 24 ore lavorative.
               </p>
 
               <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert('Richiesta inviata!'); }}>
@@ -163,7 +169,7 @@ export default function Contact() {
                 <div className="flex items-start gap-3 pt-2">
                   <input type="checkbox" id="privacy" className="w-4 h-4 accent-[#061629] mt-1 shrink-0" required />
                   <label htmlFor="privacy" className="text-[12px] text-muted leading-relaxed">
-                    Letti i dati sono di nostro servizio. Tratteremo le tue informazioni con la massima riservatezza.
+                    Acconsento al trattamento dei dati personali. Le tue informazioni saranno gestite con la massima riservatezza e usate solo per ricontattarti.
                   </label>
                 </div>
 
@@ -176,7 +182,7 @@ export default function Contact() {
             {/* Right - Sidebar */}
             <div className="w-full lg:w-2/5 flex flex-col gap-6">
               <div className="bg-[#f6f8fb] border border-gray-100 rounded-xl p-8">
-                <h3 className="font-serif text-[24px] font-bold text-[#061629] mb-8 leading-tight">
+                <h3 className="text-[24px] font-bold text-[#061629] mb-8 leading-tight">
                   Ti ricontattiamo con una consulenza personalizzata
                 </h3>
 
@@ -216,26 +222,26 @@ export default function Contact() {
       {/* 3. VS - Perché contattarci */}
       <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
         <div className="ds-container max-w-[1000px]">
-          <h2 className="text-center text-[32px] md:text-[36px] font-serif font-bold mb-16 text-[#061629] leading-tight">
+          <h2 className="text-center text-[32px] md:text-[36px] font-extrabold mb-16 text-[#061629] leading-tight">
             Perché contattarci prima di cercare l'auto da solo
           </h2>
 
           <div className="relative">
-            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60px] h-[60px] bg-[#061629] rounded-full text-white font-serif font-bold text-[22px] items-center justify-center z-10 border-4 border-[#f6f8fb]">
+            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60px] h-[60px] bg-[#061629] rounded-full text-white font-extrabold text-[22px] items-center justify-center z-10 border-4 border-[#f6f8fb]">
               VS
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <div className="bg-white rounded-2xl p-10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-gray-100">
-                <h3 className="font-bold text-[#061629] text-[16px] mb-8">Contattaci prima e ottieni vantaggi reali</h3>
+                <h3 className="font-bold text-[#061629] text-[16px] mb-8">Affidati a noi: i vantaggi reali</h3>
                 <ul className="flex flex-col gap-5">
                   {[
-                    'Risparmi tempo',
-                    'Ci occupiamo noi della ricerca, tu non devi fare niente di gravoso.',
-                    'Eviti rischi e disguidi',
-                    'Meno annunci inutili e offerte poco trasparenti.',
-                    'Hai accesso a opportunità selezionate',
-                    'Parti subito con un metodo chiaro'
+                    'Risparmi tempo: della ricerca ci occupiamo noi',
+                    'Niente annunci ingannevoli o offerte poco trasparenti',
+                    'Accesso a opportunità selezionate, anche fuori dai portali',
+                    'Verifica tecnica e documentale prima di ogni acquisto',
+                    'Trattativa professionale a tuo favore',
+                    'Un metodo chiaro, dal primo contatto alla consegna'
                   ].map((text, i) => (
                     <li key={i} className="flex items-center gap-4">
                       <div className="w-[22px] h-[22px] rounded-full border border-gray-200 flex items-center justify-center shrink-0">
@@ -248,14 +254,14 @@ export default function Contact() {
               </div>
 
               <div className="bg-[#eff2f6] rounded-2xl p-10 border border-transparent">
-                <h3 className="font-bold text-[#061629] text-[16px] mb-8">Cercare da solo significa</h3>
+                <h3 className="font-bold text-[#061629] text-[16px] mb-8">Cercare da soli significa</h3>
                 <ul className="flex flex-col gap-5">
                   {[
-                    'Perdere ore tra annunci e trattative',
-                    'Rischio auto non verificate e problemi nascosti',
-                    'Affidarsi a venditori poco trasparenti',
+                    'Perdere ore tra annunci, telefonate e trattative',
+                    'Rischiare auto non verificate, con problemi nascosti',
+                    'Affidarsi a venditori non sempre trasparenti',
                     'Pagare di più o fare scelte affrettate',
-                    'Affrontare da solo burocrazia e passaggi'
+                    'Gestire da soli burocrazia, pratiche e passaggi'
                   ].map((text, i) => (
                     <li key={i} className="flex items-center gap-4">
                       <div className="w-[22px] h-[22px] rounded-full bg-[#061629] flex items-center justify-center shrink-0">
@@ -276,14 +282,14 @@ export default function Contact() {
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2 flex flex-col items-start">
-              <h2 className="text-[32px] md:text-[38px] font-serif font-bold text-white mb-6 leading-tight">
+              <h2 className="text-[32px] md:text-[38px] font-extrabold text-white mb-6 leading-tight">
                 Parli direttamente con noi
               </h2>
               <p className="text-white/80 text-[15px] leading-relaxed mb-8 max-w-md">
-                Thomas e il suo team seguono ogni richiesta con attenzione e riservatezza. Ti accompagniamo dal primo contatto fino alla consegna dell'auto, con professionalità e passione.
+                Il team di Diamanti Automobili, guidato dal fondatore Thomas, segue ogni richiesta con attenzione e riservatezza. Ti accompagniamo dal primo contatto alla consegna dell'auto, con professionalità e passione.
               </p>
               <div className="mb-8">
-                <div className="font-serif italic text-[38px] text-[#0c438f] mb-2 leading-none">Thomas Diamanti</div>
+                <div className="italic text-[38px] text-[#0c438f] mb-2 leading-none">Thomas Diamanti</div>
                 <div className="text-white/60 text-[13px]">Fondatore, Diamanti Automobili</div>
               </div>
               <img
@@ -318,7 +324,7 @@ export default function Contact() {
       {/* 5. INFORMAZIONI UTILI */}
       <section className="py-20 bg-white">
         <div className="ds-container">
-          <h2 className="text-center text-[36px] font-serif font-bold text-[#061629] mb-16">Informazioni utili</h2>
+          <h2 className="text-center text-[36px] font-extrabold text-[#061629] mb-16">Informazioni utili</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -344,7 +350,7 @@ export default function Contact() {
       {/* 6. DOMANDE FREQUENTI */}
       <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
         <div className="ds-container max-w-3xl">
-          <h2 className="text-center text-[36px] font-serif font-bold text-[#061629] mb-16">Domande frequenti</h2>
+          <h2 className="text-center text-[36px] font-extrabold text-[#061629] mb-16">Domande frequenti</h2>
 
           <div className="space-y-4">
             {[
@@ -374,16 +380,13 @@ export default function Contact() {
       {/* 7. CTA PRE-FOOTER */}
       <section className="py-20 bg-white border-t border-gray-100">
         <div className="ds-container text-center max-w-2xl">
-          <h2 className="text-[36px] md:text-[44px] font-serif font-bold text-[#061629] mb-6 leading-tight">
+          <h2 className="text-[36px] md:text-[44px] font-extrabold text-[#061629] mb-6 leading-tight">
             Hai già in mente la tua prossima auto?
           </h2>
-          <p className="text-[16px] text-muted mb-4 leading-relaxed">
-            Contattaci oggi stesso: ti aiutiamo a trovarla con il metodo
-          </p>
           <p className="text-[16px] text-muted mb-10 leading-relaxed">
-            Diamanti Automobili. Semplice, sicuro, su misura per te.
+            Contattaci oggi: ti aiutiamo a trovarla con il metodo Diamanti Automobili. <br/>Semplice, sicuro, su misura.
           </p>
-          <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-[#061629] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
+          <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[14px]">
             Richiedi consulenza
           </Link>
         </div>
