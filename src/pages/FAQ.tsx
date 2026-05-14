@@ -13,8 +13,8 @@ const FAQS = [
     a: "Sì. Valutiamo gratuitamente la tua auto attuale ai valori reali di mercato e ce ne occupiamo noi: il valore di permuta viene scalato direttamente dal prezzo della nuova. Niente annunci, niente telefonate da privati, niente perditempo: tu ci consegni le chiavi della vecchia e ricevi quelle della nuova.",
   },
   {
-    q: 'Posso finanziare l\'auto? Fino a quanti anni?',
-    a: 'Sì, offriamo soluzioni di finanziamento fino a 10 anni (120 mesi) attraverso i nostri partner bancari selezionati. La rata viene costruita su misura sul tuo budget mensile, con risposta in 24-48 ore. Possiamo lavorare anche su pratiche con anticipo zero o con maxi-rata finale.',
+    q: 'Posso finanziare l\'auto? Fino a quanti mesi?',
+    a: 'Sì, offriamo soluzioni di finanziamento fino a 120 mesi attraverso i nostri partner bancari selezionati. La rata viene costruita su misura sul tuo budget mensile, con risposta in 24-48 ore. Possiamo lavorare anche su pratiche con anticipo zero o con maxi-rata finale.',
   },
   {
     q: "Chi paga l'auto, io o voi?",

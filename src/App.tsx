@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
+import TradeIn from './pages/TradeIn';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,6 +31,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/come-funziona" element={<HowItWorks />} />
             <Route path="/servizi" element={<Services />} />
+            <Route path="/valuta-la-tua-auto" element={<TradeIn />} />
             <Route path="/chi-siamo" element={<About />} />
             <Route path="/storie" element={<Storie />} />
             <Route path="/faq" element={<FAQ />} />

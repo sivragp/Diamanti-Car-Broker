@@ -19,6 +19,7 @@ export function Header() {
     { label: 'Home', path: '/' },
     { label: 'Chi siamo', path: '/chi-siamo' },
     { label: 'Servizi', path: '/servizi' },
+    { label: 'Valuta la tua auto', path: '/valuta-la-tua-auto' },
     { label: 'Come funziona', path: '/come-funziona' },
     { label: 'Contatti', path: '/contatti' },
   ];
@@ -141,8 +142,9 @@ export function Footer() {
             <ul className="flex flex-col gap-3 text-[13px]">
               <li><Link to="/servizi" className="hover:text-white transition-colors">Ricerca auto su misura</Link></li>
               <li><Link to="/servizi" className="hover:text-white transition-colors">Auto nuove, usate e km 0</Link></li>
-              <li><Link to="/servizi" className="hover:text-white transition-colors">Permuta e valutazione</Link></li>
-              <li><Link to="/servizi" className="hover:text-white transition-colors">Finanziamenti fino a 10 anni</Link></li>
+              <li><Link to="/valuta-la-tua-auto" className="hover:text-white transition-colors">Permuta e valutazione auto</Link></li>
+              <li><Link to="/valuta-la-tua-auto" className="hover:text-white transition-colors">Acquistiamo la tua auto</Link></li>
+              <li><Link to="/servizi" className="hover:text-white transition-colors">Finanziamenti fino a 120 mesi</Link></li>
               <li><Link to="/servizi" className="hover:text-white transition-colors">Verifica e controllo</Link></li>
               <li><Link to="/servizi" className="hover:text-white transition-colors">Consegna a domicilio in tutta Italia</Link></li>
               <li><Link to="/servizi" className="hover:text-white transition-colors">Primo tagliando incluso</Link></li>

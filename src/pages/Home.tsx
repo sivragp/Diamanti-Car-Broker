@@ -28,7 +28,7 @@ export default function Home() {
               Troviamo l'auto giusta. <br/>Ovunque tu sia in Italia.
             </h1>
             <p className="text-[16px] md:text-[18px] text-white mb-8 max-w-[610px] text-left leading-[1.65] font-sans font-medium [text-shadow:_0_2px_16px_rgb(0_0_0_/_0.55)]">
-              Diamanti Automobili è il consulente che cerca per te l'auto giusta — nuova, usata, km 0 o di importazione — la verifica nel dettaglio e te la consegna a casa. Permuta, finanziamenti fino a 10 anni e primo tagliando incluso. Da Roma in tutta Italia.
+              Diamanti Automobili è il consulente che cerca per te l'auto giusta — nuova, usata, km 0 o di importazione — la verifica nel dettaglio e te la consegna a casa. Permuta, finanziamenti fino a 120 mesi e primo tagliando incluso. Da Roma in tutta Italia.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/contatti" className="inline-flex h-[48px] items-center justify-center rounded-full bg-[#1156bf] px-7 text-[14px] font-bold text-white shadow-[0_14px_28px_-18px_rgba(17,86,191,0.9)] transition-colors hover:bg-[#0c438f]">
@@ -350,7 +350,7 @@ export default function Home() {
               {
                 icon: CreditCard,
                 tag: 'Finanziamenti',
-                title: 'Rate fino a 10 anni',
+                title: 'Rate fino a 120 mesi',
                 text: 'Soluzioni di finanziamento personalizzate fino a 120 mesi, con i migliori partner bancari. Rata leggera, accesso a un’auto di livello superiore.'
               },
               {
@@ -383,6 +383,53 @@ export default function Home() {
             <Link to="/servizi" className="inline-flex h-[46px] items-center justify-center rounded-full bg-[#0b2b5b] px-7 text-[13px] font-bold text-white hover:bg-[#0c438f] transition-colors gap-2">
               Scopri tutti i vantaggi inclusi <ArrowRight size={15} />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 4.6 PERMUTA / VENDITA BANNER */}
+      <section className="bg-[#061629] relative overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-stretch">
+          <div className="relative h-[280px] md:h-auto md:min-h-[460px] order-2 md:order-1">
+            <img
+              src="/images/fleet-overview.jpg"
+              alt="Parcheggio di auto premium pronto per la valutazione e il ritiro Diamanti Automobili"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#061629] via-[#061629]/30 to-transparent md:bg-gradient-to-r md:from-[#061629]/0 md:via-[#061629]/0 md:to-[#061629]/40"></div>
+          </div>
+
+          <div className="px-6 py-14 md:px-12 lg:px-16 md:py-20 flex flex-col items-start justify-center text-white order-1 md:order-2">
+            <div className="max-w-[540px]">
+              <div className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full bg-white/10 border border-white/15">
+                <Repeat size={14} strokeWidth={2} />
+                <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-white/90">Valuta la tua auto</span>
+              </div>
+              <h2 className="text-[30px] md:text-[42px] font-extrabold leading-[1.1] mb-5">
+                Hai un'auto da permutare?<br />
+                <span className="text-[#7ba6e4]">La valutiamo gratis in 24 ore.</span>
+              </h2>
+              <p className="text-[15px] md:text-[16px] text-white/75 leading-[1.65] mb-3">
+                <strong className="text-white">Permuta integrata</strong> — la scali dal prezzo della prossima auto.
+              </p>
+              <p className="text-[15px] md:text-[16px] text-white/75 leading-[1.65] mb-8">
+                <strong className="text-white">Acquisto diretto</strong> — te la compriamo e basta, pagamento in 48 ore.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link
+                  to="/valuta-la-tua-auto"
+                  className="inline-flex h-[48px] items-center justify-center rounded-full bg-white px-7 text-[13px] font-bold text-[#061629] hover:bg-[#eef3f8] transition-colors gap-2"
+                >
+                  Richiedi valutazione gratuita <ArrowRight size={15} />
+                </Link>
+                <Link
+                  to="/valuta-la-tua-auto"
+                  className="inline-flex h-[48px] items-center justify-center rounded-full bg-transparent border border-white/30 px-7 text-[13px] font-bold text-white hover:bg-white/10 transition-colors"
+                >
+                  Come funziona la permuta
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -514,7 +561,7 @@ export default function Home() {
             </h2>
             <p className="text-[17px] text-white/90 mb-8 leading-relaxed font-sans">
               Parla con un consulente Diamanti Automobili.<br/>
-              La cerchiamo noi: con permuta, finanziamento fino a 10 anni e consegna a domicilio.
+              La cerchiamo noi: con permuta, finanziamento fino a 120 mesi e consegna a domicilio.
             </p>
             <Link to="/contatti" className="inline-flex bg-white hover:bg-gray-100 text-[#061629] h-[46px] px-8 rounded-full text-[14px] font-bold items-center justify-center transition-colors">
               Richiedi una consulenza <span className="ml-2">→</span>

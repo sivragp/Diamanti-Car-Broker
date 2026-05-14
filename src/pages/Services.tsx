@@ -25,7 +25,7 @@ const SERVICES_JSONLD = {
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Negoziazione e gestione pratiche' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Consegna auto a domicilio in tutta Italia' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Permuta e valutazione auto usata' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Finanziamento auto fino a 10 anni' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Finanziamento auto fino a 120 mesi' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Primo tagliando incluso dopo 5.000 km' } }
     ]
   }
@@ -38,7 +38,7 @@ export default function Services() {
     <div className="bg-surface min-h-screen font-sans text-text pt-[74px]">
       <SEO
         title="Servizi — Ricerca auto, permuta, finanziamenti e consegna | Diamanti Automobili"
-        description="Ricerca auto su misura, perizia tecnica, importazione, permuta, finanziamenti fino a 10 anni, consegna a domicilio e primo tagliando incluso. I servizi del nostro consulente acquisto auto a Roma e in tutta Italia."
+        description="Ricerca auto su misura, perizia tecnica, importazione, permuta, finanziamenti fino a 120 mesi, consegna a domicilio e primo tagliando incluso. I servizi del nostro consulente acquisto auto a Roma e in tutta Italia."
         path="/servizi"
         jsonLd={SERVICES_JSONLD}
         jsonLdId="services"
@@ -131,7 +131,7 @@ export default function Services() {
               {
                 icon: CreditCard,
                 tag: 'Finanziamenti su misura',
-                title: 'Rate fino a 10 anni con i migliori partner',
+                title: 'Rate fino a 120 mesi con i migliori partner',
                 text: "Lavoriamo con i principali istituti finanziari per offrirti soluzioni di credito personalizzate fino a 120 mesi. Rata leggera e accesso a un'auto di livello superiore senza sforare il budget mensile.",
                 bullets: ['Piani fino a 120 mesi', 'Tasso competitivo dedicato', 'Risposta in 24-48 ore']
               },
@@ -338,7 +338,7 @@ export default function Services() {
               { q: 'Come funziona il servizio di consulente auto?', a: 'Tu ci racconti cosa cerchi: modello, budget, utilizzo, preferenze, tempistiche. Noi attiviamo la ricerca e ti presentiamo le migliori opportunità e ti accompagniamo fino alla consegna dell\'auto.' },
               { q: 'Posso richiedere qualsiasi marca o modello?', a: 'Sì, lavoriamo su qualsiasi marca e modello. La nostra ricerca è personalizzata al 100% sulle tue esigenze specifiche.' },
               { q: 'Accettate la mia auto in permuta?', a: 'Sì. Valutiamo la tua auto attuale ai valori reali di mercato e la ritiriamo: il valore di permuta viene scalato direttamente dal prezzo della nuova. Nessun annuncio da gestire, nessuna trattativa con privati.' },
-              { q: 'Posso finanziare l\'auto fino a 10 anni?', a: 'Sì. Lavoriamo con i principali istituti finanziari per offrirti piani fino a 120 mesi (10 anni), con risposta in 24-48 ore. Studiamo la rata che si adatta al tuo budget mensile, anche con anticipo zero in alcuni casi.' },
+              { q: 'Posso finanziare l\'auto fino a 120 mesi?', a: 'Sì. Lavoriamo con i principali istituti finanziari per offrirti piani fino a 120 mesi, con risposta in 24-48 ore. Studiamo la rata che si adatta al tuo budget mensile, anche con anticipo zero in alcuni casi.' },
               { q: 'Il primo tagliando è davvero incluso?', a: 'Sì. Dopo i primi 5.000 km percorsi con la tua nuova auto, il primo tagliando è offerto da noi presso officine selezionate: filtri, olio e controlli completi. È il nostro modo di restare al tuo fianco anche dopo la consegna.' },
               { q: 'Mi aiutate con la verifica dell\'auto?', a: 'Assolutamente. Ogni veicolo che proponiamo viene verificato in termini di storia, condizioni, documenti e chilometraggio reale.' },
               { q: 'Consegnate anche fuori città?', a: 'Sì, effettuiamo consegne a domicilio in tutta Italia, da Bolzano a Trapani. Organizziamo il trasporto in modo sicuro, assicurato e puntuale: l\'auto arriva immatricolata, lavata e pronta a partire.' }

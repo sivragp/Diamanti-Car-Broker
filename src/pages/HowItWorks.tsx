@@ -27,7 +27,7 @@ const STEPS = [
   {
     num: '04',
     title: 'Negoziazione, permuta e finanziamento',
-    text: 'Siamo consulenti, non venditori. Trattiamo prezzo e condizioni per ottenere lo sconto massimo. Valutiamo la tua auto in permuta e costruiamo, se vuoi, il finanziamento giusto fino a 10 anni con i nostri partner bancari.',
+    text: 'Siamo consulenti, non venditori. Trattiamo prezzo e condizioni per ottenere lo sconto massimo. Valutiamo la tua auto in permuta e costruiamo, se vuoi, il finanziamento giusto fino a 120 mesi con i nostri partner bancari.',
     details: ['Massimizzazione sconto', 'Valutazione auto in permuta', 'Finanziamento fino a 120 mesi', 'Revisione legale contratti'],
     icon: BadgeCheck,
   },
@@ -60,7 +60,7 @@ const CONSULTANT_TASKS = [
   'Verificare km e storico meccanico in database ufficiali',
   "Gestire contratti, documenti e burocrazia d'import",
   'Valutare e ritirare la tua auto in permuta',
-  'Costruire un finanziamento su misura fino a 10 anni',
+  'Costruire un finanziamento su misura fino a 120 mesi',
   'Organizzare trasporto bisarca assicurato in tutta Italia',
   'Gestire la nazionalizzazione e le targhe italiane',
   'Offrirti il primo tagliando dopo 5.000 km',
@@ -71,7 +71,7 @@ export default function HowItWorks() {
     <div className="bg-surface min-h-screen font-sans text-text pt-[74px]">
       <SEO
         title="Come funziona — Il metodo per la ricerca auto | Diamanti Automobili"
-        description="Le 6 fasi del nostro servizio di consulenza: analisi mercato, scouting, perizia 150 punti, negoziazione con permuta e finanziamento fino a 10 anni, consegna a domicilio e primo tagliando incluso."
+        description="Le 6 fasi del nostro servizio di consulenza: analisi mercato, scouting, perizia 150 punti, negoziazione con permuta e finanziamento fino a 120 mesi, consegna a domicilio e primo tagliando incluso."
         path="/come-funziona"
       />
 
