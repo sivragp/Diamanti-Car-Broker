@@ -423,7 +423,7 @@ export default function Home() {
         <div className="ds-container">
           <div className="bg-[#f6f8fb] rounded-lg overflow-hidden flex flex-col md:flex-row items-center border border-[#e6ebf2] max-h-[400px] shadow-[0_14px_34px_-28px_rgba(6,22,41,0.38)]">
             <div className="w-full md:w-1/2 h-[250px] md:h-[400px]">
-              <img src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&q=80&w=1200" alt="Porsche Taycan" className="w-full h-full object-cover" />
+              <img src="/images/fleet-overview.jpg" alt="Vista aerea di un parcheggio con oltre 50 auto premium di vari brand — il volume di veicoli analizzati ogni mese da Diamanti Automobili" className="w-full h-full object-cover" />
             </div>
             <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col items-start bg-[#f6f8fb] justify-center h-full">
               <h2 className="text-[26px] md:text-[32px] font-extrabold text-[#061629] mb-4 leading-tight">
