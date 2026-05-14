@@ -250,69 +250,82 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. VS SECTION */}
-      <section className="py-16 bg-[#f6f8fb]">
-        <div className="ds-container max-w-[1000px]">
-          <h2 className="text-center text-[28px] md:text-[34px] font-extrabold mb-12 max-w-[800px] mx-auto leading-tight text-[#061629]">
-            Perché affidarsi a un consulente prima di cercare l'auto da soli
-          </h2>
-          
-          <div className="relative">
-            {/* VS Badge */}
-            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[54px] h-[54px] bg-[#0b2b5b] rounded-full text-white font-bold text-[18px] items-center justify-center z-10 border-4 border-[#f6f8fb]">
-              VS
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {/* Left Column (Positive) */}
-              <div className="bg-white rounded-lg p-8 shadow-[0_16px_34px_-26px_rgba(6,22,41,0.35)] border border-[#e6ebf2]">
-                <ul className="flex flex-col gap-6">
-                  {[
-                    'Risparmi tempo, soldi e stress',
-                    'Accesso a offerte esclusive e introvabili',
-                    'Nessun vincolo con brand o rivenditori',
-                    'Trattativa esperta al tuo servizio',
-                    'Verifiche tecniche e storiche sempre incluse',
-                    'Supporto dedicato dall\'inizio alla fine'
-                  ].map((text, i) => (
-                    <li key={i} className="flex items-center gap-4">
-                      <div className="w-[22px] h-[22px] rounded-full border border-gray-200 flex items-center justify-center shrink-0">
-                        <Check size={12} className="text-[#061629]" strokeWidth={3} />
-                      </div>
-                      <span className="text-[15px] text-[#061629] font-sans">{text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Right Column (Negative) */}
-              <div className="bg-[#eef3f8] rounded-lg p-8 border border-[#dfe7f0]">
-                <ul className="flex flex-col gap-6">
-                  <li className="flex items-center gap-4 mb-2">
-                    <div className="w-[22px] h-[22px] rounded-full border border-gray-400 flex items-center justify-center shrink-0">
-                      <X size={12} className="text-[#061629]" strokeWidth={3} />
-                    </div>
-                    <span className="text-[16px] text-[#061629] font-bold">Cercare da soli è più rischioso</span>
-                  </li>
-                  {[
-                    'Offerte limitate ai canali pubblici e portali generalisti',
-                    'Rischio di costi nascosti, km manomessi e sinistri non dichiarati',
-                    'Trattativa senza leva contrattuale né dati di mercato',
-                    'Ore perse tra annunci, telefonate e visite a vuoto',
-                    'Burocrazia, pratiche e post-vendita interamente sulle tue spalle'
-                  ].map((text, i) => (
-                    <li key={i} className="flex items-center gap-4">
-                      <div className="w-[22px] h-[22px] rounded-full bg-[#061629] flex items-center justify-center shrink-0">
-                        <X size={12} className="text-white" strokeWidth={3} />
-                      </div>
-                      <span className="text-[15px] text-[#061629] font-sans">{text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+      {/* 4. PAIN → SOLUTION STORIES */}
+      <section className="py-20 bg-[#f6f8fb] border-y border-[#e6ebf2]">
+        <div className="ds-container max-w-[1100px]">
+          <div className="text-center mb-14">
+            <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Storie vere</p>
+            <h2 className="text-[30px] md:text-[40px] font-extrabold text-[#061629] leading-[1.15] max-w-[820px] mx-auto">
+              Quattro storie. <span className="text-[#0c438f]">Quattro motivi per non cercare da soli.</span>
+            </h2>
+            <p className="text-[15px] md:text-[16px] text-muted max-w-[640px] mx-auto leading-relaxed mt-5">
+              Le frustrazioni reali di chi ha provato a fare da solo, e le risposte che diamo ogni giorno ai nostri clienti.
+            </p>
           </div>
 
+          <div className="flex flex-col gap-5">
+            {[
+              {
+                pain: 'Ho perso tre settimane tra annunci scaduti, foto false e venditori che sparivano nel nulla.',
+                solutionTitle: 'Filtriamo migliaia di proposte. Te ne presentiamo tre, e sono tutte reali.',
+                solutionTag: 'Scouting selezionato',
+                icon: Search,
+              },
+              {
+                pain: "Avevo trovato l'auto perfetta. Peccato che il chilometraggio fosse stato truccato.",
+                solutionTitle: 'Perizia 150 punti con diagnosi computerizzata e database km ufficiali. Niente sorprese.',
+                solutionTag: 'Verifica tecnica completa',
+                icon: ShieldCheck,
+              },
+              {
+                pain: 'Volevo una rata leggera. In concessionaria mi hanno proposto solo finanziamenti cari e brevi.',
+                solutionTitle: 'Finanziamenti su misura fino a 10 anni con i nostri partner bancari. Rata costruita sulle tue tasche.',
+                solutionTag: 'Finanziamento dedicato',
+                icon: CreditCard,
+              },
+              {
+                pain: 'Vivo in Sicilia. Le occasioni migliori erano tutte al Nord, irraggiungibili per me.',
+                solutionTitle: "Cerchiamo in tutta Europa e ti consegniamo l'auto sotto casa. Ovunque tu sia in Italia.",
+                solutionTag: 'Consegna a domicilio',
+                icon: Truck,
+              }
+            ].map((story, i) => (
+              <div key={i} className="grid grid-cols-1 md:grid-cols-2 rounded-lg overflow-hidden border border-[#e6ebf2] shadow-[0_14px_34px_-28px_rgba(6,22,41,0.4)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.45)] transition-shadow">
+                {/* Pain side */}
+                <div className="p-8 md:p-10 bg-white relative border-b md:border-b-0 md:border-r border-[#e6ebf2]">
+                  <span aria-hidden="true" className="absolute top-3 left-7 text-[68px] md:text-[88px] font-serif text-[#0c438f]/10 leading-none select-none pointer-events-none">“</span>
+                  <p className="relative text-[15px] md:text-[16.5px] italic text-[#061629] leading-[1.65] pt-7 pr-2">
+                    {story.pain}
+                  </p>
+                  <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#7b8794] mt-6 flex items-center gap-2">
+                    <span className="inline-block w-6 h-px bg-[#cfd9e6]"></span>
+                    Prima di Diamanti
+                  </p>
+                </div>
+
+                {/* Solution side */}
+                <div className="p-8 md:p-10 bg-[#061629] text-white relative flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                        <story.icon size={18} strokeWidth={1.8} />
+                      </div>
+                      <span className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-white/72">
+                        {story.solutionTag}
+                      </span>
+                    </div>
+                    <p className="text-[15px] md:text-[16.5px] text-white leading-[1.6] font-medium">
+                      {story.solutionTitle}
+                    </p>
+                  </div>
+                  <div className="mt-6 flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#7ba6e4]">
+                    <ArrowRight size={14} strokeWidth={2.4} />
+                    La risposta Diamanti
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
