@@ -250,10 +250,18 @@ export default function About() {
       <section className="relative bg-[#061629] text-white overflow-hidden">
         {/* Sfondo: Mercedes GLC in showroom */}
         <div className="absolute inset-0 z-0">
+          {/* Riempimento sfondo: stessa foto, cover + sfocata, copre tutta la sezione */}
           <img
             src="/images/glc-showroom.png"
             alt=""
-            className="w-full h-full object-contain object-center opacity-70"
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-50"
+          />
+          {/* Auto intera, alla dimensione attuale */}
+          <img
+            src="/images/glc-showroom.png"
+            alt=""
+            className="absolute inset-0 w-full h-full object-contain object-center opacity-80"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/70 via-[#061629]/20 to-[#061629]/70"></div>
         </div>
