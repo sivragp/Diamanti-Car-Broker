@@ -143,10 +143,7 @@ export default function About() {
               { num: 6, icon: Car, title: 'Consegna e supporto', text: 'Consegna dell\'auto e assistenza post-acquisto: restiamo al tuo fianco anche dopo.' }
             ].map((step, i) => (
               <div key={i} className="relative flex flex-col">
-                <div className="bg-white border border-[#e6ebf2] rounded-lg p-7 pt-10 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.42)] hover:-translate-y-1 transition-all duration-300">
-                  <div className="absolute -top-[20px] -left-[10px] w-12 h-12 rounded-full bg-[#0b2b5b] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[4px] border-white">
-                    {step.num}
-                  </div>
+                <div className="bg-white border border-[#e6ebf2] rounded-lg p-7 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.42)] hover:-translate-y-1 transition-all duration-300">
                   <div className="flex items-start gap-5">
                     <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center shrink-0">
                       <step.icon size={22} strokeWidth={1.5} />
@@ -251,25 +248,22 @@ export default function About() {
 
       {/* 8. CTA PRE-FOOTER */}
       <section className="bg-[#061629] text-white">
-        <div className="ds-container">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="w-full md:w-1/2 py-20 pr-10">
-              <h2 className="text-[36px] md:text-[44px] font-extrabold mb-6 leading-tight text-white">
-                Parliamo della tua <br/>prossima auto?
-              </h2>
-              <p className="text-white/70 text-[16px] mb-10 leading-relaxed max-w-md">
-                Raccontaci cosa stai cercando: ti aiutiamo a trovare la soluzione giusta con un servizio su misura.
-              </p>
-              <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[14px]">
-                Richiedi consulenza
-              </Link>
-            </div>
-            <div className="w-full md:w-1/2 h-[400px] md:h-[500px] relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#061629] via-transparent to-transparent z-10"></div>
-              <img src="/images/glc-showroom.png" alt="Mercedes GLC bianca in showroom" className="w-full h-full object-cover opacity-90" />
-            </div>
-          </div>
+        <div className="ds-container py-16 md:py-20 text-center">
+          <h2 className="text-[36px] md:text-[44px] font-extrabold mb-6 leading-tight text-white">
+            Parliamo della tua <br/>prossima auto?
+          </h2>
+          <p className="text-white/70 text-[16px] mb-10 leading-relaxed max-w-md mx-auto">
+            Raccontaci cosa stai cercando: ti aiutiamo a trovare la soluzione giusta con un servizio su misura.
+          </p>
+          <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[14px]">
+            Richiedi consulenza
+          </Link>
         </div>
+        <img
+          src="/images/glc-showroom.png"
+          alt="Mercedes GLC bianca in showroom"
+          className="w-full h-auto block"
+        />
       </section>
 
     </div>
