@@ -247,23 +247,28 @@ export default function About() {
       </section>
 
       {/* 8. CTA PRE-FOOTER */}
-      <section className="bg-[#061629] text-white">
-        <div className="ds-container py-16 md:py-20 text-center">
+      <section className="relative bg-[#061629] text-white overflow-hidden">
+        {/* Sfondo: Mercedes GLC in showroom */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/glc-showroom.png"
+            alt=""
+            className="w-full h-full object-cover object-center opacity-35"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#061629] via-[#061629]/55 to-[#061629]"></div>
+        </div>
+
+        <div className="ds-container relative z-10 py-20 md:py-28 text-center">
           <h2 className="text-[36px] md:text-[44px] font-extrabold mb-6 leading-tight text-white">
             Parliamo della tua <br/>prossima auto?
           </h2>
-          <p className="text-white/70 text-[16px] mb-10 leading-relaxed max-w-md mx-auto">
+          <p className="text-white/80 text-[16px] mb-10 leading-relaxed max-w-md mx-auto">
             Raccontaci cosa stai cercando: ti aiutiamo a trovare la soluzione giusta con un servizio su misura.
           </p>
           <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[14px]">
             Richiedi consulenza
           </Link>
         </div>
-        <img
-          src="/images/glc-showroom.png"
-          alt="Mercedes GLC bianca in showroom"
-          className="w-full h-auto block"
-        />
       </section>
 
     </div>
