@@ -271,11 +271,8 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
               {/* CON DIAMANTI — dominant */}
-              <div className="bg-[#061629] rounded-lg p-8 md:p-10 text-white shadow-[0_22px_48px_-26px_rgba(6,22,41,0.55)] relative md:pr-14">
+              <div className="bg-[#061629] rounded-lg p-8 md:p-10 text-white shadow-[0_22px_48px_-26px_rgba(6,22,41,0.55)] relative md:pr-14 flex flex-col justify-center">
                 <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7ba6e4] mb-3">Con Diamanti</p>
-                <h3 className="text-[22px] md:text-[24px] font-extrabold leading-tight mb-8">
-                  L'auto giusta, scelta bene.
-                </h3>
                 <ul className="flex flex-col gap-5">
                   {[
                     '5.000+ veicoli filtrati ogni mese: te ne arrivano 3, tutte reali',
@@ -294,7 +291,7 @@ export default function Home() {
               </div>
 
               {/* DA SOLO — whispered */}
-              <div className="bg-white rounded-lg p-8 md:p-10 border border-[#e6ebf2] md:pl-14">
+              <div className="bg-white rounded-lg p-8 md:p-10 border border-[#e6ebf2] md:pl-14 flex flex-col justify-center">
                 <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7b8794] mb-3">Cercando da solo</p>
                 <ul className="flex flex-col gap-5">
                   {[
