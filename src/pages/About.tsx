@@ -1,6 +1,7 @@
 import { CheckCircle2, Target, Search, ShieldCheck, Star, Users, Globe, Settings, Car, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
+import { PageHero } from '../components/PageHero';
 
 export default function About() {
 
@@ -12,15 +13,18 @@ export default function About() {
         path="/chi-siamo"
       />
 
-      {/* 1. HERO CHI SIAMO */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* 1. HERO unificato */}
+      <PageHero
+        eyebrow="Chi siamo"
+        title="Diamanti Automobili"
+        subtitle="Il consulente indipendente che ti accompagna nell'acquisto della tua prossima auto: nuova, usata, km 0 o di importazione."
+      />
+
+      {/* 2. CHI SIAMO — racconto */}
+      <section className="py-16 md:py-20 bg-white">
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2 flex flex-col items-start text-left">
-              <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-4">Chi siamo</p>
-              <h1 className="text-[40px] md:text-[50px] font-extrabold text-[#061629] mb-8 leading-tight">
-                Diamanti Automobili
-              </h1>
               <div className="space-y-6 text-[#061629] text-[16px] leading-relaxed">
                 <p>
                   Diamanti Automobili è il consulente indipendente che ti accompagna nell'acquisto della tua prossima auto: nuova, usata, km 0 o di importazione.

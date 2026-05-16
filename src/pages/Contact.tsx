@@ -2,6 +2,7 @@ import { Phone, Mail, MapPin, Clock, Check, X, CheckCircle2, Search, ShieldCheck
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { SEO } from '../components/SEO';
+import { PageHero } from '../components/PageHero';
 
 export default function Contact() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -14,21 +15,16 @@ export default function Contact() {
         path="/contatti"
       />
 
-      {/* 1. HERO - Come preferisci contattarci? */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=2000"
-            alt="Auto premium"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-[#061629]/70"></div>
-        </div>
+      {/* 1. HERO unificato */}
+      <PageHero
+        eyebrow="Contatti"
+        title="Come preferisci contattarci?"
+        subtitle="Scegli il canale che preferisci: ti rispondiamo entro 24 ore lavorative."
+      />
 
+      {/* 2. CANALI DI CONTATTO */}
+      <section className="relative py-16 bg-[#061629] overflow-hidden">
         <div className="ds-container relative z-10 text-center">
-          <h1 className="text-[40px] md:text-[50px] font-extrabold text-white mb-14">
-            Come preferisci contattarci?
-          </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ChevronDown, MessageSquare, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
+import { PageHero } from '../components/PageHero';
 
 const FAQS = [
   {
@@ -69,18 +70,12 @@ export default function FAQ() {
         jsonLdId="faq"
       />
 
-      {/* 1. HERO */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="ds-container text-center relative z-10">
-          <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-4">Supporto</p>
-          <h1 className="text-[40px] md:text-[50px] font-extrabold text-[#061629] mb-6 leading-tight">
-            Domande frequenti
-          </h1>
-          <p className="text-[16px] text-muted max-w-2xl mx-auto leading-relaxed">
-            Tutte le risposte sul servizio Diamanti Automobili: come funziona, quanto costa, come gestiamo verifica, importazione e consegna. Trasparenza totale, prima di iniziare.
-          </p>
-        </div>
-      </section>
+      {/* 1. HERO unificato */}
+      <PageHero
+        eyebrow="Supporto"
+        title="Domande frequenti"
+        subtitle="Tutte le risposte sul servizio Diamanti Automobili: come funziona, quanto costa, come gestiamo verifica, importazione e consegna. Trasparenza totale, prima di iniziare."
+      />
 
       {/* 2. FAQ ACCORDION */}
       <section className="py-20 bg-[#f6f8fb] border-t border-[#e6ebf2]">

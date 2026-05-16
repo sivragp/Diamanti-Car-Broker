@@ -1,6 +1,7 @@
 import { Search, ShieldCheck, MapPin, BadgeCheck, FileCheck, Truck, ChevronRight, User, CheckCircle2, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
+import { PageHero } from '../components/PageHero';
 
 const STEPS = [
   {
@@ -75,18 +76,12 @@ export default function HowItWorks() {
         path="/come-funziona"
       />
 
-      {/* 1. HERO */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="ds-container text-center relative z-10">
-          <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-4">Il nostro metodo</p>
-          <h1 className="text-[40px] md:text-[50px] font-extrabold text-[#061629] mb-6 leading-tight">
-            Guida il tuo sogno.<br/>Al resto pensiamo noi.
-          </h1>
-          <p className="text-[16px] text-muted max-w-2xl mx-auto leading-relaxed">
-            Il nostro non è un processo meccanico, ma un percorso condiviso. Dal primo contatto alla consegna delle chiavi, sei sempre al centro di ogni decisione.
-          </p>
-        </div>
-      </section>
+      {/* 1. HERO unificato */}
+      <PageHero
+        eyebrow="Il nostro metodo"
+        title={<>Guida il tuo sogno.<br />Al resto pensiamo noi.</>}
+        subtitle="Il nostro non è un processo meccanico, ma un percorso condiviso. Dal primo contatto alla consegna delle chiavi, sei sempre al centro di ogni decisione."
+      />
 
       {/* 2. STEPS */}
       <section className="py-20 bg-[#f6f8fb] border-t border-[#e6ebf2]">

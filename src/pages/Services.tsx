@@ -2,6 +2,7 @@ import { Search, ShieldCheck, Settings, MapPin, CheckCircle2, X, Star, Target, C
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { SEO, SITE_URL } from '../components/SEO';
+import { PageHero } from '../components/PageHero';
 
 const SERVICES_JSONLD = {
   '@context': 'https://schema.org',
@@ -44,18 +45,16 @@ export default function Services() {
         jsonLdId="services"
       />
 
-      {/* 1. HERO - Cosa possiamo fare per te */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      {/* 1. HERO unificato */}
+      <PageHero
+        eyebrow="I nostri servizi"
+        title="I servizi di Diamanti Automobili"
+        subtitle="Una consulenza personalizzata, non vincolata a un singolo marchio o al magazzino di una concessionaria: cerchiamo l'auto giusta per te, la verifichiamo e te la consegniamo. In tutta Italia."
+      />
+
+      {/* 2. COSA FACCIAMO */}
+      <section className="py-16 bg-white relative overflow-hidden">
         <div className="ds-container text-center relative z-10">
-          <h1 className="text-[40px] md:text-[50px] font-extrabold text-[#061629] mb-6">
-            I servizi di Diamanti Automobili
-          </h1>
-          <p className="text-[16px] text-muted max-w-2xl mx-auto leading-relaxed mb-4">
-            Un servizio di consulenza personalizzato, non vincolato a un singolo marchio o al magazzino di una concessionaria.
-          </p>
-          <p className="text-[16px] text-muted max-w-2xl mx-auto leading-relaxed mb-16">
-            Cerchiamo l'auto giusta per te, la verifichiamo e te la consegniamo. In tutta Italia.
-          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[

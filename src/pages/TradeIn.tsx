@@ -14,6 +14,7 @@ import {
   ChevronDown,
 } from 'lucide-react';
 import { SEO, SITE_URL } from '../components/SEO';
+import { PageHero } from '../components/PageHero';
 
 const TRADEIN_JSONLD = {
   '@context': 'https://schema.org',
@@ -81,47 +82,18 @@ export default function TradeIn() {
         jsonLdId="tradein"
       />
 
-      {/* 1. HERO */}
-      <section className="relative py-20 md:py-28 bg-[#061629] overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-25">
-          <img
-            src="/images/fleet-overview.jpg"
-            alt=""
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#061629] via-[#061629]/60 to-[#061629]"></div>
-        </div>
-
-        <div className="ds-container relative z-10 text-center max-w-3xl">
-          <p className="text-[12px] font-extrabold uppercase tracking-[0.22em] text-[#7ba6e4] mb-5">Valuta la tua auto</p>
-          <h1 className="text-[40px] md:text-[58px] font-extrabold text-white leading-[1.05] mb-6">
-            Quanto vale davvero la tua auto?
-          </h1>
-          <p className="text-[17px] md:text-[19px] text-white/80 leading-relaxed mb-10 max-w-2xl mx-auto">
-            Ti diamo una valutazione gratuita in 24 ore.<br className="hidden md:block" />
-            Poi scegli tu: la usi come <strong className="text-white">permuta</strong> sulla tua prossima auto, oppure te la <strong className="text-white">compriamo direttamente</strong> con pagamento in 48 ore.
-          </p>
-          <a
-            href="#form-valutazione"
-            className="inline-flex h-[52px] items-center justify-center rounded-full bg-white px-8 text-[14px] font-bold text-[#061629] hover:bg-[#eef3f8] transition-colors gap-2"
-          >
-            Richiedi valutazione gratuita <ArrowRight size={16} />
-          </a>
-
-          <div className="mt-14 grid grid-cols-3 gap-6 max-w-2xl mx-auto">
-            {[
-              { value: '24h', label: 'Valutazione gratuita' },
-              { value: '48h', label: 'Pagamento se vendi' },
-              { value: '+5-15%', label: 'In più vs concessionari' },
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <p className="text-[22px] md:text-[28px] font-extrabold text-white leading-none mb-2">{stat.value}</p>
-                <p className="text-[11px] uppercase tracking-[0.14em] text-white/60 font-bold leading-snug">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 1. HERO unificato */}
+      <PageHero
+        eyebrow="Valuta la tua auto"
+        title="Quanto vale davvero la tua auto?"
+        subtitle={<>Ti diamo una valutazione gratuita in 24 ore. Poi scegli tu: la usi come <strong className="text-white">permuta</strong> sulla tua prossima auto, oppure te la <strong className="text-white">compriamo direttamente</strong> con pagamento in 48 ore.</>}
+        cta={{ label: 'Richiedi valutazione gratuita', href: '#form-valutazione' }}
+        stats={[
+          { value: '24h', label: 'Valutazione gratuita' },
+          { value: '48h', label: 'Pagamento se vendi' },
+          { value: '+5-15%', label: 'In più vs concessionari' },
+        ]}
+      />
 
       {/* 2. DUE STRADE — Permuta vs Vendita */}
       <section className="py-20 bg-white">
