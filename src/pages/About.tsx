@@ -253,9 +253,9 @@ export default function About() {
           <img
             src="/images/glc-showroom.png"
             alt=""
-            className="w-full h-full object-contain object-center opacity-70"
+            className="w-full h-full object-cover object-center opacity-35"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/70 via-[#061629]/20 to-[#061629]/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#061629] via-[#061629]/55 to-[#061629]"></div>
         </div>
 
         <div className="ds-container relative z-10 py-20 md:py-28 text-center">
