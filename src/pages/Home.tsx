@@ -550,7 +550,7 @@ export default function Home() {
         
         <div className="ds-container relative z-10">
           <div className="max-w-2xl">
-            <h2 className="text-[34px] md:text-[42px] font-extrabold mb-4 leading-tight">
+            <h2 className="text-[34px] md:text-[42px] font-extrabold mb-4 leading-tight text-white">
               Hai già in mente la tua <br/>prossima auto?
             </h2>
             <p className="text-[17px] text-white/90 mb-8 leading-relaxed font-sans">
