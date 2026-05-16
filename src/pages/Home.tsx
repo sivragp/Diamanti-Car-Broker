@@ -296,9 +296,6 @@ export default function Home() {
               {/* DA SOLO — whispered */}
               <div className="bg-white rounded-lg p-8 md:p-10 border border-[#e6ebf2] md:pl-14">
                 <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7b8794] mb-3">Cercando da solo</p>
-                <h3 className="text-[22px] md:text-[24px] font-extrabold leading-tight mb-8 text-[#061629]">
-                  Un'auto, sperando bene.
-                </h3>
                 <ul className="flex flex-col gap-5">
                   {[
                     'Centinaia di annunci pubblici, tutti già visti dagli altri',
