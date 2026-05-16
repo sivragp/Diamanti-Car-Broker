@@ -399,7 +399,7 @@ export default function Home() {
                 <Repeat size={14} strokeWidth={2} />
                 <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-white/90">Valuta la tua auto</span>
               </div>
-              <h2 className="text-[30px] md:text-[42px] font-extrabold leading-[1.1] mb-5">
+              <h2 className="text-[30px] md:text-[42px] font-extrabold leading-[1.1] mb-5 text-white">
                 Hai un'auto da permutare?<br />
                 <span className="text-[#7ba6e4]">La valutiamo gratis in 24 ore.</span>
               </h2>
