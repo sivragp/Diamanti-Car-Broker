@@ -13,40 +13,23 @@ export default function About() {
         path="/chi-siamo"
       />
 
-      {/* 1. HERO unificato */}
+      {/* 1. HERO unificato — Chi siamo (alto, testo inglobato) */}
       <PageHero
+        tall
         eyebrow="Chi siamo"
         title="Diamanti Automobili"
-        subtitle="Il consulente indipendente che ti accompagna nell'acquisto della tua prossima auto: nuova, usata, km 0 o di importazione."
+        subtitle={
+          <>
+            Diamanti Automobili è il consulente indipendente che ti accompagna nell'acquisto della tua prossima auto: nuova, usata, km 0 o di importazione.
+            <br />
+            <br />
+            Fondata da Thomas Diamanti, con 6 anni di esperienza nel settore automobilistico, oggi è un team di consulenti che segue ogni cliente in tutte le fasi: dall'ascolto iniziale alla consegna, con un approccio su misura, trasparente e orientato al dettaglio.
+            <br />
+            <br />
+            Il nostro obiettivo è semplice: trasformare ogni richiesta in una scelta concreta, sicura e in linea con le tue aspettative.
+          </>
+        }
       />
-
-      {/* 2. CHI SIAMO — racconto */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="ds-container">
-          <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="w-full md:w-1/2 flex flex-col items-start text-left">
-              <div className="space-y-6 text-[#061629] text-[16px] leading-relaxed">
-                <p>
-                  Diamanti Automobili è il consulente indipendente che ti accompagna nell'acquisto della tua prossima auto: nuova, usata, km 0 o di importazione.
-                </p>
-                <p>
-                  Fondata da Thomas Diamanti, con 6 anni di esperienza nel settore automobilistico, oggi è un team di consulenti che segue ogni cliente in tutte le fasi: dall'ascolto iniziale alla consegna, con un approccio su misura, trasparente e orientato al dettaglio.
-                </p>
-                <p>
-                  Il nostro obiettivo è semplice: trasformare ogni richiesta in una scelta concreta, sicura e in linea con le tue aspettative.
-                </p>
-              </div>
-            </div>
-            <div className="w-full md:w-1/2 h-[500px]">
-              <img
-                src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&q=80&w=900"
-                alt="Auto premium selezionata dal team Diamanti Automobili"
-                className="w-full h-full object-cover shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* 2. MISSION E VISION */}
       <section className="py-12 bg-white pb-20">
@@ -88,12 +71,12 @@ export default function About() {
               { icon: Search, title: 'Selezione accurata', text: 'Valutiamo ogni dettaglio per offrirti solo auto di qualità.' },
               { icon: CheckCircle2, title: 'Supporto completo', text: 'Ti seguiamo in ogni fase, fino alla consegna e oltre.' }
             ].map((val, i) => (
-              <div key={i} className="bg-white border border-gray-100 p-8 flex flex-col items-center text-center shadow-[0_5px_20px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
-                <div className="w-16 h-16 rounded-full border border-[#0c438f]/30 flex items-center justify-center mb-6">
-                  <val.icon className="text-[#0c438f]" size={32} strokeWidth={1.5} />
+              <div key={i} className="border border-[#e6ebf2] rounded-lg p-7 text-center flex flex-col items-center shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow bg-white">
+                <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-6">
+                  <val.icon size={22} strokeWidth={1.5} />
                 </div>
-                <h4 className="font-bold text-[#061629] text-[16px] mb-3">{val.title}</h4>
-                <p className="text-[13px] text-muted leading-relaxed">{val.text}</p>
+                <h4 className="text-[16px] font-extrabold text-[#061629] mb-3">{val.title}</h4>
+                <p className="text-[14px] text-muted leading-[1.6]">{val.text}</p>
               </div>
             ))}
           </div>
@@ -131,11 +114,13 @@ export default function About() {
               { icon: Globe, title: 'Rete selezionata', text: 'Collaboriamo con partner e canali affidabili per garantirti il meglio del mercato.' },
               { icon: ShieldCheck, title: 'Supporto end-to-end', text: 'Siamo al tuo fianco dalla prima consulenza fino alla consegna e oltre.' }
             ].map((card, i) => (
-              <div key={i} className="bg-white p-8 border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex gap-6 items-start">
-                <card.icon className="text-[#0c438f] shrink-0 mt-1" size={36} strokeWidth={1.5} />
+              <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg p-7 shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow flex gap-5 items-start">
+                <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center shrink-0">
+                  <card.icon size={22} strokeWidth={1.5} />
+                </div>
                 <div>
-                  <h4 className="font-bold text-[#061629] text-[18px] mb-2">{card.title}</h4>
-                  <p className="text-[15px] text-muted leading-relaxed">{card.text}</p>
+                  <h4 className="text-[16px] font-extrabold text-[#061629] mb-2">{card.title}</h4>
+                  <p className="text-[14px] text-muted leading-[1.6]">{card.text}</p>
                 </div>
               </div>
             ))}
@@ -158,15 +143,17 @@ export default function About() {
               { num: 6, icon: Car, title: 'Consegna e supporto', text: 'Consegna dell\'auto e assistenza post-acquisto: restiamo al tuo fianco anche dopo.' }
             ].map((step, i) => (
               <div key={i} className="relative flex flex-col">
-                <div className="bg-white border border-gray-100 p-8 pt-10 h-full flex flex-col shadow-sm">
-                  <div className="absolute -top-[20px] -left-[10px] w-12 h-12 rounded-full bg-[#061629] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[4px] border-white">
+                <div className="bg-white border border-[#e6ebf2] rounded-lg p-7 pt-10 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.42)] hover:-translate-y-1 transition-all duration-300">
+                  <div className="absolute -top-[20px] -left-[10px] w-12 h-12 rounded-full bg-[#0b2b5b] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[4px] border-white">
                     {step.num}
                   </div>
                   <div className="flex items-start gap-5">
-                    <step.icon className="text-[#0c438f] shrink-0" size={32} strokeWidth={1.5} />
+                    <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center shrink-0">
+                      <step.icon size={22} strokeWidth={1.5} />
+                    </div>
                     <div>
-                      <h3 className="font-bold text-[#061629] text-[16px] mb-3 leading-tight">{step.title}</h3>
-                      <p className="text-[14px] text-muted leading-relaxed">{step.text}</p>
+                      <h3 className="text-[16px] font-extrabold text-[#061629] mb-3 leading-tight">{step.title}</h3>
+                      <p className="text-[13px] text-muted leading-[1.65]">{step.text}</p>
                     </div>
                   </div>
                 </div>
@@ -267,7 +254,7 @@ export default function About() {
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/2 py-20 pr-10">
-              <h2 className="text-[36px] md:text-[44px] font-extrabold mb-6 leading-tight">
+              <h2 className="text-[36px] md:text-[44px] font-extrabold mb-6 leading-tight text-white">
                 Parliamo della tua <br/>prossima auto?
               </h2>
               <p className="text-white/70 text-[16px] mb-10 leading-relaxed max-w-md">
@@ -279,7 +266,7 @@ export default function About() {
             </div>
             <div className="w-full md:w-1/2 h-[400px] md:h-[500px] relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#061629] via-transparent to-transparent z-10"></div>
-              <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=1200" alt="Dettaglio auto premium" className="w-full h-full object-cover opacity-60" />
+              <img src="/images/glc-showroom.png" alt="Mercedes GLC bianca in showroom" className="w-full h-full object-cover opacity-90" />
             </div>
           </div>
         </div>

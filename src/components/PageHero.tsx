@@ -14,6 +14,8 @@ interface PageHeroProps {
   cta?: { label: string; href: string };
   stats?: Stat[];
   image?: string;
+  /** Altezza doppia (es. pagina Chi siamo, hero con testo lungo). */
+  tall?: boolean;
 }
 
 /**
@@ -28,13 +30,16 @@ export function PageHero({
   cta,
   stats,
   image = '/images/fleet-overview.jpg',
+  tall = false,
 }: PageHeroProps) {
   const ctaClasses =
     'mt-7 inline-flex h-[48px] items-center justify-center rounded-full bg-white px-7 text-[14px] font-bold text-[#061629] hover:bg-[#eef3f8] transition-colors gap-2';
   const isInternal = !!cta && cta.href.startsWith('/');
 
   return (
-    <section className="relative py-10 md:py-14 bg-[#061629] overflow-hidden">
+    <section
+      className={`relative ${tall ? 'py-20 md:py-28' : 'py-10 md:py-14'} bg-[#061629] overflow-hidden`}
+    >
       <div className="absolute inset-0 z-0 opacity-25">
         <img src={image} alt="" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#061629] via-[#061629]/60 to-[#061629]" />
