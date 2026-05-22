@@ -1,4 +1,4 @@
-import { Search, ShieldCheck, Settings, MapPin, CheckCircle2, X, Star, Target, Check, ChevronDown, Repeat, CreditCard, Truck, Wrench } from 'lucide-react';
+import { Search, ShieldCheck, Settings, MapPin, CheckCircle2, X, Star, Check, ChevronDown, Repeat, CreditCard, Truck, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { SEO, SITE_URL } from '../components/SEO';
@@ -246,37 +246,6 @@ export default function Services() {
                   ))}
                 </ul>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. COME LAVORIAMO - 5 step orizzontali */}
-      <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
-        <div className="ds-container">
-          <h2 className="text-center text-[36px] font-extrabold text-[#061629] mb-16">Come lavoriamo</h2>
-
-          <div className="relative">
-            {/* Connection line */}
-            <div className="hidden md:block absolute top-[28px] left-[10%] right-[10%] border-t-[2px] border-dotted border-gray-300 z-0"></div>
-
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-              {[
-                { num: 1, icon: CheckCircle2, title: 'Ascolto', text: 'Analizziamo esigenze, priorità e budget per impostare una ricerca su misura.' },
-                { num: 2, icon: Target, title: 'Profilo auto', text: "Definiamo insieme il modello da cercare: allestimento, motorizzazione, dettagli." },
-                { num: 3, icon: Search, title: 'Ricerca e selezione', text: 'Valutiamo le migliori opportunità sul mercato italiano ed europeo.' },
-                { num: 4, icon: ShieldCheck, title: 'Verifica e trattativa', text: "Verifichiamo le condizioni del veicolo e trattiamo prezzo e termini per te." },
-                { num: 5, icon: MapPin, title: 'Consegna', text: "Ti consegniamo l'auto pronta all'uso, direttamente a domicilio." }
-              ].map((step, i) => (
-                <div key={i} className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-14 h-14 rounded-full bg-[#061629] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[6px] border-[#f6f8fb] mb-5">
-                    {step.num}
-                  </div>
-                  <step.icon className="text-[#061629] mb-3 opacity-80" size={24} strokeWidth={1.5} />
-                  <h3 className="font-bold text-[#061629] text-[14px] mb-2">{step.title}</h3>
-                  <p className="text-[12px] text-muted leading-relaxed">{step.text}</p>
-                </div>
-              ))}
             </div>
           </div>
         </div>

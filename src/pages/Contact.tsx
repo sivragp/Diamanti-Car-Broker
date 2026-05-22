@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock, Check, X, CheckCircle2, Search, ShieldCheck, ChevronDown, Target, Star } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, CheckCircle2, Search, ShieldCheck, ChevronDown, Target, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { SEO } from '../components/SEO';
@@ -255,65 +255,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* 3. VS - Perché contattarci */}
-      <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
-        <div className="ds-container max-w-[1000px]">
-          <h2 className="text-center text-[32px] md:text-[36px] font-extrabold mb-16 text-[#061629] leading-tight">
-            Perché contattarci prima di cercare l'auto da solo
-          </h2>
-
-          <div className="relative">
-            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60px] h-[60px] bg-[#061629] rounded-full text-white font-extrabold text-[22px] items-center justify-center z-10 border-4 border-[#f6f8fb]">
-              VS
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              <div className="bg-white rounded-2xl p-10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-gray-100">
-                <h3 className="font-bold text-[#061629] text-[16px] mb-8">Affidati a noi: i vantaggi reali</h3>
-                <ul className="flex flex-col gap-5">
-                  {[
-                    'Risparmi tempo: della ricerca ci occupiamo noi',
-                    'Niente annunci ingannevoli o offerte poco trasparenti',
-                    'Accesso a opportunità selezionate, anche fuori dai portali',
-                    'Verifica tecnica e documentale prima di ogni acquisto',
-                    'Trattativa professionale a tuo favore',
-                    'Un metodo chiaro, dal primo contatto alla consegna'
-                  ].map((text, i) => (
-                    <li key={i} className="flex items-center gap-4">
-                      <div className="w-[22px] h-[22px] rounded-full border border-gray-200 flex items-center justify-center shrink-0">
-                        <Check size={12} className="text-[#061629]" strokeWidth={3} />
-                      </div>
-                      <span className="text-[14px] text-[#061629] font-sans">{text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-[#eff2f6] rounded-2xl p-10 border border-transparent">
-                <h3 className="font-bold text-[#061629] text-[16px] mb-8">Cercare da soli significa</h3>
-                <ul className="flex flex-col gap-5">
-                  {[
-                    'Perdere ore tra annunci, telefonate e trattative',
-                    'Rischiare auto non verificate, con problemi nascosti',
-                    'Affidarsi a venditori non sempre trasparenti',
-                    'Pagare di più o fare scelte affrettate',
-                    'Gestire da soli burocrazia, pratiche e passaggi'
-                  ].map((text, i) => (
-                    <li key={i} className="flex items-center gap-4">
-                      <div className="w-[22px] h-[22px] rounded-full bg-[#061629] flex items-center justify-center shrink-0">
-                        <X size={12} className="text-white" strokeWidth={3} />
-                      </div>
-                      <span className="text-[14px] text-[#061629] font-sans">{text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. PARLI DIRETTAMENTE CON NOI */}
+      {/* 3. PARLI DIRETTAMENTE CON NOI */}
       <section className="bg-[#061629] py-20">
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center gap-16">

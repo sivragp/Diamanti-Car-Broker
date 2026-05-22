@@ -1,4 +1,5 @@
-import { CheckCircle2, Target, Search, ShieldCheck, Star, Users, Globe, Settings, Car, Check } from 'lucide-react';
+import { CheckCircle2, Target, Search, ShieldCheck, Star, Users, Globe, Settings, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
 import { ContactCTA } from '../components/ContactCTA';
@@ -128,35 +129,16 @@ export default function About() {
         </div>
       </section>
 
-      {/* 5. IL NOSTRO METODO */}
+      {/* 5. IL NOSTRO METODO (rimando alla pagina dedicata) */}
       <section className="py-24 bg-white">
-        <div className="ds-container">
-          <h2 className="text-center text-[36px] font-extrabold text-[#061629] mb-20">Il nostro metodo</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-16 gap-x-8">
-            {[
-              { num: 1, icon: Users, title: 'Ascolto iniziale', text: 'Conosciamo le tue esigenze, il budget e le preferenze per impostare la ricerca ideale.' },
-              { num: 2, icon: Check, title: 'Definizione del profilo auto', text: 'Definiamo insieme il profilo perfetto: modello, allestimento, condizioni e obiettivi.' },
-              { num: 3, icon: Search, title: 'Ricerca personalizzata', text: 'Attiviamo la nostra rete e analizziamo le migliori opportunità sul mercato, in Italia e all\'estero.' },
-              { num: 4, icon: CheckCircle2, title: 'Verifica e selezione', text: 'Controlliamo ogni dettaglio: storia, condizioni, documenti e costi di gestione.' },
-              { num: 5, icon: ShieldCheck, title: 'Gestione trattativa e pratiche', text: 'Negoziazione trasparente, gestione pratiche burocratiche e contrattuali senza stress.' },
-              { num: 6, icon: Car, title: 'Consegna e supporto', text: 'Consegna dell\'auto e assistenza post-acquisto: restiamo al tuo fianco anche dopo.' }
-            ].map((step, i) => (
-              <div key={i} className="relative flex flex-col">
-                <div className="bg-white border border-[#e6ebf2] rounded-lg p-7 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.42)] hover:-translate-y-1 transition-all duration-300">
-                  <div className="flex items-start gap-5">
-                    <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center shrink-0">
-                      <step.icon size={22} strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <h3 className="text-[16px] font-extrabold text-[#061629] mb-3 leading-tight">{step.title}</h3>
-                      <p className="text-[13px] text-muted leading-[1.65]">{step.text}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="ds-container text-center max-w-2xl">
+          <h2 className="text-[36px] font-extrabold text-[#061629] mb-5">Il nostro metodo</h2>
+          <p className="text-[16px] text-muted leading-relaxed mb-8">
+            Dall'ascolto iniziale alla consegna a domicilio, seguiamo un percorso chiaro: profilo dell'auto, ricerca selezionata sul mercato italiano ed europeo, verifica tecnica, trattativa, gestione pratiche e assistenza post-vendita.
+          </p>
+          <Link to="/come-funziona" className="inline-flex h-[48px] px-7 items-center justify-center rounded-full bg-[#0b2b5b] hover:bg-[#0c438f] text-white font-bold transition-colors text-[14px] gap-2">
+            Scopri come funziona, fase per fase <ArrowRight size={16} />
+          </Link>
         </div>
       </section>
 
@@ -217,11 +199,11 @@ export default function About() {
                 text: "Mi hanno seguito in ogni fase, dalla ricerca alla consegna. Nessuno stress, massima competenza e un'auto che corrisponde esattamente alle mie aspettative."
               },
               {
-                initials: 'AT',
-                name: 'Alessandro T.',
-                car: 'Mercedes GLC',
-                city: 'Torino',
-                text: 'Finalmente un servizio che fa davvero la differenza. Competenti, rapidi e super affidabili. La mia GLC è stata una scelta perfetta.'
+                initials: 'FP',
+                name: 'Francesca P.',
+                car: 'Volvo XC60',
+                city: 'Bologna',
+                text: 'Cercavo un SUV ibrido senza brutte sorprese sui chilometri. Me lo hanno trovato, verificato e consegnato a casa: zero stress, zero pensieri.'
               }
             ].map((review, i) => (
               <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg p-8 flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow">
