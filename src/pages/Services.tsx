@@ -1,4 +1,4 @@
-import { Search, ShieldCheck, Settings, MapPin, CheckCircle2, X, Star, Check, ChevronDown, Repeat, CreditCard, Truck, Wrench } from 'lucide-react';
+import { Search, ShieldCheck, Settings, MapPin, CheckCircle2, Star, Check, ChevronDown, Repeat, CreditCard, Truck, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { SEO, SITE_URL } from '../components/SEO';
@@ -54,23 +54,62 @@ export default function Services() {
         subtitle="Una consulenza personalizzata, non vincolata a un singolo marchio o al magazzino di una concessionaria: cerchiamo l'auto giusta per te, la verifichiamo e te la consegniamo. In tutta Italia."
       />
 
-      {/* 2. COSA FACCIAMO */}
+      {/* 2. COSA FACCIAMO — versione approfondita (layout diverso dalla home) */}
       <section className="py-16 bg-white relative overflow-hidden">
-        <div className="ds-container text-center relative z-10">
+        <div className="ds-container relative z-10">
+          <div className="max-w-2xl mb-12">
+            <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Di cosa ci occupiamo</p>
+            <h2 className="text-[30px] md:text-[36px] font-extrabold text-[#061629] leading-tight">
+              Quattro aree di servizio, un unico interlocutore
+            </h2>
+            <p className="text-[15px] md:text-[16px] text-muted leading-relaxed mt-4">
+              Dalla prima telefonata alle chiavi in mano ci occupiamo noi di ogni passaggio, così tu pensi solo a guidare la tua prossima auto.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { icon: Search, title: 'Ricerca auto su misura', text: "Troviamo l'auto giusta su tutto il mercato — nuova, usata, km 0 o di importazione — in base a esigenze, budget e preferenze." },
-              { icon: ShieldCheck, title: "Consulenza all'acquisto", text: 'Ti orientiamo nella scelta tra modelli, allestimenti, motorizzazioni e migliori opportunità di mercato.' },
-              { icon: CheckCircle2, title: 'Verifica e perizia', text: 'Controlliamo storia, chilometraggio reale, documenti, condizioni meccaniche ed estetiche di ogni veicolo proposto.' },
-              { icon: Settings, title: 'Gestione completa', text: "Negoziazione, pratiche burocratiche, contratto e consegna a domicilio: chiavi in mano." }
+              {
+                icon: Search,
+                title: 'Ricerca auto su misura',
+                text: "Analizziamo tutto il mercato — nuovo, usato, km 0 e importazione — anche tra i veicoli non pubblicati sui portali. Partiamo da esigenze, budget e utilizzo reale per individuare solo le opportunità che valgono davvero.",
+                bullets: ['Mercato italiano ed europeo', 'Anche auto fuori dai portali pubblici', 'Selezione filtrata sulle tue priorità'],
+              },
+              {
+                icon: ShieldCheck,
+                title: "Consulenza all'acquisto",
+                text: 'Ti aiutiamo a scegliere con lucidità tra modelli, allestimenti e motorizzazioni, confrontando costi reali di gestione, svalutazione e disponibilità. Nessun vincolo con marchi o concessionarie: lavoriamo solo nel tuo interesse.',
+                bullets: ['Confronto modelli e allestimenti', 'Costi di gestione e svalutazione', 'Consulenza indipendente'],
+              },
+              {
+                icon: CheckCircle2,
+                title: 'Verifica e perizia',
+                text: 'Prima di ogni acquisto controlliamo storia, chilometraggio reale, documenti e condizioni meccaniche ed estetiche. Dove serve, perizia tecnica in loco e diagnosi computerizzata: niente sorprese dopo la firma.',
+                bullets: ['Chilometraggio e storia verificati', 'Controllo documenti e gravami', 'Perizia tecnica dove necessario'],
+              },
+              {
+                icon: Settings,
+                title: 'Gestione completa',
+                text: "Trattiamo prezzo e condizioni, gestiamo contratto, pratiche e passaggio di proprietà e ti consegniamo l'auto a domicilio in tutta Italia. Permuta, finanziamento fino a 120 mesi e primo tagliando inclusi.",
+                bullets: ['Trattativa e pratiche burocratiche', 'Consegna a domicilio in tutta Italia', 'Permuta, finanziamento e tagliando'],
+              },
             ].map((item, i) => (
-              <div key={i} className="border border-gray-100 rounded-xl p-8 text-center flex flex-col items-center hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-shadow bg-white">
-                <div className="w-14 h-14 rounded-full bg-[#061629] text-white flex items-center justify-center mb-6">
-                  <item.icon size={22} strokeWidth={1.5} />
+              <div key={i} className="flex gap-5 items-start border border-gray-100 rounded-2xl p-8 bg-white shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow">
+                <div className="w-14 h-14 rounded-full bg-[#061629] text-white flex items-center justify-center shrink-0">
+                  <item.icon size={24} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-[17px] font-bold text-[#061629] mb-3">{item.title}</h3>
-                <p className="text-[13px] text-muted leading-relaxed">{item.text}</p>
+                <div>
+                  <h3 className="text-[18px] font-extrabold text-[#061629] mb-3 leading-tight">{item.title}</h3>
+                  <p className="text-[14px] text-muted leading-[1.7] mb-5">{item.text}</p>
+                  <ul className="flex flex-col gap-2.5">
+                    {item.bullets.map((b, j) => (
+                      <li key={j} className="flex items-center gap-3 text-[13px] text-[#061629] font-semibold">
+                        <Check size={14} className="text-[#0c438f] shrink-0" strokeWidth={3} />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
@@ -186,67 +225,6 @@ export default function Services() {
             <Link to="/contatti" className="inline-flex h-[48px] px-7 items-center justify-center rounded-full bg-white hover:bg-[#eef3f8] text-[#061629] font-bold transition-colors text-[14px]">
               Richiedi valutazione gratuita
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. VS SECTION */}
-      <section className="py-20 bg-white">
-        <div className="ds-container max-w-[1000px]">
-          <h2 className="text-center text-[32px] md:text-[36px] font-extrabold mb-16 text-[#061629] leading-tight">
-            Perché affidarsi a Diamanti Automobili invece di fare tutto da soli
-          </h2>
-
-          <div className="relative">
-            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60px] h-[60px] bg-[#061629] rounded-full text-white font-extrabold text-[22px] items-center justify-center z-10 border-4 border-white">
-              VS
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {/* Left - Con Diamanti */}
-              <div className="bg-white rounded-2xl p-10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-gray-100">
-                <h3 className="font-bold text-[#061629] text-[18px] mb-8">Con Diamanti Automobili</h3>
-                <ul className="flex flex-col gap-5">
-                  {[
-                    'Risparmi tempo e riduci lo stress',
-                    'Ricevi solo opportunità selezionate',
-                    'Verifiche approfondite e documenti in regola',
-                    'Trattativa esperta e condizioni migliori',
-                    'Meno rischi e maggiore sicurezza',
-                    'Processo chiaro, trasparente e seguito'
-                  ].map((text, i) => (
-                    <li key={i} className="flex items-center gap-4">
-                      <div className="w-[22px] h-[22px] rounded-full border border-gray-200 flex items-center justify-center shrink-0">
-                        <Check size={12} className="text-[#061629]" strokeWidth={3} />
-                      </div>
-                      <span className="text-[15px] text-[#061629] font-sans">{text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Right - Da solo */}
-              <div className="bg-[#eff2f6] rounded-2xl p-10 border border-transparent">
-                <h3 className="font-bold text-[#061629] text-[18px] mb-8">Cercando da soli</h3>
-                <ul className="flex flex-col gap-5">
-                  {[
-                    'Ore perse tra annunci, telefonate e visite',
-                    'Offerte non verificate e spesso scadute',
-                    'Rischio di auto con problemi nascosti',
-                    'Trattativa singola, senza leva contrattuale',
-                    'Maggiore incertezza e margine di errore',
-                    'Burocrazia e pratiche da gestire da soli'
-                  ].map((text, i) => (
-                    <li key={i} className="flex items-center gap-4">
-                      <div className="w-[22px] h-[22px] rounded-full bg-[#061629] flex items-center justify-center shrink-0">
-                        <X size={12} className="text-white" strokeWidth={3} />
-                      </div>
-                      <span className="text-[15px] text-[#061629] font-sans">{text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </section>
