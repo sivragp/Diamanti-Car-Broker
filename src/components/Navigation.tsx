@@ -176,7 +176,7 @@ export function Footer() {
             <ul className="flex flex-col gap-4 text-[13px]">
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-white/50" />
-                <span>+39 123 456 7890</span>
+                <span>+39 345 678 9012</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-white/50" />
@@ -192,7 +192,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-[11px] text-white/50">
-          <p>© 2024 Diamanti Automobili - Tutti i diritti riservati.</p>
+          <p>© 2026 Diamanti Automobili - Tutti i diritti riservati.</p>
           <p className="mt-2 md:mt-0">P.IVA 12345678901</p>
         </div>
       </div>

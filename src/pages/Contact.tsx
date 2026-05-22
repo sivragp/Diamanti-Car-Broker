@@ -364,7 +364,7 @@ export default function Contact() {
             {[
               { icon: Clock, title: 'Orari', lines: ['Lun-Ven 9:00-19:00', 'Sab 9:00-13:00', 'Domenica chiuso'] },
               { icon: MapPin, title: 'Area operativa', lines: ['Operiamo in tutta Italia', 'e su richiesta anche', 'in Europa.'] },
-              { icon: Star, title: 'Sede', lines: ['Via Roma 18', '20831 Seregno (MB)', 'Italia'] },
+              { icon: Star, title: 'Sede', lines: ['Roma (RM)', 'Su appuntamento', 'Italia'] },
               { icon: Mail, title: 'Tempi di risposta', lines: ['Ti ricontattiamo entro', '24 ore lavorative.'] }
             ].map((item, i) => (
               <div key={i} className="border border-gray-100 rounded-xl p-8 text-center flex flex-col items-center">
