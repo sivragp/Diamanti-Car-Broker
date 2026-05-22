@@ -519,18 +519,18 @@ export default function Home() {
 
       {/* 10. PRE-FOOTER CTA */}
       <section className="relative bg-[#061629] text-white overflow-hidden">
-        {/* Sfondo: Mercedes GLC in showroom */}
+        {/* Sfondo: Fiat 500 in showroom */}
         <div className="absolute inset-0 z-0">
           {/* Riempimento sfondo: stessa foto, cover + sfocata, copre tutta la sezione */}
           <img
-            src="/images/glc-showroom.png"
+            src="/images/fiat-500-showroom.png"
             alt=""
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-50"
           />
           {/* Auto intera, alla dimensione attuale */}
           <img
-            src="/images/glc-showroom.png"
+            src="/images/fiat-500-showroom.png"
             alt=""
             className="absolute inset-0 w-full h-full object-contain object-center opacity-80"
           />

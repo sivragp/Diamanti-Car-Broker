@@ -248,18 +248,18 @@ export default function About() {
 
       {/* 8. CTA PRE-FOOTER */}
       <section className="relative bg-[#061629] text-white overflow-hidden">
-        {/* Sfondo: Mercedes GLC in showroom */}
+        {/* Sfondo: BMW Serie 1 in città */}
         <div className="absolute inset-0 z-0">
           {/* Riempimento sfondo: stessa foto, cover + sfocata, copre tutta la sezione */}
           <img
-            src="/images/glc-showroom.png"
+            src="/images/bmw-serie1-citta.png"
             alt=""
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-50"
           />
           {/* Auto intera, alla dimensione attuale */}
           <img
-            src="/images/glc-showroom.png"
+            src="/images/bmw-serie1-citta.png"
             alt=""
             className="absolute inset-0 w-full h-full object-contain object-center opacity-80"
           />
