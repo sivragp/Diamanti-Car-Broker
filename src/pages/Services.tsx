@@ -363,7 +363,7 @@ export default function Services() {
       </section>
 
       {/* 8. CTA PRE-FOOTER */}
-      <ContactCTA image="/images/porsche-macan-lungomare.png" />
+      <ContactCTA image="/images/mini-cooper-showroom.png" />
 
     </div>
   );

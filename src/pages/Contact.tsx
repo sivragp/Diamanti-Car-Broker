@@ -374,7 +374,7 @@ export default function Contact() {
       </section>
 
       {/* 7. CTA PRE-FOOTER */}
-      <ContactCTA image="/images/kia-ceed-montagna.png" />
+      <ContactCTA image="/images/ford-mustang-tramonto.png" />
 
     </div>
   );

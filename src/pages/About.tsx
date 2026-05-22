@@ -246,7 +246,7 @@ export default function About() {
       </section>
 
       {/* 8. CTA PRE-FOOTER */}
-      <ContactCTA image="/images/glc-showroom.png" />
+      <ContactCTA image="/images/audi-a1-costiera.png" />
 
     </div>
   );

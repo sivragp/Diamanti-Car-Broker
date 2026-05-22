@@ -464,7 +464,7 @@ export default function TradeIn() {
       </section>
 
       {/* 7. CTA PRE-FOOTER */}
-      <ContactCTA image="/images/fiat-panda-showroom.png" />
+      <ContactCTA image="/images/bmw-serie1-strada.png" />
     </div>
   );
 }
