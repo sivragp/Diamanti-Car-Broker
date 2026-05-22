@@ -18,6 +18,7 @@ export default function Contact() {
 
       {/* 1. HERO unificato */}
       <PageHero
+        image="/images/kia-ceed-montagna.png"
         eyebrow="Contatti"
         title="Come preferisci contattarci?"
         subtitle="Scegli il canale che preferisci: ti rispondiamo entro 24 ore lavorative."

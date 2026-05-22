@@ -15,6 +15,7 @@ export default function About() {
 
       {/* 1. HERO unificato — Chi siamo */}
       <PageHero
+        image="/images/glc-showroom.png"
         eyebrow="Chi siamo"
         title="Diamanti Automobili"
         subtitle={
