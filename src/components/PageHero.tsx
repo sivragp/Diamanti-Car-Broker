@@ -35,9 +35,11 @@ export function PageHero({
 
   return (
     <section className="relative min-h-[500px] flex items-center py-12 bg-[#061629] overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-25">
+      <div className="absolute inset-0 z-0">
         <img src={image} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#061629] via-[#061629]/60 to-[#061629]" />
+        {/* Overlay: scuro ai bordi (fonde con header e sezione successiva),
+            più trasparente al centro per far risaltare l'auto. */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/85 via-[#061629]/55 to-[#061629]/90" />
       </div>
 
       <div className="ds-container relative z-10 text-center max-w-3xl mx-auto">
@@ -46,11 +48,11 @@ export function PageHero({
             {eyebrow}
           </p>
         )}
-        <h1 className="text-[26px] md:text-[38px] font-extrabold text-white leading-[1.1]">
+        <h1 className="text-[26px] md:text-[38px] font-extrabold text-white leading-[1.1] [text-shadow:_0_2px_18px_rgb(6_22_41_/_0.55)]">
           {title}
         </h1>
         {subtitle && (
-          <p className="text-[15px] md:text-[17px] text-white/80 leading-relaxed mt-4 max-w-2xl mx-auto">
+          <p className="text-[15px] md:text-[17px] text-white/90 leading-relaxed mt-4 max-w-2xl mx-auto [text-shadow:_0_2px_14px_rgb(6_22_41_/_0.5)]">
             {subtitle}
           </p>
         )}

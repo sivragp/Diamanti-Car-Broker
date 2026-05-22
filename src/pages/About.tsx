@@ -15,6 +15,7 @@ export default function About() {
 
       {/* 1. HERO unificato — Chi siamo */}
       <PageHero
+        image="/images/fleet-rooftop-tramonto.png"
         eyebrow="Chi siamo"
         title="Diamanti Automobili"
         subtitle={
