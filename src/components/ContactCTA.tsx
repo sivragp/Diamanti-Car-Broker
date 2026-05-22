@@ -10,7 +10,7 @@ interface ContactCTAProps {
  * Banner a dimensione fissa 1512×500px (min-h 500px, full-bleed) con
  * foto di sfondo (per pagina) e contenuto centrato verticalmente.
  */
-export function ContactCTA({ image = '/images/fiat-500-showroom.png' }: ContactCTAProps) {
+export function ContactCTA({ image = '/images/fiat-500-showroom.webp' }: ContactCTAProps) {
   return (
     <section className="relative min-h-[500px] flex items-center bg-[#061629] text-white overflow-hidden">
       {/* Sfondo: foto auto della pagina */}

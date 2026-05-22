@@ -15,7 +15,7 @@ export default function About() {
 
       {/* 1. HERO unificato — Chi siamo */}
       <PageHero
-        image="/images/fleet-rooftop-tramonto.png"
+        image="/images/fleet-rooftop-tramonto.webp"
         eyebrow="Chi siamo"
         title="Diamanti Automobili"
         subtitle={
@@ -167,7 +167,7 @@ export default function About() {
             <div className="w-full md:w-1/2">
               <div className="relative rounded-lg overflow-hidden h-[450px] shadow-[0_22px_48px_-26px_rgba(0,0,0,0.6)]">
                 <img
-                  src="/images/team-diamanti.jpg"
+                  src="/images/team-diamanti.webp"
                   alt="Il team Diamanti Automobili nello showroom con il logo aziendale alle spalle"
                   className="w-full h-full object-cover"
                 />
@@ -247,7 +247,7 @@ export default function About() {
       </section>
 
       {/* 8. CTA PRE-FOOTER */}
-      <ContactCTA image="/images/audi-a1-costiera.png" />
+      <ContactCTA image="/images/audi-a1-costiera.webp" />
 
     </div>
   );

@@ -17,7 +17,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/hero-bmw-road.png"
+            src="/images/hero-bmw-road.webp"
             alt="Consulente acquisto auto Diamanti Automobili — auto premium in viaggio"
             className="w-full h-full object-cover"
           />
@@ -387,7 +387,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 items-stretch">
           <div className="relative h-[280px] md:h-auto md:min-h-[460px] order-2 md:order-1">
             <img
-              src="/images/fleet-overview.jpg"
+              src="/images/fleet-overview.webp"
               alt="Parcheggio di auto premium pronto per la valutazione e il ritiro Diamanti Automobili"
               className="w-full h-full object-cover"
             />

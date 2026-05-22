@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 export const SITE_URL = 'https://diamanti-car-broker.vercel.app';
-const DEFAULT_IMAGE = '/images/hero-bmw-road.png';
+const DEFAULT_IMAGE = '/images/og-cover.jpg';
 
 interface SEOProps {
   title: string;
