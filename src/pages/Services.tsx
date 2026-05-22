@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { SEO, SITE_URL } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
+import { ContactCTA } from '../components/ContactCTA';
 
 const SERVICES_JSONLD = {
   '@context': 'https://schema.org',
@@ -362,20 +363,7 @@ export default function Services() {
       </section>
 
       {/* 8. CTA PRE-FOOTER */}
-      <section className="py-24 bg-white border-t border-gray-100">
-        <div className="ds-container text-center max-w-2xl">
-          <h2 className="text-[36px] md:text-[44px] font-extrabold text-[#061629] mb-6 leading-tight italic">
-            Raccontaci quale <span className="not-italic">auto</span><br/>stai cercando.
-          </h2>
-          <p className="text-[16px] text-muted mb-10 leading-relaxed">
-            Condividi le tue esigenze e ti proporremo le migliori<br/>
-            opportunità, selezionate per te.
-          </p>
-          <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[14px]">
-            Richiedi consulenza
-          </Link>
-        </div>
-      </section>
+      <ContactCTA />
 
     </div>
   );

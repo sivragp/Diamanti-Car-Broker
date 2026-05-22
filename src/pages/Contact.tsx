@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { SEO } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
+import { ContactCTA } from '../components/ContactCTA';
 
 export default function Contact() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -373,19 +374,7 @@ export default function Contact() {
       </section>
 
       {/* 7. CTA PRE-FOOTER */}
-      <section className="py-20 bg-white border-t border-gray-100">
-        <div className="ds-container text-center max-w-2xl">
-          <h2 className="text-[36px] md:text-[44px] font-extrabold text-[#061629] mb-6 leading-tight">
-            Hai già in mente la tua prossima auto?
-          </h2>
-          <p className="text-[16px] text-muted mb-10 leading-relaxed">
-            Contattaci oggi: ti aiutiamo a trovarla con il metodo Diamanti Automobili. <br/>Semplice, sicuro, su misura.
-          </p>
-          <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[14px]">
-            Richiedi consulenza
-          </Link>
-        </div>
-      </section>
+      <ContactCTA />
 
     </div>
   );

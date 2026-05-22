@@ -1,7 +1,7 @@
 import { CheckCircle2, Target, Search, ShieldCheck, Star, Users, Globe, Settings, Car, Check } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
+import { ContactCTA } from '../components/ContactCTA';
 
 export default function About() {
 
@@ -13,9 +13,8 @@ export default function About() {
         path="/chi-siamo"
       />
 
-      {/* 1. HERO unificato — Chi siamo (alto, testo inglobato) */}
+      {/* 1. HERO unificato — Chi siamo */}
       <PageHero
-        tall
         eyebrow="Chi siamo"
         title="Diamanti Automobili"
         subtitle={
@@ -247,37 +246,7 @@ export default function About() {
       </section>
 
       {/* 8. CTA PRE-FOOTER */}
-      <section className="relative bg-[#061629] text-white overflow-hidden">
-        {/* Sfondo: BMW Serie 1 in città */}
-        <div className="absolute inset-0 z-0">
-          {/* Riempimento sfondo: stessa foto, cover + sfocata, copre tutta la sezione */}
-          <img
-            src="/images/bmw-serie1-citta.png"
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-50"
-          />
-          {/* Auto intera, alla dimensione attuale */}
-          <img
-            src="/images/bmw-serie1-citta.png"
-            alt=""
-            className="absolute inset-0 w-full h-full object-contain object-center opacity-80"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/70 via-[#061629]/20 to-[#061629]/70"></div>
-        </div>
-
-        <div className="ds-container relative z-10 py-20 md:py-28 text-center">
-          <h2 className="text-[36px] md:text-[44px] font-extrabold mb-6 leading-tight text-white">
-            Parliamo della tua <br/>prossima auto?
-          </h2>
-          <p className="text-white/80 text-[16px] mb-10 leading-relaxed max-w-md mx-auto">
-            Raccontaci cosa stai cercando: ti aiutiamo a trovare la soluzione giusta con un servizio su misura.
-          </p>
-          <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[14px]">
-            Richiedi consulenza
-          </Link>
-        </div>
-      </section>
+      <ContactCTA />
 
     </div>
   );

@@ -1,7 +1,7 @@
-import { Search, ShieldCheck, MapPin, BadgeCheck, FileCheck, Truck, ChevronRight, User, CheckCircle2, Wrench } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Search, ShieldCheck, MapPin, BadgeCheck, FileCheck, Truck, User, CheckCircle2, Wrench } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
+import { ContactCTA } from '../components/ContactCTA';
 
 const STEPS = [
   {
@@ -173,25 +173,7 @@ export default function HowItWorks() {
       </section>
 
       {/* 4. CTA PRE-FOOTER */}
-      <section className="py-20 bg-[#f6f8fb] border-t border-[#e6ebf2]">
-        <div className="ds-container text-center max-w-2xl">
-          <h2 className="text-[32px] md:text-[40px] font-extrabold text-[#061629] mb-6 leading-tight">
-            Qual è il tuo punto di partenza?
-          </h2>
-          <p className="text-[16px] text-muted mb-10 leading-relaxed">
-            Che tu abbia già un'auto in mente o stia ancora valutando, ti accompagniamo nella scelta giusta.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contatti" className="inline-flex h-[48px] px-7 items-center justify-center rounded-full bg-[#0b2b5b] hover:bg-[#0c438f] text-white font-bold transition-colors text-[14px] gap-2">
-              Ho già un'auto in mente
-              <ChevronRight size={18} />
-            </Link>
-            <Link to="/servizi" className="inline-flex h-[48px] px-7 items-center justify-center rounded-full bg-white hover:bg-[#eef3f8] text-[#0b2b5b] border border-[#d7e2ef] font-bold transition-colors text-[14px]">
-              Voglio solo informarmi
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ContactCTA />
 
     </div>
   );

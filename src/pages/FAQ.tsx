@@ -3,6 +3,7 @@ import { ChevronDown, MessageSquare, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
+import { ContactCTA } from '../components/ContactCTA';
 
 const FAQS = [
   {
@@ -124,6 +125,9 @@ export default function FAQ() {
           </div>
         </div>
       </section>
+
+      {/* 4. CTA PRE-FOOTER */}
+      <ContactCTA />
 
     </div>
   );

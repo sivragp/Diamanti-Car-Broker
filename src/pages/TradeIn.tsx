@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { SEO, SITE_URL } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
+import { ContactCTA } from '../components/ContactCTA';
 
 const TRADEIN_JSONLD = {
   '@context': 'https://schema.org',
@@ -463,22 +464,7 @@ export default function TradeIn() {
       </section>
 
       {/* 7. CTA PRE-FOOTER */}
-      <section className="bg-[#061629] py-20">
-        <div className="ds-container text-center max-w-2xl">
-          <h2 className="text-[32px] md:text-[42px] font-extrabold text-white leading-tight mb-5">
-            Pronto a scoprire quanto vale?
-          </h2>
-          <p className="text-[16px] text-white/72 leading-relaxed mb-10">
-            Valutazione gratuita in 24 ore. Decidi tu se permutarla o vendercela direttamente.
-          </p>
-          <a
-            href="#form-valutazione"
-            className="inline-flex h-[52px] items-center justify-center rounded-full bg-white px-8 text-[14px] font-bold text-[#061629] hover:bg-[#eef3f8] transition-colors gap-2"
-          >
-            Compila il modulo <ArrowRight size={16} />
-          </a>
-        </div>
-      </section>
+      <ContactCTA />
     </div>
   );
 }
