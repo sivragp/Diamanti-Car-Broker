@@ -16,6 +16,7 @@ import {
 import { SEO, SITE_URL } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
 import { ContactCTA } from '../components/ContactCTA';
+import { submitLead } from '../lib/forms';
 
 const TRADEIN_JSONLD = {
   '@context': 'https://schema.org',
@@ -72,6 +73,7 @@ const FAQS = [
 export default function TradeIn() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [mode, setMode] = useState<'permuta' | 'vendita'>('permuta');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   return (
     <div className="bg-surface min-h-screen font-sans text-text pt-[74px]">
@@ -309,33 +311,47 @@ export default function TradeIn() {
 
             <form
               className="space-y-5"
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
-                alert('Richiesta di valutazione inviata! Ti ricontattiamo entro 24 ore.');
+                const form = e.currentTarget;
+                setStatus('submitting');
+                try {
+                  await submitLead(form);
+                  setStatus('success');
+                  form.reset();
+                } catch {
+                  setStatus('error');
+                }
               }}
             >
+              {/* Config FormSubmit + honeypot anti-spam */}
+              <input type="hidden" name="_subject" value="Nuova richiesta valutazione auto — sito Diamanti Automobili" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+              <input type="hidden" name="Tipo richiesta" value={mode === 'permuta' ? 'Permuta con nuova' : 'Vendita diretta'} />
+
               <div>
                 <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-4">La tua auto</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Marca *</label>
-                    <input type="text" placeholder="Es. BMW" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <input type="text" name="Marca" placeholder="Es. BMW" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Modello *</label>
-                    <input type="text" placeholder="Es. Serie 3 320d Touring" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <input type="text" name="Modello" placeholder="Es. Serie 3 320d Touring" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Anno immatricolazione *</label>
-                    <input type="number" min="1990" max="2026" placeholder="Es. 2020" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <input type="number" name="Anno" min="1990" max="2026" placeholder="Es. 2020" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Chilometri *</label>
-                    <input type="number" min="0" placeholder="Es. 85000" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <input type="number" name="Chilometri" min="0" placeholder="Es. 85000" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Alimentazione *</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
+                    <select name="Alimentazione" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
                       <option value="">Seleziona...</option>
                       <option>Benzina</option>
                       <option>Diesel</option>
@@ -347,7 +363,7 @@ export default function TradeIn() {
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Condizioni generali *</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
+                    <select name="Condizioni" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
                       <option value="">Seleziona...</option>
                       <option>Ottime — come nuova</option>
                       <option>Buone — segni d'uso normali</option>
@@ -360,7 +376,7 @@ export default function TradeIn() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Finanziamento attivo?</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                    <select name="Finanziamento" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option>No</option>
                       <option>Sì, da estinguere</option>
                       <option>Leasing in corso</option>
@@ -368,7 +384,7 @@ export default function TradeIn() {
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Foto (opzionale)</label>
-                    <input type="file" accept="image/*" multiple className="w-full border border-gray-200 rounded-md h-[46px] px-3 text-[13px] file:mr-3 file:py-2 file:px-3 file:rounded-md file:border-0 file:text-[12px] file:font-bold file:bg-[#f6f8fb] file:text-[#061629]" />
+                    <input type="file" name="Foto" accept="image/*" multiple className="w-full border border-gray-200 rounded-md h-[46px] px-3 text-[13px] file:mr-3 file:py-2 file:px-3 file:rounded-md file:border-0 file:text-[12px] file:font-bold file:bg-[#f6f8fb] file:text-[#061629]" />
                   </div>
                 </div>
               </div>
@@ -379,6 +395,7 @@ export default function TradeIn() {
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Cosa stai cercando?</label>
                     <textarea
+                      name="Auto cercata"
                       placeholder="Es. SUV diesel automatico, 4x4, budget 35.000-45.000€, preferibilmente del 2022..."
                       className="w-full border border-gray-200 rounded-md p-4 text-[14px] focus:outline-none focus:border-[#061629] min-h-[100px] resize-none"
                     />
@@ -391,25 +408,25 @@ export default function TradeIn() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Nome e cognome *</label>
-                    <input type="text" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <input type="text" name="Nome" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Email *</label>
-                    <input type="email" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <input type="email" name="Email" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Telefono *</label>
-                    <input type="tel" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <input type="tel" name="Telefono" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Città</label>
-                    <input type="text" placeholder="Es. Roma" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" />
+                    <input type="text" name="Città" placeholder="Es. Roma" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" />
                   </div>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 pt-3">
-                <input type="checkbox" id="privacy-tradein" className="w-4 h-4 accent-[#061629] mt-1 shrink-0" required />
+                <input type="checkbox" id="privacy-tradein" name="Privacy" value="Accettata" className="w-4 h-4 accent-[#061629] mt-1 shrink-0" required />
                 <label htmlFor="privacy-tradein" className="text-[12px] text-muted leading-relaxed">
                   Acconsento al trattamento dei dati personali per ricevere la valutazione e essere ricontattato. I dati saranno trattati con la massima riservatezza.
                 </label>
@@ -417,10 +434,22 @@ export default function TradeIn() {
 
               <button
                 type="submit"
-                className="w-full bg-[#061629] hover:bg-[#0c438f] text-white h-[54px] rounded-full text-[14px] font-bold transition-colors mt-2 flex items-center justify-center gap-2"
+                disabled={status === 'submitting'}
+                className="w-full bg-[#061629] hover:bg-[#0c438f] disabled:opacity-60 disabled:cursor-not-allowed text-white h-[54px] rounded-full text-[14px] font-bold transition-colors mt-2 flex items-center justify-center gap-2"
               >
-                Richiedi valutazione gratuita <ArrowRight size={16} />
+                {status === 'submitting' ? 'Invio in corso…' : (<>Richiedi valutazione gratuita <ArrowRight size={16} /></>)}
               </button>
+
+              {status === 'success' && (
+                <p className="text-center text-[13px] font-semibold text-[#0c438f] bg-[#0c438f]/8 border border-[#0c438f]/20 rounded-md py-3 px-4">
+                  Richiesta inviata! Ti inviamo la valutazione entro 24 ore lavorative.
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="text-center text-[13px] font-semibold text-[#b42318] bg-[#b42318]/8 border border-[#b42318]/20 rounded-md py-3 px-4">
+                  Invio non riuscito. Riprova tra poco oppure scrivici via email.
+                </p>
+              )}
 
               <p className="text-center text-[12px] text-muted pt-2">
                 Riceverai la valutazione entro 24 ore lavorative. Nessun impegno.

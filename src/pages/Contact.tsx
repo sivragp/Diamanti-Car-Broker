@@ -4,9 +4,11 @@ import { useState } from 'react';
 import { SEO } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
 import { ContactCTA } from '../components/ContactCTA';
+import { submitLead } from '../lib/forms';
 
 export default function Contact() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   return (
     <div className="bg-surface min-h-screen font-sans text-text pt-[74px]">
@@ -63,27 +65,46 @@ export default function Contact() {
                 Più dettagli ci dai, più precisa e mirata sarà la nostra ricerca. Ti ricontattiamo entro 24 ore lavorative.
               </p>
 
-              <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert('Richiesta inviata!'); }}>
+              <form
+                className="space-y-6"
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  const form = e.currentTarget;
+                  setStatus('submitting');
+                  try {
+                    await submitLead(form);
+                    setStatus('success');
+                    form.reset();
+                  } catch {
+                    setStatus('error');
+                  }
+                }}
+              >
+                {/* Config FormSubmit + honeypot anti-spam */}
+                <input type="hidden" name="_subject" value="Nuova richiesta consulenza — sito Diamanti Automobili" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Nome e cognome *</label>
-                    <input type="text" placeholder="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <input type="text" name="Nome" placeholder="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Email *</label>
-                    <input type="email" placeholder="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <input type="email" name="Email" placeholder="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                 </div>
 
                 <div className="flex flex-col text-left">
                   <label className="text-[12px] font-bold text-[#061629] mb-2">Telefono</label>
-                  <input type="tel" placeholder="Es. 345 678 9010" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" />
+                  <input type="tel" name="Telefono" placeholder="Es. 345 678 9010" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Tipologia auto *</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
+                    <select name="Tipologia" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
                       <option>Seleziona...</option>
                       <option>SUV</option>
                       <option>Berlina</option>
@@ -94,7 +115,7 @@ export default function Contact() {
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Marca</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                    <select name="Marca" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option>Seleziona...</option>
                     </select>
                   </div>
@@ -103,13 +124,13 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Modello</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                    <select name="Modello" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option>Seleziona...</option>
                     </select>
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Alimentazione</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                    <select name="Alimentazione" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option>Seleziona...</option>
                       <option>Benzina</option>
                       <option>Diesel</option>
@@ -124,7 +145,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Budget</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                    <select name="Budget" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option>Seleziona...</option>
                       <option>Fino a 15.000€</option>
                       <option>15.000€ - 25.000€</option>
@@ -135,7 +156,7 @@ export default function Contact() {
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Tempistica</label>
-                    <select className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                    <select name="Tempistica" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option>Seleziona...</option>
                       <option>Entro 1 mese</option>
                       <option>1-3 mesi</option>
@@ -159,21 +180,37 @@ export default function Contact() {
                 <div className="flex flex-col text-left">
                   <label className="text-[12px] font-bold text-[#061629] mb-2">Messaggio / Esigenze specifiche</label>
                   <textarea
+                    name="Messaggio"
                     placeholder="Raccontaci le tue esigenze, preferenze, optional indispensabili..."
                     className="w-full border border-gray-200 rounded-md p-4 text-[14px] focus:outline-none focus:border-[#061629] min-h-[120px] resize-none"
                   />
                 </div>
 
                 <div className="flex items-start gap-3 pt-2">
-                  <input type="checkbox" id="privacy" className="w-4 h-4 accent-[#061629] mt-1 shrink-0" required />
+                  <input type="checkbox" id="privacy" name="Privacy" value="Accettata" className="w-4 h-4 accent-[#061629] mt-1 shrink-0" required />
                   <label htmlFor="privacy" className="text-[12px] text-muted leading-relaxed">
                     Acconsento al trattamento dei dati personali. Le tue informazioni saranno gestite con la massima riservatezza e usate solo per ricontattarti.
                   </label>
                 </div>
 
-                <button type="submit" className="w-full bg-[#061629] hover:bg-gray-800 text-white h-[50px] rounded-md text-[14px] font-bold transition-colors mt-2">
-                  Invia richiesta
+                <button
+                  type="submit"
+                  disabled={status === 'submitting'}
+                  className="w-full bg-[#061629] hover:bg-gray-800 disabled:opacity-60 disabled:cursor-not-allowed text-white h-[50px] rounded-md text-[14px] font-bold transition-colors mt-2"
+                >
+                  {status === 'submitting' ? 'Invio in corso…' : 'Invia richiesta'}
                 </button>
+
+                {status === 'success' && (
+                  <p className="text-center text-[14px] font-semibold text-[#0c438f] bg-[#0c438f]/8 border border-[#0c438f]/20 rounded-md py-3 px-4">
+                    Richiesta inviata! Ti ricontattiamo entro 24 ore lavorative.
+                  </p>
+                )}
+                {status === 'error' && (
+                  <p className="text-center text-[14px] font-semibold text-[#b42318] bg-[#b42318]/8 border border-[#b42318]/20 rounded-md py-3 px-4">
+                    Invio non riuscito. Riprova tra poco oppure scrivici via email.
+                  </p>
+                )}
               </form>
             </div>
 
