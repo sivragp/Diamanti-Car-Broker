@@ -1,25 +1,30 @@
 import { Link } from 'react-router-dom';
 
+interface ContactCTAProps {
+  /** Foto di sfondo della sezione. Default: Fiat 500 in showroom (usata in home). */
+  image?: string;
+}
+
 /**
  * Sezione CTA pre-footer unificata, presente in fondo a ogni pagina.
  * Banner a dimensione fissa 1512×500px (min-h 500px, full-bleed) con
- * sfondo Fiat 500 e contenuto centrato verticalmente.
+ * foto di sfondo (per pagina) e contenuto centrato verticalmente.
  */
-export function ContactCTA() {
+export function ContactCTA({ image = '/images/fiat-500-showroom.png' }: ContactCTAProps) {
   return (
     <section className="relative min-h-[500px] flex items-center bg-[#061629] text-white overflow-hidden">
-      {/* Sfondo: Fiat 500 in showroom */}
+      {/* Sfondo: foto auto della pagina */}
       <div className="absolute inset-0 z-0">
         {/* Riempimento sfondo: stessa foto, cover + sfocata, copre tutta la sezione */}
         <img
-          src="/images/fiat-500-showroom.png"
+          src={image}
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-50"
         />
         {/* Auto intera, alla dimensione attuale */}
         <img
-          src="/images/fiat-500-showroom.png"
+          src={image}
           alt=""
           className="absolute inset-0 w-full h-full object-contain object-center opacity-80"
         />

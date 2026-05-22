@@ -85,7 +85,6 @@ export default function TradeIn() {
 
       {/* 1. HERO unificato */}
       <PageHero
-        image="/images/fiat-panda-showroom.png"
         eyebrow="Valuta la tua auto"
         title="Quanto vale davvero la tua auto?"
         subtitle={<>Ti diamo una valutazione gratuita in 24 ore. Poi scegli tu: la usi come <strong className="text-white">permuta</strong> sulla tua prossima auto, oppure te la <strong className="text-white">compriamo direttamente</strong> con pagamento in 48 ore.</>}
@@ -465,7 +464,7 @@ export default function TradeIn() {
       </section>
 
       {/* 7. CTA PRE-FOOTER */}
-      <ContactCTA />
+      <ContactCTA image="/images/fiat-panda-showroom.png" />
     </div>
   );
 }
