@@ -459,28 +459,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. BANNER TAYCAN */}
-      <section className="py-10 bg-white">
-        <div className="ds-container">
-          <div className="bg-[#f6f8fb] rounded-lg overflow-hidden flex flex-col md:flex-row items-center border border-[#e6ebf2] max-h-[400px] shadow-[0_14px_34px_-28px_rgba(6,22,41,0.38)]">
-            <div className="w-full md:w-1/2 h-[250px] md:h-[400px]">
-              <img src="/images/fleet-overview.jpg" alt="Vista aerea di un parcheggio con oltre 50 auto premium di vari brand — il volume di veicoli analizzati ogni mese da Diamanti Automobili" className="w-full h-full object-cover" />
-            </div>
-            <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col items-start bg-[#f6f8fb] justify-center h-full">
-              <h2 className="text-[26px] md:text-[32px] font-extrabold text-[#061629] mb-4 leading-tight">
-                Oltre 5.000 veicoli analizzati ogni mese.
-              </h2>
-              <p className="text-[15px] md:text-[16px] text-muted mb-6 leading-relaxed font-sans">
-                Monitoriamo il mercato in tempo reale: auto nuove, km 0, aziendali e usato premium, in Italia e in Europa. Selezioniamo solo le proposte davvero adatte a te.
-              </p>
-              <Link to="/come-funziona" className="bg-[#0b2b5b] hover:bg-[#0c438f] text-white h-[44px] px-6 rounded-full text-[14px] font-bold flex items-center justify-center gap-2 transition-colors">
-                Scopri come funziona <span>→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* 7. PERCHÉ SCEGLIERE (5 cols) */}
       <section className="py-16 bg-white border-t border-[#e6ebf2] relative overflow-hidden">
         <div className="ds-container max-w-[1400px] relative z-10">
@@ -540,27 +518,36 @@ export default function Home() {
       </section>
 
       {/* 10. PRE-FOOTER CTA */}
-      <section className="relative py-[74px] bg-[#061629] text-white overflow-hidden">
-        {/* Background headlight image right aligned */}
-        <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-40">
-          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1200" alt="Headlights" className="w-full h-full object-cover object-left" />
+      <section className="relative bg-[#061629] text-white overflow-hidden">
+        {/* Sfondo: Mercedes GLC in showroom */}
+        <div className="absolute inset-0 z-0">
+          {/* Riempimento sfondo: stessa foto, cover + sfocata, copre tutta la sezione */}
+          <img
+            src="/images/glc-showroom.png"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-50"
+          />
+          {/* Auto intera, alla dimensione attuale */}
+          <img
+            src="/images/glc-showroom.png"
+            alt=""
+            className="absolute inset-0 w-full h-full object-contain object-center opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/70 via-[#061629]/20 to-[#061629]/70"></div>
         </div>
-        {/* Dark gradient to blend the image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#061629] via-[#061629]/92 to-transparent"></div>
-        
-        <div className="ds-container relative z-10">
-          <div className="max-w-2xl">
-            <h2 className="text-[34px] md:text-[42px] font-extrabold mb-4 leading-tight text-white">
-              Hai già in mente la tua <br/>prossima auto?
-            </h2>
-            <p className="text-[17px] text-white/90 mb-8 leading-relaxed font-sans">
-              Parla con un consulente Diamanti Automobili.<br/>
-              La cerchiamo noi: con permuta, finanziamento fino a 120 mesi e consegna a domicilio.
-            </p>
-            <Link to="/contatti" className="inline-flex bg-white hover:bg-gray-100 text-[#061629] h-[46px] px-8 rounded-full text-[14px] font-bold items-center justify-center transition-colors">
-              Richiedi una consulenza <span className="ml-2">→</span>
-            </Link>
-          </div>
+
+        <div className="ds-container relative z-10 py-20 md:py-28 text-center">
+          <h2 className="text-[36px] md:text-[44px] font-extrabold mb-6 leading-tight text-white">
+            Hai già in mente la tua <br/>prossima auto?
+          </h2>
+          <p className="text-white/80 text-[16px] mb-10 leading-relaxed max-w-md mx-auto">
+            Parla con un consulente Diamanti Automobili.<br/>
+            La cerchiamo noi: con permuta, finanziamento fino a 120 mesi e consegna a domicilio.
+          </p>
+          <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[14px]">
+            Richiedi una consulenza
+          </Link>
         </div>
       </section>
 
