@@ -792,6 +792,458 @@ export const ARTICLES: Article[] = [
     ],
     related: ['auto-usata-privato-o-concessionario', 'passaggio-di-proprieta-auto-usata', 'controlli-prima-di-comprare-auto-usata'],
   },
+
+  // 12 ────────────────────────────────────────────────────────────────────
+  {
+    slug: 'come-vendere-auto-usata-velocemente',
+    title: 'Come vendere l’auto usata velocemente (e a chi conviene)',
+    description:
+      'Come vendere l’auto usata in fretta e in sicurezza: privato, concessionario o acquisto diretto, prezzo giusto, foto e documenti per chiudere prima.',
+    h1: 'Come vendere l’auto usata velocemente e in sicurezza',
+    keyword: 'come vendere auto usata velocemente',
+    category: 'Vendita & Permuta',
+    excerpt: 'Le strade per vendere in fretta, come fissare il prezzo giusto e cosa preparare per chiudere senza perditempo.',
+    datePublished: '2026-05-23',
+    dateModified: '2026-05-23',
+    readingMinutes: 5,
+    body: (
+      <>
+        <p>
+          Vendere un’auto usata può richiedere settimane di annunci e telefonate, oppure pochi giorni. La differenza la
+          fanno il <strong>canale</strong> che scegli e la <strong>preparazione</strong>.
+        </p>
+        <h2>I tre canali, a confronto</h2>
+        <ul>
+          <li><strong>Privato</strong>: potenziale ricavo più alto, ma tempi lunghi, appuntamenti e trattative.</li>
+          <li><strong>Concessionario</strong>: veloce, ma in genere valuta al ribasso perché deve rivendere con margine.</li>
+          <li><strong>Acquisto diretto</strong> da un operatore serio: rapido e sicuro, con pagamento garantito e ritiro a domicilio, su una quotazione reale.</li>
+        </ul>
+        <h2>Come fissare il prezzo giusto</h2>
+        <p>
+          Un prezzo fuori mercato è il primo motivo per cui un’auto resta invenduta. Parti dalle{' '}
+          <Link to="/risorse/quanto-vale-la-mia-auto">quotazioni reali di mercato</Link> e tieni conto di km, allestimento e
+          stato. Un prezzo corretto fin da subito vende molto più in fretta di un prezzo alto da “limare” nel tempo.
+        </p>
+        <h2>Cosa preparare per chiudere prima</h2>
+        <ul>
+          <li>Foto chiare, alla luce del giorno, interni inclusi;</li>
+          <li>storico tagliandi e ultima revisione;</li>
+          <li>documenti pronti per il <Link to="/risorse/passaggio-di-proprieta-auto-usata">passaggio di proprietà</Link>;</li>
+          <li>visura aggiornata che attesti l’assenza di gravami.</li>
+        </ul>
+        <p>
+          Diamanti Automobili acquista direttamente la tua auto a valori reali, con pagamento rapido e ritiro ovunque in
+          Italia &mdash; anche senza che tu ne compri un’altra.{' '}
+          <Link to="/valuta-la-tua-auto">Richiedi la valutazione gratuita</Link>.
+        </p>
+      </>
+    ),
+    faqs: [
+      {
+        q: 'Qual è il modo più veloce per vendere l’auto?',
+        a: 'L’acquisto diretto da un operatore affidabile: valutazione rapida, pagamento garantito e ritiro a domicilio, senza annunci né trattative con privati.',
+      },
+      {
+        q: 'Conviene di più vendere a un privato?',
+        a: 'Spesso il ricavo è più alto, ma richiede tempo, contatti e gestione. Se la priorità è la velocità e la sicurezza, l’acquisto diretto è più efficiente.',
+      },
+    ],
+    related: ['quanto-vale-la-mia-auto', 'permuta-auto-come-funziona', 'passaggio-di-proprieta-auto-usata'],
+  },
+
+  // 13 ────────────────────────────────────────────────────────────────────
+  {
+    slug: 'quanto-vale-la-mia-auto',
+    title: 'Quanto vale la mia auto: come calcolare la valutazione',
+    description:
+      'Come capire quanto vale la tua auto usata: i fattori che contano (km, anno, allestimento, stato, mercato) e perché diffidare delle valutazioni al ribasso.',
+    h1: 'Quanto vale la mia auto? Come si calcola la valutazione',
+    keyword: 'quanto vale la mia auto',
+    category: 'Vendita & Permuta',
+    excerpt: 'I fattori che determinano il valore della tua auto e come ottenere una stima realistica, non al ribasso.',
+    datePublished: '2026-05-23',
+    dateModified: '2026-05-23',
+    readingMinutes: 4,
+    body: (
+      <>
+        <p>
+          Prima di vendere o permutare conviene sapere <strong>quanto vale davvero la tua auto</strong>. Il valore non è un
+          numero fisso: dipende da diversi fattori e dalla domanda di mercato del momento.
+        </p>
+        <h2>I fattori che determinano il valore</h2>
+        <ul>
+          <li><strong>Modello e allestimento</strong>: versioni e optional richiesti valgono di più;</li>
+          <li><strong>Anno e chilometri</strong>: incidono molto, ma conta la coerenza tra i due;</li>
+          <li><strong>Stato</strong>: carrozzeria, interni, manutenzione e gommatura;</li>
+          <li><strong>Storia</strong>: tagliandi regolari e nessun sinistro alzano il valore;</li>
+          <li><strong>Mercato</strong>: domanda, stagionalità e alimentazione (es. richiesta di ibride).</li>
+        </ul>
+        <h2>Attenzione alle valutazioni al ribasso</h2>
+        <p>
+          Un operatore che ritira l’usato e ti vende il nuovo guadagna due volte: tende quindi a <strong>sottostimare</strong> la
+          tua auto. Una valutazione corretta parte dalle <strong>quotazioni reali</strong>, non da stime “lowball”.
+        </p>
+        <h2>Permuta o vendita?</h2>
+        <p>
+          Una volta nota la cifra, puoi decidere se <Link to="/risorse/permuta-auto-come-funziona">permutare o vendere
+          direttamente</Link>. Diamanti ti dà una valutazione gratuita in 24 ore e ti lascia scegliere.{' '}
+          <Link to="/valuta-la-tua-auto">Scopri quanto vale la tua auto</Link>.
+        </p>
+      </>
+    ),
+    faqs: [
+      {
+        q: 'Come faccio a sapere quanto vale la mia auto?',
+        a: 'Considerando modello, allestimento, anno, chilometri, stato e domanda di mercato, e confrontando le quotazioni reali. Una valutazione professionale parte da questi dati, non da stime al ribasso.',
+      },
+      {
+        q: 'La valutazione dell’auto è gratuita?',
+        a: 'Con Diamanti sì: invii dati e foto e ricevi una valutazione gratuita entro 24 ore, senza impegno.',
+      },
+    ],
+    related: ['permuta-auto-come-funziona', 'come-vendere-auto-usata-velocemente', 'consulente-acquisto-auto-come-funziona'],
+  },
+
+  // 14 ────────────────────────────────────────────────────────────────────
+  {
+    slug: 'importare-auto-dall-estero',
+    title: 'Importare un’auto dall’estero: procedura, costi e nazionalizzazione',
+    description:
+      'Come importare un’auto dall’estero in Italia: procedura, documenti (COC), nazionalizzazione, regole IVA e Paesi UE più convenienti. Guida pratica.',
+    h1: 'Importare un’auto dall’estero: come funziona davvero',
+    keyword: 'importare auto dall’estero',
+    category: 'Importazione',
+    excerpt: 'Procedura, documenti, IVA e nazionalizzazione per importare un’auto da un Paese UE in modo sicuro.',
+    datePublished: '2026-05-23',
+    dateModified: '2026-05-23',
+    readingMinutes: 6,
+    body: (
+      <>
+        <p>
+          Comprare all’estero amplia la scelta e a volte fa risparmiare, ma <strong>importare un’auto</strong> conviene solo
+          se la procedura è gestita bene. Vale per la Germania come per gli altri Paesi UE.
+        </p>
+        <h2>I Paesi UE più comuni</h2>
+        <p>
+          Oltre alla <Link to="/risorse/importare-auto-dalla-germania">Germania</Link>, anche Francia, Belgio, Paesi Bassi e
+          Spagna offrono buone occasioni a seconda del modello. Restando nell’Unione Europea non ci sono dazi doganali e si
+          paga in euro.
+        </p>
+        <h2>La procedura in sintesi</h2>
+        <ol>
+          <li>Ricerca e <strong>verifica</strong> dell’auto (storia, km, documenti);</li>
+          <li>pagamento sicuro e ritiro dei documenti originali;</li>
+          <li><strong>certificato di conformità (COC)</strong>, indispensabile per l’immatricolazione;</li>
+          <li>trasporto (bisarca assicurata o targhe di esportazione);</li>
+          <li><strong>nazionalizzazione</strong>: IPT, eventuale collaudo, targhe italiane e iscrizione al PRA.</li>
+        </ol>
+        <h2>L’IVA: la regola chiave</h2>
+        <p>
+          Per un’auto <strong>usata</strong> in regime del margine non si versa altra IVA in Italia. Per un{' '}
+          <strong>“mezzo nuovo”</strong> UE (meno di 6 mesi o meno di 6.000 km) l’IVA è invece dovuta in Italia. È la
+          distinzione che cambia di più il conto: va chiarita prima di acquistare.
+        </p>
+        <p>
+          Le importazioni sono parte del servizio Diamanti: gestiamo verifica, pagamento, trasporto e nazionalizzazione
+          chiavi in mano.{' '}
+          <Link to="/contatti">Parlane con un consulente</Link>.
+        </p>
+      </>
+    ),
+    faqs: [
+      {
+        q: 'Si possono importare auto solo dalla Germania?',
+        a: 'No. Si importa da tutta l’UE: Germania, Francia, Belgio, Paesi Bassi, Spagna e altri. La scelta dipende da dove si trova l’occasione migliore per il modello cercato.',
+      },
+      {
+        q: 'Ci sono dazi per importare un’auto da un Paese UE?',
+        a: 'No, all’interno dell’Unione Europea non ci sono dazi doganali. I costi sono trasporto, nazionalizzazione ed eventuale IVA se l’auto è classificata come “mezzo nuovo”.',
+      },
+    ],
+    related: ['importare-auto-dalla-germania', 'controlli-prima-di-comprare-auto-usata', 'consulente-acquisto-auto-come-funziona'],
+  },
+
+  // 15 ────────────────────────────────────────────────────────────────────
+  {
+    slug: 'auto-elettrica-conviene',
+    title: 'Auto elettrica: conviene? Pro, contro e quando sceglierla',
+    description:
+      'L’auto elettrica conviene davvero? Vantaggi (costi, manutenzione, accessi), svantaggi (prezzo, autonomia, ricarica) e in quali casi è la scelta giusta.',
+    h1: 'Auto elettrica: conviene davvero? Pro, contro e quando sceglierla',
+    keyword: 'auto elettrica conviene',
+    category: 'Acquisto',
+    excerpt: 'Quando l’auto elettrica conviene davvero: costi, autonomia, ricarica e profilo d’uso a confronto.',
+    datePublished: '2026-05-23',
+    dateModified: '2026-05-23',
+    readingMinutes: 5,
+    body: (
+      <>
+        <p>
+          L’<strong>auto elettrica conviene</strong>? Non per tutti allo stesso modo: dipende da quanti chilometri fai, da
+          dove ricarichi e dal tipo di percorsi.
+        </p>
+        <h2>I vantaggi</h2>
+        <ul>
+          <li><strong>Costo per km</strong> più basso, soprattutto ricaricando a casa;</li>
+          <li><strong>Manutenzione ridotta</strong> (meno parti meccaniche soggette a usura);</li>
+          <li><strong>Accessi e ZTL</strong> agevolati in molte città;</li>
+          <li>guida silenziosa e fluida.</li>
+        </ul>
+        <h2>Gli svantaggi</h2>
+        <ul>
+          <li><strong>Prezzo d’acquisto</strong> ancora più alto rispetto a un termico equivalente;</li>
+          <li><strong>Autonomia</strong> e tempi di <strong>ricarica</strong> da pianificare nei viaggi lunghi;</li>
+          <li>necessità di un punto di ricarica comodo;</li>
+          <li><strong>svalutazione</strong> ancora poco prevedibile su alcuni modelli.</li>
+        </ul>
+        <h2>Quando conviene</h2>
+        <p>
+          Conviene se percorri molti km, soprattutto urbani/extraurbani, e puoi ricaricare a casa o al lavoro. Se fai pochi
+          km o tanti viaggi lunghi senza punti di ricarica comodi, un’<Link to="/risorse/diesel-benzina-ibrida-o-elettrica-quale-scegliere">ibrida o un termico efficiente</Link> possono restare più pratici. Conta anche valutare il{' '}
+          <Link to="/risorse/costo-mantenimento-auto">costo totale di mantenimento</Link>, non solo il prezzo.
+        </p>
+        <p><Link to="/contatti">Vuoi un parere sul tuo caso?</Link> Te lo diamo in base a come usi l’auto.</p>
+      </>
+    ),
+    faqs: [
+      {
+        q: 'Conviene comprare un’auto elettrica oggi?',
+        a: 'Conviene se fai parecchi chilometri e puoi ricaricare a casa o al lavoro: il costo per km è basso e la manutenzione ridotta. Con pochi km o molti viaggi lunghi senza ricarica comoda, ibrido o termico restano spesso più pratici.',
+      },
+      {
+        q: 'L’elettrica si svaluta di più?',
+        a: 'Dipende dal modello: su alcuni la svalutazione è ancora poco prevedibile. Per questo conta valutare bene il singolo veicolo e il costo totale di possesso.',
+      },
+    ],
+    related: ['diesel-benzina-ibrida-o-elettrica-quale-scegliere', 'costo-mantenimento-auto', 'km-0-aziendale-usato-nuovo-differenze'],
+  },
+
+  // 16 ────────────────────────────────────────────────────────────────────
+  {
+    slug: 'diesel-benzina-ibrida-o-elettrica-quale-scegliere',
+    title: 'Diesel, benzina, ibrida o elettrica: quale conviene scegliere',
+    description:
+      'Diesel, benzina, ibrida o elettrica: come scegliere l’alimentazione giusta in base a chilometri annui, tipo di percorsi e budget. Guida pratica.',
+    h1: 'Diesel, benzina, ibrida o elettrica: quale alimentazione scegliere',
+    keyword: 'quale alimentazione auto scegliere',
+    category: 'Acquisto',
+    excerpt: 'Come scegliere tra diesel, benzina, ibrido ed elettrico in base ai tuoi km e ai tuoi percorsi.',
+    datePublished: '2026-05-23',
+    dateModified: '2026-05-23',
+    readingMinutes: 5,
+    body: (
+      <>
+        <p>
+          La scelta dell’<strong>alimentazione</strong> incide su costi, comfort e rivendita. Non esiste la migliore in
+          assoluto: esiste quella giusta per <em>come</em> usi l’auto.
+        </p>
+        <h2>Guida rapida per profilo d’uso</h2>
+        <table>
+          <thead>
+            <tr><th>Profilo</th><th>Scelta consigliata</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Pochi km, città</td><td>Benzina o ibrido</td></tr>
+            <tr><td>Molti km misti/città</td><td>Ibrido o elettrico</td></tr>
+            <tr><td>Tanta autostrada, lunghe percorrenze</td><td>Diesel (o ibrido efficiente)</td></tr>
+            <tr><td>Urbano + ricarica a casa</td><td>Elettrico</td></tr>
+          </tbody>
+        </table>
+        <h2>In sintesi</h2>
+        <ul>
+          <li><strong>Benzina</strong>: ideale per pochi km e città; acquisto economico.</li>
+          <li><strong>Diesel</strong>: conviene con tanti km autostradali; attenzione alle limitazioni nelle ZTL.</li>
+          <li><strong>Ibrido</strong>: ottimo compromesso per uso misto, senza ansia da ricarica.</li>
+          <li><strong>Elettrico</strong>: il più economico per km se ricarichi a casa e fai percorsi prevedibili.</li>
+        </ul>
+        <p>
+          Prima di decidere, valuta il <Link to="/risorse/costo-mantenimento-auto">costo totale di mantenimento</Link> e, per
+          l’elettrico, leggi <Link to="/risorse/auto-elettrica-conviene">quando conviene davvero</Link>.{' '}
+          <Link to="/servizi">Ti aiutiamo a scegliere</Link> in base al tuo utilizzo reale.
+        </p>
+      </>
+    ),
+    faqs: [
+      {
+        q: 'Diesel o benzina: quale conviene?',
+        a: 'Il diesel conviene con molti chilometri, soprattutto autostradali; la benzina è più adatta a pochi km e città, con un prezzo d’acquisto inferiore. Conta valutare anche le limitazioni alla circolazione.',
+      },
+      {
+        q: 'L’ibrido conviene per la città?',
+        a: 'Sì: l’ibrido è efficiente nel traffico urbano e nei percorsi misti e non richiede ricarica alla spina (salvo i plug-in). È un buon compromesso per la maggior parte degli automobilisti.',
+      },
+    ],
+    related: ['auto-elettrica-conviene', 'costo-mantenimento-auto', 'consulente-acquisto-auto-come-funziona'],
+  },
+
+  // 17 ────────────────────────────────────────────────────────────────────
+  {
+    slug: 'costo-mantenimento-auto',
+    title: 'Costo di mantenimento auto: quanto costa davvero ogni anno',
+    description:
+      'Quanto costa mantenere un’auto all’anno: assicurazione, bollo, carburante o energia, manutenzione, gomme e svalutazione. Tutte le voci spiegate.',
+    h1: 'Quanto costa mantenere un’auto all’anno: tutte le voci',
+    keyword: 'costo mantenimento auto',
+    category: 'Acquisto',
+    excerpt: 'Tutte le voci del costo annuo di un’auto, oltre al prezzo: la svalutazione è quella che pesa di più.',
+    datePublished: '2026-05-23',
+    dateModified: '2026-05-23',
+    readingMinutes: 4,
+    body: (
+      <>
+        <p>
+          Il prezzo d’acquisto è solo una parte: il <strong>costo di mantenimento</strong> annuo fa la vera differenza tra
+          un’auto sostenibile e una che pesa sul bilancio.
+        </p>
+        <h2>Le voci da considerare</h2>
+        <ul>
+          <li><strong>Assicurazione</strong> (RC + eventuali garanzie accessorie);</li>
+          <li><strong>Bollo</strong>, in base a potenza e classe ambientale;</li>
+          <li><strong>Carburante o energia</strong>, in funzione dei km e dell’alimentazione;</li>
+          <li><strong>Manutenzione</strong> e tagliandi;</li>
+          <li><strong>Gomme</strong> (estive/invernali) e usura;</li>
+          <li><strong>Svalutazione</strong>: spesso la voce più pesante, ma invisibile.</li>
+        </ul>
+        <h2>La voce che tutti dimenticano</h2>
+        <p>
+          La <strong>svalutazione</strong> è quanto l’auto perde di valore ogni anno: è un costo reale anche se non lo paghi
+          “in bolletta”. Scegliere un modello che tiene bene il valore (o partire da{' '}
+          <Link to="/risorse/km-0-aziendale-usato-nuovo-differenze">km 0 e aziendali</Link> che hanno già assorbito la prima
+          svalutazione) può farti risparmiare più del carburante.
+        </p>
+        <h2>Come ridurre i costi</h2>
+        <p>
+          Scegli l’<Link to="/risorse/diesel-benzina-ibrida-o-elettrica-quale-scegliere">alimentazione adatta al tuo uso</Link>,
+          punta su modelli affidabili con ricambi accessibili e fai manutenzione regolare. Un consulente può aiutarti a
+          valutare il costo totale, non solo il prezzo. <Link to="/contatti">Chiedi un’analisi</Link>.
+        </p>
+      </>
+    ),
+    faqs: [
+      {
+        q: 'Qual è la voce più costosa nel mantenimento di un’auto?',
+        a: 'Spesso la svalutazione, cioè la perdita di valore nel tempo: è un costo reale anche se non si paga direttamente. Seguono assicurazione, carburante/energia e manutenzione.',
+      },
+      {
+        q: 'Come si riduce il costo di mantenimento?',
+        a: 'Scegliendo l’alimentazione adatta all’uso, modelli affidabili che tengono il valore (anche km 0 o aziendali) e facendo manutenzione regolare per evitare guasti costosi.',
+      },
+    ],
+    related: ['diesel-benzina-ibrida-o-elettrica-quale-scegliere', 'auto-elettrica-conviene', 'finanziamento-auto-120-mesi'],
+  },
+
+  // 18 ────────────────────────────────────────────────────────────────────
+  {
+    slug: 'come-riconoscere-auto-incidentata',
+    title: 'Come riconoscere un’auto incidentata prima di comprarla',
+    description:
+      'Come capire se un’auto usata è stata incidentata: spessore vernice, fughe e allineamenti, viti e saldature, vetri e interni. I controlli che svelano i sinistri.',
+    h1: 'Come riconoscere un’auto incidentata prima di comprarla',
+    keyword: 'come riconoscere auto incidentata',
+    category: 'Verifica',
+    excerpt: 'I segnali che svelano un sinistro nascosto: vernice, fughe, viti, saldature e vetri da controllare.',
+    datePublished: '2026-05-23',
+    dateModified: '2026-05-23',
+    readingMinutes: 5,
+    body: (
+      <>
+        <p>
+          Un’auto riparata male dopo un incidente può nascondere problemi strutturali. Ecco come{' '}
+          <strong>riconoscere un’auto incidentata</strong> prima di firmare.
+        </p>
+        <h2>1. Lo spessore della vernice</h2>
+        <p>
+          Un <strong>misuratore di spessore vernice</strong> rivela riverniciature: valori molto diversi tra pannelli adiacenti
+          indicano una riparazione. È il controllo più rapido e rivelatore.
+        </p>
+        <h2>2. Fughe e allineamenti</h2>
+        <p>
+          Le distanze tra cofano, portiere e parafanghi devono essere regolari e simmetriche. Fughe irregolari o parti
+          disallineate suggeriscono smontaggi e rimontaggi.
+        </p>
+        <h2>3. Viti, bulloni e saldature</h2>
+        <p>
+          Bulloni di cofano, parafanghi e portiere con segni di chiave indicano interventi. Controlla anche saldature non
+          originali nel vano motore e nel bagagliaio (sotto il tappetino e la ruota di scorta).
+        </p>
+        <h2>4. Vetri e interni</h2>
+        <p>
+          Le date di produzione stampate sui vetri dovrebbero essere coerenti tra loro e con l’anno dell’auto: un cristallo
+          sostituito può essere il segno di un urto. Controlla anche airbag e relativi indicatori.
+        </p>
+        <p>
+          Sono verifiche che richiedono occhio ed esperienza: Diamanti le esegue su ogni auto, insieme alla{' '}
+          <Link to="/risorse/verificare-chilometri-auto-usata">verifica dei chilometri</Link> e alla{' '}
+          <Link to="/risorse/controllare-auto-dalla-targa-visura">visura</Link>.{' '}
+          <Link to="/contatti">Richiedi una perizia</Link>.
+        </p>
+      </>
+    ),
+    faqs: [
+      {
+        q: 'Come capire se un’auto è stata incidentata?',
+        a: 'Controllando spessore vernice, regolarità delle fughe, segni su viti e bulloni, saldature non originali e coerenza delle date sui vetri. Più indizi insieme rendono evidente una riparazione importante.',
+      },
+      {
+        q: 'Un’auto incidentata e riparata bene è un problema?',
+        a: 'Se la riparazione è fatta a regola d’arte e dichiarata, non necessariamente. Il problema sono i danni strutturali nascosti o riparati male: per questo serve una verifica tecnica prima dell’acquisto.',
+      },
+    ],
+    related: ['controlli-prima-di-comprare-auto-usata', 'verificare-chilometri-auto-usata', 'controllare-auto-dalla-targa-visura'],
+  },
+
+  // 19 ────────────────────────────────────────────────────────────────────
+  {
+    slug: 'controllare-auto-dalla-targa-visura',
+    title: 'Controllare un’auto dalla targa: visura, fermi e revisioni',
+    description:
+      'Come controllare un’auto dalla targa prima di comprarla: visura PRA per intestazione, fermi e ipoteche, storico revisioni e chilometri. Cosa verificare.',
+    h1: 'Controllare un’auto dalla targa: cosa puoi (e devi) verificare',
+    keyword: 'controllare auto dalla targa',
+    category: 'Verifica',
+    excerpt: 'Cosa rivela la visura dalla targa: intestazione, fermi, ipoteche e storico revisioni con chilometri.',
+    datePublished: '2026-05-23',
+    dateModified: '2026-05-23',
+    readingMinutes: 4,
+    body: (
+      <>
+        <p>
+          Dalla <strong>targa</strong> di un’auto si possono ottenere informazioni preziose prima dell’acquisto. Ecco cosa
+          verificare e dove.
+        </p>
+        <h2>La visura PRA</h2>
+        <p>
+          La <strong>visura</strong> del Pubblico Registro Automobilistico riporta l’intestatario e la situazione giuridica
+          del veicolo: <strong>fermi amministrativi</strong>, <strong>ipoteche</strong> e gravami. Comprare un’auto con un
+          fermo significa non poterla immatricolare a tuo nome: è il primo controllo da fare.
+        </p>
+        <h2>Lo storico delle revisioni</h2>
+        <p>
+          Il portale pubblico dell’automobilista consente di verificare la <strong>regolarità della revisione</strong> e, a
+          ogni controllo, il <strong>chilometraggio registrato</strong>: un dato utilissimo per smascherare un{' '}
+          <Link to="/risorse/verificare-chilometri-auto-usata">contachilometri truccato</Link>.
+        </p>
+        <h2>Cosa non si scopre dalla sola targa</h2>
+        <p>
+          La targa non racconta lo stato meccanico né i sinistri non registrati: per quelli servono una verifica fisica e
+          una <Link to="/risorse/come-riconoscere-auto-incidentata">perizia sulla carrozzeria</Link>. La visura va quindi
+          sempre abbinata ai <Link to="/risorse/controlli-prima-di-comprare-auto-usata">controlli pre-acquisto</Link>.
+        </p>
+        <p>Diamanti esegue visura e verifiche complete su ogni auto proposta. <Link to="/contatti">Chiedi un controllo</Link>.</p>
+      </>
+    ),
+    faqs: [
+      {
+        q: 'Cosa si può sapere di un’auto dalla targa?',
+        a: 'Con una visura PRA: intestatario, fermi amministrativi, ipoteche e gravami. Dal portale dell’automobilista si verificano regolarità della revisione e chilometraggio registrato a ogni controllo.',
+      },
+      {
+        q: 'La visura dalla targa basta per comprare sicuri?',
+        a: 'No: certifica la situazione giuridica e aiuta sui chilometri, ma non lo stato meccanico né eventuali sinistri non registrati. Va abbinata a verifica fisica e perizia.',
+      },
+    ],
+    related: ['controlli-prima-di-comprare-auto-usata', 'come-riconoscere-auto-incidentata', 'passaggio-di-proprieta-auto-usata'],
+  },
 ];
 
 export const getArticle = (slug: string): Article | undefined =>
