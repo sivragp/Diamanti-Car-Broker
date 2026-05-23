@@ -37,7 +37,7 @@ export default function Contact() {
               { icon: Star, title: 'WhatsApp', line1: 'Scrivici per una', line2: 'risposta veloce', line3: 'Rapido e diretto' },
               { icon: Clock, title: 'Prenota una call', line1: 'Scegli il momento giusto', line2: 'per parlare con noi', line3: 'Consultazione gratuita' }
             ].map((item, i) => (
-              <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-8 text-center flex flex-col items-center hover:bg-white/15 transition-colors">
+              <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-8 text-center flex flex-col items-center hover:bg-white/15 transition-colors">
                 <div className="w-14 h-14 rounded-full border border-[#0c438f]/50 flex items-center justify-center mb-5">
                   <item.icon className="text-[#0c438f]" size={24} strokeWidth={1.5} />
                 </div>
@@ -216,7 +216,7 @@ export default function Contact() {
 
             {/* Right - Sidebar */}
             <div className="w-full lg:w-2/5 flex flex-col gap-6">
-              <div className="bg-[#f6f8fb] border border-gray-100 rounded-xl p-8">
+              <div className="bg-[#f6f8fb] border border-gray-100 rounded-lg p-8">
                 <h3 className="text-[24px] font-bold text-[#061629] mb-8 leading-tight">
                   Ti ricontattiamo con una consulenza personalizzata
                 </h3>
@@ -240,7 +240,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="bg-[#061629] rounded-xl p-10 text-white shadow-lg flex flex-col justify-center">
+              <div className="bg-[#061629] rounded-lg p-10 text-white shadow-lg flex flex-col justify-center">
                 <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#7ba6e4] mb-4">Il nostro team</p>
                 <h3 className="text-[22px] font-extrabold mb-4 leading-tight">
                   Siamo qui per rispondere a tutte le tue domande.
@@ -282,7 +282,7 @@ export default function Contact() {
                 { icon: CheckCircle2, title: 'Assistenza continua', text: 'Siamo disponibili per qualsiasi domanda o necessità, sempre.' },
                 { icon: MapPin, title: 'Consegna a domicilio', text: 'Ti consegniamo l\'auto pronta all\'uso direttamente a casa tua.' }
               ].map((item, i) => (
-                <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6 flex gap-5 items-start hover:bg-white/10 transition-colors">
+                <div key={i} className="bg-white/5 border border-white/10 rounded-lg p-6 flex gap-5 items-start hover:bg-white/10 transition-colors">
                   <div className="w-12 h-12 rounded-full border border-[#0c438f]/40 flex items-center justify-center shrink-0">
                     <item.icon className="text-[#0c438f]" size={22} strokeWidth={1.5} />
                   </div>
@@ -309,7 +309,7 @@ export default function Contact() {
               { icon: Star, title: 'Sede', lines: ['Roma (RM)', 'Su appuntamento', 'Italia'] },
               { icon: Mail, title: 'Tempi di risposta', lines: ['Ti ricontattiamo entro', '24 ore lavorative.'] }
             ].map((item, i) => (
-              <div key={i} className="border border-gray-100 rounded-xl p-8 text-center flex flex-col items-center">
+              <div key={i} className="border border-gray-100 rounded-lg p-8 text-center flex flex-col items-center">
                 <div className="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center mb-5">
                   <item.icon className="text-[#061629]" size={24} strokeWidth={1.5} />
                 </div>
@@ -334,7 +334,7 @@ export default function Contact() {
               { q: 'Posso richiedere qualsiasi marca o modello?', a: 'Sì, lavoriamo su qualsiasi marca e modello. La nostra ricerca è personalizzata al 100% sulle tue esigenze.' },
               { q: 'Consegnate anche fuori regione?', a: 'Assolutamente sì. Effettuiamo consegne a domicilio in tutta Italia e gestiamo anche importazioni dall\'estero.' }
             ].map((faq, i) => (
-              <div key={i} className="bg-white border border-gray-100 rounded-xl overflow-hidden">
+              <div key={i} className="bg-white border border-gray-100 rounded-lg overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"

@@ -114,7 +114,7 @@ export default function TradeIn() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Permuta */}
-            <div className="bg-[#061629] rounded-2xl p-8 md:p-10 text-white shadow-[0_22px_48px_-26px_rgba(6,22,41,0.5)] flex flex-col">
+            <div className="bg-[#061629] rounded-lg p-8 md:p-10 text-white shadow-[0_22px_48px_-26px_rgba(6,22,41,0.5)] flex flex-col">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center">
                   <Repeat size={26} strokeWidth={1.6} />
@@ -143,7 +143,7 @@ export default function TradeIn() {
             </div>
 
             {/* Vendita diretta */}
-            <div className="bg-white border border-[#e6ebf2] rounded-2xl p-8 md:p-10 shadow-[0_22px_48px_-26px_rgba(6,22,41,0.25)] flex flex-col">
+            <div className="bg-white border border-[#e6ebf2] rounded-lg p-8 md:p-10 shadow-[0_22px_48px_-26px_rgba(6,22,41,0.25)] flex flex-col">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-full bg-[#f6f8fb] border border-[#e6ebf2] flex items-center justify-center">
                   <HandCoins size={26} strokeWidth={1.6} className="text-[#0c438f]" />
@@ -283,7 +283,7 @@ export default function TradeIn() {
             </p>
           </div>
 
-          <div className="bg-white border border-[#e6ebf2] rounded-2xl p-8 md:p-10 shadow-[0_22px_48px_-26px_rgba(6,22,41,0.25)]">
+          <div className="bg-white border border-[#e6ebf2] rounded-lg p-8 md:p-10 shadow-[0_22px_48px_-26px_rgba(6,22,41,0.25)]">
             {/* Mode switch */}
             <div className="mb-8">
               <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#7b8794] mb-3">Cosa vuoi fare?</p>

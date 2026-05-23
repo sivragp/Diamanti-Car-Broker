@@ -94,7 +94,7 @@ export default function Services() {
                 bullets: ['Trattativa e pratiche burocratiche', 'Consegna a domicilio in tutta Italia', 'Permuta, finanziamento e tagliando'],
               },
             ].map((item, i) => (
-              <div key={i} className="flex gap-5 items-start border border-gray-100 rounded-2xl p-8 bg-white shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow">
+              <div key={i} className="flex gap-5 items-start border border-gray-100 rounded-lg p-8 bg-white shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow">
                 <div className="w-14 h-14 rounded-full bg-[#061629] text-white flex items-center justify-center shrink-0">
                   <item.icon size={24} strokeWidth={1.5} />
                 </div>
@@ -133,7 +133,7 @@ export default function Services() {
               { num: 6, title: 'Consegna a domicilio e assistenza', text: "Gestiamo pratiche e passaggio di proprietà e ti consegniamo l'auto a casa tua. L'assistenza continua anche dopo." }
             ].map((step, i) => (
               <div key={i} className="relative flex flex-col">
-                <div className="bg-white border border-gray-100 p-8 pt-10 h-full flex flex-col shadow-sm">
+                <div className="bg-white border border-gray-100 p-8 pt-10 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)]">
                   <div className="absolute -top-[20px] left-4 w-12 h-12 rounded-full bg-[#061629] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[4px] border-[#f6f8fb]">
                     {step.num}
                   </div>
@@ -190,7 +190,7 @@ export default function Services() {
                 bullets: ['Officine convenzionate', 'Controlli completi inclusi', 'Assistenza dopo la vendita']
               }
             ].map((item, i) => (
-              <div key={i} className="bg-white border border-gray-100 rounded-2xl p-8 md:p-10 shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow flex flex-col">
+              <div key={i} className="bg-white border border-gray-100 rounded-lg p-8 md:p-10 shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow flex flex-col">
                 <div className="flex items-start gap-5 mb-5">
                   <div className="w-14 h-14 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center shrink-0">
                     <item.icon size={24} strokeWidth={1.6} />
@@ -215,7 +215,7 @@ export default function Services() {
             ))}
           </div>
 
-          <div className="bg-[#061629] rounded-2xl mt-14 p-10 md:p-14 text-center text-white shadow-[0_16px_34px_-26px_rgba(6,22,41,0.35)]">
+          <div className="bg-[#061629] rounded-lg mt-14 p-10 md:p-14 text-center text-white shadow-[0_16px_34px_-26px_rgba(6,22,41,0.35)]">
             <h3 className="text-[24px] md:text-[30px] font-extrabold mb-4 leading-tight">
               Hai un'auto da permutare o ti serve una rata su misura?
             </h3>
@@ -264,7 +264,7 @@ export default function Services() {
               { icon: ShieldCheck, title: 'Trasparenza totale', text: 'Ti raccontiamo tutto: processo, costi, tempi e condizioni reali.' },
               { icon: MapPin, title: 'Assistenza completa', text: 'Dal briefing alla consegna a domicilio, ci occupiamo noi di ogni passaggio.' }
             ].map((item, i) => (
-              <div key={i} className="border border-gray-100 rounded-xl p-8 text-center flex flex-col items-center hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-shadow bg-white">
+              <div key={i} className="border border-gray-100 rounded-lg p-8 text-center flex flex-col items-center hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-shadow bg-white">
                 <div className="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center mb-6">
                   <item.icon className="text-[#061629]" size={24} strokeWidth={1.5} />
                 </div>
@@ -291,7 +291,7 @@ export default function Services() {
               { q: 'Mi aiutate con la verifica dell\'auto?', a: 'Assolutamente. Ogni veicolo che proponiamo viene verificato in termini di storia, condizioni, documenti e chilometraggio reale.' },
               { q: 'Consegnate anche fuori città?', a: 'Sì, effettuiamo consegne a domicilio in tutta Italia, da Bolzano a Trapani. Organizziamo il trasporto in modo sicuro, assicurato e puntuale: l\'auto arriva immatricolata, lavata e pronta a partire.' }
             ].map((faq, i) => (
-              <div key={i} className="bg-white border border-gray-100 rounded-xl overflow-hidden">
+              <div key={i} className="bg-white border border-gray-100 rounded-lg overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
