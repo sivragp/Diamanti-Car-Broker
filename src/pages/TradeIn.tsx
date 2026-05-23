@@ -104,7 +104,7 @@ export default function TradeIn() {
         <div className="ds-container max-w-[1100px]">
           <div className="text-center mb-14">
             <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Due strade</p>
-            <h2 className="text-[32px] md:text-[40px] font-extrabold text-[#061629] leading-[1.1] max-w-[760px] mx-auto">
+            <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-[1.1] max-w-[760px] mx-auto">
               Scegli tu cosa fare con la tua auto.
             </h2>
             <p className="text-[16px] text-muted leading-relaxed mt-5 max-w-[640px] mx-auto">
@@ -179,7 +179,7 @@ export default function TradeIn() {
         <div className="ds-container">
           <div className="text-center mb-14">
             <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Perché venderla a noi</p>
-            <h2 className="text-[30px] md:text-[38px] font-extrabold text-[#061629] leading-[1.15] max-w-[760px] mx-auto">
+            <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-[1.15] max-w-[760px] mx-auto">
               Più valore, meno rotture di scatole.
             </h2>
           </div>
@@ -227,7 +227,7 @@ export default function TradeIn() {
         <div className="ds-container max-w-[1100px]">
           <div className="text-center mb-14">
             <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Come funziona</p>
-            <h2 className="text-[30px] md:text-[38px] font-extrabold text-[#061629] leading-[1.15]">
+            <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-[1.15]">
               Tre passi. Niente complicazioni.
             </h2>
           </div>
@@ -275,7 +275,7 @@ export default function TradeIn() {
         <div className="ds-container max-w-[920px]">
           <div className="text-center mb-12">
             <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Richiedi valutazione</p>
-            <h2 className="text-[30px] md:text-[40px] font-extrabold text-[#061629] leading-[1.1] mb-4">
+            <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-[1.1] mb-4">
               Quanto vale la tua auto?
             </h2>
             <p className="text-[15px] text-muted leading-relaxed max-w-[540px] mx-auto">
@@ -464,7 +464,7 @@ export default function TradeIn() {
         <div className="ds-container max-w-3xl">
           <div className="text-center mb-12">
             <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Domande frequenti</p>
-            <h2 className="text-[30px] md:text-[36px] font-extrabold text-[#061629] leading-tight">
+            <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-tight">
               Le risposte ai dubbi più comuni
             </h2>
           </div>

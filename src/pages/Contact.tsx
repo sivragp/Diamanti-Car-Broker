@@ -58,7 +58,7 @@ export default function Contact() {
 
             {/* Left - Form */}
             <div className="w-full lg:w-3/5">
-              <h2 className="text-[32px] md:text-[38px] font-extrabold text-[#061629] mb-4 leading-tight">
+              <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-4 leading-tight">
                 Raccontaci quale auto<br/>stai cercando
               </h2>
               <p className="text-[15px] text-muted mb-10 leading-relaxed">
@@ -261,7 +261,7 @@ export default function Contact() {
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2 flex flex-col items-start">
               <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#7ba6e4] mb-4">Il nostro team</p>
-              <h2 className="text-[32px] md:text-[38px] font-extrabold text-white mb-6 leading-tight">
+              <h2 className="text-[30px] md:text-[34px] font-extrabold text-white mb-6 leading-tight">
                 Parli direttamente con noi
               </h2>
               <p className="text-white/80 text-[15px] leading-relaxed mb-6 max-w-md">
@@ -300,7 +300,7 @@ export default function Contact() {
       {/* 5. INFORMAZIONI UTILI */}
       <section className="py-20 bg-white">
         <div className="ds-container">
-          <h2 className="text-center text-[36px] font-extrabold text-[#061629] mb-16">Informazioni utili</h2>
+          <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">Informazioni utili</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -326,7 +326,7 @@ export default function Contact() {
       {/* 6. DOMANDE FREQUENTI */}
       <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
         <div className="ds-container max-w-3xl">
-          <h2 className="text-center text-[36px] font-extrabold text-[#061629] mb-16">Domande frequenti</h2>
+          <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">Domande frequenti</h2>
 
           <div className="space-y-4">
             {[

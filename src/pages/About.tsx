@@ -61,7 +61,7 @@ export default function About() {
       {/* 3. I VALORI */}
       <section className="py-16 bg-[#f6f8fb] border-t border-gray-100">
         <div className="ds-container max-w-[1400px]">
-          <h2 className="text-center text-[32px] md:text-[36px] font-extrabold text-[#061629] mb-16">
+          <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">
             I valori che guidano ogni ricerca
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
@@ -88,7 +88,7 @@ export default function About() {
       <section className="bg-[#f6f7f9] flex flex-col md:flex-row">
         <div className="w-full md:w-1/2 bg-[#061629] py-20 px-8 md:pl-[max(2rem,calc((100vw-1280px)/2))] md:pr-16 flex flex-col justify-center">
           <div className="max-w-xl ml-auto w-full">
-            <h2 className="text-[32px] md:text-[40px] font-extrabold text-white mb-10 leading-tight">
+            <h2 className="text-[30px] md:text-[34px] font-extrabold text-white mb-10 leading-tight">
               Perché i clienti scelgono<br/>Diamanti Automobili
             </h2>
             <ul className="space-y-6">
@@ -132,7 +132,7 @@ export default function About() {
       {/* 5. IL NOSTRO METODO (rimando alla pagina dedicata) */}
       <section className="py-24 bg-white">
         <div className="ds-container text-center max-w-2xl">
-          <h2 className="text-[36px] font-extrabold text-[#061629] mb-5">Il nostro metodo</h2>
+          <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-5">Il nostro metodo</h2>
           <p className="text-[16px] text-muted leading-relaxed mb-8">
             Dall'ascolto iniziale alla consegna a domicilio, seguiamo un percorso chiaro: profilo dell'auto, ricerca selezionata sul mercato italiano ed europeo, verifica tecnica, trattativa, gestione pratiche e assistenza post-vendita.
           </p>
@@ -158,7 +158,7 @@ export default function About() {
             </div>
             <div className="w-full md:w-1/2 flex flex-col items-start text-left">
               <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-white/60 mb-4">Il team</p>
-              <h2 className="text-[36px] md:text-[40px] font-extrabold text-white mb-8 leading-tight">
+              <h2 className="text-[30px] md:text-[34px] font-extrabold text-white mb-8 leading-tight">
                 Persone, non solo processi
               </h2>
               <div className="space-y-5 text-white/80 text-[16px] leading-relaxed">
@@ -180,7 +180,7 @@ export default function About() {
       {/* 7. LA FIDUCIA DEI CLIENTI */}
       <section className="py-24 bg-[#f6f8fb]">
         <div className="ds-container">
-          <h2 className="text-center text-[32px] md:text-[36px] font-extrabold text-[#061629] mb-16">La fiducia dei clienti</h2>
+          <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">La fiducia dei clienti</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[

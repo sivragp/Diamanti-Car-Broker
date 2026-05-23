@@ -59,7 +59,7 @@ export default function Services() {
         <div className="ds-container relative z-10">
           <div className="max-w-2xl mb-12">
             <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Di cosa ci occupiamo</p>
-            <h2 className="text-[30px] md:text-[36px] font-extrabold text-[#061629] leading-tight">
+            <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-tight">
               Quattro aree di servizio, un unico interlocutore
             </h2>
             <p className="text-[15px] md:text-[16px] text-muted leading-relaxed mt-4">
@@ -119,7 +119,7 @@ export default function Services() {
       {/* 2. I NOSTRI SERVIZI NEL DETTAGLIO */}
       <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
         <div className="ds-container">
-          <h2 className="text-center text-[36px] font-extrabold text-[#061629] mb-16">
+          <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">
             I nostri servizi nel dettaglio
           </h2>
 
@@ -133,7 +133,7 @@ export default function Services() {
               { num: 6, title: 'Consegna a domicilio e assistenza', text: "Gestiamo pratiche e passaggio di proprietà e ti consegniamo l'auto a casa tua. L'assistenza continua anche dopo." }
             ].map((step, i) => (
               <div key={i} className="relative flex flex-col">
-                <div className="bg-white border border-gray-100 p-8 pt-10 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)]">
+                <div className="bg-white border border-gray-100 rounded-lg p-8 pt-10 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)]">
                   <div className="absolute -top-[20px] left-4 w-12 h-12 rounded-full bg-[#061629] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[4px] border-[#f6f8fb]">
                     {step.num}
                   </div>
@@ -151,7 +151,7 @@ export default function Services() {
         <div className="ds-container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-4">Vantaggi inclusi</p>
-            <h2 className="text-[32px] md:text-[40px] font-extrabold text-[#061629] mb-5 leading-tight">
+            <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-5 leading-tight">
               Più di una consulenza: <span className="text-[#0c438f]">una soluzione completa</span>
             </h2>
             <p className="text-[16px] text-muted leading-relaxed">
@@ -234,7 +234,7 @@ export default function Services() {
         <div className="ds-container">
           <div className="py-20">
             <div className="max-w-2xl">
-              <h2 className="text-[32px] md:text-[40px] font-extrabold text-white mb-6 leading-tight">
+              <h2 className="text-[30px] md:text-[34px] font-extrabold text-white mb-6 leading-tight">
                 Oltre 5.000 veicoli al mese:<br/>
                 troviamo quello <span className="text-[#0c438f] italic">giusto per te</span>.
               </h2>
@@ -253,7 +253,7 @@ export default function Services() {
       {/* 6. UN SERVIZIO DAVVERO COMPLETO */}
       <section className="py-20 bg-white">
         <div className="ds-container">
-          <h2 className="text-center text-[36px] font-extrabold text-[#061629] mb-16">
+          <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">
             Un servizio davvero completo
           </h2>
 
@@ -279,7 +279,7 @@ export default function Services() {
       {/* 7. DOMANDE FREQUENTI */}
       <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
         <div className="ds-container max-w-3xl">
-          <h2 className="text-center text-[36px] font-extrabold text-[#061629] mb-16">Domande frequenti</h2>
+          <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">Domande frequenti</h2>
 
           <div className="space-y-4">
             {[
