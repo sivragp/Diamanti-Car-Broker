@@ -1,10 +1,11 @@
-import { Phone, Mail, MapPin, Clock, CheckCircle2, Search, ShieldCheck, ChevronDown, Target, Star } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, CheckCircle2, Search, ShieldCheck, ChevronDown, Target, Star, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { SEO } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
 import { ContactCTA } from '../components/ContactCTA';
 import { submitLead } from '../lib/forms';
+import { PHONE_DISPLAY, PHONE_HREF, EMAIL, EMAIL_HREF, WHATSAPP_HREF } from '../lib/contact';
 
 export default function Contact() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -32,21 +33,37 @@ export default function Contact() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Phone, title: 'Telefono', line1: '+39 345 678 9012', line2: 'Lun-Ven 9:00-19:00', line3: 'Sab 9:00-13:00' },
-              { icon: Mail, title: 'Email', line1: 'info@diamantiautomobili.it', line2: 'Scrivici e ti', line3: 'risponderemo presto' },
-              { icon: Star, title: 'WhatsApp', line1: 'Scrivici per una', line2: 'risposta veloce', line3: 'Rapido e diretto' },
-              { icon: Clock, title: 'Prenota una call', line1: 'Scegli il momento giusto', line2: 'per parlare con noi', line3: 'Consultazione gratuita' }
-            ].map((item, i) => (
-              <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-8 text-center flex flex-col items-center hover:bg-white/15 transition-colors">
-                <div className="w-14 h-14 rounded-full border border-[#0c438f]/50 flex items-center justify-center mb-5">
-                  <item.icon className="text-[#0c438f]" size={24} strokeWidth={1.5} />
-                </div>
-                <h3 className="font-bold text-white text-[16px] mb-3">{item.title}</h3>
-                <p className="text-white/80 text-[13px] leading-relaxed">{item.line1}</p>
-                <p className="text-white/60 text-[12px]">{item.line2}</p>
-                <p className="text-white/60 text-[12px]">{item.line3}</p>
-              </div>
-            ))}
+              { icon: Phone, title: 'Telefono', href: PHONE_HREF, line1: PHONE_DISPLAY, line2: 'Lun-Ven 9:00-19:00', line3: 'Sab 9:00-13:00' },
+              { icon: Mail, title: 'Email', href: EMAIL_HREF, line1: EMAIL, line2: 'Scrivici, ti', line3: 'rispondiamo presto' },
+              { icon: MessageCircle, title: 'WhatsApp', href: WHATSAPP_HREF, line1: 'Scrivici su WhatsApp', line2: 'per una risposta', line3: 'rapida e diretta' },
+              { icon: Clock, title: 'Prenota una call', href: undefined, line1: 'Scegli il momento giusto', line2: 'per parlare con noi', line3: 'Consulenza gratuita' }
+            ].map((item, i) => {
+              const cls = 'group bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-8 text-center flex flex-col items-center hover:bg-white/15 transition-colors';
+              const content = (
+                <>
+                  <div className="w-14 h-14 rounded-full border border-[#0c438f]/50 flex items-center justify-center mb-5 group-hover:border-[#0c438f] transition-colors">
+                    <item.icon className="text-[#0c438f]" size={24} strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-bold text-white text-[16px] mb-3">{item.title}</h3>
+                  <p className="text-white/80 text-[13px] leading-relaxed break-words">{item.line1}</p>
+                  <p className="text-white/60 text-[12px]">{item.line2}</p>
+                  <p className="text-white/60 text-[12px]">{item.line3}</p>
+                </>
+              );
+              return item.href ? (
+                <a
+                  key={i}
+                  href={item.href}
+                  target={item.href.startsWith('http') ? '_blank' : undefined}
+                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className={cls}
+                >
+                  {content}
+                </a>
+              ) : (
+                <div key={i} className={cls}>{content}</div>
+              );
+            })}
           </div>
         </div>
       </section>

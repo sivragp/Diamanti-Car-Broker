@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Phone, MessageSquare, Car, ShieldCheck, MapPin, Facebook, Instagram, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, Phone, MapPin, Facebook, Instagram, Linkedin, Mail } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { PHONE_DISPLAY, PHONE_HREF, EMAIL, EMAIL_HREF } from '../lib/contact';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,22 +44,30 @@ export function Header() {
               />
             </Link>
 
-            {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`relative py-[29px] text-[12px] font-bold uppercase tracking-[0.14em] transition-colors hover:text-white ${
-                    location.pathname === item.path
-                      ? 'text-white after:absolute after:left-0 after:right-0 after:bottom-0 after:h-[3px] after:bg-white'
-                      : 'text-white/72'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+            {/* Desktop Nav + CTA */}
+            <div className="hidden lg:flex items-center gap-8 xl:gap-10">
+              <nav className="flex items-center gap-8 xl:gap-10">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`relative py-[29px] text-[12px] font-bold uppercase tracking-[0.14em] transition-colors hover:text-white ${
+                      location.pathname === item.path
+                        ? 'text-white after:absolute after:left-0 after:right-0 after:bottom-0 after:h-[3px] after:bg-white'
+                        : 'text-white/72'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+              <Link
+                to="/contatti"
+                className="hidden xl:inline-flex h-[40px] items-center justify-center rounded-full bg-white px-5 text-[12px] font-bold text-[#061629] hover:bg-[#eef3f8] transition-colors whitespace-nowrap"
+              >
+                Richiedi consulenza
+              </Link>
+            </div>
 
             {/* Mobile Toggle */}
             <div className="lg:hidden flex items-center shrink-0">
@@ -71,35 +79,31 @@ export function Header() {
         </div>
 
         {/* Mobile Menu */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.nav
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: '100dvh' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-[#061629] fixed top-[74px] left-0 right-0 bottom-0 overflow-y-auto"
-            >
-              <div className="px-5 py-8 flex flex-col gap-8">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-bold text-white hover:text-[#7ba6e4] transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+        <nav
+          aria-hidden={!isOpen}
+          className={`lg:hidden bg-[#061629] fixed top-[74px] left-0 right-0 bottom-0 overflow-y-auto transition-[opacity,transform] duration-300 ${
+            isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3 pointer-events-none invisible'
+          }`}
+        >
+          <div className="px-5 py-8 flex flex-col gap-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setIsOpen(false)}
+                className="text-lg font-bold text-white hover:text-[#7ba6e4] transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
 
-                <div className="mt-4 pt-8 border-t border-white/10">
-                  <Link to="/contatti" onClick={() => setIsOpen(false)} className="flex items-center justify-center h-[52px] w-full rounded-full bg-white text-[#061629] font-semibold text-base">
-                    Richiedi consulenza
-                  </Link>
-                </div>
-              </div>
-            </motion.nav>
-          )}
-        </AnimatePresence>
+            <div className="mt-4 pt-8 border-t border-white/10">
+              <Link to="/contatti" onClick={() => setIsOpen(false)} className="flex items-center justify-center h-[52px] w-full rounded-full bg-white text-[#061629] font-semibold text-base">
+                Richiedi consulenza
+              </Link>
+            </div>
+          </div>
+        </nav>
       </header>
     </>
   );
@@ -170,11 +174,11 @@ export function Footer() {
             <ul className="flex flex-col gap-4 text-[13px]">
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-white/50" />
-                <span>+39 345 678 9012</span>
+                <a href={PHONE_HREF} className="hover:text-white transition-colors">{PHONE_DISPLAY}</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-white/50" />
-                <span>info@diamantiautomobili.it</span>
+                <a href={EMAIL_HREF} className="hover:text-white transition-colors break-all">{EMAIL}</a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-white/50 shrink-0 mt-0.5" />

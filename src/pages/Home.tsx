@@ -1,9 +1,10 @@
 import { Search, Check, X, ShieldCheck, Star, MapPin, Settings, CheckCircle2, ArrowRight, Heart, Repeat, CreditCard, Truck, Wrench } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { ContactCTA } from '../components/ContactCTA';
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <div className="bg-white min-h-screen font-sans text-text pt-[74px]">
       <SEO
@@ -20,6 +21,8 @@ export default function Home() {
             src="/images/hero-bmw-road.webp"
             alt="Consulente acquisto auto Diamanti Automobili — auto premium in viaggio"
             className="w-full h-full object-cover"
+            fetchPriority="high"
+            decoding="async"
           />
         </div>
 
@@ -73,7 +76,7 @@ export default function Home() {
                   <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Prezzo</label>
                   <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-2">
                     <input type="text" placeholder="Budget max" className="w-full min-w-0 border-0 bg-white rounded-md h-[44px] px-3 text-[13px] font-semibold text-[#061629] focus:outline-none focus:ring-2 focus:ring-[#d9e6f7]" />
-                    <button className="bg-[#0b2b5b] hover:bg-[#0c438f] text-white h-[44px] px-5 rounded-md text-[13px] font-bold whitespace-nowrap transition-colors flex items-center justify-center gap-2">
+                    <button type="button" onClick={() => navigate('/contatti')} className="bg-[#0b2b5b] hover:bg-[#0c438f] text-white h-[44px] px-5 rounded-md text-[13px] font-bold whitespace-nowrap transition-colors flex items-center justify-center gap-2">
                       <Search size={15} /> Cerca
                     </button>
                   </div>
@@ -228,7 +231,7 @@ export default function Home() {
             ].map((car, i) => (
               <article key={i} className="snap-start shrink-0 w-[240px] md:w-[300px] bg-white rounded-lg border border-[#e6ebf2] overflow-hidden shadow-[0_14px_34px_-28px_rgba(6,22,41,0.38)]">
                 <div className="relative h-[176px]">
-                  <img src={car.image} alt={car.name} className="w-full h-full object-cover" />
+                  <img src={car.image} alt={car.name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                   <span className="absolute top-3 left-3 rounded-full bg-[#1156bf] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wide text-white">{car.tag}</span>
                   <button className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/88 text-[#061629] flex items-center justify-center backdrop-blur-sm" aria-label="Salva auto">
                     <Heart size={16} strokeWidth={1.8} />
@@ -390,6 +393,8 @@ export default function Home() {
               src="/images/fleet-overview.webp"
               alt="Parcheggio di auto premium pronto per la valutazione e il ritiro Diamanti Automobili"
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#061629] via-[#061629]/30 to-transparent md:bg-gradient-to-r md:from-[#061629]/0 md:via-[#061629]/0 md:to-[#061629]/40"></div>
           </div>

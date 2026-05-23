@@ -20,12 +20,16 @@ export function ContactCTA({ image = '/images/fiat-500-showroom.webp' }: Contact
           src={image}
           alt=""
           aria-hidden="true"
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-50"
         />
         {/* Auto intera, alla dimensione attuale */}
         <img
           src={image}
           alt=""
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-contain object-center opacity-80"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/70 via-[#061629]/20 to-[#061629]/70"></div>
