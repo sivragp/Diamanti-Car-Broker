@@ -113,18 +113,12 @@ export function Footer() {
           
           {/* Logo Col */}
           <div className="lg:col-span-1 flex flex-col">
-            <Link to="/" className="flex items-center gap-3 mb-6">
-              <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
-                <path d="M20 2L2 12L20 38L38 12L20 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-                <path d="M2 12H38" stroke="currentColor" strokeWidth="1.5"/>
-                <path d="M12 12L20 38L28 12" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-                <path d="M20 2L12 12" stroke="currentColor" strokeWidth="1.5"/>
-                <path d="M20 2L28 12" stroke="currentColor" strokeWidth="1.5"/>
-              </svg>
-              <div className="flex flex-col">
-                <span className="text-[16px] text-white font-extrabold tracking-[0.14em] leading-none">DIAMANTI</span>
-                <span className="text-[8px] text-white/80 font-bold tracking-[0.3em] mt-1">AUTOMOBILI</span>
-              </div>
+            <Link to="/" className="flex items-center mb-6">
+              <img
+                src="/logo-diamanti.png"
+                alt="Diamanti Automobili — Consulente acquisto auto a Roma"
+                className="h-[52px] w-auto"
+              />
             </Link>
             <p className="text-[13px] leading-relaxed mb-6">
               Il consulente che cerca, verifica e consegna la tua prossima auto. Da Roma, in tutta Italia.

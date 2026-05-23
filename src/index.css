@@ -107,4 +107,17 @@
   .badge-tag {
     @apply px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest;
   }
+
+  /* Stile prosa per gli articoli del blog /risorse */
+  .article-prose h2 { @apply text-[22px] md:text-[26px] font-extrabold text-brand-dark mt-12 mb-4 leading-tight scroll-mt-[90px]; }
+  .article-prose h3 { @apply text-[17px] md:text-[19px] font-bold text-brand-dark mt-8 mb-3 leading-snug; }
+  .article-prose p  { @apply text-[15px] md:text-[16px] text-muted leading-[1.8] mb-5; }
+  .article-prose ul { @apply list-disc pl-5 mb-6 flex flex-col gap-2 text-[15px] md:text-[16px] text-muted; }
+  .article-prose ol { @apply list-decimal pl-5 mb-6 flex flex-col gap-2 text-[15px] md:text-[16px] text-muted; }
+  .article-prose li { @apply leading-[1.7] pl-1; }
+  .article-prose a  { @apply text-brand-accent font-semibold underline underline-offset-2 hover:text-brand-primary; }
+  .article-prose strong { @apply text-brand-dark font-bold; }
+  .article-prose table { @apply w-full text-left text-[14px] my-7 border-collapse; }
+  .article-prose th { @apply bg-brand-light font-bold text-brand-dark p-3 border border-border align-top; }
+  .article-prose td { @apply p-3 border border-border text-muted align-top leading-[1.6]; }
 }

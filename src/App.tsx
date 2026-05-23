@@ -10,6 +10,8 @@ const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const FAQ = lazy(() => import('./pages/FAQ'));
 const TradeIn = lazy(() => import('./pages/TradeIn'));
+const Risorse = lazy(() => import('./pages/Risorse'));
+const Article = lazy(() => import('./pages/Article'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -20,7 +22,6 @@ function ScrollToTop() {
 }
 
 const Storie = () => <div className="pt-24 min-h-screen container mx-auto px-4"><h1 className="text-4xl font-bold py-10 text-primary">Storie vere e case study</h1><p className="text-text-muted">Prossimamente una selezione completa dei nostri successi...</p></div>;
-const Risorse = () => <div className="pt-24 min-h-screen container mx-auto px-4"><h1 className="text-4xl font-bold py-10 text-primary">Risorse e blog anti-fregature</h1><p className="text-text-muted">Articoli e guide in arrivo per aiutarti a scegliere l'auto usata perfetta.</p></div>;
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
               <Route path="/faq" element={<FAQ />} />
               <Route path="/contatti" element={<Contact />} />
               <Route path="/risorse" element={<Risorse />} />
+              <Route path="/risorse/:slug" element={<Article />} />
             </Routes>
           </Suspense>
         </main>
