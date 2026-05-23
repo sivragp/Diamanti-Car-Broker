@@ -1,13 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Header, Footer } from './components/Navigation';
-import Home from './pages/Home';
-import HowItWorks from './pages/HowItWorks';
-import Services from './pages/Services';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import FAQ from './pages/FAQ';
-import TradeIn from './pages/TradeIn';
+
+// Code-splitting: ogni pagina è un chunk separato, caricato on-demand.
+const Home = lazy(() => import('./pages/Home'));
+const HowItWorks = lazy(() => import('./pages/HowItWorks'));
+const Services = lazy(() => import('./pages/Services'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+const FAQ = lazy(() => import('./pages/FAQ'));
+const TradeIn = lazy(() => import('./pages/TradeIn'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -27,17 +29,19 @@ export default function App() {
       <div className="flex flex-col min-h-screen bg-neutral-soft">
         <Header />
         <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/come-funziona" element={<HowItWorks />} />
-            <Route path="/servizi" element={<Services />} />
-            <Route path="/valuta-la-tua-auto" element={<TradeIn />} />
-            <Route path="/chi-siamo" element={<About />} />
-            <Route path="/storie" element={<Storie />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/contatti" element={<Contact />} />
-            <Route path="/risorse" element={<Risorse />} />
-          </Routes>
+          <Suspense fallback={<div className="min-h-[60vh]" />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/come-funziona" element={<HowItWorks />} />
+              <Route path="/servizi" element={<Services />} />
+              <Route path="/valuta-la-tua-auto" element={<TradeIn />} />
+              <Route path="/chi-siamo" element={<About />} />
+              <Route path="/storie" element={<Storie />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/contatti" element={<Contact />} />
+              <Route path="/risorse" element={<Risorse />} />
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
       </div>
