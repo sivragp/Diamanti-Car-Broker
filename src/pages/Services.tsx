@@ -55,7 +55,7 @@ export default function Services() {
       />
 
       {/* 2. COME LAVORIAMO — le sei fasi (spostata da "Come funziona") */}
-      <section className="py-16 bg-white relative overflow-hidden">
+      <section className="py-16 bg-[#f6f8fb] border-t border-gray-100 relative overflow-hidden">
         <div className="ds-container relative z-10">
           <div className="max-w-2xl mb-14">
             <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Il nostro metodo</p>
@@ -78,7 +78,7 @@ export default function Services() {
             ].map((step, i) => (
               <div key={i} className="relative flex flex-col">
                 <div className="bg-white border border-gray-100 rounded-lg p-8 pt-10 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow">
-                  <div className="absolute -top-[20px] left-4 w-12 h-12 rounded-full bg-[#0b2b5b] text-white font-bold text-[16px] flex items-center justify-center border-[4px] border-white">
+                  <div className="absolute -top-[20px] left-4 w-12 h-12 rounded-full bg-[#0b2b5b] text-white font-bold text-[16px] flex items-center justify-center border-[4px] border-[#f6f8fb]">
                     {step.num}
                   </div>
                   <div className="w-12 h-12 rounded-full bg-[#0b2b5b]/8 text-[#0b2b5b] flex items-center justify-center mb-5 mt-2">
@@ -93,36 +93,6 @@ export default function Services() {
                       </span>
                     ))}
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 2. I NOSTRI SERVIZI NEL DETTAGLIO */}
-      <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
-        <div className="ds-container">
-          <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">
-            I nostri servizi nel dettaglio
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-14 gap-x-8">
-            {[
-              { num: 1, title: 'Briefing e analisi esigenze', text: "Ascoltiamo necessità, priorità, utilizzo e budget per definire il profilo dell'auto giusta per te, senza compromessi." },
-              { num: 2, title: 'Ricerca personalizzata sul mercato', text: 'Attiviamo una rete selezionata di canali in Italia e in Europa, anche fuori dai portali pubblici, per individuare le migliori opportunità.' },
-              { num: 3, title: 'Selezione delle proposte', text: 'Ti presentiamo le auto candidate con scheda tecnica, foto e una valutazione chiara di ogni dettaglio rilevante.' },
-              { num: 4, title: 'Verifica documentale e qualitativa', text: 'Controlliamo documenti, chilometraggio reale, storia, manutenzione e condizioni del veicolo con rapporti dettagliati.' },
-              { num: 5, title: "Negoziazione e supporto all'acquisto", text: 'Trattiamo per te prezzo e condizioni, tutelando i tuoi interessi in ogni fase della trattativa.' },
-              { num: 6, title: 'Consegna a domicilio e assistenza', text: "Gestiamo pratiche e passaggio di proprietà e ti consegniamo l'auto a casa tua. L'assistenza continua anche dopo." }
-            ].map((step, i) => (
-              <div key={i} className="relative flex flex-col">
-                <div className="bg-white border border-gray-100 rounded-lg p-8 pt-10 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)]">
-                  <div className="absolute -top-[20px] left-4 w-12 h-12 rounded-full bg-[#0b2b5b] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[4px] border-[#f6f8fb]">
-                    {step.num}
-                  </div>
-                  <h3 className="font-bold text-[#061629] text-[16px] mb-3 leading-tight">{step.title}</h3>
-                  <p className="text-[14px] text-muted leading-relaxed">{step.text}</p>
                 </div>
               </div>
             ))}

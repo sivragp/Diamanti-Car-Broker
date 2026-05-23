@@ -6,7 +6,6 @@ import { WHATSAPP_HREF } from './lib/contact';
 
 // Code-splitting: ogni pagina è un chunk separato, caricato on-demand.
 const Home = lazy(() => import('./pages/Home'));
-const HowItWorks = lazy(() => import('./pages/HowItWorks'));
 const Services = lazy(() => import('./pages/Services'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -50,7 +49,6 @@ export default function App() {
           <Suspense fallback={<div className="min-h-[60vh]" />}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/come-funziona" element={<HowItWorks />} />
               <Route path="/servizi" element={<Services />} />
               <Route path="/valuta-la-tua-auto" element={<TradeIn />} />
               <Route path="/chi-siamo" element={<About />} />

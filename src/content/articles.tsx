@@ -78,7 +78,7 @@ export const ARTICLES: Article[] = [
         <p>
           Diamanti Automobili lavora esattamente così: ricerca su misura, verifica tecnica, trattativa e consegna a
           domicilio in tutta Italia, con permuta e finanziamento fino a 120 mesi.{' '}
-          <Link to="/come-funziona">Scopri il metodo in dettaglio</Link> oppure{' '}
+          <Link to="/servizi">Scopri il metodo in dettaglio</Link> oppure{' '}
           <Link to="/contatti">richiedi una consulenza</Link>.
         </p>
       </>
@@ -228,7 +228,7 @@ export const ARTICLES: Article[] = [
         <p>
           Diamanti Automobili verifica chilometraggio, storia e documenti su <strong>ogni</strong> auto proposta, con perizia
           tecnica dove serve.{' '}
-          <Link to="/come-funziona">Vedi come verifichiamo le auto</Link> o leggi la{' '}
+          <Link to="/servizi">Vedi come verifichiamo le auto</Link> o leggi la{' '}
           <Link to="/risorse/controlli-prima-di-comprare-auto-usata">checklist completa prima dell’acquisto</Link>.
         </p>
       </>

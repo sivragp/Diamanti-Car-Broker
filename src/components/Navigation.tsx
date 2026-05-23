@@ -149,10 +149,10 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-bold text-[14px] mb-5">Come funziona</h4>
+            <h4 className="text-white font-bold text-[14px] mb-5">Il metodo</h4>
             <ul className="flex flex-col gap-3 text-[13px]">
-              <li><Link to="/come-funziona" className="hover:text-white transition-colors">Il nostro metodo</Link></li>
-              <li><Link to="/come-funziona" className="hover:text-white transition-colors">Le fasi del servizio</Link></li>
+              <li><Link to="/servizi" className="hover:text-white transition-colors">Il nostro metodo</Link></li>
+              <li><Link to="/servizi" className="hover:text-white transition-colors">Le fasi del servizio</Link></li>
               <li><Link to="/faq" className="hover:text-white transition-colors">Domande frequenti</Link></li>
             </ul>
           </div>

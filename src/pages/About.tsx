@@ -136,8 +136,8 @@ export default function About() {
           <p className="text-[16px] text-muted leading-relaxed mb-8">
             Dall'ascolto iniziale alla consegna a domicilio, seguiamo un percorso chiaro: profilo dell'auto, ricerca selezionata sul mercato italiano ed europeo, verifica tecnica, trattativa, gestione pratiche e assistenza post-vendita.
           </p>
-          <Link to="/come-funziona" className="inline-flex h-[48px] px-7 items-center justify-center rounded-full bg-[#0b2b5b] hover:bg-[#0c438f] text-white font-bold transition-colors text-[14px] gap-2">
-            Scopri come funziona, fase per fase <ArrowRight size={16} />
+          <Link to="/servizi" className="inline-flex h-[48px] px-7 items-center justify-center rounded-full bg-[#0b2b5b] hover:bg-[#0c438f] text-white font-bold transition-colors text-[14px] gap-2">
+            Scopri il nostro metodo, fase per fase <ArrowRight size={16} />
           </Link>
         </div>
       </section>
