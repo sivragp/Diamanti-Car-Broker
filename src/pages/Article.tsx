@@ -100,7 +100,7 @@ export default function Article() {
             <span className="text-white/80">{article.category}</span>
           </nav>
           <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#7ba6e4] mb-3">{article.category}</p>
-          <h1 className="text-[28px] md:text-[40px] font-extrabold leading-[1.12] mb-5">{article.h1}</h1>
+          <h1 className="text-[28px] md:text-[40px] font-extrabold leading-[1.12] mb-5 text-white">{article.h1}</h1>
           <div className="flex items-center gap-4 text-[12px] text-white/60">
             <time dateTime={article.datePublished}>{formatDate(article.dateModified)}</time>
             <span className="inline-flex items-center gap-1.5"><Clock size={13} /> {article.readingMinutes} min di lettura</span>
@@ -129,7 +129,7 @@ export default function Article() {
 
         {/* CTA */}
         <div className="mt-14 rounded-lg bg-[#061629] text-white p-8 md:p-10 text-center shadow-[0_16px_34px_-26px_rgba(6,22,41,0.4)]">
-          <h2 className="text-[22px] md:text-[26px] font-extrabold mb-3 leading-tight">Vuoi una mano da un consulente?</h2>
+          <h2 className="text-[22px] md:text-[26px] font-extrabold mb-3 leading-tight text-white">Vuoi una mano da un consulente?</h2>
           <p className="text-white/72 text-[15px] leading-relaxed mb-7 max-w-xl mx-auto">
             Diamanti Automobili cerca, verifica e consegna la tua prossima auto — con permuta, finanziamento fino a 120 mesi e consegna a domicilio in tutta Italia.
           </p>

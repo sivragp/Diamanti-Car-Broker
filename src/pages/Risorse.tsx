@@ -34,7 +34,7 @@ export default function Risorse() {
       <header className="bg-[#061629] text-white">
         <div className="ds-container py-14 md:py-20 text-center max-w-2xl">
           <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#7ba6e4] mb-3">Risorse</p>
-          <h1 className="text-[30px] md:text-[40px] font-extrabold leading-[1.12] mb-5">
+          <h1 className="text-[30px] md:text-[40px] font-extrabold leading-[1.12] mb-5 text-white">
             Guide per comprare e vendere auto senza brutte sorprese
           </h1>
           <p className="text-white/75 text-[15px] md:text-[16px] leading-relaxed">
