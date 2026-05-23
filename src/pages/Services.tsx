@@ -1,4 +1,4 @@
-import { Search, ShieldCheck, Settings, MapPin, CheckCircle2, Star, Check, ChevronDown, Repeat, CreditCard, Truck, Wrench } from 'lucide-react';
+import { Search, ShieldCheck, MapPin, CheckCircle2, Star, Check, ChevronDown, Repeat, CreditCard, Truck, Wrench, FileCheck, BadgeCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { SEO, SITE_URL } from '../components/SEO';
@@ -54,61 +54,45 @@ export default function Services() {
         subtitle="Una consulenza personalizzata, non vincolata a un singolo marchio o al magazzino di una concessionaria: cerchiamo l'auto giusta per te, la verifichiamo e te la consegniamo. In tutta Italia."
       />
 
-      {/* 2. COSA FACCIAMO — versione approfondita (layout diverso dalla home) */}
+      {/* 2. COME LAVORIAMO — le sei fasi (spostata da "Come funziona") */}
       <section className="py-16 bg-white relative overflow-hidden">
         <div className="ds-container relative z-10">
-          <div className="max-w-2xl mb-12">
-            <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Di cosa ci occupiamo</p>
+          <div className="max-w-2xl mb-14">
+            <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Il nostro metodo</p>
             <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-tight">
-              Quattro aree di servizio, un unico interlocutore
+              Come lavoriamo: dalla ricerca alla consegna
             </h2>
             <p className="text-[15px] md:text-[16px] text-muted leading-relaxed mt-4">
-              Dalla prima telefonata alle chiavi in mano ci occupiamo noi di ogni passaggio, così tu pensi solo a guidare la tua prossima auto.
+              Un percorso chiaro in sei fasi: ci occupiamo noi di ogni passaggio, dall'analisi del mercato fino al primo tagliando dopo la consegna.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-14 gap-x-8">
             {[
-              {
-                icon: Search,
-                title: 'Ricerca auto su misura',
-                text: "Analizziamo tutto il mercato — nuovo, usato, km 0 e importazione — anche tra i veicoli non pubblicati sui portali. Partiamo da esigenze, budget e utilizzo reale per individuare solo le opportunità che valgono davvero.",
-                bullets: ['Mercato italiano ed europeo', 'Anche auto fuori dai portali pubblici', 'Selezione filtrata sulle tue priorità'],
-              },
-              {
-                icon: ShieldCheck,
-                title: "Consulenza all'acquisto",
-                text: 'Ti aiutiamo a scegliere con lucidità tra modelli, allestimenti e motorizzazioni, confrontando costi reali di gestione, svalutazione e disponibilità. Nessun vincolo con marchi o concessionarie: lavoriamo solo nel tuo interesse.',
-                bullets: ['Confronto modelli e allestimenti', 'Costi di gestione e svalutazione', 'Consulenza indipendente'],
-              },
-              {
-                icon: CheckCircle2,
-                title: 'Verifica e perizia',
-                text: 'Prima di ogni acquisto controlliamo storia, chilometraggio reale, documenti e condizioni meccaniche ed estetiche. Dove serve, perizia tecnica in loco e diagnosi computerizzata: niente sorprese dopo la firma.',
-                bullets: ['Chilometraggio e storia verificati', 'Controllo documenti e gravami', 'Perizia tecnica dove necessario'],
-              },
-              {
-                icon: Settings,
-                title: 'Gestione completa',
-                text: "Trattiamo prezzo e condizioni, gestiamo contratto, pratiche e passaggio di proprietà e ti consegniamo l'auto a domicilio in tutta Italia. Permuta, finanziamento fino a 120 mesi e primo tagliando inclusi.",
-                bullets: ['Trattativa e pratiche burocratiche', 'Consegna a domicilio in tutta Italia', 'Permuta, finanziamento e tagliando'],
-              },
-            ].map((item, i) => (
-              <div key={i} className="flex gap-5 items-start border border-gray-100 rounded-lg p-8 bg-white shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow">
-                <div className="w-14 h-14 rounded-full bg-[#061629] text-white flex items-center justify-center shrink-0">
-                  <item.icon size={24} strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="text-[18px] font-extrabold text-[#061629] mb-3 leading-tight">{item.title}</h3>
-                  <p className="text-[14px] text-muted leading-[1.7] mb-5">{item.text}</p>
-                  <ul className="flex flex-col gap-2.5">
-                    {item.bullets.map((b, j) => (
-                      <li key={j} className="flex items-center gap-3 text-[13px] text-[#061629] font-semibold">
-                        <Check size={14} className="text-[#0c438f] shrink-0" strokeWidth={3} />
-                        {b}
-                      </li>
+              { num: '01', icon: Search, title: 'Analisi strategica del mercato', text: "Non ci limitiamo agli annunci: analizziamo prezzi, svalutazione futura del modello e disponibilità reale in Italia e in Europa.", details: ['Definizione budget', 'Analisi costo/beneficio', "Canali d'acquisto"] },
+              { num: '02', icon: MapPin, title: 'Scouting e pre-selezione', text: 'Filtriamo centinaia di proposte per trovarne poche davvero sicure. Ogni auto scartata è un rischio che ti abbiamo evitato.', details: ['Cronologia tagliandi', 'Database sinistri', 'Visura ipoteche'] },
+              { num: '03', icon: FileCheck, title: 'Check tecnico e perizia 150 punti', text: 'Un perito certificato esegue test drive e diagnosi computerizzata. Ricevi un report fotografico e video prima di procedere.', details: ['Diagnosi centralina', 'Spessori vernice', 'Test drive su strada'] },
+              { num: '04', icon: BadgeCheck, title: 'Negoziazione, permuta e finanziamento', text: 'Siamo consulenti, non venditori: trattiamo per lo sconto massimo, valutiamo la permuta e costruiamo il finanziamento fino a 120 mesi.', details: ['Massimo sconto', 'Permuta', 'Finanziamento 120 mesi'] },
+              { num: '05', icon: Truck, title: 'Import, pratiche e consegna a domicilio', text: "Se l'auto è all'estero gestiamo trasporto e nazionalizzazione. La ricevi immatricolata e pronta, ovunque tu sia in Italia.", details: ['Trasporto assicurato', 'Immatricolazione', 'Consegna door-to-door'] },
+              { num: '06', icon: Wrench, title: 'Post-vendita e primo tagliando incluso', text: "Il rapporto non finisce alla consegna: restiamo a disposizione e dopo i primi 5.000 km il primo tagliando lo offriamo noi.", details: ['Assistenza post-vendita', 'Officine convenzionate', 'Tagliando incluso'] },
+            ].map((step, i) => (
+              <div key={i} className="relative flex flex-col">
+                <div className="bg-white border border-gray-100 rounded-lg p-8 pt-10 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow">
+                  <div className="absolute -top-[20px] left-4 w-12 h-12 rounded-full bg-[#0b2b5b] text-white font-bold text-[16px] flex items-center justify-center border-[4px] border-white">
+                    {step.num}
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-[#0b2b5b]/8 text-[#0b2b5b] flex items-center justify-center mb-5 mt-2">
+                    <step.icon size={22} strokeWidth={1.6} />
+                  </div>
+                  <h3 className="text-[16px] font-extrabold text-[#061629] mb-3 leading-tight">{step.title}</h3>
+                  <p className="text-[14px] text-muted leading-relaxed mb-6">{step.text}</p>
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {step.details.map((d, j) => (
+                      <span key={j} className="text-[11px] font-semibold py-1.5 px-3 rounded-full bg-[#f6f8fb] border border-[#e6ebf2] text-[#0b2b5b]">
+                        {d}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
             ))}
@@ -134,7 +118,7 @@ export default function Services() {
             ].map((step, i) => (
               <div key={i} className="relative flex flex-col">
                 <div className="bg-white border border-gray-100 rounded-lg p-8 pt-10 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)]">
-                  <div className="absolute -top-[20px] left-4 w-12 h-12 rounded-full bg-[#061629] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[4px] border-[#f6f8fb]">
+                  <div className="absolute -top-[20px] left-4 w-12 h-12 rounded-full bg-[#0b2b5b] text-white font-sans font-bold text-[18px] flex items-center justify-center border-[4px] border-[#f6f8fb]">
                     {step.num}
                   </div>
                   <h3 className="font-bold text-[#061629] text-[16px] mb-3 leading-tight">{step.title}</h3>
@@ -214,36 +198,24 @@ export default function Services() {
               </div>
             ))}
           </div>
-
-          <div className="bg-[#061629] rounded-lg mt-14 p-10 md:p-14 text-center text-white shadow-[0_16px_34px_-26px_rgba(6,22,41,0.35)]">
-            <h3 className="text-[24px] md:text-[30px] font-extrabold mb-4 leading-tight">
-              Hai un'auto da permutare o ti serve una rata su misura?
-            </h3>
-            <p className="text-[15px] text-white/72 mb-8 max-w-xl mx-auto leading-relaxed">
-              Raccontaci la tua situazione: ti faremo una valutazione gratuita della tua auto attuale e una simulazione di finanziamento, senza impegno.
-            </p>
-            <Link to="/contatti" className="inline-flex h-[48px] px-7 items-center justify-center rounded-full bg-white hover:bg-[#eef3f8] text-[#061629] font-bold transition-colors text-[14px]">
-              Richiedi valutazione gratuita
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* 5. BANNER - Ampia scelta veicoli */}
+      {/* 5. BANNER - Permuta / vendita auto */}
       <section className="bg-[#061629] relative overflow-hidden">
         <div className="ds-container">
           <div className="py-20">
             <div className="max-w-2xl">
               <h2 className="text-[30px] md:text-[34px] font-extrabold text-white mb-6 leading-tight">
-                Oltre 5.000 veicoli al mese:<br/>
-                troviamo quello <span className="text-[#0c438f] italic">giusto per te</span>.
+                Hai un'auto da vendere o permutare?<br/>
+                <span className="text-[#7ba6e4] italic">La valutiamo gratis in 24 ore.</span>
               </h2>
               <p className="text-white/70 text-[16px] mb-10 leading-relaxed max-w-md">
-                Analizziamo ogni giorno il mercato italiano ed europeo: nuove, km 0, aziendali e usato premium.<br/>
-                Raccontaci cosa cerchi, selezioniamo solo le proposte davvero adatte a te.
+                Permutala scalandola dal prezzo della prossima auto, oppure vendicela direttamente con pagamento in 48 ore.<br/>
+                Valutazione gratuita e ritiro a domicilio in tutta Italia.
               </p>
-              <Link to="/contatti" className="inline-flex h-[48px] px-8 bg-white hover:bg-gray-100 text-[#061629] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
-                Parla con un consulente
+              <Link to="/valuta-la-tua-auto#form-valutazione" className="inline-flex h-[48px] px-8 bg-white hover:bg-gray-100 text-[#061629] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
+                Richiedi la valutazione gratuita
               </Link>
             </div>
           </div>

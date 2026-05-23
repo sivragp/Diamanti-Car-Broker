@@ -20,7 +20,6 @@ export function Header() {
     { label: 'Chi siamo', path: '/chi-siamo' },
     { label: 'Servizi', path: '/servizi' },
     { label: 'Valuta la tua auto', path: '/valuta-la-tua-auto' },
-    { label: 'Come funziona', path: '/come-funziona' },
     { label: 'Contatti', path: '/contatti' },
   ];
 
@@ -62,7 +61,7 @@ export function Header() {
                 ))}
               </nav>
               <Link
-                to="/contatti"
+                to="/contatti#form"
                 className="hidden xl:inline-flex h-[40px] items-center justify-center rounded-full bg-white px-5 text-[12px] font-bold text-[#061629] hover:bg-[#eef3f8] transition-colors whitespace-nowrap"
               >
                 Richiedi consulenza
@@ -98,7 +97,7 @@ export function Header() {
             ))}
 
             <div className="mt-4 pt-8 border-t border-white/10">
-              <Link to="/contatti" onClick={() => setIsOpen(false)} className="flex items-center justify-center h-[52px] w-full rounded-full bg-white text-[#061629] font-semibold text-base">
+              <Link to="/contatti#form" onClick={() => setIsOpen(false)} className="flex items-center justify-center h-[52px] w-full rounded-full bg-white text-[#061629] font-semibold text-base">
                 Richiedi consulenza
               </Link>
             </div>

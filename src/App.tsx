@@ -17,10 +17,24 @@ const Article = lazy(() => import('./pages/Article'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
+    if (hash) {
+      // Attendi il mount della pagina (lazy) e scrolla all'ancora (es. #form),
+      // riprovando perché la chunk potrebbe non essere ancora caricata.
+      let tries = 0;
+      let t: ReturnType<typeof setTimeout>;
+      const tryScroll = () => {
+        const el = document.querySelector(hash);
+        if (el) { el.scrollIntoView({ behavior: 'smooth' }); return; }
+        if (++tries < 8) t = setTimeout(tryScroll, 200);
+        else window.scrollTo(0, 0);
+      };
+      t = setTimeout(tryScroll, 200);
+      return () => clearTimeout(t);
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
   return null;
 }
 

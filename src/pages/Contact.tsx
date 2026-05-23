@@ -27,49 +27,8 @@ export default function Contact() {
         subtitle="Scegli il canale che preferisci: ti rispondiamo entro 24 ore lavorative."
       />
 
-      {/* 2. CANALI DI CONTATTO */}
-      <section className="relative py-16 bg-[#061629] overflow-hidden">
-        <div className="ds-container relative z-10 text-center">
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Phone, title: 'Telefono', href: PHONE_HREF, line1: PHONE_DISPLAY, line2: 'Lun-Ven 9:00-19:00', line3: 'Sab 9:00-13:00' },
-              { icon: Mail, title: 'Email', href: EMAIL_HREF, line1: EMAIL, line2: 'Scrivici, ti', line3: 'rispondiamo presto' },
-              { icon: MessageCircle, title: 'WhatsApp', href: WHATSAPP_HREF, line1: 'Scrivici su WhatsApp', line2: 'per una risposta', line3: 'rapida e diretta' },
-              { icon: Clock, title: 'Prenota una call', href: undefined, line1: 'Scegli il momento giusto', line2: 'per parlare con noi', line3: 'Consulenza gratuita' }
-            ].map((item, i) => {
-              const cls = 'group bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-8 text-center flex flex-col items-center hover:bg-white/15 transition-colors';
-              const content = (
-                <>
-                  <div className="w-14 h-14 rounded-full border border-[#0c438f]/50 flex items-center justify-center mb-5 group-hover:border-[#0c438f] transition-colors">
-                    <item.icon className="text-[#0c438f]" size={24} strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-bold text-white text-[16px] mb-3">{item.title}</h3>
-                  <p className="text-white/80 text-[13px] leading-relaxed break-words">{item.line1}</p>
-                  <p className="text-white/60 text-[12px]">{item.line2}</p>
-                  <p className="text-white/60 text-[12px]">{item.line3}</p>
-                </>
-              );
-              return item.href ? (
-                <a
-                  key={i}
-                  href={item.href}
-                  target={item.href.startsWith('http') ? '_blank' : undefined}
-                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className={cls}
-                >
-                  {content}
-                </a>
-              ) : (
-                <div key={i} className={cls}>{content}</div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* 2. FORM + SIDEBAR */}
-      <section className="py-20 bg-white">
+      <section id="form" className="py-20 bg-white scroll-mt-[74px]">
         <div className="ds-container">
           <div className="flex flex-col lg:flex-row gap-12">
 
@@ -213,7 +172,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="w-full bg-[#061629] hover:bg-gray-800 disabled:opacity-60 disabled:cursor-not-allowed text-white h-[50px] rounded-md text-[14px] font-bold transition-colors mt-2"
+                  className="w-full bg-[#0b2b5b] hover:bg-[#0c438f] disabled:opacity-60 disabled:cursor-not-allowed text-white h-[50px] rounded-md text-[14px] font-bold transition-colors mt-2"
                 >
                   {status === 'submitting' ? 'Invio in corso…' : 'Invia richiesta'}
                 </button>
@@ -245,7 +204,7 @@ export default function Contact() {
                     { icon: ShieldCheck, title: 'Supporto fino alla consegna', text: 'Ti seguiamo in ogni fase, fino alla consegna a domicilio.' }
                   ].map((item, i) => (
                     <div key={i} className="flex gap-5 items-start">
-                      <div className="w-12 h-12 rounded-full bg-[#061629] text-white flex items-center justify-center shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center shrink-0">
                         <item.icon size={20} strokeWidth={1.5} />
                       </div>
                       <div>
@@ -257,14 +216,30 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="bg-[#061629] rounded-lg p-10 text-white shadow-lg flex flex-col justify-center">
-                <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#7ba6e4] mb-4">Il nostro team</p>
-                <h3 className="text-[22px] font-extrabold mb-4 leading-tight">
-                  Siamo qui per rispondere a tutte le tue domande.
-                </h3>
-                <p className="text-white/72 text-[14px] leading-relaxed">
-                  Il team di Diamanti Automobili è disponibile per consulenze su misura, valutazioni di permuta e simulazioni di finanziamento. Ti rispondiamo entro 24 ore lavorative.
-                </p>
+              <div className="bg-[#061629] rounded-lg p-8 text-white shadow-lg">
+                <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#7ba6e4] mb-6">I nostri recapiti</p>
+                <ul className="flex flex-col gap-5 text-[14px]">
+                  <li className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-[#0b2b5b] flex items-center justify-center shrink-0"><MapPin size={18} /></div>
+                    <div><p className="font-bold text-white">Sede</p><p className="text-white/70">Roma (RM) · su appuntamento</p></div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-[#0b2b5b] flex items-center justify-center shrink-0"><Phone size={18} /></div>
+                    <div><p className="font-bold text-white">Telefono</p><a href={PHONE_HREF} className="text-white/70 hover:text-white transition-colors">{PHONE_DISPLAY}</a></div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-[#0b2b5b] flex items-center justify-center shrink-0"><Mail size={18} /></div>
+                    <div><p className="font-bold text-white">Email</p><a href={EMAIL_HREF} className="text-white/70 hover:text-white transition-colors break-all">{EMAIL}</a></div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-[#0b2b5b] flex items-center justify-center shrink-0"><MessageCircle size={18} /></div>
+                    <div><p className="font-bold text-white">WhatsApp</p><a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Scrivici su WhatsApp</a></div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-[#0b2b5b] flex items-center justify-center shrink-0"><Clock size={18} /></div>
+                    <div><p className="font-bold text-white">Orari</p><p className="text-white/70">Lun-Ven 9:00-19:00 · Sab 9:00-13:00</p></div>
+                  </li>
+                </ul>
               </div>
             </div>
 
@@ -277,7 +252,7 @@ export default function Contact() {
         <div className="ds-container">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2 flex flex-col items-start">
-              <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#7ba6e4] mb-4">Il nostro team</p>
+              <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#7ba6e4] mb-4">Perché sceglierci</p>
               <h2 className="text-[30px] md:text-[34px] font-extrabold text-white mb-6 leading-tight">
                 Parli direttamente con noi
               </h2>
@@ -300,8 +275,8 @@ export default function Contact() {
                 { icon: MapPin, title: 'Consegna a domicilio', text: 'Ti consegniamo l\'auto pronta all\'uso direttamente a casa tua.' }
               ].map((item, i) => (
                 <div key={i} className="bg-white/5 border border-white/10 rounded-lg p-6 flex gap-5 items-start hover:bg-white/10 transition-colors">
-                  <div className="w-12 h-12 rounded-full border border-[#0c438f]/40 flex items-center justify-center shrink-0">
-                    <item.icon className="text-[#0c438f]" size={22} strokeWidth={1.5} />
+                  <div className="w-12 h-12 rounded-full bg-[#0b2b5b] flex items-center justify-center shrink-0">
+                    <item.icon className="text-white" size={22} strokeWidth={1.5} />
                   </div>
                   <div>
                     <h4 className="font-bold text-white text-[16px] mb-1">{item.title}</h4>
@@ -314,33 +289,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* 5. INFORMAZIONI UTILI */}
-      <section className="py-20 bg-white">
-        <div className="ds-container">
-          <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">Informazioni utili</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Clock, title: 'Orari', lines: ['Lun-Ven 9:00-19:00', 'Sab 9:00-13:00', 'Domenica chiuso'] },
-              { icon: MapPin, title: 'Area operativa', lines: ['Operiamo in tutta Italia', 'e su richiesta anche', 'in Europa.'] },
-              { icon: Star, title: 'Sede', lines: ['Roma (RM)', 'Su appuntamento', 'Italia'] },
-              { icon: Mail, title: 'Tempi di risposta', lines: ['Ti ricontattiamo entro', '24 ore lavorative.'] }
-            ].map((item, i) => (
-              <div key={i} className="border border-gray-100 rounded-lg p-8 text-center flex flex-col items-center">
-                <div className="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center mb-5">
-                  <item.icon className="text-[#061629]" size={24} strokeWidth={1.5} />
-                </div>
-                <h3 className="font-bold text-[#061629] text-[16px] mb-3">{item.title}</h3>
-                {item.lines.map((line, j) => (
-                  <p key={j} className="text-[13px] text-muted leading-relaxed">{line}</p>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. DOMANDE FREQUENTI */}
+      {/* 5. DOMANDE FREQUENTI */}
       <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
         <div className="ds-container max-w-3xl">
           <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">Domande frequenti</h2>

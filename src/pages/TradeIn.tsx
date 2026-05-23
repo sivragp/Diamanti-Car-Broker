@@ -121,7 +121,7 @@ export default function TradeIn() {
                 </div>
                 <span className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7ba6e4]">Permuta integrata</span>
               </div>
-              <h3 className="text-[24px] md:text-[26px] font-extrabold leading-tight mb-4">
+              <h3 className="text-[24px] md:text-[26px] font-extrabold leading-tight mb-4 text-white">
                 La scali dal prezzo della prossima auto
               </h3>
               <p className="text-white/72 text-[14.5px] leading-[1.65] mb-7">
