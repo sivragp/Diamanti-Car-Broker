@@ -1,4 +1,4 @@
-import { Search, ShieldCheck, MapPin, CheckCircle2, Star, Check, ChevronDown, Repeat, CreditCard, Truck, Wrench, FileCheck, BadgeCheck } from 'lucide-react';
+import { Search, ShieldCheck, MapPin, CheckCircle2, Star, Check, ChevronDown, Repeat, CreditCard, Truck, Wrench, FileCheck, BadgeCheck, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { SEO, SITE_URL } from '../components/SEO';
@@ -171,23 +171,47 @@ export default function Services() {
         </div>
       </section>
 
-      {/* 5. BANNER - Permuta / vendita auto */}
+      {/* 5. BANNER - Permuta / vendita auto (come la home, immagine e testo invertiti) */}
       <section className="bg-[#061629] relative overflow-hidden">
-        <div className="ds-container">
-          <div className="py-20">
-            <div className="max-w-2xl">
-              <h2 className="text-[30px] md:text-[34px] font-extrabold text-white mb-6 leading-tight">
-                Hai un'auto da vendere o permutare?<br/>
-                <span className="text-[#7ba6e4] italic">La valutiamo gratis in 24 ore.</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 items-stretch">
+          {/* Testo (sinistra su desktop) */}
+          <div className="px-6 py-14 md:px-12 lg:px-16 md:py-20 flex flex-col items-start justify-center text-white order-1">
+            <div className="max-w-[540px]">
+              <div className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full bg-white/10 border border-white/15">
+                <Repeat size={14} strokeWidth={2} />
+                <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-white/90">Valuta la tua auto</span>
+              </div>
+              <h2 className="text-[30px] md:text-[42px] font-extrabold leading-[1.1] mb-5 text-white">
+                Hai un'auto da permutare?<br />
+                <span className="text-[#7ba6e4]">La valutiamo gratis in 24 ore.</span>
               </h2>
-              <p className="text-white/70 text-[16px] mb-10 leading-relaxed max-w-md">
-                Permutala scalandola dal prezzo della prossima auto, oppure vendicela direttamente con pagamento in 48 ore.<br/>
-                Valutazione gratuita e ritiro a domicilio in tutta Italia.
+              <p className="text-[15px] md:text-[16px] text-white/75 leading-[1.65] mb-3">
+                <strong className="text-white">Permuta integrata</strong> — la scali dal prezzo della prossima auto.
               </p>
-              <Link to="/valuta-la-tua-auto#form-valutazione" className="inline-flex h-[48px] px-8 bg-white hover:bg-gray-100 text-[#061629] font-bold items-center justify-center rounded-md transition-colors text-[14px]">
-                Richiedi la valutazione gratuita
-              </Link>
+              <p className="text-[15px] md:text-[16px] text-white/75 leading-[1.65] mb-8">
+                <strong className="text-white">Acquisto diretto</strong> — te la compriamo e basta, pagamento in 48 ore.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link to="/valuta-la-tua-auto" className="inline-flex h-[48px] items-center justify-center rounded-full bg-white px-7 text-[13px] font-bold text-[#061629] hover:bg-[#eef3f8] transition-colors gap-2">
+                  Richiedi valutazione gratuita <ArrowRight size={15} />
+                </Link>
+                <Link to="/valuta-la-tua-auto" className="inline-flex h-[48px] items-center justify-center rounded-full bg-transparent border border-white/30 px-7 text-[13px] font-bold text-white hover:bg-white/10 transition-colors">
+                  Come funziona la permuta
+                </Link>
+              </div>
             </div>
+          </div>
+
+          {/* Immagine (destra su desktop) */}
+          <div className="relative h-[280px] md:h-auto md:min-h-[460px] order-2">
+            <img
+              src="/images/fleet-overview.webp"
+              alt="Parcheggio di auto premium pronto per la valutazione e il ritiro Diamanti Automobili"
+              className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-l from-[#061629] via-[#061629]/30 to-transparent md:bg-gradient-to-l md:from-[#061629]/0 md:via-[#061629]/0 md:to-[#061629]/40"></div>
           </div>
         </div>
       </section>
