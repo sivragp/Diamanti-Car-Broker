@@ -76,12 +76,9 @@ export default function Services() {
               { num: '05', icon: Truck, title: 'Import, pratiche e consegna a domicilio', text: "Se l'auto è all'estero gestiamo trasporto e nazionalizzazione. La ricevi immatricolata e pronta, ovunque tu sia in Italia.", details: ['Trasporto assicurato', 'Immatricolazione', 'Consegna door-to-door'] },
               { num: '06', icon: Wrench, title: 'Post-vendita e primo tagliando incluso', text: "Il rapporto non finisce alla consegna: restiamo a disposizione e dopo i primi 5.000 km il primo tagliando lo offriamo noi.", details: ['Assistenza post-vendita', 'Officine convenzionate', 'Tagliando incluso'] },
             ].map((step, i) => (
-              <div key={i} className="relative flex flex-col">
-                <div className="bg-white border border-gray-100 rounded-lg p-8 pt-10 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow">
-                  <div className="absolute -top-[20px] left-4 w-12 h-12 rounded-full bg-[#0b2b5b] text-white font-bold text-[16px] flex items-center justify-center border-[4px] border-[#f6f8fb]">
-                    {step.num}
-                  </div>
-                  <div className="w-12 h-12 rounded-full bg-[#0b2b5b]/8 text-[#0b2b5b] flex items-center justify-center mb-5 mt-2">
+              <div key={i} className="flex flex-col">
+                <div className="bg-white border border-gray-100 rounded-lg p-8 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow">
+                  <div className="w-12 h-12 rounded-full bg-[#0b2b5b]/8 text-[#0b2b5b] flex items-center justify-center mb-5">
                     <step.icon size={22} strokeWidth={1.6} />
                   </div>
                   <h3 className="text-[16px] font-extrabold text-[#061629] mb-3 leading-tight">{step.title}</h3>
