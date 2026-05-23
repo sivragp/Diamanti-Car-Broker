@@ -67,7 +67,7 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-14 gap-x-8">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-y-10 sm:gap-y-14 gap-x-4 sm:gap-x-8">
             {[
               { num: '01', icon: Search, title: 'Analisi strategica del mercato', text: "Non ci limitiamo agli annunci: analizziamo prezzi, svalutazione futura del modello e disponibilità reale in Italia e in Europa.", details: ['Definizione budget', 'Analisi costo/beneficio', "Canali d'acquisto"] },
               { num: '02', icon: MapPin, title: 'Scouting e pre-selezione', text: 'Filtriamo centinaia di proposte per trovarne poche davvero sicure. Ogni auto scartata è un rischio che ti abbiamo evitato.', details: ['Cronologia tagliandi', 'Database sinistri', 'Visura ipoteche'] },
@@ -220,7 +220,7 @@ export default function Services() {
             Un servizio davvero completo
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               { icon: Star, title: 'Consulente dedicato', text: 'Un unico referente ti segue dal primo contatto alla consegna.' },
               { icon: CheckCircle2, title: 'Rete selezionata', text: 'Collaboriamo con concessionari e fonti affidabili in tutta Italia e in Europa.' },

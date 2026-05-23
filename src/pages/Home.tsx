@@ -26,9 +26,9 @@ export default function Home() {
           />
         </div>
 
-        <div className="ds-container relative z-10 w-full mb-24 mt-0">
+        <div className="ds-container relative z-10 w-full mb-8 md:mb-24 mt-0">
           <div className="max-w-2xl">
-            <h1 className="text-[38px] md:text-[52px] lg:text-[58px] font-extrabold text-white mb-6 leading-[1.08] text-left [text-shadow:_0_3px_22px_rgb(0_0_0_/_0.55)]">
+            <h1 className="text-[30px] sm:text-[38px] md:text-[52px] lg:text-[58px] font-extrabold text-white mb-5 md:mb-6 leading-[1.1] md:leading-[1.08] text-left [text-shadow:_0_3px_22px_rgb(0_0_0_/_0.55)]">
               Troviamo l'auto giusta. <br/>Ovunque tu sia in Italia.
             </h1>
             <p className="text-[16px] md:text-[18px] text-white mb-8 max-w-[610px] text-left leading-[1.65] font-sans font-medium [text-shadow:_0_2px_16px_rgb(0_0_0_/_0.55)]">
@@ -146,7 +146,7 @@ export default function Home() {
           <p className="text-center text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Il nostro servizio</p>
           <h2 className="text-center text-[30px] md:text-[34px] mb-12 font-extrabold text-[#061629]">Cosa facciamo per te</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               { icon: Search, title: 'Ricerca auto su misura', text: "Cerchiamo l'auto giusta tra migliaia di opportunità in Italia e in Europa, anche tra quelle non pubblicate." },
               { icon: CheckCircle2, title: 'Indipendenti e trasparenti', text: 'Non siamo legati a un marchio o a una concessionaria. Lavoriamo solo nel tuo interesse.' },
@@ -337,7 +337,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 icon: Repeat,
@@ -439,7 +439,7 @@ export default function Home() {
         <div className="ds-container">
           <h2 className="text-center text-[24px] md:text-[28px] font-extrabold text-[#061629] mb-10">Come funziona</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 max-w-6xl mx-auto">
             {[
               { icon: CheckCircle2, title: 'Briefing iniziale', text: 'Raccogliamo esigenze, budget, utilizzo e preferenze.' },
               { icon: Search, title: 'Ricerca selezionata', text: 'Analizziamo il mercato italiano ed europeo per individuare le migliori opportunità.' },
@@ -470,7 +470,7 @@ export default function Home() {
         <div className="ds-container max-w-[1400px] relative z-10">
           <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-14">Perché scegliere Diamanti Automobili</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-gray-100 px-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-8 lg:gap-6 text-center lg:divide-x divide-gray-100 px-4">
             {[
               { icon: <ShieldCheck size={24} strokeWidth={1.5} />, title: 'Indipendenza totale', text: 'Non siamo legati a marchi o concessionarie. Lavoriamo solo nel tuo interesse.' },
               { icon: <Star size={24} strokeWidth={1.5} />, title: 'Rete consolidata', text: 'Accesso a partner e canali selezionati in Italia e in Europa, anche fuori dai portali pubblici.' },

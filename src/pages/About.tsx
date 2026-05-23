@@ -64,7 +64,7 @@ export default function About() {
           <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">
             I valori che guidano ogni ricerca
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
             {[
               { icon: Star, title: 'Trasparenza', text: 'Informazioni chiare e comunicazione sempre onesta.' },
               { icon: Users, title: 'Ascolto', text: 'Ascoltiamo davvero le tue esigenze per proporre solo il giusto.' },
