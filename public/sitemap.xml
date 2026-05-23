@@ -76,4 +76,34 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://diamanti-car-broker.vercel.app/risorse/consulente-auto-quanto-si-risparmia</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://diamanti-car-broker.vercel.app/risorse/km-0-aziendale-usato-nuovo-differenze</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://diamanti-car-broker.vercel.app/risorse/finanziamento-auto-120-mesi</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://diamanti-car-broker.vercel.app/risorse/passaggio-di-proprieta-auto-usata</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://diamanti-car-broker.vercel.app/risorse/garanzia-auto-usata-come-funziona</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
