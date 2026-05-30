@@ -180,13 +180,13 @@ export default function Services() {
               </div>
               <h2 className="text-[30px] md:text-[42px] font-extrabold leading-[1.1] mb-5 text-white">
                 Hai un'auto da permutare?<br />
-                <span className="text-[#7ba6e4]">La valutiamo gratis in 24 ore.</span>
+                <span className="text-[#7ba6e4]">La valutiamo gratis h24.</span>
               </h2>
               <p className="text-[15px] md:text-[16px] text-white/75 leading-[1.65] mb-3">
                 <strong className="text-white">Permuta integrata</strong> — la scali dal prezzo della prossima auto.
               </p>
               <p className="text-[15px] md:text-[16px] text-white/75 leading-[1.65] mb-8">
-                <strong className="text-white">Acquisto diretto</strong> — te la compriamo e basta, pagamento in 48 ore.
+                <strong className="text-white">Acquisto diretto</strong> — te la compriamo e basta.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link to="/valuta-la-tua-auto" className="inline-flex h-[48px] items-center justify-center rounded-full bg-white px-7 text-[13px] font-bold text-[#061629] hover:bg-[#eef3f8] transition-colors gap-2">

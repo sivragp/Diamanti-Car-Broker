@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import { Search, Check, X, ShieldCheck, Star, MapPin, Settings, CheckCircle2, ArrowRight, Heart, Repeat, CreditCard, Truck, Wrench } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { ContactCTA } from '../components/ContactCTA';
+import { submitLead } from '../lib/forms';
 
 export default function Home() {
-  const navigate = useNavigate();
+  const [heroStatus, setHeroStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   return (
     <div className="bg-white min-h-screen font-sans text-text pt-[74px]">
       <SEO
@@ -14,7 +16,7 @@ export default function Home() {
       />
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[620px] flex flex-col justify-center items-center text-center">
+      <section className="relative min-h-[620px] md:min-h-[700px] flex flex-col justify-center items-center text-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -26,7 +28,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="ds-container relative z-10 w-full mb-8 md:mb-24 mt-0">
+        <div className="ds-container relative z-10 w-full mb-8 md:mb-40 mt-0">
           <div className="max-w-2xl">
             <h1 className="text-[30px] sm:text-[38px] md:text-[52px] lg:text-[58px] font-extrabold text-white mb-5 md:mb-6 leading-[1.1] md:leading-[1.08] text-left [text-shadow:_0_3px_22px_rgb(0_0_0_/_0.55)]">
               Troviamo l'auto giusta. <br/>Ovunque tu sia in Italia.
@@ -45,43 +47,103 @@ export default function Home() {
           </div>
         </div>
 
-        {/* SEARCH FORM OVERLAY */}
-        <div className="relative md:absolute md:bottom-[-52px] left-0 right-0 z-20 px-4 mt-10 md:mt-0 mb-[-30px] md:mb-0">
+        {/* CONTACT FORM OVERLAY — modulo contatti orizzontale (niente ricerca: si viene ricontattati) */}
+        <div className="relative md:absolute md:bottom-[-72px] left-0 right-0 z-20 px-4 mt-10 md:mt-0 mb-[-30px] md:mb-0">
           <div className="ds-container relative">
-            <div className="bg-white rounded-lg shadow-[0_22px_48px_-26px_rgba(6,22,41,0.45)] p-4 md:p-5 border border-[#e6ebf2] relative z-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1fr_1.55fr] gap-3 items-end">
-                <div className="flex flex-col text-left min-w-0">
-                  <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Tipologia</label>
-                  <input type="text" placeholder="SUV, Berlina, City car..." className="w-full min-w-0 border-0 bg-white rounded-md h-[44px] px-3 text-[13px] font-semibold text-[#061629] truncate focus:outline-none focus:ring-2 focus:ring-[#d9e6f7]" />
-                </div>
-                <div className="flex flex-col text-left min-w-0">
-                  <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Marca</label>
-                  <select className="w-full min-w-0 border-0 bg-white rounded-md h-[44px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
-                    <option>Seleziona marca</option>
-                  </select>
-                </div>
-                <div className="flex flex-col text-left min-w-0">
-                  <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Modello</label>
-                  <select className="w-full min-w-0 border-0 bg-white rounded-md h-[44px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
-                    <option>Seleziona modello</option>
-                  </select>
-                </div>
-                <div className="flex flex-col text-left min-w-0">
-                  <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Alimentazione</label>
-                  <select className="w-full min-w-0 border-0 bg-white rounded-md h-[44px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
-                    <option>Benzina, Diesel...</option>
-                  </select>
-                </div>
-                <div className="flex flex-col text-left min-w-0">
-                  <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Prezzo</label>
-                  <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-2">
-                    <input type="text" placeholder="Budget max" className="w-full min-w-0 border-0 bg-white rounded-md h-[44px] px-3 text-[13px] font-semibold text-[#061629] focus:outline-none focus:ring-2 focus:ring-[#d9e6f7]" />
-                    <button type="button" onClick={() => navigate('/contatti')} className="bg-[#0b2b5b] hover:bg-[#0c438f] text-white h-[44px] px-5 rounded-md text-[13px] font-bold whitespace-nowrap transition-colors flex items-center justify-center gap-2">
-                      <Search size={15} /> Cerca
-                    </button>
+            <div className="bg-white rounded-lg shadow-[0_22px_48px_-26px_rgba(6,22,41,0.45)] p-4 md:p-6 border border-[#e6ebf2] relative z-10">
+              <div className="flex items-baseline gap-2 mb-4 text-left">
+                <span className="text-[14px] md:text-[15px] font-extrabold text-[#061629]">Raccontaci che auto cerchi</span>
+                <span className="hidden sm:inline text-[12px] text-[#7b8794]">— ti ricontattiamo noi, gratis e senza impegno.</span>
+              </div>
+
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  const form = e.currentTarget;
+                  setHeroStatus('submitting');
+                  try {
+                    await submitLead(form);
+                    setHeroStatus('success');
+                    form.reset();
+                  } catch {
+                    setHeroStatus('error');
+                  }
+                }}
+              >
+                {/* Config FormSubmit + honeypot anti-spam */}
+                <input type="hidden" name="_subject" value="Nuova richiesta dall'hero — sito Diamanti Automobili" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+                <input type="hidden" name="Provenienza" value="Form hero homepage" />
+
+                {/* Riga 1 — contatti */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
+                  <div className="flex flex-col text-left min-w-0">
+                    <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Nome e cognome *</label>
+                    <input type="text" name="Nome" required placeholder="Mario Rossi" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
+                  </div>
+                  <div className="flex flex-col text-left min-w-0">
+                    <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Email *</label>
+                    <input type="email" name="Email" required placeholder="mario@email.it" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
+                  </div>
+                  <div className="flex flex-col text-left min-w-0">
+                    <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Telefono *</label>
+                    <input type="tel" name="Telefono" required placeholder="345 678 9010" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
                   </div>
                 </div>
-              </div>
+
+                {/* Riga 2 — cosa cerca + invio */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 items-end">
+                  <div className="flex flex-col text-left min-w-0">
+                    <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Tipologia auto</label>
+                    <select name="Tipologia" defaultValue="" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
+                      <option value="">Seleziona...</option>
+                      <option>SUV</option>
+                      <option>Berlina</option>
+                      <option>Station Wagon</option>
+                      <option>City Car</option>
+                      <option>Sportiva</option>
+                    </select>
+                  </div>
+                  <div className="flex flex-col text-left min-w-0">
+                    <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Budget</label>
+                    <select name="Budget" defaultValue="" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
+                      <option value="">Seleziona...</option>
+                      <option>Fino a 15.000€</option>
+                      <option>15.000€ - 25.000€</option>
+                      <option>25.000€ - 40.000€</option>
+                      <option>40.000€ - 60.000€</option>
+                      <option>Oltre 60.000€</option>
+                    </select>
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={heroStatus === 'submitting'}
+                    className="bg-[#0b2b5b] hover:bg-[#0c438f] disabled:opacity-60 disabled:cursor-not-allowed text-white h-[44px] px-5 rounded-md text-[13px] font-bold whitespace-nowrap transition-colors flex items-center justify-center gap-2"
+                  >
+                    {heroStatus === 'submitting' ? 'Invio…' : (<>Richiedi consulenza <ArrowRight size={15} /></>)}
+                  </button>
+                </div>
+
+                {/* Privacy */}
+                <div className="flex items-start gap-2 mt-3">
+                  <input type="checkbox" id="privacy-hero" name="Privacy" value="Accettata" required className="w-3.5 h-3.5 accent-[#061629] mt-[3px] shrink-0" />
+                  <label htmlFor="privacy-hero" className="text-[11px] text-[#7b8794] leading-snug text-left">
+                    Acconsento al trattamento dei dati personali per essere ricontattato.
+                  </label>
+                </div>
+
+                {heroStatus === 'success' && (
+                  <p className="mt-3 text-[12.5px] font-semibold text-[#0c438f] bg-[#0c438f]/8 border border-[#0c438f]/20 rounded-md py-2.5 px-4 text-left">
+                    Richiesta inviata! Ti ricontattiamo entro 24 ore lavorative.
+                  </p>
+                )}
+                {heroStatus === 'error' && (
+                  <p className="mt-3 text-[12.5px] font-semibold text-[#b42318] bg-[#b42318]/8 border border-[#b42318]/20 rounded-md py-2.5 px-4 text-left">
+                    Invio non riuscito. Riprova tra poco oppure scrivici via email.
+                  </p>
+                )}
+              </form>
             </div>
           </div>
         </div>
@@ -407,13 +469,13 @@ export default function Home() {
               </div>
               <h2 className="text-[30px] md:text-[42px] font-extrabold leading-[1.1] mb-5 text-white">
                 Hai un'auto da permutare?<br />
-                <span className="text-[#7ba6e4]">La valutiamo gratis in 24 ore.</span>
+                <span className="text-[#7ba6e4]">La valutiamo gratis h24.</span>
               </h2>
               <p className="text-[15px] md:text-[16px] text-white/75 leading-[1.65] mb-3">
                 <strong className="text-white">Permuta integrata</strong> — la scali dal prezzo della prossima auto.
               </p>
               <p className="text-[15px] md:text-[16px] text-white/75 leading-[1.65] mb-8">
-                <strong className="text-white">Acquisto diretto</strong> — te la compriamo e basta, pagamento in 48 ore.
+                <strong className="text-white">Acquisto diretto</strong> — te la compriamo e basta.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
@@ -430,37 +492,6 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. COME FUNZIONA */}
-      <section className="py-14 bg-white relative overflow-hidden">
-        <div className="ds-container">
-          <h2 className="text-center text-[24px] md:text-[28px] font-extrabold text-[#061629] mb-10">Come funziona</h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 max-w-6xl mx-auto">
-            {[
-              { icon: CheckCircle2, title: 'Briefing iniziale', text: 'Raccogliamo esigenze, budget, utilizzo e preferenze.' },
-              { icon: Search, title: 'Ricerca selezionata', text: 'Analizziamo il mercato italiano ed europeo per individuare le migliori opportunità.' },
-              { icon: ShieldCheck, title: 'Proposta personalizzata', text: 'Ti presentiamo le opzioni migliori, con analisi tecnica e consigli dedicati.' },
-              { icon: MapPin, title: 'Consegna e supporto', text: "Gestiamo trattativa, pratiche e consegna a domicilio. E ci sentiamo anche dopo." }
-            ].map((step, i) => (
-              <div key={i} className="relative flex flex-col items-center text-center px-4">
-                {i !== 3 && (
-                  <div className="hidden md:flex absolute top-[19px] left-[calc(50%+38px)] right-[calc(-50%+38px)] items-center z-0">
-                    <div className="h-px flex-1 border-t border-dotted border-[#cfd9e6]"></div>
-                    <ArrowRight size={14} className="mx-2 text-[#0b2b5b]" strokeWidth={2.2} />
-                    <div className="h-px flex-1 border-t border-dotted border-[#cfd9e6]"></div>
-                  </div>
-                )}
-                <div className="relative z-10 w-10 h-10 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-4 shadow-[0_10px_24px_-16px_rgba(6,22,41,0.5)]">
-                  <step.icon size={18} strokeWidth={1.9} />
-                </div>
-                <h3 className="text-[14px] font-extrabold text-[#061629] mb-2 leading-tight">{step.title}</h3>
-                <p className="text-[12px] text-muted leading-relaxed max-w-[210px]">{step.text}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -517,6 +548,37 @@ export default function Home() {
                     <p className="text-[12px] text-muted mt-0.5">{review.car} · {review.city}</p>
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* COME FUNZIONA — spostata sotto le testimonianze */}
+      <section className="py-14 bg-white relative overflow-hidden border-t border-[#e6ebf2]">
+        <div className="ds-container">
+          <h2 className="text-center text-[24px] md:text-[28px] font-extrabold text-[#061629] mb-10">Come funziona</h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 max-w-6xl mx-auto">
+            {[
+              { icon: CheckCircle2, title: 'Briefing iniziale', text: 'Raccogliamo esigenze, budget, utilizzo e preferenze.' },
+              { icon: Search, title: 'Ricerca selezionata', text: 'Analizziamo il mercato italiano ed europeo per individuare le migliori opportunità.' },
+              { icon: ShieldCheck, title: 'Proposta personalizzata', text: 'Ti presentiamo le opzioni migliori, con analisi tecnica e consigli dedicati.' },
+              { icon: MapPin, title: 'Consegna e supporto', text: "Gestiamo trattativa, pratiche e consegna a domicilio. E ci sentiamo anche dopo." }
+            ].map((step, i) => (
+              <div key={i} className="relative flex flex-col items-center text-center px-4">
+                {i !== 3 && (
+                  <div className="hidden md:flex absolute top-[19px] left-[calc(50%+38px)] right-[calc(-50%+38px)] items-center z-0">
+                    <div className="h-px flex-1 border-t border-dotted border-[#cfd9e6]"></div>
+                    <ArrowRight size={14} className="mx-2 text-[#0b2b5b]" strokeWidth={2.2} />
+                    <div className="h-px flex-1 border-t border-dotted border-[#cfd9e6]"></div>
+                  </div>
+                )}
+                <div className="relative z-10 w-10 h-10 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-4 shadow-[0_10px_24px_-16px_rgba(6,22,41,0.5)]">
+                  <step.icon size={18} strokeWidth={1.9} />
+                </div>
+                <h3 className="text-[14px] font-extrabold text-[#061629] mb-2 leading-tight">{step.title}</h3>
+                <p className="text-[12px] text-muted leading-relaxed max-w-[210px]">{step.text}</p>
               </div>
             ))}
           </div>

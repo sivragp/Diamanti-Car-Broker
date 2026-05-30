@@ -24,7 +24,7 @@ const TRADEIN_JSONLD = {
   serviceType: "Valutazione e ritiro auto usate",
   name: "Valuta la tua auto — Permuta o acquisto diretto",
   description:
-    "Valutazione gratuita della tua auto usata in 24 ore. Puoi permutarla mentre acquisti la prossima auto con Diamanti Automobili, oppure vendercela direttamente con pagamento in 48 ore. Ritiro ovunque in Italia.",
+    "Valutazione gratuita della tua auto usata in 24 ore. Puoi permutarla mentre acquisti la prossima auto con Diamanti Automobili, oppure vendercela direttamente con pagamento garantito. Ritiro ovunque in Italia.",
   provider: {
     '@type': 'AutomotiveBusiness',
     '@id': `${SITE_URL}/#business`,
@@ -36,7 +36,7 @@ const TRADEIN_JSONLD = {
     name: 'Permuta e acquisto auto usate',
     itemListElement: [
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Permuta auto integrata con acquisto nuova' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Acquisto diretto auto usata con pagamento in 48 ore' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Acquisto diretto auto usata con pagamento garantito' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Valutazione gratuita auto usata in 24 ore' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Ritiro auto a domicilio in tutta Italia' } },
     ],
@@ -50,7 +50,7 @@ const FAQS = [
   },
   {
     q: 'Qual è la differenza tra permuta e acquisto diretto?',
-    a: "Permuta: la tua auto attuale entra in scambio mentre ne acquisti una nuova attraverso di noi. Il valore della permuta viene scalato direttamente dal prezzo della prossima auto. Acquisto diretto: te la compriamo e basta, con pagamento in 48 ore. Non serve che acquisti un'altra auto da noi.",
+    a: "Permuta: la tua auto attuale entra in scambio mentre ne acquisti una nuova attraverso di noi. Il valore della permuta viene scalato direttamente dal prezzo della prossima auto. Acquisto diretto: te la compriamo e basta, con pagamento rapido e garantito. Non serve che acquisti un'altra auto da noi.",
   },
   {
     q: 'Quanto offrite rispetto a un concessionario tradizionale?',
@@ -79,7 +79,7 @@ export default function TradeIn() {
     <div className="bg-surface min-h-screen font-sans text-text pt-[74px]">
       <SEO
         title="Valuta la tua auto — Permuta o acquisto diretto | Diamanti Automobili"
-        description="Valutazione gratuita della tua auto in 24 ore. Permuta integrata con l'acquisto della nuova o vendita diretta con pagamento in 48 ore. Ritiro a domicilio in tutta Italia."
+        description="Valutazione gratuita della tua auto in 24 ore. Permuta integrata con l'acquisto della nuova o vendita diretta con pagamento garantito. Ritiro a domicilio in tutta Italia."
         path="/valuta-la-tua-auto"
         jsonLd={TRADEIN_JSONLD}
         jsonLdId="tradein"
@@ -90,139 +90,11 @@ export default function TradeIn() {
         image="/images/citycar-lungomare.webp"
         eyebrow="Valuta la tua auto"
         title="Quanto vale davvero la tua auto?"
-        subtitle={<>Ti diamo una valutazione gratuita in 24 ore. Poi scegli tu: la usi come <strong className="text-white">permuta</strong> sulla tua prossima auto, oppure te la <strong className="text-white">compriamo direttamente</strong> con pagamento in 48 ore.</>}
+        subtitle={<>Ti diamo una valutazione gratuita in 24 ore. Poi scegli tu: la usi come <strong className="text-white">permuta</strong> sulla tua prossima auto, oppure te la <strong className="text-white">compriamo direttamente</strong> con pagamento garantito.</>}
         cta={{ label: 'Richiedi valutazione gratuita', href: '#form-valutazione' }}
-        stats={[
-          { value: '24h', label: 'Valutazione gratuita' },
-          { value: '48h', label: 'Pagamento se vendi' },
-          { value: '+5-15%', label: 'In più vs concessionari' },
-        ]}
       />
 
-      {/* 2. DUE STRADE — Permuta vs Vendita */}
-      <section className="py-20 bg-white">
-        <div className="ds-container max-w-[1100px]">
-          <div className="text-center mb-14">
-            <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Due strade</p>
-            <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-[1.1] max-w-[760px] mx-auto">
-              Scegli tu cosa fare con la tua auto.
-            </h2>
-            <p className="text-[16px] text-muted leading-relaxed mt-5 max-w-[640px] mx-auto">
-              Dopo la valutazione decidi: la permuti per scalarla dal prezzo della nuova, oppure ce la vendi direttamente.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Permuta */}
-            <div className="bg-[#061629] rounded-lg p-8 md:p-10 text-white shadow-[0_22px_48px_-26px_rgba(6,22,41,0.5)] flex flex-col">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center">
-                  <Repeat size={26} strokeWidth={1.6} />
-                </div>
-                <span className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7ba6e4]">Permuta integrata</span>
-              </div>
-              <h3 className="text-[24px] md:text-[26px] font-extrabold leading-tight mb-4 text-white">
-                La scali dal prezzo della prossima auto
-              </h3>
-              <p className="text-white/72 text-[14.5px] leading-[1.65] mb-7">
-                Mentre cerchiamo la tua prossima auto, ritiriamo quella attuale e scaliamo il valore della permuta direttamente dal nuovo acquisto. Una sola pratica, un solo interlocutore.
-              </p>
-              <ul className="flex flex-col gap-4 mt-auto">
-                {[
-                  'Valore scalato dal prezzo della nuova auto',
-                  'Niente annunci, niente trattative con privati',
-                  'Ritiro contestuale alla consegna',
-                  'Una sola pratica burocratica',
-                ].map((b, i) => (
-                  <li key={i} className="flex items-center gap-3 text-[14px] text-white/95">
-                    <CheckCircle2 size={16} className="text-[#7ba6e4] shrink-0" strokeWidth={2} />
-                    {b}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Vendita diretta */}
-            <div className="bg-white border border-[#e6ebf2] rounded-lg p-8 md:p-10 shadow-[0_22px_48px_-26px_rgba(6,22,41,0.25)] flex flex-col">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-full bg-[#f6f8fb] border border-[#e6ebf2] flex items-center justify-center">
-                  <HandCoins size={26} strokeWidth={1.6} className="text-[#0c438f]" />
-                </div>
-                <span className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#0c438f]">Acquisto diretto</span>
-              </div>
-              <h3 className="text-[24px] md:text-[26px] font-extrabold leading-tight mb-4 text-[#061629]">
-                Te la compriamo. Anche se non compri da noi.
-              </h3>
-              <p className="text-muted text-[14.5px] leading-[1.65] mb-7">
-                Vuoi solo vendere la tua auto in modo veloce e sicuro? La acquistiamo noi alle quotazioni reali di mercato, con pagamento garantito in 48 ore tramite bonifico. Non sei obbligato ad acquistare nulla in cambio.
-              </p>
-              <ul className="flex flex-col gap-4 mt-auto">
-                {[
-                  'Pagamento via bonifico in 48 ore',
-                  'Nessun obbligo di acquistare altro',
-                  'Ritiro a domicilio incluso',
-                  'Pratica di passaggio gestita da noi',
-                ].map((b, i) => (
-                  <li key={i} className="flex items-center gap-3 text-[14px] text-[#061629]">
-                    <CheckCircle2 size={16} className="text-[#0c438f] shrink-0" strokeWidth={2} />
-                    {b}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. PERCHÉ NOI */}
-      <section className="py-20 bg-[#f6f8fb] border-y border-[#e6ebf2]">
-        <div className="ds-container">
-          <div className="text-center mb-14">
-            <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Perché venderla a noi</p>
-            <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-[1.15] max-w-[760px] mx-auto">
-              Più valore, meno rotture di scatole.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              {
-                icon: TrendingUp,
-                title: 'Valore reale di mercato',
-                text: "Quotazioni costruite sui dati reali, non sui valori 'lowball' di un concessionario che deve guadagnare due volte.",
-              },
-              {
-                icon: ShieldCheck,
-                title: 'Pagamento garantito',
-                text: 'Bonifico entro 48 ore dal ritiro. Niente assegni postdatati, niente promesse fumose.',
-              },
-              {
-                icon: Truck,
-                title: 'Ritiro ovunque in Italia',
-                text: 'Veniamo noi a casa tua. Tu non devi caricare, spostare o trasportare nulla.',
-              },
-              {
-                icon: Banknote,
-                title: 'Anche con finanziamento attivo',
-                text: 'Gestiamo noi le pratiche di estinzione anticipata presso la tua finanziaria.',
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="bg-white border border-[#e6ebf2] rounded-lg p-7 flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.4)] transition-shadow"
-              >
-                <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-5">
-                  <item.icon size={22} strokeWidth={1.6} />
-                </div>
-                <h3 className="text-[16px] font-extrabold text-[#061629] mb-3 leading-tight">{item.title}</h3>
-                <p className="text-[13.5px] text-muted leading-[1.65]">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. COME FUNZIONA — 3 step */}
+      {/* 2. COME FUNZIONA — 3 step */}
       <section className="py-20 bg-white">
         <div className="ds-container max-w-[1100px]">
           <div className="text-center mb-14">
@@ -253,7 +125,7 @@ export default function TradeIn() {
                   num: '03',
                   icon: Truck,
                   title: 'Decidi: permuta o vendita',
-                  text: 'Se ti convince, organizziamo il ritiro a casa tua. Pagamento in 48 ore (vendita) o sconto sulla nuova (permuta).',
+                  text: 'Se ti convince, organizziamo il ritiro a casa tua. Pagamento garantito (vendita) o sconto sulla nuova (permuta).',
                 },
               ].map((step, i) => (
                 <div key={i} className="flex flex-col items-center text-center">
@@ -270,7 +142,7 @@ export default function TradeIn() {
         </div>
       </section>
 
-      {/* 5. FORM */}
+      {/* 3. FORM — Richiedi valutazione */}
       <section id="form-valutazione" className="py-20 bg-[#f6f8fb] border-y border-[#e6ebf2] scroll-mt-[74px]">
         <div className="ds-container max-w-[920px]">
           <div className="text-center mb-12">
@@ -455,6 +327,129 @@ export default function TradeIn() {
                 Riceverai la valutazione entro 24 ore lavorative. Nessun impegno.
               </p>
             </form>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. PERCHÉ VENDERLA A NOI */}
+      <section className="py-20 bg-white">
+        <div className="ds-container">
+          <div className="text-center mb-14">
+            <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Perché venderla a noi</p>
+            <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-[1.15] max-w-[760px] mx-auto">
+              Più valore, meno rotture di scatole.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {[
+              {
+                icon: TrendingUp,
+                title: 'Valore reale di mercato',
+                text: "Quotazioni costruite sui dati reali, non sui valori 'lowball' di un concessionario che deve guadagnare due volte.",
+              },
+              {
+                icon: ShieldCheck,
+                title: 'Pagamento garantito',
+                text: 'Bonifico bancario dopo il ritiro. Niente assegni postdatati, niente promesse fumose.',
+              },
+              {
+                icon: Truck,
+                title: 'Ritiro ovunque in Italia',
+                text: 'Veniamo noi a casa tua. Tu non devi caricare, spostare o trasportare nulla.',
+              },
+              {
+                icon: Banknote,
+                title: 'Anche con finanziamento attivo',
+                text: 'Gestiamo noi le pratiche di estinzione anticipata presso la tua finanziaria.',
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-white border border-[#e6ebf2] rounded-lg p-7 flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.4)] transition-shadow"
+              >
+                <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-5">
+                  <item.icon size={22} strokeWidth={1.6} />
+                </div>
+                <h3 className="text-[16px] font-extrabold text-[#061629] mb-3 leading-tight">{item.title}</h3>
+                <p className="text-[13.5px] text-muted leading-[1.65]">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. DUE STRADE — Permuta vs Vendita */}
+      <section className="py-20 bg-[#f6f8fb] border-y border-[#e6ebf2]">
+        <div className="ds-container max-w-[1100px]">
+          <div className="text-center mb-14">
+            <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Due strade</p>
+            <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-[1.1] max-w-[760px] mx-auto">
+              Scegli tu cosa fare con la tua auto.
+            </h2>
+            <p className="text-[16px] text-muted leading-relaxed mt-5 max-w-[640px] mx-auto">
+              Dopo la valutazione decidi: la permuti per scalarla dal prezzo della nuova, oppure ce la vendi direttamente.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Permuta */}
+            <div className="bg-[#061629] rounded-lg p-8 md:p-10 text-white shadow-[0_22px_48px_-26px_rgba(6,22,41,0.5)] flex flex-col">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center">
+                  <Repeat size={26} strokeWidth={1.6} />
+                </div>
+                <span className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7ba6e4]">Permuta integrata</span>
+              </div>
+              <h3 className="text-[24px] md:text-[26px] font-extrabold leading-tight mb-4 text-white">
+                La scali dal prezzo della prossima auto
+              </h3>
+              <p className="text-white/72 text-[14.5px] leading-[1.65] mb-7">
+                Mentre cerchiamo la tua prossima auto, ritiriamo quella attuale e scaliamo il valore della permuta direttamente dal nuovo acquisto. Una sola pratica, un solo interlocutore.
+              </p>
+              <ul className="flex flex-col gap-4 mt-auto">
+                {[
+                  'Valore scalato dal prezzo della nuova auto',
+                  'Niente annunci, niente trattative con privati',
+                  'Ritiro contestuale alla consegna',
+                  'Una sola pratica burocratica',
+                ].map((b, i) => (
+                  <li key={i} className="flex items-center gap-3 text-[14px] text-white/95">
+                    <CheckCircle2 size={16} className="text-[#7ba6e4] shrink-0" strokeWidth={2} />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Vendita diretta */}
+            <div className="bg-white border border-[#e6ebf2] rounded-lg p-8 md:p-10 shadow-[0_22px_48px_-26px_rgba(6,22,41,0.25)] flex flex-col">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-full bg-[#f6f8fb] border border-[#e6ebf2] flex items-center justify-center">
+                  <HandCoins size={26} strokeWidth={1.6} className="text-[#0c438f]" />
+                </div>
+                <span className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#0c438f]">Acquisto diretto</span>
+              </div>
+              <h3 className="text-[24px] md:text-[26px] font-extrabold leading-tight mb-4 text-[#061629]">
+                Te la compriamo. Anche se non compri da noi.
+              </h3>
+              <p className="text-muted text-[14.5px] leading-[1.65] mb-7">
+                Vuoi solo vendere la tua auto in modo veloce e sicuro? La acquistiamo noi alle quotazioni reali di mercato, con pagamento garantito tramite bonifico. Non sei obbligato ad acquistare nulla in cambio.
+              </p>
+              <ul className="flex flex-col gap-4 mt-auto">
+                {[
+                  'Pagamento garantito via bonifico',
+                  'Nessun obbligo di acquistare altro',
+                  'Ritiro a domicilio incluso',
+                  'Pratica di passaggio gestita da noi',
+                ].map((b, i) => (
+                  <li key={i} className="flex items-center gap-3 text-[14px] text-[#061629]">
+                    <CheckCircle2 size={16} className="text-[#0c438f] shrink-0" strokeWidth={2} />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>

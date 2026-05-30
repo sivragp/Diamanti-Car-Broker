@@ -24,7 +24,7 @@ export default function About() {
             Diamanti Automobili è il consulente indipendente che ti accompagna nell'acquisto della tua prossima auto: nuova, usata, km 0 o di importazione.
             <br />
             <br />
-            Fondata da Thomas Diamanti, con 6 anni di esperienza nel settore automobilistico, oggi è un team di consulenti che segue ogni cliente in tutte le fasi: dall'ascolto iniziale alla consegna, con un approccio su misura, trasparente e orientato al dettaglio.
+            Nata dall'esperienza maturata nel settore automobilistico, oggi è un team di consulenti che segue ogni cliente in tutte le fasi: dall'ascolto iniziale alla consegna, con un approccio su misura, trasparente e orientato al dettaglio.
             <br />
             <br />
             Il nostro obiettivo è semplice: trasformare ogni richiesta in una scelta concreta, sicura e in linea con le tue aspettative.
@@ -149,8 +149,8 @@ export default function About() {
             <div className="w-full md:w-1/2">
               <div className="relative rounded-lg overflow-hidden h-[450px] shadow-[0_22px_48px_-26px_rgba(0,0,0,0.6)]">
                 <img
-                  src="/images/team-diamanti.webp"
-                  alt="Il team Diamanti Automobili nello showroom con il logo aziendale alle spalle"
+                  src="/images/team-highfive.webp"
+                  alt="Il team Diamanti Automobili celebra insieme un nuovo traguardo in ufficio"
                   className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"
