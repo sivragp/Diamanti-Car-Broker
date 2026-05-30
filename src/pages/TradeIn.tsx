@@ -366,7 +366,7 @@ export default function TradeIn() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="bg-white border border-[#e6ebf2] rounded-lg p-7 flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.4)] transition-shadow"
+                className="bg-white border border-[#e6ebf2] rounded-lg p-5 sm:p-7 flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.4)] transition-shadow"
               >
                 <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-5">
                   <item.icon size={22} strokeWidth={1.6} />

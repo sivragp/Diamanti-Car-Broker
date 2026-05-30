@@ -67,7 +67,7 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-y-10 sm:gap-y-14 gap-x-4 sm:gap-x-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-8 sm:gap-y-14 gap-x-4 sm:gap-x-8">
             {[
               { num: '01', icon: Search, title: 'Analisi strategica del mercato', text: "Non ci limitiamo agli annunci: analizziamo prezzi, svalutazione futura del modello e disponibilità reale in Italia e in Europa.", details: ['Definizione budget', 'Analisi costo/beneficio', "Canali d'acquisto"] },
               { num: '02', icon: MapPin, title: 'Scouting e pre-selezione', text: 'Filtriamo centinaia di proposte per trovarne poche davvero sicure. Ogni auto scartata è un rischio che ti abbiamo evitato.', details: ['Cronologia tagliandi', 'Database sinistri', 'Visura ipoteche'] },
@@ -77,7 +77,7 @@ export default function Services() {
               { num: '06', icon: Wrench, title: 'Post-vendita e primo tagliando incluso', text: "Il rapporto non finisce alla consegna: restiamo a disposizione e dopo i primi 5.000 km il primo tagliando lo offriamo noi.", details: ['Assistenza post-vendita', 'Officine convenzionate', 'Tagliando incluso'] },
             ].map((step, i) => (
               <div key={i} className="flex flex-col">
-                <div className="bg-white border border-gray-100 rounded-lg p-8 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow">
+                <div className="bg-white border border-gray-100 rounded-lg p-6 sm:p-8 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow">
                   <div className="w-12 h-12 rounded-full bg-[#0b2b5b]/8 text-[#0b2b5b] flex items-center justify-center mb-5">
                     <step.icon size={22} strokeWidth={1.6} />
                   </div>
@@ -141,7 +141,7 @@ export default function Services() {
                 bullets: ['Officine convenzionate', 'Controlli completi inclusi', 'Assistenza dopo la vendita']
               }
             ].map((item, i) => (
-              <div key={i} className="bg-white border border-gray-100 rounded-lg p-8 md:p-10 shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow flex flex-col">
+              <div key={i} className="bg-white border border-gray-100 rounded-lg p-6 sm:p-8 md:p-10 shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow flex flex-col">
                 <div className="flex items-start gap-5 mb-5">
                   <div className="w-14 h-14 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center shrink-0">
                     <item.icon size={24} strokeWidth={1.6} />
@@ -227,7 +227,7 @@ export default function Services() {
               { icon: ShieldCheck, title: 'Trasparenza totale', text: 'Ti raccontiamo tutto: processo, costi, tempi e condizioni reali.' },
               { icon: MapPin, title: 'Assistenza completa', text: 'Dal briefing alla consegna a domicilio, ci occupiamo noi di ogni passaggio.' }
             ].map((item, i) => (
-              <div key={i} className="border border-gray-100 rounded-lg p-8 text-center flex flex-col items-center hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-shadow bg-white">
+              <div key={i} className="border border-gray-100 rounded-lg p-5 sm:p-8 text-center flex flex-col items-center hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-shadow bg-white">
                 <div className="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center mb-6">
                   <item.icon className="text-[#061629]" size={24} strokeWidth={1.5} />
                 </div>

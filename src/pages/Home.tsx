@@ -215,7 +215,7 @@ export default function Home() {
               { icon: ShieldCheck, title: 'Verifica tecnica completa', text: 'Controlliamo storia, chilometraggio reale, condizioni e documenti prima di ogni acquisto.' },
               { icon: MapPin, title: 'Consegna a domicilio', text: "Ti consegniamo l'auto pronta all'uso direttamente a casa tua, in tutta Italia." }
             ].map((item, i) => (
-              <div key={i} className="border border-[#e6ebf2] rounded-lg p-7 text-center flex flex-col items-center shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow bg-white">
+              <div key={i} className="border border-[#e6ebf2] rounded-lg p-5 sm:p-7 text-center flex flex-col items-center shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow bg-white">
                 <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-6">
                   <item.icon size={22} strokeWidth={1.5} />
                 </div>
@@ -399,7 +399,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 icon: Repeat,

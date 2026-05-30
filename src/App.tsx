@@ -45,7 +45,7 @@ export default function App() {
       <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-neutral-soft">
         <Header />
-        <main className="flex-grow">
+        <main className="flex-grow overflow-x-hidden">
           <Suspense fallback={<div className="min-h-[60vh]" />}>
             <Routes>
               <Route path="/" element={<Home />} />

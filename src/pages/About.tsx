@@ -72,7 +72,7 @@ export default function About() {
               { icon: Search, title: 'Selezione accurata', text: 'Valutiamo ogni dettaglio per offrirti solo auto di qualità.' },
               { icon: CheckCircle2, title: 'Supporto completo', text: 'Ti seguiamo in ogni fase, fino alla consegna e oltre.' }
             ].map((val, i) => (
-              <div key={i} className="border border-[#e6ebf2] rounded-lg p-7 text-center flex flex-col items-center shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow bg-white">
+              <div key={i} className="border border-[#e6ebf2] rounded-lg p-5 sm:p-7 text-center flex flex-col items-center shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow bg-white">
                 <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-6">
                   <val.icon size={22} strokeWidth={1.5} />
                 </div>

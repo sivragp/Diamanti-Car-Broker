@@ -12,7 +12,7 @@ interface ContactCTAProps {
  */
 export function ContactCTA({ image = '/images/fiat-500-showroom.webp' }: ContactCTAProps) {
   return (
-    <section className="relative min-h-[500px] flex items-center bg-[#061629] text-white overflow-hidden">
+    <section className="relative min-h-[420px] sm:min-h-[500px] flex items-center bg-[#061629] text-white overflow-hidden">
       {/* Sfondo: foto auto della pagina */}
       <div className="absolute inset-0 z-0">
         {/* Riempimento sfondo: stessa foto, cover + sfocata, copre tutta la sezione */}
@@ -36,7 +36,7 @@ export function ContactCTA({ image = '/images/fiat-500-showroom.webp' }: Contact
       </div>
 
       <div className="ds-container relative z-10 py-16 text-center w-full">
-        <h2 className="text-[36px] md:text-[44px] font-extrabold mb-6 leading-tight text-white">
+        <h2 className="text-[26px] sm:text-[34px] md:text-[44px] font-extrabold mb-5 sm:mb-6 leading-tight text-white">
           Hai già in mente la tua <br />prossima auto?
         </h2>
         <p className="text-white/80 text-[16px] mb-10 leading-relaxed max-w-md mx-auto">
