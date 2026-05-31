@@ -114,85 +114,72 @@ export function Footer() {
   return (
     <footer className="bg-[#061629] text-white/72 pt-14 pb-7 border-t border-white/10">
       <div className="ds-container">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 mb-12">
-          
-          {/* Logo Col */}
-          <div className="lg:col-span-1 flex flex-col">
-            <Link to="/" className="flex items-center mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
+
+          {/* Logo + descrizione + social + contatti */}
+          <div className="sm:col-span-2 lg:col-span-1 flex flex-col">
+            <Link to="/" className="flex items-center mb-5">
               <img
                 src="/logo-diamanti.png"
                 alt="Diamanti Automobili — Consulente acquisto auto a Roma"
                 className="h-[52px] w-auto"
               />
             </Link>
-            <p className="text-[13px] leading-relaxed mb-6">
+            <p className="text-[13px] leading-relaxed mb-5 max-w-xs">
               Il consulente che cerca, verifica e consegna la tua prossima auto. Da Roma, in tutta Italia.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Facebook size={14} /></a>
-              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Instagram size={14} /></a>
-              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Linkedin size={14} /></a>
+            <div className="flex gap-3 mb-7">
+              <a href="#" aria-label="Facebook" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Facebook size={14} /></a>
+              <a href="#" aria-label="Instagram" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Instagram size={14} /></a>
+              <a href="#" aria-label="LinkedIn" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Linkedin size={14} /></a>
             </div>
-          </div>
-
-          {/* Links Cols */}
-          <div>
-            <h4 className="text-white font-bold text-[14px] mb-5">Servizi</h4>
+            {/* Contatti — sotto i social */}
             <ul className="flex flex-col gap-3 text-[13px]">
-              <li><Link to="/servizi" className="hover:text-white transition-colors">Ricerca auto su misura</Link></li>
-              <li><Link to="/servizi" className="hover:text-white transition-colors">Auto nuove, usate e km 0</Link></li>
-              <li><Link to="/valuta-la-tua-auto" className="hover:text-white transition-colors">Permuta e valutazione auto</Link></li>
-              <li><Link to="/valuta-la-tua-auto" className="hover:text-white transition-colors">Acquistiamo la tua auto</Link></li>
-              <li><Link to="/servizi" className="hover:text-white transition-colors">Finanziamenti fino a 120 mesi</Link></li>
-              <li><Link to="/servizi" className="hover:text-white transition-colors">Verifica e controllo</Link></li>
-              <li><Link to="/servizi" className="hover:text-white transition-colors">Consegna a domicilio in tutta Italia</Link></li>
-              <li><Link to="/servizi" className="hover:text-white transition-colors">Primo tagliando incluso</Link></li>
+              <li className="flex items-center gap-3">
+                <Phone size={15} className="text-white/50 shrink-0" />
+                <a href={PHONE_HREF} className="hover:text-white transition-colors">{PHONE_DISPLAY}</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail size={15} className="text-white/50 shrink-0" />
+                <a href={EMAIL_HREF} className="hover:text-white transition-colors break-all">{EMAIL}</a>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin size={15} className="text-white/50 shrink-0 mt-0.5" />
+                <span className="leading-relaxed">Operiamo in tutta Italia e in Europa</span>
+              </li>
             </ul>
           </div>
 
+          {/* Pagine reali */}
           <div>
-            <h4 className="text-white font-bold text-[14px] mb-5">Il metodo</h4>
-            <ul className="flex flex-col gap-3 text-[13px]">
-              <li><Link to="/servizi" className="hover:text-white transition-colors">Il nostro metodo</Link></li>
-              <li><Link to="/servizi" className="hover:text-white transition-colors">Le fasi del servizio</Link></li>
-              <li><Link to="/faq" className="hover:text-white transition-colors">Domande frequenti</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-bold text-[14px] mb-5">Informazioni</h4>
+            <h4 className="text-white font-bold text-[14px] mb-5">Pagine</h4>
             <ul className="flex flex-col gap-3 text-[13px]">
               <li><Link to="/chi-siamo" className="hover:text-white transition-colors">Chi siamo</Link></li>
-              <li><Link to="/chi-siamo" className="hover:text-white transition-colors">Perché sceglierci</Link></li>
-              <li><Link to="/chi-siamo" className="hover:text-white transition-colors">Dicono di noi</Link></li>
+              <li><Link to="/servizi" className="hover:text-white transition-colors">Servizi</Link></li>
+              <li><Link to="/valuta-la-tua-auto" className="hover:text-white transition-colors">Valuta la tua auto</Link></li>
+              <li><Link to="/risorse" className="hover:text-white transition-colors">Blog e guide</Link></li>
+              <li><Link to="/faq" className="hover:text-white transition-colors">Domande frequenti</Link></li>
               <li><Link to="/contatti" className="hover:text-white transition-colors">Contatti</Link></li>
             </ul>
           </div>
 
-          {/* Contacts Col */}
-          <div className="lg:col-span-1">
-            <h4 className="text-white font-bold text-[14px] mb-5">Contatti</h4>
-            <ul className="flex flex-col gap-4 text-[13px]">
-              <li className="flex items-center gap-3">
-                <Phone size={16} className="text-white/50" />
-                <a href={PHONE_HREF} className="hover:text-white transition-colors">{PHONE_DISPLAY}</a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail size={16} className="text-white/50" />
-                <a href={EMAIL_HREF} className="hover:text-white transition-colors break-all">{EMAIL}</a>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-white/50 shrink-0 mt-0.5" />
-                <span className="leading-relaxed">Operiamo in tutta Italia<br/>e in Europa</span>
-              </li>
+          {/* Blog — articoli (SEO) */}
+          <div>
+            <h4 className="text-white font-bold text-[14px] mb-5">Guide e risorse</h4>
+            <ul className="flex flex-col gap-3 text-[13px]">
+              <li><Link to="/risorse/consulente-acquisto-auto-come-funziona" className="hover:text-white transition-colors">Come funziona il consulente auto</Link></li>
+              <li><Link to="/risorse/importare-auto-dalla-germania" className="hover:text-white transition-colors">Importare un'auto dalla Germania</Link></li>
+              <li><Link to="/risorse/permuta-auto-come-funziona" className="hover:text-white transition-colors">Permuta o vendita diretta</Link></li>
+              <li><Link to="/risorse/verificare-chilometri-auto-usata" className="hover:text-white transition-colors">Verificare i km reali di un'usata</Link></li>
+              <li><Link to="/risorse/finanziamento-auto-120-mesi" className="hover:text-white transition-colors">Finanziamento fino a 120 mesi</Link></li>
+              <li><Link to="/risorse" className="inline-flex items-center gap-1 font-semibold text-white hover:text-[#7ba6e4] transition-colors">Tutte le guide →</Link></li>
             </ul>
           </div>
 
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-[11px] text-white/50">
-          <p>© 2026 Diamanti Automobili - Tutti i diritti riservati.</p>
-          <p className="mt-2 md:mt-0">P.IVA 12345678901</p>
+        <div className="pt-8 border-t border-white/10 text-[11px] text-white/50 text-center sm:text-left">
+          <p>© 2026 Diamanti Automobili — Tutti i diritti riservati.</p>
         </div>
       </div>
     </footer>

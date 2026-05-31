@@ -22,6 +22,13 @@ export default function Home() {
     { initials: 'FP', text: 'Cercavo un SUV ibrido affidabile: trovato, verificato e consegnato a casa. Zero pensieri.', name: 'Francesca P.', car: 'Volvo XC60', city: 'Bologna' },
   ];
 
+  const tuttoIncluso = [
+    { icon: Repeat, title: 'Valutiamo la tua auto attuale', text: "Ci pensiamo noi a stimare il valore di mercato del tuo veicolo e a ritirarlo: niente annunci, niente perditempo. La permuta scala direttamente dal prezzo della nuova." },
+    { icon: CreditCard, title: 'Rate fino a 120 mesi', text: 'Soluzioni di finanziamento personalizzate fino a 120 mesi, con i migliori partner bancari. Rata leggera, accesso a un’auto di livello superiore.' },
+    { icon: Truck, title: 'A casa tua, in tutta Italia', text: "Ti consegniamo l'auto immatricolata, lavata e pronta a partire direttamente sotto casa. Da Bolzano a Trapani, senza mai prendere un treno." },
+    { icon: Wrench, title: 'Primo tagliando gratis dopo 5.000 km', text: 'Dopo i primi 5.000 km percorsi, il primo tagliando è offerto da noi presso officine selezionate. Perché ci siamo anche dopo la consegna.' },
+  ];
+
   return (
     <div className="bg-white min-h-screen font-sans text-text pt-[74px]">
       <SEO
@@ -32,33 +39,31 @@ export default function Home() {
       
       {/* 1. HERO SECTION */}
       <section className="relative flex flex-col items-center text-center justify-center min-h-[500px] md:min-h-[700px] py-12 md:py-0">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        {/* Background Image — zoom lento "ken burns" */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src="/images/hero-bmw-road.webp"
             alt="Consulente acquisto auto Diamanti Automobili — auto premium in viaggio"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover animate-ken-burns"
             fetchPriority="high"
             decoding="async"
           />
-          {/* Overlay scuro su mobile: testo bianco e form leggibili sopra la foto chiara */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/80 via-[#061629]/40 to-[#061629]/85 md:hidden" />
+          {/* Overlay: profondità + contrasto titolo, con un soffio di blu brand in basso */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/85 via-[#061629]/40 to-[#061629]/80" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#0c438f]/25 via-transparent to-transparent" />
         </div>
 
         <div className="ds-container relative z-10 w-full mb-8 md:mb-40 mt-0">
           <div className="max-w-2xl">
-            <h1 className="text-[30px] sm:text-[38px] md:text-[52px] lg:text-[58px] font-extrabold text-white mb-5 md:mb-6 leading-[1.1] md:leading-[1.08] text-left [text-shadow:_0_3px_22px_rgb(0_0_0_/_0.55)]">
+            <h1 className="animate-hero-rise text-[32px] sm:text-[42px] md:text-[52px] lg:text-[60px] font-extrabold text-white mb-7 md:mb-9 leading-[1.07] text-left [text-shadow:_0_4px_24px_rgb(0_0_0_/_0.6)]">
               Troviamo l'auto giusta. <br/>Ovunque tu sia in Italia.
             </h1>
-            <p className="text-[16px] md:text-[18px] text-white mb-8 max-w-[610px] text-left leading-[1.65] font-sans font-medium [text-shadow:_0_2px_16px_rgb(0_0_0_/_0.55)]">
-              Diamanti Automobili è il consulente che cerca per te l'auto giusta — nuova, usata, km 0 o di importazione — la verifica nel dettaglio e te la consegna a casa. Permuta, finanziamenti fino a 120 mesi e primo tagliando incluso. Da Roma in tutta Italia.
-            </p>
-            <div className="flex flex-row gap-2.5 sm:gap-4">
-              <Link to="/contatti" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-[#1156bf] px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-white shadow-[0_14px_28px_-18px_rgba(17,86,191,0.9)] transition-colors hover:bg-[#0c438f]">
-                Richiedi consulenza <ArrowRight size={16} className="ml-2 hidden sm:inline-block" />
-              </Link>
+            <div className="animate-hero-rise flex flex-row gap-2.5 sm:gap-4" style={{ animationDelay: '0.12s' }}>
               <Link to="/servizi" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-white px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-[#0b2b5b] shadow-[0_14px_28px_-18px_rgba(6,22,41,0.45)] transition-colors hover:bg-[#f6f8fb]">
                 Scopri il servizio
+              </Link>
+              <Link to="/contatti" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-[#1156bf] px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-white shadow-[0_14px_28px_-18px_rgba(17,86,191,0.9)] transition-colors hover:bg-[#0c438f]">
+                Richiedi consulenza <ArrowRight size={16} className="ml-2 hidden sm:inline-block" />
               </Link>
             </div>
           </div>
@@ -117,12 +122,12 @@ export default function Home() {
               ].map((brand, i) => (
                 <div
                   key={`${dupIdx}-${i}`}
-                  className="flex-shrink-0 w-[180px] h-[90px] mx-4 flex items-center justify-center group"
+                  className="flex-shrink-0 w-[116px] h-[72px] mx-2 flex items-center justify-center group"
                 >
                   <img
                     src={`/brands/${brand.slug}-white.svg`}
                     alt={`Logo ${brand.name}`}
-                    className="max-h-[56px] max-w-[150px] w-auto h-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+                    className="max-h-[44px] max-w-[100px] w-auto h-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity"
                     loading="lazy"
                   />
                 </div>
@@ -157,7 +162,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. PRONTA CONSEGNA */}
+      {/* 4. PRONTA CONSEGNA — nascosta per ora (nessuno stock reale). Per riattivarla: {true && ( ... )} */}
+      {false && (
       <section className="py-16 bg-[#f6f8fb] border-y border-[#e6ebf2] overflow-hidden">
         <div className="ds-container">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
@@ -245,6 +251,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      )}
 
       {/* 4. VS SECTION — Premium reload */}
       <section className="py-20 bg-[#f6f8fb] border-y border-[#e6ebf2]">
@@ -329,42 +336,32 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory hide-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0">
-            {[
-              {
-                icon: Repeat,
-                tag: 'Permuta',
-                title: 'Valutiamo la tua auto attuale',
-                text: "Ci pensiamo noi a stimare il valore di mercato del tuo veicolo e a ritirarlo: niente annunci, niente perditempo. La permuta scala direttamente dal prezzo della nuova."
-              },
-              {
-                icon: CreditCard,
-                tag: 'Finanziamenti',
-                title: 'Rate fino a 120 mesi',
-                text: 'Soluzioni di finanziamento personalizzate fino a 120 mesi, con i migliori partner bancari. Rata leggera, accesso a un’auto di livello superiore.'
-              },
-              {
-                icon: Truck,
-                tag: 'Consegna',
-                title: 'A casa tua, in tutta Italia',
-                text: 'Ti consegniamo l\'auto immatricolata, lavata e pronta a partire direttamente sotto casa. Da Bolzano a Trapani, senza mai prendere un treno.'
-              },
-              {
-                icon: Wrench,
-                tag: 'Tagliando incluso',
-                title: 'Primo tagliando gratis dopo 5.000 km',
-                text: 'Dopo i primi 5.000 km percorsi, il primo tagliando è offerto da noi presso officine selezionate. Perché ci siamo anche dopo la consegna.'
-              }
-            ].map((item, i) => (
-              <div key={i} className="snap-center shrink-0 w-[78%] sm:w-auto relative bg-white border border-[#e6ebf2] rounded-lg p-7 flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.42)] hover:-translate-y-1 transition-all duration-300">
-                <span className="inline-flex self-start mb-5 rounded-full bg-[#0c438f]/8 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#0c438f]">
-                  {item.tag}
-                </span>
-                <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-5">
+          {/* Mobile: lista ordinata 1 colonna (icona cerchio + testo) */}
+          <div className="md:hidden flex flex-col gap-3">
+            {tuttoIncluso.map((item, i) => (
+              <div key={i} className="flex items-center gap-4 text-left p-4 bg-white border border-[#e6ebf2] rounded-xl shadow-[0_10px_24px_-22px_rgba(6,22,41,0.3)]">
+                <div className="w-12 h-12 rounded-full border border-[#d7e2ef] flex items-center justify-center text-[#0b2b5b] shrink-0">
                   <item.icon size={22} strokeWidth={1.6} />
                 </div>
-                <h3 className="text-[16px] font-extrabold text-[#061629] mb-3 leading-tight">{item.title}</h3>
-                <p className="text-[13px] text-muted leading-[1.65]">{item.text}</p>
+                <div className="min-w-0">
+                  <h3 className="text-[15px] font-bold text-[#061629] mb-1 leading-tight">{item.title}</h3>
+                  <p className="text-[13px] text-muted leading-[1.55]">{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: griglia con icone cerchio bordato e divisori */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 lg:gap-6 text-center lg:divide-x divide-gray-100 px-4">
+            {tuttoIncluso.map((item, i) => (
+              <div key={i} className={`flex flex-col items-center ${i !== 0 ? 'lg:pl-10' : ''} ${i !== 3 ? 'lg:pr-10' : ''}`}>
+                <div className="mb-5 h-12 flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-full border border-[#d7e2ef] flex items-center justify-center text-[#0b2b5b]">
+                    <item.icon size={24} strokeWidth={1.5} />
+                  </div>
+                </div>
+                <h3 className="text-[15px] font-bold text-[#061629] mb-3 leading-tight">{item.title}</h3>
+                <p className="text-[13px] text-muted leading-[1.6]">{item.text}</p>
               </div>
             ))}
           </div>
@@ -431,32 +428,15 @@ export default function Home() {
         <div className="ds-container max-w-[1400px] relative z-10">
           <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-14">Perché scegliere Diamanti Automobili</h2>
           
-          {/* Mobile: lista ordinata a 1 colonna (icona + testo), niente 5° item orfano */}
-          <div className="md:hidden flex flex-col gap-3">
+          {/* Card con icona piena: carosello su mobile, griglia 5 col su desktop */}
+          <div className="flex md:grid md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory hide-scrollbar -mx-5 px-5 md:mx-0 md:px-0">
             {whyUs.map((item, i) => (
-              <div key={i} className="flex items-center gap-4 text-left p-4 bg-white border border-[#e6ebf2] rounded-xl shadow-[0_10px_24px_-22px_rgba(6,22,41,0.3)]">
-                <div className="w-12 h-12 rounded-full border border-[#d7e2ef] flex items-center justify-center text-[#0b2b5b] shrink-0">
+              <div key={i} className="snap-center shrink-0 w-[78%] md:w-auto bg-white border border-[#e6ebf2] rounded-lg p-7 flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.42)] hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-5">
                   {item.icon}
                 </div>
-                <div className="min-w-0">
-                  <h3 className="text-[15px] font-bold text-[#061629] mb-1 leading-tight">{item.title}</h3>
-                  <p className="text-[13px] text-muted leading-[1.55]">{item.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Desktop: griglia 5 colonne con divisori (invariata) */}
-          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-8 lg:gap-6 text-center lg:divide-x divide-gray-100 px-4">
-            {whyUs.map((item, i) => (
-              <div key={i} className={`flex flex-col items-center ${i !== 0 ? 'md:pl-6 lg:pl-10' : ''} ${i !== 4 ? 'md:pr-6 lg:pr-10' : ''}`}>
-                <div className="mb-5 h-12 flex items-center justify-center">
-                  <div className="w-14 h-14 rounded-full border border-[#d7e2ef] flex items-center justify-center text-[#0b2b5b]">
-                    {item.icon}
-                  </div>
-                </div>
-                <h3 className="text-[15px] font-bold text-[#061629] mb-3 leading-tight">{item.title}</h3>
-                <p className="text-[13px] text-muted leading-[1.6]">{item.text}</p>
+                <h3 className="text-[16px] font-extrabold text-[#061629] mb-3 leading-tight">{item.title}</h3>
+                <p className="text-[13px] text-muted leading-[1.65]">{item.text}</p>
               </div>
             ))}
           </div>

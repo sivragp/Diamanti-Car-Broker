@@ -52,7 +52,7 @@
     scrollbar-width: none;
   }
   .animate-scroll-brands {
-    animation: scroll-brands 20s linear infinite;
+    animation: scroll-brands 12s linear infinite;
   }
   .animate-scroll-brands:hover {
     animation-play-state: paused;
@@ -65,6 +65,13 @@
   .animate-marquee-reverse {
     animation: scroll-brands 36s linear infinite reverse;
   }
+  /* Hero: zoom lento dell'immagine + entrata in dissolvenza di titolo/CTA */
+  .animate-ken-burns {
+    animation: ken-burns 24s ease-in-out infinite alternate;
+  }
+  .animate-hero-rise {
+    animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
 }
 
 @keyframes scroll-brands {
@@ -74,6 +81,16 @@
   100% {
     transform: translateX(-50%);
   }
+}
+
+@keyframes ken-burns {
+  from { transform: scale(1.04); }
+  to { transform: scale(1.14); }
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @layer base {
