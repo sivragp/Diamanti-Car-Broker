@@ -12,7 +12,7 @@ interface ContactCTAProps {
  */
 export function ContactCTA({ image = '/images/fiat-500-showroom.webp' }: ContactCTAProps) {
   return (
-    <section className="relative min-h-[420px] sm:min-h-[500px] flex items-center bg-[#061629] text-white overflow-hidden">
+    <section className="relative min-h-[240px] sm:min-h-[300px] flex items-center bg-[#061629] text-white overflow-hidden">
       {/* Sfondo: foto auto della pagina */}
       <div className="absolute inset-0 z-0">
         {/* Riempimento sfondo: stessa foto, cover + sfocata, copre tutta la sezione */}
@@ -35,17 +35,16 @@ export function ContactCTA({ image = '/images/fiat-500-showroom.webp' }: Contact
         <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/70 via-[#061629]/20 to-[#061629]/70"></div>
       </div>
 
-      <div className="ds-container relative z-10 py-16 text-center w-full">
-        <h2 className="text-[26px] sm:text-[34px] md:text-[44px] font-extrabold mb-5 sm:mb-6 leading-tight text-white">
-          Hai già in mente la tua <br />prossima auto?
+      <div className="ds-container relative z-10 py-9 sm:py-11 text-center w-full">
+        <h2 className="text-[21px] sm:text-[27px] md:text-[32px] font-extrabold mb-2.5 sm:mb-3 leading-tight text-white">
+          Hai già in mente la tua <br className="sm:hidden" />prossima auto?
         </h2>
-        <p className="text-white/80 text-[16px] mb-10 leading-relaxed max-w-md mx-auto">
-          Parla con un consulente Diamanti Automobili.<br />
-          La cerchiamo noi: con permuta, finanziamento fino a 120 mesi e consegna a domicilio.
+        <p className="text-white/80 text-[13.5px] sm:text-[15px] mb-5 sm:mb-6 leading-relaxed max-w-md mx-auto">
+          Parla con un consulente Diamanti Automobili: la cerchiamo noi, con permuta, finanziamento fino a 120 mesi e consegna a domicilio.
         </p>
         <Link
           to="/contatti"
-          className="inline-flex h-[48px] px-8 bg-[#0c438f] hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[14px]"
+          className="inline-flex h-[44px] px-7 bg-[#0c438f] hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[13px] sm:text-[14px]"
         >
           Richiedi una consulenza
         </Link>

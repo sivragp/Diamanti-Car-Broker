@@ -53,11 +53,11 @@ export default function Home() {
             <p className="text-[16px] md:text-[18px] text-white mb-8 max-w-[610px] text-left leading-[1.65] font-sans font-medium [text-shadow:_0_2px_16px_rgb(0_0_0_/_0.55)]">
               Diamanti Automobili è il consulente che cerca per te l'auto giusta — nuova, usata, km 0 o di importazione — la verifica nel dettaglio e te la consegna a casa. Permuta, finanziamenti fino a 120 mesi e primo tagliando incluso. Da Roma in tutta Italia.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contatti" className="inline-flex h-[48px] items-center justify-center rounded-full bg-[#1156bf] px-7 text-[14px] font-bold text-white shadow-[0_14px_28px_-18px_rgba(17,86,191,0.9)] transition-colors hover:bg-[#0c438f]">
-                Richiedi consulenza <ArrowRight size={16} className="ml-2" />
+            <div className="flex flex-row gap-2.5 sm:gap-4">
+              <Link to="/contatti" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-[#1156bf] px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-white shadow-[0_14px_28px_-18px_rgba(17,86,191,0.9)] transition-colors hover:bg-[#0c438f]">
+                Richiedi consulenza <ArrowRight size={16} className="ml-2 hidden sm:inline-block" />
               </Link>
-              <Link to="/servizi" className="inline-flex h-[48px] items-center justify-center rounded-full bg-white px-7 text-[14px] font-bold text-[#0b2b5b] shadow-[0_14px_28px_-18px_rgba(6,22,41,0.45)] transition-colors hover:bg-[#f6f8fb]">
+              <Link to="/servizi" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-white px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-[#0b2b5b] shadow-[0_14px_28px_-18px_rgba(6,22,41,0.45)] transition-colors hover:bg-[#f6f8fb]">
                 Scopri il servizio
               </Link>
             </div>
@@ -252,7 +252,7 @@ export default function Home() {
           <div className="text-center mb-14">
             <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Cercare un'auto</p>
             <h2 className="text-[30px] md:text-[42px] font-extrabold text-[#061629] leading-[1.1] max-w-[780px] mx-auto">
-              Stesso obiettivo. <br className="hidden md:block" />
+              Stesso obiettivo. <br />
               <span className="text-[#0c438f]">Due strade molto diverse.</span>
             </h2>
           </div>
