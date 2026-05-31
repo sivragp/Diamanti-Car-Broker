@@ -57,6 +57,14 @@
   .animate-scroll-brands:hover {
     animation-play-state: paused;
   }
+  /* Marquee testimonianze (mobile): due file in sensi opposti.
+     La track ha 2 copie identiche (w-max) e trasla del 50% -> loop continuo. */
+  .animate-marquee {
+    animation: scroll-brands 36s linear infinite;
+  }
+  .animate-marquee-reverse {
+    animation: scroll-brands 36s linear infinite reverse;
+  }
 }
 
 @keyframes scroll-brands {

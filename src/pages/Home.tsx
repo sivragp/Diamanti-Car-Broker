@@ -1,12 +1,27 @@
-import { useState } from 'react';
 import { Search, Check, X, ShieldCheck, Star, MapPin, Settings, CheckCircle2, ArrowRight, Heart, Repeat, CreditCard, Truck, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { ContactCTA } from '../components/ContactCTA';
-import { submitLead } from '../lib/forms';
+import { HeroLeadForm } from '../components/HeroLeadForm';
 
 export default function Home() {
-  const [heroStatus, setHeroStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const whyUs = [
+    { icon: <ShieldCheck size={24} strokeWidth={1.5} />, title: 'Indipendenza totale', text: 'Non siamo legati a marchi o concessionarie. Lavoriamo solo nel tuo interesse.' },
+    { icon: <Star size={24} strokeWidth={1.5} />, title: 'Rete consolidata', text: 'Accesso a partner e canali selezionati in Italia e in Europa, anche fuori dai portali pubblici.' },
+    { icon: <CheckCircle2 size={24} strokeWidth={1.5} />, title: 'Competenza specialistica', text: 'Anni di esperienza nel settore auto al servizio della tua scelta.' },
+    { icon: <Search size={24} strokeWidth={1.5} />, title: 'Perizia approfondita', text: 'Ogni veicolo è verificato nei dettagli prima di arrivare a te: tecnica, documenti, storia.' },
+    { icon: <Settings size={24} strokeWidth={1.5} />, title: 'Supporto end-to-end', text: 'Ti seguiamo dalla ricerca alla consegna, e anche dopo.' },
+  ];
+
+  const testimonials = [
+    { initials: 'MR', text: "Servizio impeccabile. Il team Diamanti ha trovato l'auto perfetta in tempi record. Consigliatissimo!", name: 'Marco R.', car: 'BMW X5', city: 'Milano' },
+    { initials: 'LB', text: 'Professionale, trasparente e sempre disponibile. Consegna a domicilio puntuale e senza pensieri.', name: 'Luca B.', car: 'Audi Q5 Sportback', city: 'Roma' },
+    { initials: 'AT', text: 'Non avrei mai trovato questa auto a queste condizioni. Servizio top.', name: 'Alessandro T.', car: 'Mercedes GLC', city: 'Torino' },
+    { initials: 'GM', text: 'Mi hanno seguito dalla ricerca alla consegna senza stress. Auto verificata in ogni dettaglio.', name: 'Giorgio M.', car: 'BMW X3', city: 'Milano' },
+    { initials: 'EF', text: "Massima competenza e zero sorprese sui chilometri. Esattamente l'auto che cercavo.", name: 'Elena F.', car: 'Audi Q5', city: 'Roma' },
+    { initials: 'FP', text: 'Cercavo un SUV ibrido affidabile: trovato, verificato e consegnato a casa. Zero pensieri.', name: 'Francesca P.', car: 'Volvo XC60', city: 'Bologna' },
+  ];
+
   return (
     <div className="bg-white min-h-screen font-sans text-text pt-[74px]">
       <SEO
@@ -16,7 +31,7 @@ export default function Home() {
       />
       
       {/* 1. HERO SECTION */}
-      <section className="relative flex flex-col items-center text-center justify-start md:justify-center min-h-[600px] md:min-h-[700px] pt-10 pb-14 md:py-0">
+      <section className="relative flex flex-col items-center text-center justify-center min-h-[500px] md:min-h-[700px] py-12 md:py-0">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -49,105 +64,18 @@ export default function Home() {
           </div>
         </div>
 
-        {/* CONTACT FORM OVERLAY — modulo contatti orizzontale (niente ricerca: si viene ricontattati) */}
-        <div className="relative md:absolute md:bottom-[-72px] left-0 right-0 z-20 px-4 mt-2 md:mt-0">
+        {/* CONTACT FORM — desktop: overlay orizzontale sovrapposto all'hero. Su mobile vedi sezione 1.b. */}
+        <div className="hidden md:block md:absolute md:bottom-[-72px] left-0 right-0 z-20 px-4">
           <div className="ds-container relative">
-            <div className="bg-white rounded-lg shadow-[0_22px_48px_-26px_rgba(6,22,41,0.45)] p-4 md:p-6 border border-[#e6ebf2] relative z-10">
-              <div className="flex items-baseline gap-2 mb-4 text-left">
-                <span className="text-[14px] md:text-[15px] font-extrabold text-[#061629]">Raccontaci che auto cerchi</span>
-                <span className="hidden sm:inline text-[12px] text-[#7b8794]">— ti ricontattiamo noi, gratis e senza impegno.</span>
-              </div>
-
-              <form
-                onSubmit={async (e) => {
-                  e.preventDefault();
-                  const form = e.currentTarget;
-                  setHeroStatus('submitting');
-                  try {
-                    await submitLead(form);
-                    setHeroStatus('success');
-                    form.reset();
-                  } catch {
-                    setHeroStatus('error');
-                  }
-                }}
-              >
-                {/* Config FormSubmit + honeypot anti-spam */}
-                <input type="hidden" name="_subject" value="Nuova richiesta dall'hero — sito Diamanti Automobili" />
-                <input type="hidden" name="_template" value="table" />
-                <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
-                <input type="hidden" name="Provenienza" value="Form hero homepage" />
-
-                {/* Riga 1 — contatti */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
-                  <div className="flex flex-col text-left min-w-0">
-                    <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Nome e cognome *</label>
-                    <input type="text" name="Nome" required placeholder="Mario Rossi" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
-                  </div>
-                  <div className="flex flex-col text-left min-w-0">
-                    <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Email *</label>
-                    <input type="email" name="Email" required placeholder="mario@email.it" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
-                  </div>
-                  <div className="flex flex-col text-left min-w-0">
-                    <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Telefono *</label>
-                    <input type="tel" name="Telefono" required placeholder="345 678 9010" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
-                  </div>
-                </div>
-
-                {/* Riga 2 — cosa cerca + invio */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 items-end">
-                  <div className="flex flex-col text-left min-w-0">
-                    <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Tipologia auto</label>
-                    <select name="Tipologia" defaultValue="" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
-                      <option value="">Seleziona...</option>
-                      <option>SUV</option>
-                      <option>Berlina</option>
-                      <option>Station Wagon</option>
-                      <option>City Car</option>
-                      <option>Sportiva</option>
-                    </select>
-                  </div>
-                  <div className="flex flex-col text-left min-w-0">
-                    <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Budget</label>
-                    <select name="Budget" defaultValue="" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
-                      <option value="">Seleziona...</option>
-                      <option>Fino a 15.000€</option>
-                      <option>15.000€ - 25.000€</option>
-                      <option>25.000€ - 40.000€</option>
-                      <option>40.000€ - 60.000€</option>
-                      <option>Oltre 60.000€</option>
-                    </select>
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={heroStatus === 'submitting'}
-                    className="bg-[#0b2b5b] hover:bg-[#0c438f] disabled:opacity-60 disabled:cursor-not-allowed text-white h-[44px] px-5 rounded-md text-[13px] font-bold whitespace-nowrap transition-colors flex items-center justify-center gap-2"
-                  >
-                    {heroStatus === 'submitting' ? 'Invio…' : (<>Richiedi consulenza <ArrowRight size={15} /></>)}
-                  </button>
-                </div>
-
-                {/* Privacy */}
-                <div className="flex items-start gap-2 mt-3">
-                  <input type="checkbox" id="privacy-hero" name="Privacy" value="Accettata" required className="w-3.5 h-3.5 accent-[#061629] mt-[3px] shrink-0" />
-                  <label htmlFor="privacy-hero" className="text-[11px] text-[#7b8794] leading-snug text-left">
-                    Acconsento al trattamento dei dati personali per essere ricontattato.
-                  </label>
-                </div>
-
-                {heroStatus === 'success' && (
-                  <p className="mt-3 text-[12.5px] font-semibold text-[#0c438f] bg-[#0c438f]/8 border border-[#0c438f]/20 rounded-md py-2.5 px-4 text-left">
-                    Richiesta inviata! Ti ricontattiamo entro 24 ore lavorative.
-                  </p>
-                )}
-                {heroStatus === 'error' && (
-                  <p className="mt-3 text-[12.5px] font-semibold text-[#b42318] bg-[#b42318]/8 border border-[#b42318]/20 rounded-md py-2.5 px-4 text-left">
-                    Invio non riuscito. Riprova tra poco oppure scrivici via email.
-                  </p>
-                )}
-              </form>
-            </div>
+            <HeroLeadForm />
           </div>
+        </div>
+      </section>
+
+      {/* 1.b CONTACT FORM (solo mobile) — fuori dall'hero, così l'hero resta compatto e immagine+testi+CTA si vedono bene */}
+      <section className="md:hidden bg-[#f6f8fb] px-4 py-7 border-b border-[#e6ebf2]">
+        <div className="ds-container">
+          <HeroLeadForm />
         </div>
       </section>
 
@@ -337,9 +265,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+            <div className="flex md:grid md:grid-cols-2 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory hide-scrollbar -mx-5 px-5 md:mx-0 md:px-0">
               {/* CON DIAMANTI — dominant */}
-              <div className="bg-[#061629] rounded-lg p-8 md:p-10 text-white shadow-[0_22px_48px_-26px_rgba(6,22,41,0.55)] relative md:pr-14 flex flex-col justify-center">
+              <div className="snap-center shrink-0 w-[87%] md:w-auto bg-[#061629] rounded-lg p-8 md:p-10 text-white shadow-[0_22px_48px_-26px_rgba(6,22,41,0.55)] relative md:pr-14 flex flex-col justify-center">
                 <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7ba6e4] mb-3">Con Diamanti</p>
                 <ul className="flex flex-col gap-5">
                   {[
@@ -359,7 +287,7 @@ export default function Home() {
               </div>
 
               {/* DA SOLO — whispered */}
-              <div className="bg-white rounded-lg p-8 md:p-10 border border-[#e6ebf2] md:pl-14 flex flex-col justify-center">
+              <div className="snap-center shrink-0 w-[87%] md:w-auto bg-white rounded-lg p-8 md:p-10 border border-[#e6ebf2] md:pl-14 flex flex-col justify-center">
                 <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7b8794] mb-3">Cercando da solo</p>
                 <ul className="flex flex-col gap-5">
                   {[
@@ -401,7 +329,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory hide-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0">
             {[
               {
                 icon: Repeat,
@@ -428,7 +356,7 @@ export default function Home() {
                 text: 'Dopo i primi 5.000 km percorsi, il primo tagliando è offerto da noi presso officine selezionate. Perché ci siamo anche dopo la consegna.'
               }
             ].map((item, i) => (
-              <div key={i} className="relative bg-white border border-[#e6ebf2] rounded-lg p-7 flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.42)] hover:-translate-y-1 transition-all duration-300">
+              <div key={i} className="snap-center shrink-0 w-[78%] sm:w-auto relative bg-white border border-[#e6ebf2] rounded-lg p-7 flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.42)] hover:-translate-y-1 transition-all duration-300">
                 <span className="inline-flex self-start mb-5 rounded-full bg-[#0c438f]/8 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#0c438f]">
                   {item.tag}
                 </span>
@@ -503,15 +431,25 @@ export default function Home() {
         <div className="ds-container max-w-[1400px] relative z-10">
           <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-14">Perché scegliere Diamanti Automobili</h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-8 lg:gap-6 text-center lg:divide-x divide-gray-100 px-4">
-            {[
-              { icon: <ShieldCheck size={24} strokeWidth={1.5} />, title: 'Indipendenza totale', text: 'Non siamo legati a marchi o concessionarie. Lavoriamo solo nel tuo interesse.' },
-              { icon: <Star size={24} strokeWidth={1.5} />, title: 'Rete consolidata', text: 'Accesso a partner e canali selezionati in Italia e in Europa, anche fuori dai portali pubblici.' },
-              { icon: <CheckCircle2 size={24} strokeWidth={1.5} />, title: 'Competenza specialistica', text: 'Anni di esperienza nel settore auto al servizio della tua scelta.' },
-              { icon: <Search size={24} strokeWidth={1.5} />, title: 'Perizia approfondita', text: 'Ogni veicolo è verificato nei dettagli prima di arrivare a te: tecnica, documenti, storia.' },
-              { icon: <Settings size={24} strokeWidth={1.5} />, title: 'Supporto end-to-end', text: 'Ti seguiamo dalla ricerca alla consegna, e anche dopo.' }
-            ].map((item, i) => (
-              <div key={i} className={`flex flex-col items-center pt-8 md:pt-0 ${i !== 0 ? 'md:pl-6 lg:pl-10' : ''} ${i !== 4 ? 'md:pr-6 lg:pr-10' : ''}`}>
+          {/* Mobile: lista ordinata a 1 colonna (icona + testo), niente 5° item orfano */}
+          <div className="md:hidden flex flex-col gap-3">
+            {whyUs.map((item, i) => (
+              <div key={i} className="flex items-center gap-4 text-left p-4 bg-white border border-[#e6ebf2] rounded-xl shadow-[0_10px_24px_-22px_rgba(6,22,41,0.3)]">
+                <div className="w-12 h-12 rounded-full border border-[#d7e2ef] flex items-center justify-center text-[#0b2b5b] shrink-0">
+                  {item.icon}
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-[15px] font-bold text-[#061629] mb-1 leading-tight">{item.title}</h3>
+                  <p className="text-[13px] text-muted leading-[1.55]">{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: griglia 5 colonne con divisori (invariata) */}
+          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-8 lg:gap-6 text-center lg:divide-x divide-gray-100 px-4">
+            {whyUs.map((item, i) => (
+              <div key={i} className={`flex flex-col items-center ${i !== 0 ? 'md:pl-6 lg:pl-10' : ''} ${i !== 4 ? 'md:pr-6 lg:pr-10' : ''}`}>
                 <div className="mb-5 h-12 flex items-center justify-center">
                   <div className="w-14 h-14 rounded-full border border-[#d7e2ef] flex items-center justify-center text-[#0b2b5b]">
                     {item.icon}
@@ -526,16 +464,15 @@ export default function Home() {
       </section>
 
       {/* 9. TESTIMONIALS */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white overflow-hidden">
         <div className="ds-container">
           <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-12">Cosa dicono i clienti</h2>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { initials: 'MR', text: "Servizio impeccabile. Il team Diamanti ha trovato l'auto perfetta in tempi record. Consigliatissimo!", name: 'Marco R.', car: 'BMW X5', city: 'Milano' },
-              { initials: 'LB', text: 'Professionale, trasparente e sempre disponibile. Consegna a domicilio puntuale e senza pensieri.', name: 'Luca B.', car: 'Audi Q5 Sportback', city: 'Roma' },
-              { initials: 'AT', text: 'Non avrei mai trovato questa auto a queste condizioni. Servizio top.', name: 'Alessandro T.', car: 'Mercedes GLC', city: 'Torino' }
-            ].map((review, i) => (
+        {/* Desktop: griglia 3 colonne (invariata) */}
+        <div className="ds-container hidden md:block">
+          <div className="grid grid-cols-3 gap-6">
+            {testimonials.slice(0, 3).map((review, i) => (
               <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg p-8 hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow flex flex-col">
                 <div className="flex gap-[2px] mb-5">
                   {[1,2,3,4,5].map(star => <Star key={star} size={14} fill="#F59E0B" color="#F59E0B" />)}
@@ -553,6 +490,34 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Mobile: due file (card più piccole) in marquee automatico, sensi opposti */}
+        <div className="md:hidden flex flex-col gap-4">
+          {[
+            { row: testimonials.slice(0, 3), anim: 'animate-marquee' },
+            { row: testimonials.slice(3, 6), anim: 'animate-marquee-reverse' },
+          ].map((line, li) => (
+            <div key={li} className={`flex w-max ${line.anim}`}>
+              {[...line.row, ...line.row].map((review, i) => (
+                <div key={i} className="shrink-0 w-[262px] mr-4 bg-white border border-[#e6ebf2] rounded-lg p-5 flex flex-col">
+                  <div className="flex gap-[2px] mb-3">
+                    {[1,2,3,4,5].map(star => <Star key={star} size={12} fill="#F59E0B" color="#F59E0B" />)}
+                  </div>
+                  <p className="italic text-[13.5px] text-[#061629] leading-[1.5] mb-4">"{review.text}"</p>
+                  <div className="flex items-center gap-3 mt-auto pt-3 border-t border-[#f0f3f7]">
+                    <div className="w-9 h-9 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center font-bold text-[12px] shrink-0">
+                      {review.initials}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-[12.5px] font-bold text-[#061629] leading-tight truncate">{review.name}</p>
+                      <p className="text-[11px] text-muted truncate">{review.car} · {review.city}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 
