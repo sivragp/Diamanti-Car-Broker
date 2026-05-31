@@ -38,7 +38,7 @@ export default function Home() {
       />
       
       {/* 1. HERO SECTION */}
-      <section className="relative flex flex-col items-center text-center justify-center min-h-[500px] md:min-h-[700px] py-12 md:py-0">
+      <section className="relative flex flex-col items-center text-center justify-center min-h-[460px] md:min-h-[700px] py-14 md:py-0">
         {/* Background Image — zoom lento "ken burns" */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
@@ -53,12 +53,26 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-tr from-[#0c438f]/25 via-transparent to-transparent" />
         </div>
 
-        <div className="ds-container relative z-10 w-full mb-8 md:mb-40 mt-0">
-          <div className="max-w-2xl">
-            <h1 className="animate-hero-rise text-[32px] sm:text-[42px] md:text-[52px] lg:text-[60px] font-extrabold text-white mb-7 md:mb-9 leading-[1.07] text-left [text-shadow:_0_4px_24px_rgb(0_0_0_/_0.6)]">
-              Troviamo l'auto giusta. <br/>Ovunque tu sia in Italia.
+        <div className="ds-container relative z-10 w-full md:mb-40">
+          <div className="max-w-2xl mx-auto flex flex-col items-center">
+            {/* Badge fiducia */}
+            <div className="animate-hero-rise inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
+              <span className="flex gap-0.5">
+                {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={11} className="fill-[#F59E0B] text-[#F59E0B]" />)}
+              </span>
+              <span className="text-[11px] font-semibold text-white/90">Clienti soddisfatti in tutta Italia</span>
+            </div>
+
+            <h1 className="animate-hero-rise text-[28px] sm:text-[40px] md:text-[50px] lg:text-[56px] font-extrabold text-white leading-[1.1] [text-shadow:_0_4px_24px_rgb(0_0_0_/_0.6)]">
+              Troviamo l'auto giusta.<br />
+              <span className="text-[#7ba6e4]">Ovunque tu sia in Italia.</span>
             </h1>
-            <div className="animate-hero-rise flex flex-row gap-2.5 sm:gap-4" style={{ animationDelay: '0.12s' }}>
+
+            <p className="animate-hero-rise text-[14.5px] sm:text-[16px] text-white/85 leading-relaxed mt-4 mb-7 max-w-[460px] [text-shadow:_0_2px_14px_rgb(0_0_0_/_0.5)]" style={{ animationDelay: '0.08s' }}>
+              Il consulente che cerca, verifica e ti consegna a casa l'auto giusta — con permuta, finanziamento fino a 120 mesi e primo tagliando inclusi.
+            </p>
+
+            <div className="animate-hero-rise flex flex-row gap-2.5 sm:gap-4 w-full sm:w-auto justify-center" style={{ animationDelay: '0.16s' }}>
               <Link to="/servizi" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-white px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-[#0b2b5b] shadow-[0_14px_28px_-18px_rgba(6,22,41,0.45)] transition-colors hover:bg-[#f6f8fb]">
                 Scopri il servizio
               </Link>
