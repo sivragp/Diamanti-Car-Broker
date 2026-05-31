@@ -41,10 +41,19 @@ export default function Home() {
       <section className="relative flex flex-col items-center text-center justify-center min-h-[460px] md:min-h-[700px] py-14 md:py-0">
         {/* Background Image — zoom lento "ken burns" */}
         <div className="absolute inset-0 z-0 overflow-hidden">
+          {/* Mobile: singola auto premium, scatto più pulito */}
+          <img
+            src="/images/ford-mustang-tramonto.webp"
+            alt="Auto sportiva premium al tramonto — consulente acquisto auto Diamanti Automobili"
+            className="md:hidden absolute inset-0 w-full h-full object-cover object-center animate-ken-burns"
+            fetchPriority="high"
+            decoding="async"
+          />
+          {/* Desktop: flotta in viaggio */}
           <img
             src="/images/hero-bmw-road.webp"
             alt="Consulente acquisto auto Diamanti Automobili — auto premium in viaggio"
-            className="w-full h-full object-cover animate-ken-burns"
+            className="hidden md:block absolute inset-0 w-full h-full object-cover animate-ken-burns"
             fetchPriority="high"
             decoding="async"
           />
@@ -79,6 +88,15 @@ export default function Home() {
               <Link to="/contatti" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-[#1156bf] px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-white shadow-[0_14px_28px_-18px_rgba(17,86,191,0.9)] transition-colors hover:bg-[#0c438f]">
                 Richiedi consulenza <ArrowRight size={16} className="ml-2 hidden sm:inline-block" />
               </Link>
+            </div>
+
+            {/* Riga di prove — solo mobile */}
+            <div className="animate-hero-rise md:hidden mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5" style={{ animationDelay: '0.22s' }}>
+              {['Permuta', 'Finanziamento 120 mesi', 'Consegna in tutta Italia'].map((t, i) => (
+                <span key={i} className="inline-flex items-center gap-1.5 text-[11.5px] font-medium text-white/85 [text-shadow:_0_1px_8px_rgb(0_0_0_/_0.5)]">
+                  <Check size={13} className="text-[#7ba6e4] shrink-0" strokeWidth={3} /> {t}
+                </span>
+              ))}
             </div>
           </div>
         </div>
