@@ -76,34 +76,36 @@ export function Header() {
             </div>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        <nav
-          aria-hidden={!isOpen}
-          className={`lg:hidden bg-[#061629] fixed top-[74px] left-0 right-0 bottom-0 overflow-y-auto transition-[opacity,transform] duration-300 ${
-            isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3 pointer-events-none invisible'
-          }`}
-        >
-          <div className="px-5 py-8 flex flex-col gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsOpen(false)}
-                className="text-lg font-bold text-white hover:text-[#7ba6e4] transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-
-            <div className="mt-4 pt-8 border-t border-white/10">
-              <Link to="/contatti#form" onClick={() => setIsOpen(false)} className="flex items-center justify-center h-[52px] w-full rounded-full bg-white text-[#061629] font-semibold text-base">
-                Richiedi consulenza
-              </Link>
-            </div>
-          </div>
-        </nav>
       </header>
+
+      {/* Mobile Menu — DEVE stare fuori dall'<header>: l'header ha
+          backdrop-blur (backdrop-filter), che lo rende containing block per i
+          figli `position: fixed`, facendo collassare il menu a 0px di altezza. */}
+      <nav
+        aria-hidden={!isOpen}
+        className={`lg:hidden bg-[#061629] fixed top-[74px] left-0 right-0 bottom-0 z-50 overflow-y-auto transition-[opacity,transform] duration-300 ${
+          isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3 pointer-events-none invisible'
+        }`}
+      >
+        <div className="px-5 py-8 flex flex-col gap-8">
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              onClick={() => setIsOpen(false)}
+              className="text-lg font-bold text-white hover:text-[#7ba6e4] transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
+
+          <div className="mt-4 pt-8 border-t border-white/10">
+            <Link to="/contatti#form" onClick={() => setIsOpen(false)} className="flex items-center justify-center h-[52px] w-full rounded-full bg-white text-[#061629] font-semibold text-base">
+              Richiedi consulenza
+            </Link>
+          </div>
+        </div>
+      </nav>
     </>
   );
 }

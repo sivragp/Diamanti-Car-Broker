@@ -16,7 +16,7 @@ export default function Home() {
       />
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[620px] md:min-h-[700px] flex flex-col justify-center items-center text-center">
+      <section className="relative flex flex-col items-center text-center justify-start md:justify-center min-h-[600px] md:min-h-[700px] pt-10 pb-14 md:py-0">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -26,6 +26,8 @@ export default function Home() {
             fetchPriority="high"
             decoding="async"
           />
+          {/* Overlay scuro su mobile: testo bianco e form leggibili sopra la foto chiara */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/80 via-[#061629]/40 to-[#061629]/85 md:hidden" />
         </div>
 
         <div className="ds-container relative z-10 w-full mb-8 md:mb-40 mt-0">
@@ -48,7 +50,7 @@ export default function Home() {
         </div>
 
         {/* CONTACT FORM OVERLAY — modulo contatti orizzontale (niente ricerca: si viene ricontattati) */}
-        <div className="relative md:absolute md:bottom-[-72px] left-0 right-0 z-20 px-4 mt-10 md:mt-0 mb-[-30px] md:mb-0">
+        <div className="relative md:absolute md:bottom-[-72px] left-0 right-0 z-20 px-4 mt-2 md:mt-0">
           <div className="ds-container relative">
             <div className="bg-white rounded-lg shadow-[0_22px_48px_-26px_rgba(6,22,41,0.45)] p-4 md:p-6 border border-[#e6ebf2] relative z-10">
               <div className="flex items-baseline gap-2 mb-4 text-left">
