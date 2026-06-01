@@ -73,7 +73,7 @@ export default function FAQ() {
 
       {/* 1. HERO unificato */}
       <PageHero
-        image="/images/hero-lineup-day.webp"
+        imageMobile="/images/hero-lineup-day.webp"
         eyebrow="Supporto"
         title="Domande frequenti"
         subtitle="Tutte le risposte sul servizio Diamanti Automobili: come funziona, quanto costa, come gestiamo verifica, importazione e consegna. Trasparenza totale, prima di iniziare."
@@ -128,7 +128,7 @@ export default function FAQ() {
       </section>
 
       {/* 4. CTA PRE-FOOTER */}
-      <ContactCTA image="/images/cta-bmw-x1.webp" />
+      <ContactCTA imageMobile="/images/cta-bmw-x1.webp" />
 
     </div>
   );

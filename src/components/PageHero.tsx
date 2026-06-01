@@ -14,6 +14,7 @@ interface PageHeroProps {
   cta?: { label: string; href: string };
   stats?: Stat[];
   image?: string;
+  imageMobile?: string;
 }
 
 /**
@@ -28,15 +29,17 @@ export function PageHero({
   cta,
   stats,
   image = '/images/fleet-overview.webp',
+  imageMobile,
 }: PageHeroProps) {
   const ctaClasses =
-    'mt-7 inline-flex h-[48px] items-center justify-center rounded-full bg-white/80 backdrop-blur-sm ring-1 ring-white/30 px-7 text-[14px] font-bold text-[#061629] hover:bg-white transition-colors gap-2';
+    'mt-7 inline-flex h-[48px] items-center justify-center rounded-full bg-white/80 ring-1 ring-white/30 px-7 text-[14px] font-bold text-[#061629] hover:bg-white transition-colors gap-2';
   const isInternal = !!cta && cta.href.startsWith('/');
 
   return (
     <section className="relative min-h-[500px] flex items-center py-12 bg-[#061629] overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img src={image} alt="" className="w-full h-full object-cover" fetchPriority="high" decoding="async" />
+        <img src={image} alt="" className="hidden md:block w-full h-full object-cover" fetchPriority="high" decoding="async" />
+        <img src={imageMobile ?? image} alt="" className="md:hidden w-full h-full object-cover" fetchPriority="high" decoding="async" />
         {/* Overlay: scuro ai bordi (fonde con header e sezione successiva),
             più trasparente al centro per far risaltare l'auto. */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/85 via-[#061629]/55 to-[#061629]/90" />

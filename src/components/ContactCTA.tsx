@@ -1,27 +1,40 @@
 import { Link } from 'react-router-dom';
 
 interface ContactCTAProps {
-  /** Foto di sfondo della sezione. Default: Fiat 500 in showroom (usata in home). */
+  /** Foto di sfondo su DESKTOP (resta quella originale). Default: Fiat 500 in showroom. */
   image?: string;
+  /** Foto di sfondo su MOBILE; se assente usa `image`. */
+  imageMobile?: string;
 }
 
 /**
  * Sezione CTA pre-footer unificata, presente in fondo a ogni pagina.
- * Banner a dimensione fissa 1512×500px (min-h 500px, full-bleed) con
- * foto di sfondo (per pagina) e contenuto centrato verticalmente.
+ * Banner full-bleed con foto di sfondo (diversa per pagina) e contenuto
+ * centrato verticalmente. Le foto sono responsive: su desktop resta quella
+ * storica, su mobile può essere diversa (`imageMobile`).
  */
-export function ContactCTA({ image = '/images/fiat-500-showroom.webp' }: ContactCTAProps) {
+export function ContactCTA({ image = '/images/fiat-500-showroom.webp', imageMobile }: ContactCTAProps) {
   return (
-    <section className="relative min-h-[240px] sm:min-h-[300px] md:h-[420px] flex items-center bg-[#061629] text-white overflow-hidden">
+    <section className="relative min-h-[240px] sm:min-h-[300px] flex items-center bg-[#061629] text-white overflow-hidden">
       {/* Sfondo: foto a tutto banner (object-cover) + overlay per leggibilità del titolo */}
       <div className="absolute inset-0 z-0">
+        {/* Desktop */}
         <img
           src={image}
           alt=""
           aria-hidden="true"
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover object-center"
+        />
+        {/* Mobile */}
+        <img
+          src={imageMobile ?? image}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          className="md:hidden absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/72 via-[#061629]/45 to-[#061629]/78"></div>
       </div>
@@ -32,7 +45,7 @@ export function ContactCTA({ image = '/images/fiat-500-showroom.webp' }: Contact
         </h2>
         <Link
           to="/contatti"
-          className="inline-flex h-[44px] px-7 bg-[#0c438f]/75 backdrop-blur-sm ring-1 ring-white/20 hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[13px] sm:text-[14px]"
+          className="inline-flex h-[44px] px-7 bg-[#0c438f]/80 ring-1 ring-white/20 hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[13px] sm:text-[14px]"
         >
           Richiedi una consulenza
         </Link>

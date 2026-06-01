@@ -75,10 +75,10 @@ export default function Home() {
             </p>
 
             <div className="animate-hero-rise flex flex-row gap-2.5 sm:gap-4 w-full sm:w-auto justify-center" style={{ animationDelay: '0.16s' }}>
-              <Link to="/servizi" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-white/80 backdrop-blur-sm px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-[#0b2b5b] shadow-[0_14px_28px_-18px_rgba(6,22,41,0.45)] transition-colors hover:bg-white">
+              <Link to="/servizi" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-white/80 px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-[#0b2b5b] shadow-[0_14px_28px_-18px_rgba(6,22,41,0.45)] transition-colors hover:bg-white">
                 Scopri il servizio
               </Link>
-              <Link to="/contatti" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-[#1156bf]/75 backdrop-blur-sm ring-1 ring-white/20 px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-white shadow-[0_14px_28px_-18px_rgba(17,86,191,0.9)] transition-colors hover:bg-[#1156bf]">
+              <Link to="/contatti" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-[#1156bf]/80 ring-1 ring-white/20 px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-white shadow-[0_14px_28px_-18px_rgba(17,86,191,0.9)] transition-colors hover:bg-[#1156bf]">
                 Richiedi consulenza <ArrowRight size={16} className="ml-2 hidden sm:inline-block" />
               </Link>
             </div>
@@ -562,7 +562,7 @@ export default function Home() {
       </section>
 
       {/* 10. PRE-FOOTER CTA */}
-      <ContactCTA image="/images/cta-bmw-x1.webp" />
+      <ContactCTA imageMobile="/images/cta-bmw-x1.webp" />
 
     </div>
   );

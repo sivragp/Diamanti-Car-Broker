@@ -30,7 +30,8 @@ export default function About() {
 
       {/* 1. HERO unificato — Chi siamo */}
       <PageHero
-        image="/images/hero-lineup-sunset-hills.webp"
+        image="/images/fleet-rooftop-tramonto.webp"
+        imageMobile="/images/hero-lineup-sunset-hills.webp"
         eyebrow="Chi siamo"
         title="Diamanti Automobili"
         subtitle={
@@ -261,7 +262,7 @@ export default function About() {
       </section>
 
       {/* 8. CTA PRE-FOOTER */}
-      <ContactCTA image="/images/cta-mercedes-a.webp" />
+      <ContactCTA image="/images/audi-a1-costiera.webp" imageMobile="/images/cta-mercedes-a.webp" />
 
     </div>
   );
