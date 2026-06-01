@@ -40,7 +40,7 @@ export default function Contact() {
 
       {/* 1. HERO unificato */}
       <PageHero
-        image="/images/auto-lungofiume.webp"
+        image="/images/hero-showroom-interior.webp"
         eyebrow="Contatti"
         title="Come preferisci contattarci?"
         subtitle="Scegli il canale che preferisci: ti rispondiamo entro 24 ore lavorative."
@@ -387,7 +387,7 @@ export default function Contact() {
       </section>
 
       {/* 7. CTA PRE-FOOTER */}
-      <ContactCTA image="/images/ford-mustang-tramonto.webp" />
+      <ContactCTA image="/images/cta-peugeot-208.webp" />
 
     </div>
   );

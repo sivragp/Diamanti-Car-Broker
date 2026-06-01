@@ -48,7 +48,7 @@ export default function Services() {
 
       {/* 1. HERO unificato */}
       <PageHero
-        image="/images/audi-a5-viale.webp"
+        image="/images/hero-lineup-day.webp"
         eyebrow="I nostri servizi"
         title="I servizi di Diamanti Automobili"
         subtitle="Una consulenza personalizzata, non vincolata a un singolo marchio o al magazzino di una concessionaria: cerchiamo l'auto giusta per te, la verifichiamo e te la consegniamo. In tutta Italia."
@@ -274,7 +274,7 @@ export default function Services() {
       </section>
 
       {/* 8. CTA PRE-FOOTER */}
-      <ContactCTA image="/images/mini-cooper-showroom.webp" />
+      <ContactCTA image="/images/cta-opel-corsa.webp" />
 
     </div>
   );

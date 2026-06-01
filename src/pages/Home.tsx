@@ -42,10 +42,10 @@ export default function Home() {
       <section className="relative flex flex-col items-center text-center justify-center min-h-[460px] md:min-h-[700px] py-14 md:py-0">
         {/* Background Image — zoom lento "ken burns" */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          {/* Mobile: singola auto premium, scatto più pulito */}
+          {/* Mobile: flotta premium in concessionaria */}
           <img
-            src="/images/ford-mustang-tramonto.webp"
-            alt="Auto sportiva premium al tramonto — consulente acquisto auto Diamanti Automobili"
+            src="/images/hero-home-dealership.webp"
+            alt="Auto premium pronte davanti alla concessionaria — consulente acquisto auto Diamanti Automobili"
             className="md:hidden absolute inset-0 w-full h-full object-cover object-center animate-ken-burns"
             fetchPriority="high"
             decoding="async"
@@ -58,21 +58,13 @@ export default function Home() {
             fetchPriority="high"
             decoding="async"
           />
-          {/* Overlay: profondità + contrasto titolo, con un soffio di blu brand in basso */}
+          {/* Overlay scuro per contrasto titolo. Il "soffio" blu brand resta solo su mobile (rimosso su desktop). */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/85 via-[#061629]/40 to-[#061629]/80" />
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#0c438f]/25 via-transparent to-transparent" />
+          <div className="md:hidden absolute inset-0 bg-gradient-to-tr from-[#0c438f]/25 via-transparent to-transparent" />
         </div>
 
         <div className="ds-container relative z-10 w-full md:mb-40">
           <div className="max-w-2xl mx-auto flex flex-col items-center">
-            {/* Badge fiducia — nascosto su mobile (claim non ancora veritiero); su desktop invariato */}
-            <div className="animate-hero-rise hidden md:inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
-              <span className="flex gap-0.5">
-                {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={11} className="fill-[#F59E0B] text-[#F59E0B]" />)}
-              </span>
-              <span className="text-[11px] font-semibold text-white/90">Clienti soddisfatti in tutta Italia</span>
-            </div>
-
             <h1 className="animate-hero-rise text-[28px] sm:text-[40px] md:text-[50px] lg:text-[56px] font-extrabold text-white leading-[1.1] [text-shadow:_0_4px_24px_rgb(0_0_0_/_0.6)]">
               Troviamo l'auto giusta.<br />
               <span className="text-[#7ba6e4]">Ovunque tu sia in Italia.</span>
@@ -570,7 +562,7 @@ export default function Home() {
       </section>
 
       {/* 10. PRE-FOOTER CTA */}
-      <ContactCTA />
+      <ContactCTA image="/images/cta-bmw-x1.webp" />
 
     </div>
   );
