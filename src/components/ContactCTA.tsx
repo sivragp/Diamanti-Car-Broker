@@ -12,7 +12,7 @@ interface ContactCTAProps {
  */
 export function ContactCTA({ image = '/images/fiat-500-showroom.webp' }: ContactCTAProps) {
   return (
-    <section className="relative min-h-[240px] sm:min-h-[300px] flex items-center bg-[#061629] text-white overflow-hidden">
+    <section className="relative min-h-[240px] sm:min-h-[300px] md:h-[420px] flex items-center bg-[#061629] text-white overflow-hidden">
       {/* Sfondo: foto a tutto banner (object-cover) + overlay per leggibilità del titolo */}
       <div className="absolute inset-0 z-0">
         <img
