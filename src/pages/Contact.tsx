@@ -1,15 +1,34 @@
-import { Phone, Mail, MapPin, Clock, CheckCircle2, Search, ShieldCheck, ChevronDown, Target, Star, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, CheckCircle2, Search, ShieldCheck, ChevronDown, Target, Star, MessageCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { SEO } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
 import { ContactCTA } from '../components/ContactCTA';
+import { Reveal } from '../components/Reveal';
+import { useIsMobile } from '../lib/useIsMobile';
 import { submitLead } from '../lib/forms';
 import { PHONE_DISPLAY, PHONE_HREF, EMAIL, EMAIL_HREF, WHATSAPP_HREF } from '../lib/contact';
 
 export default function Contact() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  // Modulo a 2 step SOLO su mobile (1: dettagli auto, 2: anagrafica).
+  const isMobile = useIsMobile();
+  const [step, setStep] = useState(1);
+  const step1Ref = useRef<HTMLDivElement>(null);
+  const showStep1 = !isMobile || step === 1;
+  const showStep2 = !isMobile || step === 2;
+  const goNext = () => {
+    const fields = step1Ref.current
+      ? (Array.from(step1Ref.current.querySelectorAll('input, select, textarea')) as Array<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>)
+      : [];
+    for (const el of fields) {
+      if (!el.checkValidity()) { el.reportValidity(); return; }
+    }
+    setStep(2);
+    document.getElementById('form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <div className="bg-surface min-h-screen font-sans text-text pt-[74px]">
@@ -42,7 +61,7 @@ export default function Contact() {
               </p>
 
               <form
-                className="space-y-6"
+                className="flex flex-col gap-6"
                 onSubmit={async (e) => {
                   e.preventDefault();
                   const form = e.currentTarget;
@@ -61,6 +80,22 @@ export default function Contact() {
                 <input type="hidden" name="_template" value="table" />
                 <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
 
+                {/* Indicatore di step — solo mobile */}
+                {isMobile && (
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f]">Passo {step} di 2</span>
+                      <span className="text-[11px] font-semibold text-[#7b8794]">{step === 1 ? 'Dettagli auto' : 'Anagrafica'}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="h-1.5 flex-1 rounded-full bg-[#0b2b5b]"></div>
+                      <div className={`h-1.5 flex-1 rounded-full ${step >= 2 ? 'bg-[#0b2b5b]' : 'bg-[#e6ebf2]'}`}></div>
+                    </div>
+                  </div>
+                )}
+
+                {/* STEP 2 (parte A) — anagrafica: resta in cima nel DOM, così l'ordine desktop non cambia */}
+                <div className={showStep2 ? 'flex flex-col gap-6' : 'hidden'}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Nome e cognome *</label>
@@ -76,7 +111,11 @@ export default function Contact() {
                   <label className="text-[12px] font-bold text-[#061629] mb-2">Telefono</label>
                   <input type="tel" name="Telefono" placeholder="Es. 345 678 9010" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" />
                 </div>
+                </div>
+                {/* /STEP 2 parte A */}
 
+                {/* STEP 1 — dettagli auto */}
+                <div ref={step1Ref} className={showStep1 ? 'flex flex-col gap-6' : 'hidden'}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Tipologia auto *</label>
@@ -161,21 +200,49 @@ export default function Contact() {
                     className="w-full border border-gray-200 rounded-md p-4 text-[14px] focus:outline-none focus:border-[#061629] min-h-[120px] resize-none"
                   />
                 </div>
+                </div>
+                {/* /STEP 1 */}
 
+                {/* STEP 2 (parte B) — consenso privacy */}
+                <div className={showStep2 ? '' : 'hidden'}>
                 <div className="flex items-start gap-3 pt-2">
                   <input type="checkbox" id="privacy" name="Privacy" value="Accettata" className="w-4 h-4 accent-[#061629] mt-1 shrink-0" required />
                   <label htmlFor="privacy" className="text-[12px] text-muted leading-relaxed">
                     Acconsento al trattamento dei dati personali. Le tue informazioni saranno gestite con la massima riservatezza e usate solo per ricontattarti.
                   </label>
                 </div>
+                </div>
 
-                <button
-                  type="submit"
-                  disabled={status === 'submitting'}
-                  className="w-full bg-[#0b2b5b] hover:bg-[#0c438f] disabled:opacity-60 disabled:cursor-not-allowed text-white h-[50px] rounded-md text-[14px] font-bold transition-colors mt-2"
-                >
-                  {status === 'submitting' ? 'Invio in corso…' : 'Invia richiesta'}
-                </button>
+                {/* Navigazione — mobile: Continua/Indietro · desktop: Invia */}
+                <div className="flex flex-col gap-3 mt-2">
+                  {(!isMobile || step === 2) && (
+                    <button
+                      type="submit"
+                      disabled={status === 'submitting'}
+                      className="w-full bg-[#0b2b5b] hover:bg-[#0c438f] disabled:opacity-60 disabled:cursor-not-allowed text-white h-[50px] rounded-md text-[14px] font-bold transition-colors"
+                    >
+                      {status === 'submitting' ? 'Invio in corso…' : 'Invia richiesta'}
+                    </button>
+                  )}
+                  {isMobile && step === 1 && (
+                    <button
+                      type="button"
+                      onClick={goNext}
+                      className="w-full bg-[#0b2b5b] hover:bg-[#0c438f] text-white h-[50px] rounded-md text-[14px] font-bold transition-colors flex items-center justify-center gap-2"
+                    >
+                      Continua <ArrowRight size={16} />
+                    </button>
+                  )}
+                  {isMobile && step === 2 && (
+                    <button
+                      type="button"
+                      onClick={() => setStep(1)}
+                      className="w-full h-[46px] rounded-md text-[13px] font-bold text-[#061629] border border-[#d7e2ef] hover:bg-[#f6f8fb] transition-colors"
+                    >
+                      ← Indietro
+                    </button>
+                  )}
+                </div>
 
                 {status === 'success' && (
                   <p className="text-center text-[14px] font-semibold text-[#0c438f] bg-[#0c438f]/8 border border-[#0c438f]/20 rounded-md py-3 px-4">
@@ -216,7 +283,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="bg-[#061629] rounded-lg p-8 text-white shadow-lg">
+              <div className="order-first md:order-none bg-[#061629] rounded-lg p-8 text-white shadow-lg">
                 <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#7ba6e4] mb-6">I nostri recapiti</p>
                 <ul className="flex flex-col gap-5 text-[14px]">
                   <li className="flex items-start gap-4">
@@ -274,7 +341,7 @@ export default function Contact() {
                 { icon: CheckCircle2, title: 'Assistenza continua', text: 'Siamo disponibili per qualsiasi domanda o necessità, sempre.' },
                 { icon: MapPin, title: 'Consegna a domicilio', text: 'Ti consegniamo l\'auto pronta all\'uso direttamente a casa tua.' }
               ].map((item, i) => (
-                <div key={i} className="bg-white/5 border border-white/10 rounded-lg p-6 flex gap-5 items-start hover:bg-white/10 transition-colors">
+                <Reveal key={i} delay={i * 0.06} className="bg-white/5 border border-white/10 rounded-lg p-6 flex gap-5 items-start hover:bg-white/10 transition-colors">
                   <div className="w-12 h-12 rounded-full bg-[#0b2b5b] flex items-center justify-center shrink-0">
                     <item.icon className="text-white" size={22} strokeWidth={1.5} />
                   </div>
@@ -282,7 +349,7 @@ export default function Contact() {
                     <h4 className="font-bold text-white text-[16px] mb-1">{item.title}</h4>
                     <p className="text-white/60 text-[13px] leading-relaxed">{item.text}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>

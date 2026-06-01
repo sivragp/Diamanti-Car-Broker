@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react';
-import { useState, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { useIsMobile } from '../lib/useIsMobile';
 
 interface RevealProps {
   children: ReactNode;
@@ -26,9 +27,7 @@ interface RevealProps {
  */
 export function Reveal({ children, className, delay = 0, y = 22 }: RevealProps) {
   const reduce = useReducedMotion();
-  const [isMobile] = useState(
-    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches
-  );
+  const isMobile = useIsMobile();
 
   if (!isMobile || reduce) {
     return <div className={className}>{children}</div>;
