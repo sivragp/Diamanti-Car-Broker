@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { ContactCTA } from '../components/ContactCTA';
 import { HeroLeadForm } from '../components/HeroLeadForm';
+import { Reveal } from '../components/Reveal';
 
 export default function Home() {
   const whyUs = [
@@ -64,8 +65,8 @@ export default function Home() {
 
         <div className="ds-container relative z-10 w-full md:mb-40">
           <div className="max-w-2xl mx-auto flex flex-col items-center">
-            {/* Badge fiducia */}
-            <div className="animate-hero-rise inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
+            {/* Badge fiducia — nascosto su mobile (claim non ancora veritiero); su desktop invariato */}
+            <div className="animate-hero-rise hidden md:inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
               <span className="flex gap-0.5">
                 {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={11} className="fill-[#F59E0B] text-[#F59E0B]" />)}
               </span>
@@ -106,13 +107,6 @@ export default function Home() {
           <div className="ds-container relative">
             <HeroLeadForm />
           </div>
-        </div>
-      </section>
-
-      {/* 1.b CONTACT FORM (solo mobile) — fuori dall'hero, così l'hero resta compatto e immagine+testi+CTA si vedono bene */}
-      <section className="md:hidden bg-[#f6f8fb] px-4 py-7 border-b border-[#e6ebf2]">
-        <div className="ds-container">
-          <HeroLeadForm />
         </div>
       </section>
 
@@ -172,8 +166,10 @@ export default function Home() {
       {/* 3. DIAMANTI AUTOMOBILI 4 CARDS */}
       <section className="py-16 bg-white relative overflow-hidden">
         <div className="ds-container relative z-10">
-          <p className="text-center text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Il nostro servizio</p>
-          <h2 className="text-center text-[30px] md:text-[34px] mb-12 font-extrabold text-[#061629]">Cosa facciamo per te</h2>
+          <Reveal>
+            <p className="text-center text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Il nostro servizio</p>
+            <h2 className="text-center text-[30px] md:text-[34px] mb-12 font-extrabold text-[#061629]">Cosa facciamo per te</h2>
+          </Reveal>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
@@ -182,13 +178,13 @@ export default function Home() {
               { icon: ShieldCheck, title: 'Verifica tecnica completa', text: 'Controlliamo storia, chilometraggio reale, condizioni e documenti prima di ogni acquisto.' },
               { icon: MapPin, title: 'Consegna a domicilio', text: "Ti consegniamo l'auto pronta all'uso direttamente a casa tua, in tutta Italia." }
             ].map((item, i) => (
-              <div key={i} className="border border-[#e6ebf2] rounded-lg p-5 sm:p-7 text-center flex flex-col items-center shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow bg-white">
+              <Reveal key={i} delay={i * 0.06} className="border border-[#e6ebf2] rounded-lg p-5 sm:p-7 text-center flex flex-col items-center shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow bg-white">
                 <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-6">
                   <item.icon size={22} strokeWidth={1.5} />
                 </div>
                 <h3 className="text-[16px] font-extrabold text-[#061629] mb-3">{item.title}</h3>
                 <p className="text-[14px] text-muted leading-[1.6]">{item.text}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -355,10 +351,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* MODULO CONTATTI (solo mobile) — spostato qui, sotto "Cercare un'auto" */}
+      <section className="md:hidden bg-[#f6f8fb] px-4 py-9 border-t border-[#e6ebf2]">
+        <div className="ds-container">
+          <Reveal>
+            <HeroLeadForm />
+          </Reveal>
+        </div>
+      </section>
+
       {/* 4.5 TUTTO INCLUSO — 4 leve commerciali */}
       <section className="py-20 bg-white relative overflow-hidden border-t border-[#e6ebf2]">
         <div className="ds-container">
-          <div className="text-center mb-12">
+          <Reveal className="text-center mb-12">
             <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Tutto compreso</p>
             <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-tight max-w-[760px] mx-auto">
               Non solo l'auto giusta. <span className="text-[#0c438f]">Tutto quello che ti serve.</span>
@@ -366,12 +371,12 @@ export default function Home() {
             <p className="text-[15px] md:text-[16px] text-muted max-w-[680px] mx-auto leading-relaxed mt-5">
               Quattro vantaggi inclusi nel servizio Diamanti Automobili, pensati per togliere ogni ostacolo tra te e la tua prossima auto.
             </p>
-          </div>
+          </Reveal>
 
           {/* Mobile: lista ordinata 1 colonna (icona cerchio + testo) */}
           <div className="md:hidden flex flex-col gap-3">
             {tuttoIncluso.map((item, i) => (
-              <div key={i} className="flex items-center gap-4 text-left p-4 bg-white border border-[#e6ebf2] rounded-xl shadow-[0_10px_24px_-22px_rgba(6,22,41,0.3)]">
+              <Reveal key={i} delay={i * 0.06} className="flex items-center gap-4 text-left p-4 bg-white border border-[#e6ebf2] rounded-xl shadow-[0_10px_24px_-22px_rgba(6,22,41,0.3)]">
                 <div className="w-12 h-12 rounded-full border border-[#d7e2ef] flex items-center justify-center text-[#0b2b5b] shrink-0">
                   <item.icon size={22} strokeWidth={1.6} />
                 </div>
@@ -379,7 +384,7 @@ export default function Home() {
                   <h3 className="text-[15px] font-bold text-[#061629] mb-1 leading-tight">{item.title}</h3>
                   <p className="text-[13px] text-muted leading-[1.55]">{item.text}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
 
@@ -536,7 +541,7 @@ export default function Home() {
       {/* COME FUNZIONA — spostata sotto le testimonianze */}
       <section className="py-14 bg-white relative overflow-hidden border-t border-[#e6ebf2]">
         <div className="ds-container">
-          <h2 className="text-center text-[24px] md:text-[28px] font-extrabold text-[#061629] mb-10">Come funziona</h2>
+          <Reveal><h2 className="text-center text-[24px] md:text-[28px] font-extrabold text-[#061629] mb-10">Come funziona</h2></Reveal>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 max-w-6xl mx-auto">
             {[
@@ -545,7 +550,7 @@ export default function Home() {
               { icon: ShieldCheck, title: 'Proposta personalizzata', text: 'Ti presentiamo le opzioni migliori, con analisi tecnica e consigli dedicati.' },
               { icon: MapPin, title: 'Consegna e supporto', text: "Gestiamo trattativa, pratiche e consegna a domicilio. E ci sentiamo anche dopo." }
             ].map((step, i) => (
-              <div key={i} className="relative flex flex-col items-center text-center px-4">
+              <Reveal key={i} delay={i * 0.06} className="relative flex flex-col items-center text-center px-4">
                 {i !== 3 && (
                   <div className="hidden md:flex absolute top-[19px] left-[calc(50%+38px)] right-[calc(-50%+38px)] items-center z-0">
                     <div className="h-px flex-1 border-t border-dotted border-[#cfd9e6]"></div>
@@ -558,7 +563,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-[14px] font-extrabold text-[#061629] mb-2 leading-tight">{step.title}</h3>
                 <p className="text-[12px] text-muted leading-relaxed max-w-[210px]">{step.text}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

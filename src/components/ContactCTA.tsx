@@ -32,7 +32,7 @@ export function ContactCTA({ image = '/images/fiat-500-showroom.webp' }: Contact
         </h2>
         <Link
           to="/contatti"
-          className="inline-flex h-[44px] px-7 bg-[#0c438f] hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[13px] sm:text-[14px]"
+          className="inline-flex h-[44px] px-7 bg-[#0c438f]/75 backdrop-blur-sm ring-1 ring-white/20 md:bg-[#0c438f] md:backdrop-blur-none md:ring-0 hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[13px] sm:text-[14px]"
         >
           Richiedi una consulenza
         </Link>
