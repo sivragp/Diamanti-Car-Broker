@@ -30,7 +30,7 @@ export function PageHero({
   image = '/images/fleet-overview.webp',
 }: PageHeroProps) {
   const ctaClasses =
-    'mt-7 inline-flex h-[48px] items-center justify-center rounded-full bg-white px-7 text-[14px] font-bold text-[#061629] hover:bg-[#eef3f8] transition-colors gap-2';
+    'mt-7 inline-flex h-[48px] items-center justify-center rounded-full bg-white/80 backdrop-blur-sm ring-1 ring-white/30 px-7 text-[14px] font-bold text-[#061629] hover:bg-white transition-colors gap-2';
   const isInternal = !!cta && cta.href.startsWith('/');
 
   return (

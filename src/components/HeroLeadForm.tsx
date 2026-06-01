@@ -12,7 +12,7 @@ export function HeroLeadForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   return (
-    <div className="bg-white rounded-lg shadow-[0_22px_48px_-26px_rgba(6,22,41,0.45)] p-4 md:p-6 border border-[#e6ebf2] relative z-10">
+    <div className="bg-white md:bg-white/80 md:backdrop-blur-md rounded-lg shadow-[0_22px_48px_-26px_rgba(6,22,41,0.45)] p-4 md:p-5 border border-[#e6ebf2] md:border-white/40 relative z-10">
       <div className="flex items-baseline gap-2 mb-4 text-left">
         <span className="text-[14px] md:text-[15px] font-extrabold text-[#061629]">Raccontaci che auto cerchi</span>
         <span className="hidden sm:inline text-[12px] text-[#7b8794]">— ti ricontattiamo noi, gratis e senza impegno.</span>
@@ -38,27 +38,23 @@ export function HeroLeadForm() {
         <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
         <input type="hidden" name="Provenienza" value="Form hero homepage" />
 
-        {/* Riga 1 — contatti */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
-          <div className="flex flex-col text-left min-w-0">
+        {/* Campi: stack su mobile, UNA sola riga su desktop (campi più stretti) */}
+        <div className="flex flex-col md:flex-row md:items-end gap-2.5 md:gap-2">
+          <div className="flex flex-col text-left min-w-0 md:flex-1">
             <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Nome e cognome *</label>
-            <input type="text" name="Nome" required placeholder="Mario Rossi" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
+            <input type="text" name="Nome" required placeholder="Mario Rossi" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
           </div>
-          <div className="flex flex-col text-left min-w-0">
+          <div className="flex flex-col text-left min-w-0 md:flex-1">
             <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Email *</label>
-            <input type="email" name="Email" required placeholder="mario@email.it" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
+            <input type="email" name="Email" required placeholder="mario@email.it" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
           </div>
-          <div className="flex flex-col text-left min-w-0">
+          <div className="flex flex-col text-left min-w-0 md:flex-1">
             <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Telefono *</label>
-            <input type="tel" name="Telefono" required placeholder="345 678 9010" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
+            <input type="tel" name="Telefono" required placeholder="345 678 9010" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
           </div>
-        </div>
-
-        {/* Riga 2 — cosa cerca + invio */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 items-end">
-          <div className="flex flex-col text-left min-w-0">
+          <div className="flex flex-col text-left min-w-0 md:flex-1">
             <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Tipologia auto</label>
-            <select name="Tipologia" defaultValue="" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
+            <select name="Tipologia" defaultValue="" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
               <option value="">Seleziona...</option>
               <option>SUV</option>
               <option>Berlina</option>
@@ -67,9 +63,9 @@ export function HeroLeadForm() {
               <option>Sportiva</option>
             </select>
           </div>
-          <div className="flex flex-col text-left min-w-0">
+          <div className="flex flex-col text-left min-w-0 md:flex-1">
             <label className="text-[11px] font-semibold text-[#7b8794] mb-1">Budget</label>
-            <select name="Budget" defaultValue="" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
+            <select name="Budget" defaultValue="" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
               <option value="">Seleziona...</option>
               <option>Fino a 15.000€</option>
               <option>15.000€ - 25.000€</option>
@@ -81,7 +77,7 @@ export function HeroLeadForm() {
           <button
             type="submit"
             disabled={status === 'submitting'}
-            className="bg-[#0b2b5b] hover:bg-[#0c438f] disabled:opacity-60 disabled:cursor-not-allowed text-white h-[44px] px-5 rounded-md text-[13px] font-bold whitespace-nowrap transition-colors flex items-center justify-center gap-2"
+            className="md:flex-none bg-[#0b2b5b] hover:bg-[#0c438f] disabled:opacity-60 disabled:cursor-not-allowed text-white h-[44px] md:h-[42px] px-5 rounded-md text-[13px] font-bold whitespace-nowrap transition-colors flex items-center justify-center gap-2"
           >
             {status === 'submitting' ? 'Invio…' : (<>Richiedi consulenza <ArrowRight size={15} /></>)}
           </button>
