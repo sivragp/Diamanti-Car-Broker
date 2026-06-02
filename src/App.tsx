@@ -1,8 +1,6 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { MessageCircle } from 'lucide-react';
 import { Header, Footer } from './components/Navigation';
-import { WHATSAPP_HREF } from './lib/contact';
 
 // Code-splitting: ogni pagina è un chunk separato, caricato on-demand.
 const Home = lazy(() => import('./pages/Home'));
@@ -62,15 +60,6 @@ export default function App() {
           </Suspense>
         </main>
         <Footer />
-        <a
-          href={WHATSAPP_HREF}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Scrivici su WhatsApp"
-          className="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_12px_30px_-8px_rgba(0,0,0,0.45)] hover:scale-105 transition-transform"
-        >
-          <MessageCircle size={26} />
-        </a>
       </div>
     </Router>
   );
