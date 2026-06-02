@@ -15,7 +15,7 @@ interface ContactCTAProps {
  */
 export function ContactCTA({ image = '/images/fiat-500-showroom.webp', imageMobile }: ContactCTAProps) {
   return (
-    <section className="relative min-h-[240px] sm:min-h-[300px] flex items-center bg-[#061629] text-white overflow-hidden">
+    <section className="relative min-h-[240px] sm:min-h-[300px] md:min-h-[500px] flex items-center bg-[#061629] text-white overflow-hidden">
       {/* Sfondo: foto a tutto banner (object-cover) + overlay per leggibilità del titolo */}
       <div className="absolute inset-0 z-0">
         {/* Desktop */}
@@ -45,7 +45,7 @@ export function ContactCTA({ image = '/images/fiat-500-showroom.webp', imageMobi
         </h2>
         <Link
           to="/contatti"
-          className="inline-flex h-[44px] px-7 bg-[#0c438f]/80 ring-1 ring-white/20 hover:bg-[#0b2b5b] text-white font-bold items-center justify-center rounded-md transition-colors text-[13px] sm:text-[14px]"
+          className="inline-flex h-[44px] px-7 bg-[#0c438f]/60 ring-1 ring-white/25 hover:bg-[#0c438f]/85 text-white font-bold items-center justify-center rounded-md transition-colors text-[13px] sm:text-[14px]"
         >
           Richiedi una consulenza
         </Link>

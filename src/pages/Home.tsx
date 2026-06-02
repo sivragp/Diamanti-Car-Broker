@@ -75,10 +75,10 @@ export default function Home() {
             </p>
 
             <div className="animate-hero-rise flex flex-row gap-2.5 sm:gap-4 w-full sm:w-auto justify-center" style={{ animationDelay: '0.16s' }}>
-              <Link to="/servizi" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-white/80 px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-[#0b2b5b] shadow-[0_14px_28px_-18px_rgba(6,22,41,0.45)] transition-colors hover:bg-white">
+              <Link to="/servizi" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-white/65 px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-[#0b2b5b] shadow-[0_14px_28px_-18px_rgba(6,22,41,0.45)] transition-colors hover:bg-white/90">
                 Scopri il servizio
               </Link>
-              <Link to="/contatti" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-[#1156bf]/80 ring-1 ring-white/20 px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-white shadow-[0_14px_28px_-18px_rgba(17,86,191,0.9)] transition-colors hover:bg-[#1156bf]">
+              <Link to="/contatti" className="flex-1 sm:flex-none inline-flex h-[48px] items-center justify-center rounded-full bg-[#1156bf]/60 ring-1 ring-white/25 px-3 sm:px-7 text-[13px] sm:text-[14px] font-bold text-white shadow-[0_14px_28px_-18px_rgba(17,86,191,0.9)] transition-colors hover:bg-[#1156bf]/80">
                 Richiedi consulenza <ArrowRight size={16} className="ml-2 hidden sm:inline-block" />
               </Link>
             </div>
@@ -117,26 +117,30 @@ export default function Home() {
           <div className="flex animate-scroll-brands items-center">
             {[...Array(2)].map((_, dupIdx) => (
               [
-                { name: 'Mercedes-Benz', slug: 'mercedes-benz' },
+                // Utilitarie / mainstream in testa (richiesta cliente)
+                { name: 'smart',         slug: 'smart' },
+                { name: 'Opel',          slug: 'opel' },
+                { name: 'Fiat',          slug: 'fiat' },
+                { name: 'Volvo',         slug: 'volvo' },
+                { name: 'MG',            slug: 'mg' },
                 { name: 'BMW',           slug: 'bmw' },
-                { name: 'Audi',          slug: 'audi' },
-                { name: 'Porsche',       slug: 'porsche' },
+                { name: 'Mercedes-Benz', slug: 'mercedes-benz' },
+                { name: 'Toyota',        slug: 'toyota' },
+                { name: 'Peugeot',       slug: 'peugeot' },
+                { name: 'Renault',       slug: 'renault' },
                 { name: 'Volkswagen',    slug: 'volkswagen' },
-                { name: 'Ferrari',       slug: 'ferrari' },
-                { name: 'Lamborghini',   slug: 'lamborghini' },
-                { name: 'Maserati',      slug: 'maserati' },
+                { name: 'Ford',          slug: 'ford' },
+                { name: 'Mini',          slug: 'mini' },
+                { name: 'Jeep',          slug: 'jeep' },
+                { name: 'Audi',          slug: 'audi' },
                 { name: 'Alfa Romeo',    slug: 'alfa-romeo' },
                 { name: 'Land Rover',    slug: 'land-rover' },
                 { name: 'Jaguar',        slug: 'jaguar' },
-                { name: 'Volvo',         slug: 'volvo' },
                 { name: 'Tesla',         slug: 'tesla' },
-                { name: 'Mini',          slug: 'mini' },
-                { name: 'Toyota',        slug: 'toyota' },
-                { name: 'Ford',          slug: 'ford' },
-                { name: 'Fiat',          slug: 'fiat' },
-                { name: 'Jeep',          slug: 'jeep' },
-                { name: 'Peugeot',       slug: 'peugeot' },
-                { name: 'Renault',       slug: 'renault' }
+                { name: 'Porsche',       slug: 'porsche' },
+                { name: 'Maserati',      slug: 'maserati' },
+                { name: 'Ferrari',       slug: 'ferrari' },
+                { name: 'Lamborghini',   slug: 'lamborghini' }
               ].map((brand, i) => (
                 <div
                   key={`${dupIdx}-${i}`}

@@ -12,7 +12,7 @@ export function HeroLeadForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   return (
-    <div className="bg-white md:bg-[#1156bf]/80 rounded-lg shadow-[0_22px_48px_-26px_rgba(6,22,41,0.45)] p-4 md:p-5 border border-[#e6ebf2] md:border-white/30 relative z-10">
+    <div className="bg-white md:bg-[#1156bf]/60 rounded-lg shadow-[0_22px_48px_-26px_rgba(6,22,41,0.45)] p-4 md:p-5 border border-[#e6ebf2] md:border-white/30 relative z-10">
       <div className="flex items-baseline gap-2 mb-4 text-left">
         <span className="text-[14px] md:text-[15px] font-extrabold text-[#061629] md:text-white">Raccontaci che auto cerchi</span>
         <span className="hidden sm:inline text-[12px] text-[#7b8794] md:text-white/80">— ti ricontattiamo noi, gratis e senza impegno.</span>
