@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow:
 
-Sitemap: https://diamanti-car-broker.vercel.app/sitemap.xml
+Sitemap: https://www.diamantiautomobili.com/sitemap.xml

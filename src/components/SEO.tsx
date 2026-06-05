@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const SITE_URL = 'https://diamanti-car-broker.vercel.app';
+export const SITE_URL = 'https://www.diamantiautomobili.com';
 const DEFAULT_IMAGE = '/images/og-cover.jpg';
 
 interface SEOProps {
