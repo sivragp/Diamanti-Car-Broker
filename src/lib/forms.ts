@@ -13,7 +13,7 @@
  *   (es. Vercel Function + Resend) per non far transitare i dati dei clienti
  *   da un servizio terzo.
  */
-export const LEAD_RECIPIENT = 'sivragp@gmail.com';
+export const LEAD_RECIPIENT = 'info@diamantiautomobili.com';
 export const LEAD_FORM_ENDPOINT = `https://formsubmit.co/ajax/${LEAD_RECIPIENT}`;
 
 export async function submitLead(form: HTMLFormElement): Promise<void> {
