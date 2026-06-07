@@ -52,7 +52,7 @@
     scrollbar-width: none;
   }
   .animate-scroll-brands {
-    animation: scroll-brands 12s linear infinite;
+    animation: scroll-brands 18s linear infinite;
   }
   .animate-scroll-brands:hover {
     animation-play-state: paused;
