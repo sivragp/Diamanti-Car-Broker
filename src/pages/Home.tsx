@@ -113,8 +113,9 @@ export default function Home() {
           <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#061629] to-transparent z-10"></div>
           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#061629] to-transparent z-10"></div>
 
-          {/* Scrolling track */}
-          <div className="flex animate-scroll-brands items-center">
+          {/* Scrolling track — w-max: la larghezza è quella del contenuto (2 copie),
+              così translateX(-50%) trasla esattamente di una copia e il loop è senza scatti */}
+          <div className="flex w-max animate-scroll-brands items-center">
             {[...Array(2)].map((_, dupIdx) => (
               [
                 // Utilitarie / mainstream in testa (richiesta cliente)

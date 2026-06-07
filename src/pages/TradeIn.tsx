@@ -19,6 +19,7 @@ import { ContactCTA } from '../components/ContactCTA';
 import { Reveal } from '../components/Reveal';
 import { useIsMobile } from '../lib/useIsMobile';
 import { submitLead } from '../lib/forms';
+import { CAR_BRANDS } from '../lib/brands';
 
 const TRADEIN_JSONLD = {
   '@context': 'https://schema.org',
@@ -244,7 +245,12 @@ export default function TradeIn() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Marca *</label>
-                    <input type="text" name="Marca" placeholder="Es. BMW" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <select name="Marca" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
+                      <option value="">Seleziona...</option>
+                      {CAR_BRANDS.map((brand) => (
+                        <option key={brand} value={brand}>{brand}</option>
+                      ))}
+                    </select>
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Modello *</label>

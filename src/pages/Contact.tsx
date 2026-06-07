@@ -7,6 +7,7 @@ import { ContactCTA } from '../components/ContactCTA';
 import { Reveal } from '../components/Reveal';
 import { useIsMobile } from '../lib/useIsMobile';
 import { submitLead } from '../lib/forms';
+import { CAR_BRANDS } from '../lib/brands';
 import { PHONE_DISPLAY, PHONE_HREF, EMAIL, EMAIL_HREF, WHATSAPP_HREF } from '../lib/contact';
 
 export default function Contact() {
@@ -120,19 +121,25 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Tipologia auto *</label>
-                    <select name="Tipologia" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
-                      <option>Seleziona...</option>
+                    <select name="Tipologia" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
+                      <option value="">Seleziona...</option>
                       <option>SUV</option>
                       <option>Berlina</option>
                       <option>Station Wagon</option>
                       <option>City Car</option>
                       <option>Sportiva</option>
+                      <option>Monovolume</option>
+                      <option>Coupé / Cabrio</option>
+                      <option>Furgone / Van</option>
                     </select>
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Marca</label>
-                    <select name="Marca" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
-                      <option>Seleziona...</option>
+                    <select name="Marca" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                      <option value="">Seleziona...</option>
+                      {CAR_BRANDS.map((brand) => (
+                        <option key={brand} value={brand}>{brand}</option>
+                      ))}
                     </select>
                   </div>
                 </div>
@@ -140,14 +147,12 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Modello</label>
-                    <select name="Modello" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
-                      <option>Seleziona...</option>
-                    </select>
+                    <input type="text" name="Modello" placeholder="Es. Serie 3, Giulia, Tucson..." className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" />
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Alimentazione</label>
-                    <select name="Alimentazione" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
-                      <option>Seleziona...</option>
+                    <select name="Alimentazione" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                      <option value="">Seleziona...</option>
                       <option>Benzina</option>
                       <option>Diesel</option>
                       <option>Ibrida</option>
@@ -161,8 +166,8 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Budget</label>
-                    <select name="Budget" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
-                      <option>Seleziona...</option>
+                    <select name="Budget" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                      <option value="">Seleziona...</option>
                       <option>Fino a 15.000€</option>
                       <option>15.000€ - 25.000€</option>
                       <option>25.000€ - 40.000€</option>
@@ -172,8 +177,8 @@ export default function Contact() {
                   </div>
                   <div className="flex flex-col text-left">
                     <label className="text-[12px] font-bold text-[#061629] mb-2">Tempistica</label>
-                    <select name="Tempistica" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
-                      <option>Seleziona...</option>
+                    <select name="Tempistica" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                      <option value="">Seleziona...</option>
                       <option>Entro 1 mese</option>
                       <option>1-3 mesi</option>
                       <option>Senza fretta</option>
