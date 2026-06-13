@@ -54,9 +54,8 @@
     <link rel="icon" type="image/png" href="/logo-diamanti.png" />
     <link rel="apple-touch-icon" href="/logo-diamanti.png" />
 
-    <!-- Preconnect font CDN (Inter + Fraunces caricati via CSS) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Font self-hostato: preload del peso critico (latin) per LCP rapido -->
+    <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- JSON-LD: Organization / AutomotiveBusiness -->
     <script type="application/ld+json">

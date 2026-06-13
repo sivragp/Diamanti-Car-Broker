@@ -40,4 +40,21 @@ verifica (build/tsc/preview).
   Bundle invariato (559 KB) — atteso: era già dead code; il guadagno è superficie
   dipendenze + leak rimosso. La riduzione bundle arriverà dall'intervento `motion`.
 
+## Fase 5a — Self-host font + reduced-motion — 2026-06-14
+
+- **Font self-hostati.** Rimosso `@import url(fonts.googleapis.com…)` render-blocking
+  da `src/index.css` e i 2 `preconnect` da `index.html`. Inter ora è servito da
+  `public/fonts/` come **Inter Variable** (subset `latin` 48 KB + `latin-ext` 85 KB,
+  da `@fontsource-variable/inter` v5; dipendenza npm rimossa dopo la copia).
+  `font-display: swap`; `unicode-range` → latin-ext scaricato solo se serve (es.
+  "Škoda"). Token `--font-sans`/`--font-serif` → `"Inter Variable"`.
+- **Preload** del peso critico (`/fonts/inter-latin-wght-normal.woff2`) in
+  `index.html` (path stabile, non hashed → preload affidabile).
+- **`prefers-reduced-motion`** ora rispettato nel markup CSS: disattiva ken-burns,
+  marquee e scroll loghi + azzera transizioni (a11y WCAG 2.3.3). Risolve il tema
+  trasversale n.6 dell'audit.
+- Effetto: −1 catena render-blocking, −2 origini esterne (googleapis, gstatic).
+  Verifica: build ✅ · tsc ✅ · 0 riferimenti Google Fonts in `dist/` · woff2 in
+  `dist/fonts/` · preload presente.
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_
