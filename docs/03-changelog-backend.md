@@ -90,4 +90,16 @@ verifica (build/tsc/preview).
 - TODO Fase 8: esternalizzare lo snippet GA inline per togliere `'unsafe-inline'`
   da `script-src`; aggiungere consent-gate (Consent Mode v2) prima di enforce.
 
+## Fase 2 — Spike di compatibilità rendering — 2026-06-14
+
+- Verifica pre-refactor: **`vite-react-ssg` non è adatto a RR7** (peer
+  `react-router-dom ^6.14.1`, `latest` = beta, e il suo stesso README rimanda alla
+  SSG ufficiale di RR7; usa `react-helmet-async`, React-19-incerto).
+- Verificato che lo stack supporta una SSG custom robusta: RR7 espone
+  `createStaticHandler`/`createStaticRouter`; `@unhead/react@3` combacia coi peer
+  (React ≥19.2.4, Vite ≥6.4.2).
+- ADR 0001 aggiornato (sezione "Revisione"): nuova raccomandazione **C-bis — SSG
+  custom RR7 + @unhead/react**; alternativa B = RR7 framework mode (ufficiale, più
+  invasiva). In attesa di conferma cliente prima del refactor.
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_

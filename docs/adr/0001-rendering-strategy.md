@@ -1,6 +1,8 @@
 # ADR 0001 — Strategia di rendering (prerender / SSG)
 
-- **Stato:** ✅ ACCETTATA (2026-06-14) — Opzione A `vite-react-ssg`
+- **Stato:** ♻️ IN REVISIONE (2026-06-14) — vedi "Revisione" in fondo: la verifica
+  di compatibilità ha escluso `vite-react-ssg` per lo stack RR7. Opzione approvata
+  inizialmente: A `vite-react-ssg`; nuova raccomandazione: **C-bis SSG custom RR7**.
 - **Data:** 2026-06-14
 - **Decisori:** Cliente / Responsabile tecnico
 - **Contesto branch:** `backend-optimization`
@@ -138,3 +140,58 @@ pagine (si riscrive solo `SEO.tsx`, l'entry e la route list).
 2026-06-14). Fallback puppeteer mantenuto in caso di incompatibilità bloccante
 React 19 / React Router 7. In parallelo, approvati i lavori indipendenti dal
 rendering (Fase 6 pulizia + header sicurezza, Fase 5 font/bundle).
+
+---
+
+## Revisione 2026-06-14 — `vite-react-ssg` incompatibile con RR7
+
+**Spike di compatibilità (prima del refactor, come previsto dal piano):**
+
+- `vite-react-ssg` dichiara peer `react-router-dom: ^6.14.1` → **esclude RR7**
+  (qui in uso `7.14.1`). Il `latest` sul registry è una **beta** (`0.9.1-beta.1`).
+- Il **README di `vite-react-ssg` stesso sconsiglia l'uso con RR7**: _"React Router
+  v7 now has built-in SSG support… we recommend using its official SSG
+  capabilities."_
+- Usa `react-helmet-async@1.3.0` per l'`<head>` (non `@unhead`), libreria con
+  compatibilità React 19 incerta.
+
+→ L'Opzione A **non è più la scelta robusta** per questo stack. Verificato invece:
+
+- **RR7 espone `createStaticHandler` + `createStaticRouter`** (da `react-router`):
+  primitive ufficiali per il rendering statico, senza dipendenze abbandonate.
+- **`@unhead/react@3`** ha peer `react >=19.2.4` e `vite >=6.4.2`: **combacia
+  esattamente** con lo stack (React 19.2.5, Vite 6.4.2). È il gestore `<head>`
+  moderno e mantenuto che volevamo.
+
+### Opzioni riviste
+
+- **C-bis — SSG custom su Vite + primitive SSR ufficiali di RR7 (RACCOMANDATA).**
+  Build SSR (`vite build --ssr` di un `entry-server`) + script di prerender che,
+  per ogni rotta (incl. i 19 articoli), rende l'HTML con `createStaticHandler`/
+  `StaticRouterProvider` e lo scrive come file statico; `<head>` baked via
+  `@unhead/react`; idratazione client con `hydrateRoot`.
+  - _Pro:_ nessuna dipendenza abbandonata/beta; **mantiene RR7**; restructure
+    minima (entry + script prerender + riscrittura `SEO.tsx` → `useHead`; le
+    `<Routes>` restano quasi com'è); pieno controllo; 404 reale.
+  - _Contro:_ ~40-80 righe di glue (entry-server, entry-client, prerender.ts) da
+    scrivere e testare noi.
+- **B — RR7 framework mode con `prerender` (ufficiale, più invasiva).** Adottare
+  `@react-router/dev` + `react-router.config.ts` (`ssr:false`, `prerender`),
+  `root.tsx`, route config; meta SEO via export `meta()` nativo per rotta.
+  - _Pro:_ percorso ufficiale e futureproof; head nativo (niente lib esterna).
+  - _Contro:_ **migrazione di routing** (struttura `app/`, loader, entry), costo/
+    rischio più alti in un colpo solo; il brief la deprioritizzava.
+- **D — downgrade a RR6** per usare `vite-react-ssg` come da piano A.
+  - _Pro:_ l'app usa solo l'API base (`BrowserRouter/Routes/Route/Link/useParams`),
+    identica in RR6 → downgrade a basso rischio.
+  - _Contro:_ si torna indietro su un major scelto; `vite-react-ssg` resta beta +
+    `react-helmet-async`. **Sconsigliata.**
+
+### Nuova raccomandazione
+
+**C-bis — SSG custom RR7 + `@unhead/react`.** Stesso risultato dell'Opzione A
+(HTML per-rotta con meta/JSON-LD baked) ma robusto e senza dipendenze a rischio,
+mantenendo RR7. Fallback puppeteer abbandonato (Chromium assente, fragile).
+
+> _In attesa di conferma del cliente su C-bis (default) vs B (framework ufficiale)
+> prima del refactor di Fase 2._
