@@ -57,4 +57,16 @@ verifica (build/tsc/preview).
   Verifica: build ✅ · tsc ✅ · 0 riferimenti Google Fonts in `dist/` · woff2 in
   `dist/fonts/` · preload presente.
 
+## Fase 5b — Rimozione libreria `motion` (−120 KB) — 2026-06-14
+
+- Riscritto `src/components/Reveal.tsx` **senza `motion`**: stesso comportamento
+  (fade+rise solo mobile, `<div>` semplice su desktop/reduced-motion, API
+  invariata) ma con **IntersectionObserver + transizione CSS** su transform/opacity.
+- Rimossa la dipendenza `motion` (era importata solo da Reveal).
+- **Impatto bundle:** chunk `Reveal` **124,5 KB → 0,93 KB** (gzip 40,7 → 0,55 KB);
+  **JS totale 559,2 KB → 438,6 KB raw** (−120,6 KB, ~−40 KB gzip). Build ✅ · tsc ✅
+  · `motion` assente dal bundle.
+- Nota: l'animazione resta SSR-safe (parità col comportamento CSR attuale); la
+  hydration-safety di `useIsMobile` verrà gestita in Fase 2 (SSG).
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_
