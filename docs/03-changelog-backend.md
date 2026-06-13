@@ -69,4 +69,25 @@ verifica (build/tsc/preview).
 - Nota: l'animazione resta SSR-safe (parità col comportamento CSR attuale); la
   hydration-safety di `useIsMobile` verrà gestita in Fase 2 (SSG).
 
+## Fase 6b — Security header HTTP + caching (`vercel.json`) — 2026-06-14
+
+- Aggiunto blocco `headers` su tutte le rotte:
+  `Strict-Transport-Security` (2 anni, includeSubDomains, preload),
+  `X-Content-Type-Options: nosniff`, `X-Frame-Options: SAMEORIGIN`,
+  `Referrer-Policy: strict-origin-when-cross-origin`,
+  `Permissions-Policy` (camera/microfono/geo/payment/usb/topics disattivati).
+- **CSP in `Content-Security-Policy-Report-Only`** (non blocca): consente `self`,
+  GA (`googletagmanager`, `*.google-analytics.com`), Contentsquare
+  (`*.contentsquare.net`), FormSubmit (`form-action`/`connect`), font `self`
+  (self-hostati), `object-src 'none'`, `frame-ancestors 'self'`,
+  `upgrade-insecure-requests`.
+- **Caching**: `/assets/*` e `/fonts/*` → `max-age=31536000, immutable`;
+  immagini (`webp/avif/jpg/png/svg/…`) → `max-age=2592000`. HTML lasciato ai
+  default Vercel (revalidate).
+- Rewrite SPA invariato. Verifica deploy (preview): securityheaders.com grado A,
+  e controllo violazioni CSP in console prima di passare la CSP da Report-Only a
+  enforced. _(non testabile in locale: gli header li applica Vercel, non `vite preview`.)_
+- TODO Fase 8: esternalizzare lo snippet GA inline per togliere `'unsafe-inline'`
+  da `script-src`; aggiungere consent-gate (Consent Mode v2) prima di enforce.
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_
