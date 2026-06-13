@@ -1,6 +1,6 @@
 # ADR 0001 — Strategia di rendering (prerender / SSG)
 
-- **Stato:** PROPOSTA — in attesa di conferma prima del refactor di Fase 2
+- **Stato:** ✅ ACCETTATA (2026-06-14) — Opzione A `vite-react-ssg`
 - **Data:** 2026-06-14
 - **Decisori:** Cliente / Responsabile tecnico
 - **Contesto branch:** `backend-optimization`
@@ -134,5 +134,7 @@ pagine (si riscrive solo `SEO.tsx`, l'entry e la route list).
 
 ## Decisione del cliente
 
-> _Da compilare alla conferma:_ approccio scelto = **A (vite-react-ssg)** /
-> B (puppeteer) / altro — note: ________________
+**Approccio scelto: A — `vite-react-ssg` + `@unhead/react`** (conferma del
+2026-06-14). Fallback puppeteer mantenuto in caso di incompatibilità bloccante
+React 19 / React Router 7. In parallelo, approvati i lavori indipendenti dal
+rendering (Fase 6 pulizia + header sicurezza, Fase 5 font/bundle).
