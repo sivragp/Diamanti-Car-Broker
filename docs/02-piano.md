@@ -13,15 +13,15 @@ commit atomici per fase; a fine lavoro PR senza merge.
 |---|---|---|---|
 | 1 | Baseline & audit | ✅ Fatto | `docs/01-audit-baseline.md` |
 | 2 | Rendering / SSG | ✅ Fatto | C-bis SSG custom RR7 + @unhead; 28 pagine prerenderizzate |
-| 3 | Metadati per-pagina + structured data | 🟡 Avviato | base baked in Fase 2; manca JSON-LD globale Organization/WebSite + Home/Contatti/Chi-siamo |
-| 4 | GEO (AI search) | 🟡 Parziale | `llms.txt` ✅; robots AI (blocco training) = **decisione cliente**; contenuti answer-first |
-| 5 | Performance / CWV | 🟡 Parziale | font ✅, motion −120 KB ✅; manca immagini width/height (CLS), manualChunks, drop console |
-| 6 | Sicurezza / header / pulizia deps | ✅ Fatto | 6a (dead-deps/GEMINI/constants) + 6b (header+CSP Report-Only) |
-| 7 | Lead backend & conversioni | 🟡 7a fatto · 7b pending | 7a: hardening form (FormSubmit). **7b — Resend (pending)**: endpoint proprio quando ci saranno dominio verificato + `RESEND_API_KEY` |
-| 8 | Privacy / consent (GDPR) | ⏳ **decisione** | Consent Mode v2 + banner; bozze legali |
-| 9 | Accessibilità (WCAG 2.1 AA) | 🟢 Pronto | label form `htmlFor`, `aria-live`, accordion ARIA, skip-link |
-| 10 | Sitemap/robots automatici, canonical, 404 | 🟡 Parziale | sitemap auto ✅ + 404 reale ✅; manca canonical host (www, HTTPS) |
-| 11 | Qualità codice / DX / CI | 🟢 Pronto | ESLint+Prettier, `.env.example`, README |
+| 3 | Metadati per-pagina + structured data | ✅ Fatto | JSON-LD globale WebSite + breadcrumb su tutte le interne; ContactPage/AboutPage |
+| 4 | GEO (AI search) | ✅ Fatto | `llms.txt` + robots (blocca training bot) + sitemap auto |
+| 5 | Performance / CWV | ✅ Fatto | font self-host, motion −120 KB, `<picture>` art-direction, width/height anti-CLS, manualChunks |
+| 6 | Sicurezza / header / pulizia deps | ✅ Fatto | 6a (dead-deps/GEMINI/constants) + 6b (header + CSP Report-Only) |
+| 7 | Lead backend & conversioni | ✅ 7a · ⏳ 7b pending | 7a: hardening form (FormSubmit). **7b — Resend (pending)**: dominio verificato + `RESEND_API_KEY` |
+| 8 | Privacy / consent (GDPR) | ✅ Fatto | Consent Mode v2 (default denied) + banner + GA esternalizzato; pagine legali bozza |
+| 9 | Accessibilità (WCAG 2.1 AA) | ✅ Fatto | label `htmlFor`/`useId`, focus-visible, skip-link, menu aria, alt, landmark |
+| 10 | Sitemap/robots automatici, canonical, 404 | ✅ Fatto | sitemap auto + 404 reale + redirect 308 non-www→www + preview noindex |
+| 11 | Qualità codice / DX / CI | ✅ Fatto | ESLint+Prettier, typecheck/lint/format, README, `.env.example` |
 
 Legenda: ✅ fatto · ⏳ in attesa · 🟢 pronto · 🟡 parziale · ⛔ bloccato.
 
