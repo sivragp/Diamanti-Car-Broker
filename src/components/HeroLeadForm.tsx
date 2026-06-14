@@ -1,5 +1,5 @@
 import { useId, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
 import { submitLead } from '../lib/forms';
 
 /**
@@ -97,13 +97,15 @@ export function HeroLeadForm() {
         </div>
 
         {status === 'success' && (
-          <p role="status" aria-live="polite" className="mt-3 text-[12.5px] font-semibold text-[#0c438f] bg-[#0c438f]/8 border border-[#0c438f]/20 rounded-md py-2.5 px-4 text-left">
-            Richiesta inviata! Ti ricontattiamo entro 24 ore lavorative.
+          <p role="status" aria-live="polite" className="mt-3 flex items-start gap-2 text-[12.5px] font-semibold text-white bg-emerald-600 rounded-md py-2.5 px-4 text-left">
+            <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5" aria-hidden="true" />
+            <span>Richiesta inviata! Ti ricontattiamo entro 24 ore lavorative.</span>
           </p>
         )}
         {status === 'error' && (
-          <p role="alert" aria-live="assertive" className="mt-3 text-[12.5px] font-semibold text-[#b42318] bg-[#b42318]/8 border border-[#b42318]/20 rounded-md py-2.5 px-4 text-left">
-            Invio non riuscito. Riprova tra poco oppure scrivici via email.
+          <p role="alert" aria-live="assertive" className="mt-3 flex items-start gap-2 text-[12.5px] font-semibold text-white bg-red-600 rounded-md py-2.5 px-4 text-left">
+            <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" aria-hidden="true" />
+            <span>Invio non riuscito. Riprova tra poco oppure scrivici via email.</span>
           </p>
         )}
       </form>

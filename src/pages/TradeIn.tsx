@@ -9,6 +9,7 @@ import {
   Camera,
   Calculator,
   CheckCircle2,
+  AlertCircle,
   ArrowRight,
   ChevronDown,
 } from 'lucide-react';
@@ -389,13 +390,15 @@ export default function TradeIn() {
               </div>
 
               {status === 'success' && (
-                <p role="status" aria-live="polite" className="text-center text-[13px] font-semibold text-[#0c438f] bg-[#0c438f]/8 border border-[#0c438f]/20 rounded-md py-3 px-4">
-                  Richiesta inviata! Ti inviamo la valutazione entro 24 ore lavorative.
+                <p role="status" aria-live="polite" className="flex items-center justify-center gap-2 text-center text-[13px] font-semibold text-white bg-emerald-600 rounded-md py-3 px-4">
+                  <CheckCircle2 className="h-5 w-5 shrink-0" aria-hidden="true" />
+                  <span>Richiesta inviata! Ti inviamo la valutazione entro 24 ore lavorative.</span>
                 </p>
               )}
               {status === 'error' && (
-                <p role="alert" aria-live="assertive" className="text-center text-[13px] font-semibold text-[#b42318] bg-[#b42318]/8 border border-[#b42318]/20 rounded-md py-3 px-4">
-                  Invio non riuscito. Riprova tra poco oppure scrivici via email.
+                <p role="alert" aria-live="assertive" className="flex items-center justify-center gap-2 text-center text-[13px] font-semibold text-white bg-red-600 rounded-md py-3 px-4">
+                  <AlertCircle className="h-5 w-5 shrink-0" aria-hidden="true" />
+                  <span>Invio non riuscito. Riprova tra poco oppure scrivici via email.</span>
                 </p>
               )}
 
