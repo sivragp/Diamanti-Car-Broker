@@ -12,16 +12,16 @@ commit atomici per fase; a fine lavoro PR senza merge.
 | Fase | Tema | Stato | Note |
 |---|---|---|---|
 | 1 | Baseline & audit | ✅ Fatto | `docs/01-audit-baseline.md` |
-| 2 | Rendering / SSG | ⏳ ADR in attesa di conferma | `docs/adr/0001-rendering-strategy.md` — **gate** |
-| 3 | Metadati per-pagina + structured data | ⛔ Bloccata da Fase 2 | |
-| 4 | GEO (AI search) | ⛔ Dipende da Fase 2 | robots AI, `llms.txt`, contenuti answer-first |
-| 5 | Performance / CWV | 🟡 Parzialmente avviabile | font, immagini, bundle (motion), caching |
-| 6 | Sicurezza / header / pulizia deps | 🟢 Avviabile subito | indipendente dal rendering |
-| 7 | Lead backend & conversioni | 🟡 Avviabile | `api/lead.ts` + Resend, eventi GA4 |
-| 8 | Privacy / consent (GDPR) | 🟡 Avviabile | Consent Mode v2 + banner |
-| 9 | Accessibilità (WCAG 2.1 AA) | 🟡 Avviabile | landmark, focus, reduced-motion |
-| 10 | Sitemap/robots automatici, canonical, 404 | ⛔ 404 dipende da Fase 2 | sitemap generato al build |
-| 11 | Qualità codice / DX / CI | 🟢 Avviabile | ESLint+Prettier, `.env.example`, README |
+| 2 | Rendering / SSG | ✅ Fatto | C-bis SSG custom RR7 + @unhead; 28 pagine prerenderizzate |
+| 3 | Metadati per-pagina + structured data | 🟡 Avviato | base baked in Fase 2; manca JSON-LD globale Organization/WebSite + Home/Contatti/Chi-siamo |
+| 4 | GEO (AI search) | 🟡 Parziale | `llms.txt` ✅; robots AI (blocco training) = **decisione cliente**; contenuti answer-first |
+| 5 | Performance / CWV | 🟡 Parziale | font ✅, motion −120 KB ✅; manca immagini width/height (CLS), manualChunks, drop console |
+| 6 | Sicurezza / header / pulizia deps | ✅ Fatto | 6a (dead-deps/GEMINI/constants) + 6b (header+CSP Report-Only) |
+| 7 | Lead backend & conversioni | ⏳ **decisione** | `api/lead.ts` + provider email (default Resend); eventi GA4 |
+| 8 | Privacy / consent (GDPR) | ⏳ **decisione** | Consent Mode v2 + banner; bozze legali |
+| 9 | Accessibilità (WCAG 2.1 AA) | 🟢 Pronto | label form `htmlFor`, `aria-live`, accordion ARIA, skip-link |
+| 10 | Sitemap/robots automatici, canonical, 404 | 🟡 Parziale | sitemap auto ✅ + 404 reale ✅; manca canonical host (www, HTTPS) |
+| 11 | Qualità codice / DX / CI | 🟢 Pronto | ESLint+Prettier, `.env.example`, README |
 
 Legenda: ✅ fatto · ⏳ in attesa · 🟢 pronto · 🟡 parziale · ⛔ bloccato.
 
