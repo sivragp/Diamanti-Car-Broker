@@ -99,7 +99,7 @@ export default function Home() {
             <div className="animate-hero-rise md:hidden mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5" style={{ animationDelay: '0.22s' }}>
               {['Permuta', 'Finanziamento 120 mesi', 'Consegna in tutta Italia'].map((t, i) => (
                 <span key={i} className="inline-flex items-center gap-1.5 text-[11.5px] font-medium text-white/85 [text-shadow:_0_1px_8px_rgb(0_0_0_/_0.5)]">
-                  <Check size={13} className="text-[#7ba6e4] shrink-0" strokeWidth={3} /> {t}
+                  <Check size={14} className="text-[#7ba6e4] shrink-0" strokeWidth={3} /> {t}
                 </span>
               ))}
             </div>
@@ -187,7 +187,7 @@ export default function Home() {
               { icon: ShieldCheck, title: 'Verifica tecnica completa', text: 'Controlliamo storia, chilometraggio reale, condizioni e documenti prima di ogni acquisto.' },
               { icon: MapPin, title: 'Consegna a domicilio', text: "Ti consegniamo l'auto pronta all'uso direttamente a casa tua, in tutta Italia." }
             ].map((item, i) => (
-              <Reveal key={i} delay={i * 0.06} className="border border-[#e6ebf2] rounded-lg p-5 sm:p-7 text-center flex flex-col items-center shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow bg-white">
+              <Reveal key={i} delay={i * 0.06} className="border border-[#e6ebf2] rounded-lg p-5 sm:p-7 text-center flex flex-col items-center shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] hover-lift bg-white">
                 <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-6">
                   <item.icon size={22} strokeWidth={1.5} />
                 </div>
@@ -209,7 +209,7 @@ export default function Home() {
               <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-tight">Auto disponibili ora</h2>
             </div>
             <Link to="/contatti" className="inline-flex h-[42px] items-center justify-center rounded-full bg-white px-5 text-[13px] font-bold text-[#0b2b5b] border border-[#d7e2ef] hover:bg-[#eef3f8] transition-colors">
-              Richiedi disponibilità <ArrowRight size={15} className="ml-2" />
+              Richiedi disponibilità <ArrowRight size={16} className="ml-2" />
             </Link>
           </div>
 
@@ -269,7 +269,7 @@ export default function Home() {
                   <img src={car.image} alt={car.name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                   <span className="absolute top-3 left-3 rounded-full bg-[#1156bf] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wide text-white">{car.tag}</span>
                   <button className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/88 text-[#061629] flex items-center justify-center backdrop-blur-sm" aria-label="Salva auto">
-                    <Heart size={16} strokeWidth={1.8} />
+                    <Heart size={16} strokeWidth={1.5} />
                   </button>
                 </div>
                 <div className="p-5">
@@ -332,7 +332,7 @@ export default function Home() {
 
               {/* DA SOLO — whispered */}
               <div className="snap-center shrink-0 w-[87%] md:w-auto bg-white rounded-lg p-8 md:p-10 border border-[#e6ebf2] md:pl-14 flex flex-col justify-center">
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7b8794] mb-3">Cercando da solo</p>
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#5f6b7a] mb-3">Cercando da solo</p>
                 <ul className="flex flex-col gap-5">
                   {[
                     'Centinaia di annunci pubblici, tutti già visti dagli altri',
@@ -354,7 +354,7 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <Link to="/contatti" className="inline-flex h-[46px] items-center justify-center rounded-full bg-[#0b2b5b] px-7 text-[13px] font-bold text-white hover:bg-[#0c438f] transition-colors gap-2">
-              Inizia con un consulente <ArrowRight size={15} />
+              Inizia con un consulente <ArrowRight size={16} />
             </Link>
           </div>
         </div>
@@ -387,7 +387,7 @@ export default function Home() {
             {tuttoIncluso.map((item, i) => (
               <Reveal key={i} delay={i * 0.06} className="flex items-center gap-4 text-left p-4 bg-white border border-[#e6ebf2] rounded-xl shadow-[0_10px_24px_-22px_rgba(6,22,41,0.3)]">
                 <div className="w-12 h-12 rounded-full border border-[#d7e2ef] flex items-center justify-center text-[#0b2b5b] shrink-0">
-                  <item.icon size={22} strokeWidth={1.6} />
+                  <item.icon size={22} strokeWidth={1.5} />
                 </div>
                 <div className="min-w-0">
                   <h3 className="text-[15px] font-bold text-[#061629] mb-1 leading-tight">{item.title}</h3>
@@ -414,7 +414,7 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <Link to="/servizi" className="inline-flex h-[46px] items-center justify-center rounded-full bg-[#0b2b5b] px-7 text-[13px] font-bold text-white hover:bg-[#0c438f] transition-colors gap-2">
-              Scopri tutti i vantaggi inclusi <ArrowRight size={15} />
+              Scopri tutti i vantaggi inclusi <ArrowRight size={16} />
             </Link>
           </div>
         </div>
@@ -457,7 +457,7 @@ export default function Home() {
                   to="/valuta-la-tua-auto"
                   className="inline-flex h-[48px] items-center justify-center rounded-full bg-white px-7 text-[13px] font-bold text-[#061629] hover:bg-[#eef3f8] transition-colors gap-2"
                 >
-                  Richiedi valutazione gratuita <ArrowRight size={15} />
+                  Richiedi valutazione gratuita <ArrowRight size={16} />
                 </Link>
                 <Link
                   to="/valuta-la-tua-auto"
@@ -492,7 +492,7 @@ export default function Home() {
       </section>
 
       {/* 9. TESTIMONIALS */}
-      <section className="py-16 bg-white overflow-hidden">
+      <section className="py-16 bg-[#f6f8fb] border-t border-[#e6ebf2] overflow-hidden">
         <div className="ds-container">
           <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-12">Cosa dicono i clienti</h2>
         </div>
@@ -501,7 +501,7 @@ export default function Home() {
         <div className="ds-container hidden md:block">
           <div className="grid grid-cols-3 gap-6">
             {testimonials.slice(0, 3).map((review, i) => (
-              <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg p-8 hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow flex flex-col">
+              <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg p-8 hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] hover-lift flex flex-col">
                 <div className="flex gap-[2px] mb-5">
                   {[1,2,3,4,5].map(star => <Star key={star} size={14} fill="#F59E0B" color="#F59E0B" />)}
                 </div>
@@ -565,12 +565,12 @@ export default function Home() {
                 {i !== 3 && (
                   <div className="hidden md:flex absolute top-[19px] left-[calc(50%+38px)] right-[calc(-50%+38px)] items-center z-0">
                     <div className="h-px flex-1 border-t border-dotted border-[#cfd9e6]"></div>
-                    <ArrowRight size={14} className="mx-2 text-[#0b2b5b]" strokeWidth={2.2} />
+                    <ArrowRight size={14} className="mx-2 text-[#0b2b5b]" strokeWidth={2} />
                     <div className="h-px flex-1 border-t border-dotted border-[#cfd9e6]"></div>
                   </div>
                 )}
                 <div className="relative z-10 w-10 h-10 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-4 shadow-[0_10px_24px_-16px_rgba(6,22,41,0.5)]">
-                  <step.icon size={18} strokeWidth={1.9} />
+                  <step.icon size={18} strokeWidth={1.5} />
                 </div>
                 <h3 className="text-[14px] font-extrabold text-[#061629] mb-2 leading-tight">{step.title}</h3>
                 <p className="text-[12px] text-muted leading-relaxed max-w-[210px]">{step.text}</p>

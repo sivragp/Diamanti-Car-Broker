@@ -156,7 +156,7 @@ export default function TradeIn() {
                   <div className="w-10 h-10 md:w-[60px] md:h-[60px] rounded-full bg-[#061629] text-white font-extrabold text-[13px] md:text-[16px] flex items-center justify-center mb-2 md:mb-5 border-4 md:border-[6px] border-white">
                     {step.num}
                   </div>
-                  <step.icon className="hidden md:block text-[#0c438f] mb-4" size={28} strokeWidth={1.6} />
+                  <step.icon className="hidden md:block text-[#0c438f] mb-4" size={28} strokeWidth={1.5} />
                   <h3 className="text-[12px] md:text-[17px] font-extrabold text-[#061629] mb-0 md:mb-3 leading-tight">{step.title}</h3>
                   <p className="hidden md:block text-[13.5px] text-muted leading-[1.65] max-w-[280px]">{step.text}</p>
                 </Reveal>
@@ -185,7 +185,7 @@ export default function TradeIn() {
               <div className="mb-6">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f]">Passo {step} di 2</span>
-                  <span className="text-[11px] font-semibold text-[#7b8794]">{step === 1 ? 'La tua auto' : 'I tuoi dati'}</span>
+                  <span className="text-[11px] font-semibold text-[#5f6b7a]">{step === 1 ? 'La tua auto' : 'I tuoi dati'}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="h-1.5 flex-1 rounded-full bg-[#061629]"></div>
@@ -196,7 +196,7 @@ export default function TradeIn() {
 
             {/* Mode switch — parte dello step 1 */}
             <div className={`mb-8 ${showStep1 ? '' : 'hidden'}`}>
-              <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#7b8794] mb-3">Cosa vuoi fare?</p>
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#5f6b7a] mb-3">Cosa vuoi fare?</p>
               <div className="grid grid-cols-2 gap-2 p-1 bg-[#f6f8fb] rounded-full border border-[#e6ebf2]">
                 <button
                   type="button"
@@ -446,10 +446,10 @@ export default function TradeIn() {
               <Reveal
                 key={i}
                 delay={i * 0.06}
-                className="bg-white border border-[#e6ebf2] rounded-lg p-5 sm:p-7 flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.4)] transition-shadow"
+                className="bg-white border border-[#e6ebf2] rounded-lg p-5 sm:p-7 flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.4)] hover-lift"
               >
                 <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-5">
-                  <item.icon size={22} strokeWidth={1.6} />
+                  <item.icon size={22} strokeWidth={1.5} />
                 </div>
                 <h3 className="text-[16px] font-extrabold text-[#061629] mb-3 leading-tight">{item.title}</h3>
                 <p className="text-[13.5px] text-muted leading-[1.65]">{item.text}</p>
@@ -477,7 +477,7 @@ export default function TradeIn() {
             <div className="snap-center shrink-0 w-[85%] md:w-auto bg-[#061629] rounded-lg p-6 md:p-10 text-white shadow-[0_22px_48px_-26px_rgba(6,22,41,0.5)] flex flex-col">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                  <Repeat size={26} strokeWidth={1.6} />
+                  <Repeat size={26} strokeWidth={1.5} />
                 </div>
                 <span className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7ba6e4]">Permuta integrata</span>
               </div>
@@ -506,7 +506,7 @@ export default function TradeIn() {
             <div className="snap-center shrink-0 w-[85%] md:w-auto bg-white border border-[#e6ebf2] rounded-lg p-6 md:p-10 shadow-[0_22px_48px_-26px_rgba(6,22,41,0.25)] flex flex-col">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#f6f8fb] border border-[#e6ebf2] flex items-center justify-center shrink-0">
-                  <HandCoins size={26} strokeWidth={1.6} className="text-[#0c438f]" />
+                  <HandCoins size={26} strokeWidth={1.5} className="text-[#0c438f]" />
                 </div>
                 <span className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#0c438f]">Acquisto diretto</span>
               </div>

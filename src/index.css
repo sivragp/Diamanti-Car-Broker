@@ -131,6 +131,17 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+  /* Annulla anche lo spostamento (non solo la durata) delle micro-interazioni
+     introdotte nel polish: card lift, bottoni lift, nudge delle frecce. */
+  .card-premium:hover,
+  .hover-lift:hover,
+  .btn-primary:hover,
+  .btn-outline:hover,
+  .btn-secondary:hover,
+  a:hover .lucide-arrow-right,
+  button:hover .lucide-arrow-right {
+    transform: none !important;
+  }
 }
 
 @layer base {
@@ -157,15 +168,15 @@
   }
   
   .btn-primary {
-    @apply bg-brand-accent hover:bg-brand-primary text-white font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-premium active:scale-95 text-sm flex items-center justify-center gap-2;
+    @apply bg-brand-accent hover:bg-brand-primary text-white font-bold py-3 px-6 rounded-full transition-all duration-300 ease-out shadow-premium hover:shadow-premium-hover hover:-translate-y-0.5 active:translate-y-0 active:scale-95 text-sm flex items-center justify-center gap-2;
   }
-  
+
   .btn-outline {
-    @apply border border-border bg-white text-brand-primary hover:bg-brand-light font-bold py-3 px-6 rounded-full transition-all duration-300 active:scale-95 text-sm flex items-center justify-center gap-2;
+    @apply border border-border bg-white text-brand-primary hover:bg-brand-light font-bold py-3 px-6 rounded-full transition-all duration-300 ease-out hover:shadow-premium hover:-translate-y-0.5 active:translate-y-0 active:scale-95 text-sm flex items-center justify-center gap-2;
   }
 
   .btn-secondary {
-    @apply bg-brand-secondary hover:opacity-90 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 active:scale-95 text-sm flex items-center justify-center gap-2;
+    @apply bg-brand-secondary hover:opacity-90 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-95 text-sm flex items-center justify-center gap-2;
   }
 
   .section-padding {
@@ -173,7 +184,35 @@
   }
 
   .card-premium {
-    @apply bg-white border border-border rounded-lg p-7 transition-all duration-500 hover:shadow-premium;
+    @apply bg-white border border-border rounded-lg p-7;
+    transition:
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.3s ease-out;
+  }
+  .card-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-premium-hover);
+  }
+
+  /* Sollevamento soft riusabile dalle card reali (solo transform/ombra → GPU,
+     zero impatto su CLS). L'ombra hover resta quella inline della card. */
+  .hover-lift {
+    transition:
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Micro-interazione: la freccia dei link/bottoni avanza di pochi px all'hover. */
+  .lucide-arrow-right {
+    transition: transform 0.2s ease-out;
+  }
+  a:hover .lucide-arrow-right,
+  button:hover .lucide-arrow-right {
+    transform: translateX(3px);
   }
 
   .badge-tag {

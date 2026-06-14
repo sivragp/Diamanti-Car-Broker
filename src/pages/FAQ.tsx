@@ -111,7 +111,7 @@ export default function FAQ() {
         <div className="ds-container max-w-2xl">
           <div className="bg-[#061629] rounded-lg p-10 md:p-14 text-center text-white shadow-[0_16px_34px_-26px_rgba(6,22,41,0.35)]">
             <div className="w-14 h-14 rounded-full bg-white/10 text-white flex items-center justify-center mx-auto mb-6">
-              <MessageSquare size={24} strokeWidth={1.6} />
+              <MessageSquare size={24} strokeWidth={1.5} />
             </div>
             <h3 className="text-[24px] md:text-[28px] font-extrabold mb-3 leading-tight">
               Non hai trovato la risposta?

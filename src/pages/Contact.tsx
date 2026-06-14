@@ -102,7 +102,7 @@ export default function Contact() {
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f]">Passo {step} di 2</span>
-                      <span className="text-[11px] font-semibold text-[#7b8794]">{step === 1 ? 'Dettagli auto' : 'Anagrafica'}</span>
+                      <span className="text-[11px] font-semibold text-[#5f6b7a]">{step === 1 ? 'Dettagli auto' : 'Anagrafica'}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="h-1.5 flex-1 rounded-full bg-[#0b2b5b]"></div>
@@ -285,7 +285,7 @@ export default function Contact() {
 
             {/* Right - Sidebar */}
             <div className="w-full lg:w-2/5 flex flex-col gap-6">
-              <div className="bg-[#f6f8fb] border border-gray-100 rounded-lg p-8">
+              <div className="bg-[#f6f8fb] border border-[#e6ebf2] rounded-lg p-8">
                 <h3 className="text-[24px] font-bold text-[#061629] mb-8 leading-tight">
                   Ti ricontattiamo con una consulenza personalizzata
                 </h3>
@@ -383,7 +383,7 @@ export default function Contact() {
       </section>
 
       {/* 5. DOMANDE FREQUENTI */}
-      <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
+      <section className="py-20 bg-[#f6f8fb] border-t border-[#e6ebf2]">
         <div className="ds-container max-w-3xl">
           <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">Domande frequenti</h2>
 
@@ -393,7 +393,7 @@ export default function Contact() {
               { q: 'Posso richiedere qualsiasi marca o modello?', a: 'Sì, lavoriamo su qualsiasi marca e modello. La nostra ricerca è personalizzata al 100% sulle tue esigenze.' },
               { q: 'Consegnate anche fuori regione?', a: 'Assolutamente sì. Effettuiamo consegne a domicilio in tutta Italia e gestiamo anche importazioni dall\'estero.' }
             ].map((faq, i) => (
-              <div key={i} className="bg-white border border-gray-100 rounded-lg overflow-hidden">
+              <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
