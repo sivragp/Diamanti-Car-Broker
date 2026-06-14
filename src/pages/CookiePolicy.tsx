@@ -22,7 +22,7 @@ export default function CookiePolicy() {
       <header className="bg-[#061629] text-white">
         <div className="ds-container max-w-[820px] py-12 md:py-16">
           <h1 className="text-[28px] md:text-[40px] font-extrabold leading-[1.12]">Cookie Policy</h1>
-          <p className="text-white/60 text-[13px] mt-3">Ultimo aggiornamento: [data]. Bozza in attesa di revisione legale.</p>
+          <p className="text-white/60 text-[13px] mt-3">Ultimo aggiornamento: 14 giugno 2026 · Documento in revisione legale.</p>
         </div>
       </header>
 
@@ -76,8 +76,9 @@ export default function CookiePolicy() {
         </p>
 
         <p className="text-[13px] text-muted">
-          <em>Documento in bozza: durate, elenco completo dei cookie e dati societari
-          vanno completati e validati da un consulente legale prima della pubblicazione.</em>
+          <em>Documento in revisione legale: durate ed elenco completo dei cookie restano
+          da completare e validare con un consulente legale prima della pubblicazione. I
+          dati del Titolare sono riportati nella <Link to="/privacy-policy">Privacy Policy</Link>.</em>
         </p>
       </article>
     </div>

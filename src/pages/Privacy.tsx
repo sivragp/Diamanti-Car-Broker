@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 import { SEO, breadcrumbLd } from '../components/SEO';
 
 /**
- * Privacy Policy — BOZZA. I campi tra [parentesi] vanno completati con i dati
- * societari reali; il testo va validato da un legale prima del go-live definitivo.
+ * Privacy Policy — dati del Titolare inseriti (EDILRENT ITALIA S.R.L., insegna
+ * "Diamanti Automobili"). Restano alcune voci tra [parentesi] (es. tempi di
+ * conservazione); il testo va validato da un legale prima del go-live definitivo.
  */
 export default function Privacy() {
   return (
@@ -19,7 +20,7 @@ export default function Privacy() {
       <header className="bg-[#061629] text-white">
         <div className="ds-container max-w-[820px] py-12 md:py-16">
           <h1 className="text-[28px] md:text-[40px] font-extrabold leading-[1.12]">Privacy Policy</h1>
-          <p className="text-white/60 text-[13px] mt-3">Ultimo aggiornamento: [data]. Bozza in attesa di revisione legale.</p>
+          <p className="text-white/60 text-[13px] mt-3">Ultimo aggiornamento: 14 giugno 2026 · Documento in revisione legale.</p>
         </div>
       </header>
 
@@ -32,8 +33,15 @@ export default function Privacy() {
 
         <h2>Titolare del trattamento</h2>
         <p>
-          Il Titolare del trattamento è <strong>[Ragione sociale]</strong>, con sede in
-          [indirizzo sede], P.IVA [partita IVA], email{' '}
+          Il Titolare del trattamento è <strong>EDILRENT ITALIA S.R.L.</strong> (che opera
+          con l'insegna <strong>“Diamanti Automobili”</strong>), con sede legale in Via
+          Alessandro Piola Caselli 179, 00122 Roma (RM), P.IVA e C.F. 17648381006,
+          REA RM-1732240, PEC{' '}
+          <a href="mailto:edilrentitalia@pecimprese.it">edilrentitalia@pecimprese.it</a>.
+        </p>
+        <p>
+          Per l'esercizio dei tuoi diritti e per ogni richiesta relativa al trattamento dei
+          dati personali puoi contattare il Titolare all'indirizzo{' '}
           <a href="mailto:info@diamantiautomobili.com">info@diamantiautomobili.com</a>.
         </p>
 
@@ -80,9 +88,10 @@ export default function Privacy() {
         </p>
 
         <p className="text-[13px] text-muted">
-          <em>Documento in bozza: i contenuti tra parentesi quadre e i dati societari
-          vanno completati e validati da un consulente legale prima della pubblicazione
-          definitiva.</em>
+          <em>Documento in revisione legale: i dati del Titolare sono stati inseriti; le
+          voci ancora tra parentesi quadre (es. tempi di conservazione) e l'intero testo
+          restano soggetti alla validazione di un consulente legale prima della
+          pubblicazione definitiva.</em>
         </p>
       </article>
     </div>
