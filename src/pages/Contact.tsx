@@ -94,6 +94,7 @@ export default function Contact() {
                 {/* Config FormSubmit + honeypot anti-spam */}
                 <input type="hidden" name="_subject" value="Nuova richiesta consulenza — sito Diamanti Automobili" />
                 <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_captcha" value="false" />
                 <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
 
                 {/* Indicatore di step — solo mobile */}

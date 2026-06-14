@@ -237,6 +237,7 @@ export default function TradeIn() {
               {/* Config FormSubmit + honeypot anti-spam */}
               <input type="hidden" name="_subject" value="Nuova richiesta valutazione auto — sito Diamanti Automobili" />
               <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
               <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
               <input type="hidden" name="Tipo richiesta" value={mode === 'permuta' ? 'Permuta con nuova' : 'Vendita diretta'} />
 

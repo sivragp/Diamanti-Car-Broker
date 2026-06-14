@@ -39,6 +39,7 @@ export function HeroLeadForm() {
         {/* Config FormSubmit + honeypot anti-spam */}
         <input type="hidden" name="_subject" value="Nuova richiesta dall'hero — sito Diamanti Automobili" />
         <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
         <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
         <input type="hidden" name="Provenienza" value="Form hero homepage" />
 
