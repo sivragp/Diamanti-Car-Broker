@@ -185,7 +185,7 @@ export default function TradeIn() {
               <div className="mb-6">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f]">Passo {step} di 2</span>
-                  <span className="text-[11px] font-semibold text-[#7b8794]">{step === 1 ? 'La tua auto' : 'I tuoi dati'}</span>
+                  <span className="text-[11px] font-semibold text-[#5f6b7a]">{step === 1 ? 'La tua auto' : 'I tuoi dati'}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="h-1.5 flex-1 rounded-full bg-[#061629]"></div>
@@ -196,7 +196,7 @@ export default function TradeIn() {
 
             {/* Mode switch — parte dello step 1 */}
             <div className={`mb-8 ${showStep1 ? '' : 'hidden'}`}>
-              <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#7b8794] mb-3">Cosa vuoi fare?</p>
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#5f6b7a] mb-3">Cosa vuoi fare?</p>
               <div className="grid grid-cols-2 gap-2 p-1 bg-[#f6f8fb] rounded-full border border-[#e6ebf2]">
                 <button
                   type="button"

@@ -92,7 +92,7 @@ export default function About() {
       </section>
 
       {/* 3. I VALORI */}
-      <section className="py-16 bg-[#f6f8fb] border-t border-gray-100">
+      <section className="py-16 bg-[#f6f8fb] border-t border-[#e6ebf2]">
         <div className="ds-container max-w-[1400px]">
           <Reveal><h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-10 md:mb-16">
             I valori che guidano ogni ricerca

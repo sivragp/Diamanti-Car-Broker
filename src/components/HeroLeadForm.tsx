@@ -18,7 +18,7 @@ export function HeroLeadForm() {
     <div className="bg-white md:bg-[#061629]/85 rounded-lg shadow-[0_22px_48px_-26px_rgba(6,22,41,0.45)] p-4 md:p-5 border border-[#e6ebf2] md:border-white/30 relative z-10">
       <div className="flex items-baseline gap-2 mb-4 text-left">
         <span className="text-[14px] md:text-[15px] font-extrabold text-[#061629] md:text-white">Raccontaci che auto cerchi</span>
-        <span className="hidden sm:inline text-[12px] text-[#7b8794] md:text-white/80">— ti ricontattiamo noi, gratis e senza impegno.</span>
+        <span className="hidden sm:inline text-[12px] text-[#5f6b7a] md:text-white/80">— ti ricontattiamo noi, gratis e senza impegno.</span>
       </div>
 
       <form
@@ -46,19 +46,19 @@ export function HeroLeadForm() {
         {/* Campi: stack su mobile, UNA sola riga su desktop (campi più stretti) */}
         <div className="flex flex-col md:flex-row md:items-end gap-2.5 md:gap-2">
           <div className="flex flex-col text-left min-w-0 md:flex-1">
-            <label htmlFor={id('nome')} className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Nome e cognome *</label>
+            <label htmlFor={id('nome')} className="text-[11px] font-semibold text-[#5f6b7a] md:text-white/90 mb-1">Nome e cognome *</label>
             <input id={id('nome')} type="text" name="Nome" required placeholder="Mario Rossi" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
           </div>
           <div className="flex flex-col text-left min-w-0 md:flex-1">
-            <label htmlFor={id('email')} className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Email *</label>
+            <label htmlFor={id('email')} className="text-[11px] font-semibold text-[#5f6b7a] md:text-white/90 mb-1">Email *</label>
             <input id={id('email')} type="email" name="Email" required placeholder="mario@email.it" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
           </div>
           <div className="flex flex-col text-left min-w-0 md:flex-1">
-            <label htmlFor={id('telefono')} className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Telefono *</label>
+            <label htmlFor={id('telefono')} className="text-[11px] font-semibold text-[#5f6b7a] md:text-white/90 mb-1">Telefono *</label>
             <input id={id('telefono')} type="tel" name="Telefono" required placeholder="345 678 9010" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
           </div>
           <div className="flex flex-col text-left min-w-0 md:flex-1">
-            <label htmlFor={id('tipologia')} className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Tipologia auto</label>
+            <label htmlFor={id('tipologia')} className="text-[11px] font-semibold text-[#5f6b7a] md:text-white/90 mb-1">Tipologia auto</label>
             <select id={id('tipologia')} name="Tipologia" defaultValue="" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
               <option value="">Seleziona...</option>
               <option>SUV</option>
@@ -69,7 +69,7 @@ export function HeroLeadForm() {
             </select>
           </div>
           <div className="flex flex-col text-left min-w-0 md:flex-1">
-            <label htmlFor={id('budget')} className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Budget</label>
+            <label htmlFor={id('budget')} className="text-[11px] font-semibold text-[#5f6b7a] md:text-white/90 mb-1">Budget</label>
             <select id={id('budget')} name="Budget" defaultValue="" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
               <option value="">Seleziona...</option>
               <option>Fino a 15.000€</option>
@@ -91,7 +91,7 @@ export function HeroLeadForm() {
         {/* Privacy */}
         <div className="flex items-start gap-2 mt-3">
           <input id={id('privacy')} type="checkbox" name="Privacy" value="Accettata" required className="w-3.5 h-3.5 accent-[#061629] mt-[3px] shrink-0" />
-          <label htmlFor={id('privacy')} className="text-[11px] text-[#7b8794] md:text-white/80 leading-snug text-left">
+          <label htmlFor={id('privacy')} className="text-[11px] text-[#5f6b7a] md:text-white/80 leading-snug text-left">
             Acconsento al trattamento dei dati personali per essere ricontattato.
           </label>
         </div>

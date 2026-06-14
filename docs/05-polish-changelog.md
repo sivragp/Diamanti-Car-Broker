@@ -60,3 +60,28 @@ CLS/INP. Tutto si disattiva con `prefers-reduced-motion: reduce`.
     `backdrop-blur-sm`.
 - **grep `#1156bf`**: altre 2 occorrenze in `Home.tsx` **lasciate** perché
   link/accenti (CTA hero "Richiedi consulenza" + badge "tag"), non pannelli-sfondo.
+
+## Area C (resto) — Accoppiamento colori / contrasti — 2026-06-14
+
+Solo colori/contrasti, dentro la palette esistente. Nessun accento nuovo
+introdotto. Layout/struttura/copy/tipografia invariati.
+
+- **Contrasto testo → AA**: il grigio chiaro `#7b8794` (≈ **3.7:1** su bianco,
+  sotto la soglia 4.5:1 per testo normale) sostituito ovunque con il token muted
+  esistente `#5f6b7a` (≈ **5.4:1**). 12 occorrenze: label/helper del form hero
+  (`HeroLeadForm`), step-indicator e eyebrow di `TradeIn`/`Contact`/`Home`, meta
+  di `Risorse`. Sul desktop le label del form restano bianche (`md:text-white/90`).
+- **Verificati e lasciati invariati** (già ≥ soglia): `text-white/60` su `#061629`
+  ≈ 7.1:1, `text-white/50` ≈ 5.2:1; accent `#0c438f` su bianco ≈ 9.5:1 (CTA/link/
+  eyebrow → uso già coerente); icone bianche solo decorative (`aria-hidden`).
+- **Bordi coerenti**: `border-gray-100` (#f3f4f6, fuori scala) unificato al token
+  di sistema `border-[#e6ebf2]` (`--color-border`) — 11 occorrenze in
+  `Services`/`Contact`/`About`. Card e divisori-sezione ora usano lo stesso bordo.
+- **Ritmo sezioni**: la sezione **Testimonianze** della home era la terza bianca
+  consecutiva (475→495→553). Portata a `bg-[#f6f8fb]` + `border-t`: alternanza
+  pulita bianco↔#f6f8fb e, in più, le card bianche `border-[#e6ebf2]` ora si
+  staccano dallo sfondo (prima bianco-su-bianco, separazione debole).
+- **Loghi brand bianchi** (`/brands/*-white.svg`): già su sezione a sfondo scuro
+  `#061629` (marquee "I brand con cui lavoriamo") → nessun intervento necessario.
+- **Box blu hero**: NON toccato (fix già chiuso nella sezione precedente).
+- Verifica: `tsc` ✅ · build ✅ (30 pagine).

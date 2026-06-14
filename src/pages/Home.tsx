@@ -332,7 +332,7 @@ export default function Home() {
 
               {/* DA SOLO — whispered */}
               <div className="snap-center shrink-0 w-[87%] md:w-auto bg-white rounded-lg p-8 md:p-10 border border-[#e6ebf2] md:pl-14 flex flex-col justify-center">
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#7b8794] mb-3">Cercando da solo</p>
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#5f6b7a] mb-3">Cercando da solo</p>
                 <ul className="flex flex-col gap-5">
                   {[
                     'Centinaia di annunci pubblici, tutti già visti dagli altri',
@@ -492,7 +492,7 @@ export default function Home() {
       </section>
 
       {/* 9. TESTIMONIALS */}
-      <section className="py-16 bg-white overflow-hidden">
+      <section className="py-16 bg-[#f6f8fb] border-t border-[#e6ebf2] overflow-hidden">
         <div className="ds-container">
           <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-12">Cosa dicono i clienti</h2>
         </div>

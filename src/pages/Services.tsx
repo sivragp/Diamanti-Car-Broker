@@ -57,7 +57,7 @@ export default function Services() {
       />
 
       {/* 2. COME LAVORIAMO — le sei fasi (spostata da "Come funziona") */}
-      <section className="py-16 bg-[#f6f8fb] border-t border-gray-100 relative overflow-hidden">
+      <section className="py-16 bg-[#f6f8fb] border-t border-[#e6ebf2] relative overflow-hidden">
         <div className="ds-container relative z-10">
           <div className="max-w-2xl mb-14">
             <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-3">Il nostro metodo</p>
@@ -79,7 +79,7 @@ export default function Services() {
               { num: '06', icon: Wrench, title: 'Post-vendita e primo tagliando incluso', text: "Il rapporto non finisce alla consegna: restiamo a disposizione e dopo i primi 5.000 km il primo tagliando lo offriamo noi.", details: ['Assistenza post-vendita', 'Officine convenzionate', 'Tagliando incluso'] },
             ].map((step, i) => (
               <Reveal key={i} delay={i * 0.06} className="flex flex-col">
-                <div className="bg-white border border-gray-100 rounded-lg p-6 sm:p-8 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] hover-lift">
+                <div className="bg-white border border-[#e6ebf2] rounded-lg p-6 sm:p-8 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] hover-lift">
                   <div className="w-12 h-12 rounded-full bg-[#0b2b5b]/8 text-[#0b2b5b] flex items-center justify-center mb-5">
                     <step.icon size={22} strokeWidth={1.5} />
                   </div>
@@ -100,7 +100,7 @@ export default function Services() {
       </section>
 
       {/* 2.5 VANTAGGI INCLUSI — 4 leve commerciali in dettaglio */}
-      <section className="py-20 bg-white border-t border-gray-100">
+      <section className="py-20 bg-white border-t border-[#e6ebf2]">
         <div className="ds-container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-4">Vantaggi inclusi</p>
@@ -143,7 +143,7 @@ export default function Services() {
                 bullets: ['Officine convenzionate', 'Controlli completi inclusi', 'Assistenza dopo la vendita']
               }
             ].map((item, i) => (
-              <div key={i} className="bg-white border border-gray-100 rounded-lg p-6 sm:p-8 md:p-10 shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] hover-lift flex flex-col">
+              <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg p-6 sm:p-8 md:p-10 shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] hover-lift flex flex-col">
                 <div className="flex items-start gap-5 mb-5">
                   <div className="w-14 h-14 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center shrink-0">
                     <item.icon size={24} strokeWidth={1.5} />
@@ -231,7 +231,7 @@ export default function Services() {
               { icon: ShieldCheck, title: 'Trasparenza totale', text: 'Ti raccontiamo tutto: processo, costi, tempi e condizioni reali.' },
               { icon: MapPin, title: 'Assistenza completa', text: 'Dal briefing alla consegna a domicilio, ci occupiamo noi di ogni passaggio.' }
             ].map((item, i) => (
-              <div key={i} className="border border-gray-100 rounded-lg p-5 sm:p-8 text-center flex flex-col items-center hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover-lift bg-white">
+              <div key={i} className="border border-[#e6ebf2] rounded-lg p-5 sm:p-8 text-center flex flex-col items-center hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover-lift bg-white">
                 <div className="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center mb-6">
                   <item.icon className="text-[#061629]" size={24} strokeWidth={1.5} />
                 </div>
@@ -244,7 +244,7 @@ export default function Services() {
       </section>
 
       {/* 7. DOMANDE FREQUENTI */}
-      <section className="py-20 bg-[#f6f8fb] border-t border-gray-100">
+      <section className="py-20 bg-[#f6f8fb] border-t border-[#e6ebf2]">
         <div className="ds-container max-w-3xl">
           <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-16">Domande frequenti</h2>
 
@@ -258,7 +258,7 @@ export default function Services() {
               { q: 'Mi aiutate con la verifica dell\'auto?', a: 'Assolutamente. Ogni veicolo che proponiamo viene verificato in termini di storia, condizioni, documenti e chilometraggio reale.' },
               { q: 'Consegnate anche fuori città?', a: 'Sì, effettuiamo consegne a domicilio in tutta Italia, da Bolzano a Trapani. Organizziamo il trasporto in modo sicuro, assicurato e puntuale: l\'auto arriva immatricolata, lavata e pronta a partire.' }
             ].map((faq, i) => (
-              <div key={i} className="bg-white border border-gray-100 rounded-lg overflow-hidden">
+              <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
