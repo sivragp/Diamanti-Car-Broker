@@ -138,4 +138,18 @@ Il sito ora genera **HTML reale per ogni rotta** al build. Implementazione C-bis
   + @unhead; compensato dal −120 KB di `motion` e dal first-paint immediato (HTML
   prerenderizzato). Hydration runtime da riverificare sulla preview (no browser in locale).
 
+## Fase 10 (parziale) + Fase 4 (parziale) — sitemap auto + llms.txt — 2026-06-14
+
+- **`sitemap.xml` generato al build** (in `scripts/prerender.mjs` da `SITEMAP_ENTRIES`
+  in `entry-server.tsx`): 26 URL (7 pagine + 19 articoli con `lastmod` reale da
+  `dateModified`), `/storie` escluso (noindex). **Rimosso `public/sitemap.xml`
+  manuale** → niente più drift. (Il 404 reale era già stato risolto in Fase 2.)
+- **`public/llms.txt`** aggiunto (convenzione AI): sintesi attività, servizi, area
+  servita, contatti e link a pagine/risorse chiave, in markdown e voce automotive.
+- Verifica: build ✅ · `dist/sitemap.xml` 26 `<loc>`, articoli con `lastmod` ·
+  `dist/llms.txt` presente · tsc ✅.
+- _Rimandato (decisione cliente):_ in `robots.txt` il blocco esplicito dei crawler
+  di puro training (CCBot/anthropic-ai/Bytespider). Gli answer/search bot sono già
+  consentiti dal wildcard attuale.
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_

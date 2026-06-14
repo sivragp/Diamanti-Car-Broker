@@ -15,7 +15,7 @@ const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
 const SERVER_ENTRY = pathToFileURL(path.join(ROOT, 'dist-server/entry-server.js')).href;
 
-const { render, PRERENDER_ROUTES } = await import(SERVER_ENTRY);
+const { render, PRERENDER_ROUTES, SITE_URL, SITEMAP_ENTRIES } = await import(SERVER_ENTRY);
 
 const template = await fs.readFile(path.join(DIST, 'index.html'), 'utf-8');
 
@@ -48,5 +48,13 @@ const notFound = await render('/__not-found__');
 await fs.writeFile(path.join(DIST, '404.html'), inject(template, notFound), 'utf-8');
 written.push('/__not-found__  → 404.html');
 
-console.log(`✓ Prerender: ${written.length} pagine generate`);
+// sitemap.xml generato dalle rotte reali (niente più file manuale)
+const urls = SITEMAP_ENTRIES.map((e) => {
+  const lastmod = e.lastmod ? `\n    <lastmod>${e.lastmod}</lastmod>` : '';
+  return `  <url>\n    <loc>${SITE_URL}${e.loc}</loc>${lastmod}\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`;
+}).join('\n');
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+await fs.writeFile(path.join(DIST, 'sitemap.xml'), sitemap, 'utf-8');
+
+console.log(`✓ Prerender: ${written.length} pagine generate + sitemap.xml (${SITEMAP_ENTRIES.length} URL)`);
 for (const w of written) console.log('  ' + w);

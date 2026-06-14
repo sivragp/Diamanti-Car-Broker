@@ -23,6 +23,36 @@ export const PRERENDER_ROUTES: string[] = [
   ...ARTICLES.map((a) => `/risorse/${a.slug}`),
 ];
 
+export const SITE_URL = 'https://www.diamantiautomobili.com';
+
+export interface SitemapEntry {
+  loc: string;
+  lastmod?: string;
+  changefreq: string;
+  priority: string;
+}
+
+/**
+ * Voci sitemap generate dalle rotte reali + dati articoli (lastmod da
+ * `dateModified`). `/storie` è escluso perché placeholder noindex. Generata al
+ * build da `scripts/prerender.mjs` → niente più file manuale soggetto a drift.
+ */
+export const SITEMAP_ENTRIES: SitemapEntry[] = [
+  { loc: '/', changefreq: 'weekly', priority: '1.0' },
+  { loc: '/servizi', changefreq: 'monthly', priority: '0.9' },
+  { loc: '/valuta-la-tua-auto', changefreq: 'monthly', priority: '0.9' },
+  { loc: '/chi-siamo', changefreq: 'monthly', priority: '0.8' },
+  { loc: '/contatti', changefreq: 'monthly', priority: '0.9' },
+  { loc: '/faq', changefreq: 'monthly', priority: '0.7' },
+  { loc: '/risorse', changefreq: 'weekly', priority: '0.7' },
+  ...ARTICLES.map((a) => ({
+    loc: `/risorse/${a.slug}`,
+    lastmod: a.dateModified,
+    changefreq: 'monthly',
+    priority: '0.7',
+  })),
+];
+
 export interface RenderResult {
   appHtml: string;
   headTags: string;
