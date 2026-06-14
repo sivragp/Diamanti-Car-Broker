@@ -1,8 +1,7 @@
 # ADR 0001 — Strategia di rendering (prerender / SSG)
 
-- **Stato:** ♻️ IN REVISIONE (2026-06-14) — vedi "Revisione" in fondo: la verifica
-  di compatibilità ha escluso `vite-react-ssg` per lo stack RR7. Opzione approvata
-  inizialmente: A `vite-react-ssg`; nuova raccomandazione: **C-bis SSG custom RR7**.
+- **Stato:** ✅ ACCETTATA (2026-06-14) — **C-bis: SSG custom RR7 + `@unhead/react`**
+  (dopo spike: `vite-react-ssg` escluso per RR7 — vedi "Revisione" in fondo).
 - **Data:** 2026-06-14
 - **Decisori:** Cliente / Responsabile tecnico
 - **Contesto branch:** `backend-optimization`
@@ -193,5 +192,6 @@ rendering (Fase 6 pulizia + header sicurezza, Fase 5 font/bundle).
 (HTML per-rotta con meta/JSON-LD baked) ma robusto e senza dipendenze a rischio,
 mantenendo RR7. Fallback puppeteer abbandonato (Chromium assente, fragile).
 
-> _In attesa di conferma del cliente su C-bis (default) vs B (framework ufficiale)
-> prima del refactor di Fase 2._
+**Decisione finale (2026-06-14): C-bis approvata dal cliente.** Si procede con
+SSG custom su RR7 (`createStaticHandler`/`StaticRouterProvider`) + `@unhead/react`,
+mantenendo React Router 7. Fallback puppeteer abbandonato.

@@ -102,4 +102,40 @@ verifica (build/tsc/preview).
   custom RR7 + @unhead/react**; alternativa B = RR7 framework mode (ufficiale, più
   invasiva). In attesa di conferma cliente prima del refactor.
 
+## Fase 2 — SSG custom RR7 + @unhead (IL BLOCCO #1 RISOLTO) — 2026-06-14
+
+Il sito ora genera **HTML reale per ogni rotta** al build. Implementazione C-bis:
+
+- **Routing data-router condiviso** (`src/routes.tsx`): `RouteObject[]` con `Layout`
+  radice e `lazy` di RR7 (code-splitting mantenuto; lo static handler li risolve a
+  build-time). Estratto `src/Layout.tsx` (Header/Footer/Outlet + `ScrollToTop`) e
+  `src/pages/Storie.tsx` (placeholder, `noindex`). Rimosso `src/App.tsx`.
+- **Entry client** (`src/main.tsx`): pre-carica i moduli `lazy` della rotta iniziale,
+  poi `hydrateRoot` (prod, markup prerenderizzato) o `createRoot` (dev, `#root` vuoto).
+- **Entry server** (`src/entry-server.tsx`): `createStaticHandler`/`createStaticRouter`/
+  `StaticRouterProvider` (`hydrate={false}`) + `renderToString`; `<head>` baked con
+  `@unhead/react` (`renderSSRHead`). Espone `PRERENDER_ROUTES` (8 statiche + 19 articoli).
+- **`SEO.tsx` riscritto** su `useHead` (stessa firma, call-site invariati): title,
+  description, canonical, OG, Twitter, robots e JSON-LD ora **nell'HTML statico**.
+- **`index.html`**: template ripulito dai tag per-pagina (ora gestiti da @unhead),
+  conserva solo i meta globali, analytics e il JSON-LD Organization.
+- **`scripts/prerender.mjs`**: per ogni rotta scrive `dist/<rotta>/index.html`;
+  genera `dist/404.html` (NotFound `noindex`) per il 404 reale via Vercel.
+- **Build**: `build:client` + `build:server` + `prerender`. **`vercel.json`**: rimosso
+  il rewrite SPA (ora ci sono file statici per-rotta + 404.html); `cleanUrls: true`,
+  `trailingSlash: false`.
+- **SSR-safety**: `useIsMobile` reso false-first (niente hydration mismatch; l'HTML
+  statico contiene la variante desktop = form completo, ottimo per SEO/no-JS).
+
+**Accettazione (verificata sui file statici, senza JS):**
+- 28 pagine generate; ogni rotta ha **1 `<title>` unico, 1 `<h1>`, 1 canonical, 1
+  description**, OG/Twitter e **JSON-LD baked** (Service/OfferCatalog su Servizi;
+  FAQPage su FAQ; BlogPosting+FAQPage+BreadcrumbList su articoli).
+- `#root` pieno di HTML reale (home 128 KB, servizi 45 KB, articolo 18 KB); link
+  interni come `<a href>` crawlabili; `dist/404.html` con `noindex`.
+- `tsc` ✅ · build ✅ · `npm run dev` ✅ su porta ≠ 3000 (createRoot).
+- _Nota bundle:_ chunk `index` 248→314 KB raw (78,8→100,8 KB gzip) per data-router
+  + @unhead; compensato dal −120 KB di `motion` e dal first-paint immediato (HTML
+  prerenderizzato). Hydration runtime da riverificare sulla preview (no browser in locale).
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_
