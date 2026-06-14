@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin, Clock, CheckCircle2, Search, ShieldCheck, ChevronDown, Target, Star, MessageCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState, useRef } from 'react';
+import { useState, useRef, useId } from 'react';
 import { SEO, SITE_URL, breadcrumbLd } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
 import { ContactCTA } from '../components/ContactCTA';
@@ -27,6 +27,8 @@ export default function Contact() {
   const isMobile = useIsMobile();
   const [step, setStep] = useState(1);
   const step1Ref = useRef<HTMLDivElement>(null);
+  const uid = useId();
+  const fid = (f: string) => `${uid}-${f}`;
   const showStep1 = !isMobile || step === 1;
   const showStep2 = !isMobile || step === 2;
   const goNext = () => {
@@ -112,18 +114,18 @@ export default function Contact() {
                 <div className={showStep2 ? 'flex flex-col gap-6' : 'hidden'}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Nome e cognome *</label>
-                    <input type="text" name="Nome" placeholder="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <label htmlFor={fid('nome')} className="text-[12px] font-bold text-[#061629] mb-2">Nome e cognome *</label>
+                    <input id={fid('nome')} type="text" name="Nome" placeholder="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Email *</label>
-                    <input type="email" name="Email" placeholder="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <label htmlFor={fid('email')} className="text-[12px] font-bold text-[#061629] mb-2">Email *</label>
+                    <input id={fid('email')} type="email" name="Email" placeholder="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                 </div>
 
                 <div className="flex flex-col text-left">
-                  <label className="text-[12px] font-bold text-[#061629] mb-2">Telefono</label>
-                  <input type="tel" name="Telefono" placeholder="Es. 345 678 9010" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" />
+                  <label htmlFor={fid('telefono')} className="text-[12px] font-bold text-[#061629] mb-2">Telefono</label>
+                  <input id={fid('telefono')} type="tel" name="Telefono" placeholder="Es. 345 678 9010" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" />
                 </div>
                 </div>
                 {/* /STEP 2 parte A */}
@@ -132,8 +134,8 @@ export default function Contact() {
                 <div ref={step1Ref} className={showStep1 ? 'flex flex-col gap-6' : 'hidden'}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Tipologia auto *</label>
-                    <select name="Tipologia" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
+                    <label htmlFor={fid('tipologia')} className="text-[12px] font-bold text-[#061629] mb-2">Tipologia auto *</label>
+                    <select id={fid('tipologia')} name="Tipologia" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
                       <option value="">Seleziona...</option>
                       <option>SUV</option>
                       <option>Berlina</option>
@@ -146,8 +148,8 @@ export default function Contact() {
                     </select>
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Marca</label>
-                    <select name="Marca" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                    <label htmlFor={fid('marca')} className="text-[12px] font-bold text-[#061629] mb-2">Marca</label>
+                    <select id={fid('marca')} name="Marca" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option value="">Seleziona...</option>
                       {CAR_BRANDS.map((brand) => (
                         <option key={brand} value={brand}>{brand}</option>
@@ -158,12 +160,12 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Modello</label>
-                    <input type="text" name="Modello" placeholder="Es. Serie 3, Giulia, Tucson..." className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" />
+                    <label htmlFor={fid('modello')} className="text-[12px] font-bold text-[#061629] mb-2">Modello</label>
+                    <input id={fid('modello')} type="text" name="Modello" placeholder="Es. Serie 3, Giulia, Tucson..." className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" />
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Alimentazione</label>
-                    <select name="Alimentazione" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                    <label htmlFor={fid('alimentazione')} className="text-[12px] font-bold text-[#061629] mb-2">Alimentazione</label>
+                    <select id={fid('alimentazione')} name="Alimentazione" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option value="">Seleziona...</option>
                       <option>Benzina</option>
                       <option>Diesel</option>
@@ -177,8 +179,8 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Budget</label>
-                    <select name="Budget" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                    <label htmlFor={fid('budget')} className="text-[12px] font-bold text-[#061629] mb-2">Budget</label>
+                    <select id={fid('budget')} name="Budget" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option value="">Seleziona...</option>
                       <option>Fino a 15.000€</option>
                       <option>15.000€ - 25.000€</option>
@@ -188,8 +190,8 @@ export default function Contact() {
                     </select>
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Tempistica</label>
-                    <select name="Tempistica" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                    <label htmlFor={fid('tempistica')} className="text-[12px] font-bold text-[#061629] mb-2">Tempistica</label>
+                    <select id={fid('tempistica')} name="Tempistica" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option value="">Seleziona...</option>
                       <option>Entro 1 mese</option>
                       <option>1-3 mesi</option>
@@ -199,7 +201,8 @@ export default function Contact() {
                 </div>
 
                 <div className="flex flex-col text-left">
-                  <label className="text-[12px] font-bold text-[#061629] mb-3">Permuta? *</label>
+                  <fieldset className="contents">
+                  <legend className="text-[12px] font-bold text-[#061629] mb-3">Permuta? *</legend>
                   <div className="flex gap-6">
                     <label className="flex items-center gap-2 text-[14px] text-[#061629] cursor-pointer">
                       <input type="radio" name="permuta" value="si" className="w-4 h-4 accent-[#061629]" /> Sì
@@ -208,11 +211,13 @@ export default function Contact() {
                       <input type="radio" name="permuta" value="no" className="w-4 h-4 accent-[#061629]" defaultChecked /> No
                     </label>
                   </div>
+                  </fieldset>
                 </div>
 
                 <div className="flex flex-col text-left">
-                  <label className="text-[12px] font-bold text-[#061629] mb-2">Messaggio / Esigenze specifiche</label>
+                  <label htmlFor={fid('messaggio')} className="text-[12px] font-bold text-[#061629] mb-2">Messaggio / Esigenze specifiche</label>
                   <textarea
+                    id={fid('messaggio')}
                     name="Messaggio"
                     placeholder="Raccontaci le tue esigenze, preferenze, optional indispensabili..."
                     className="w-full border border-gray-200 rounded-md p-4 text-[14px] focus:outline-none focus:border-[#061629] min-h-[120px] resize-none"

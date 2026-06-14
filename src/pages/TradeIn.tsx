@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useId } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Repeat,
@@ -77,6 +77,8 @@ export default function TradeIn() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [mode, setMode] = useState<'permuta' | 'vendita'>('permuta');
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const uid = useId();
+  const fid = (f: string) => `${uid}-${f}`;
 
   // Modulo a 2 step SOLO su mobile: su desktop tutti i campi restano visibili.
   const isMobile = useIsMobile();
@@ -245,8 +247,8 @@ export default function TradeIn() {
                 <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-4">La tua auto</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Marca *</label>
-                    <select name="Marca" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
+                    <label htmlFor={fid('marca')} className="text-[12px] font-bold text-[#061629] mb-2">Marca *</label>
+                    <select id={fid('marca')} name="Marca" defaultValue="" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] text-gray-500 focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
                       <option value="">Seleziona...</option>
                       {CAR_BRANDS.map((brand) => (
                         <option key={brand} value={brand}>{brand}</option>
@@ -254,20 +256,20 @@ export default function TradeIn() {
                     </select>
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Modello *</label>
-                    <input type="text" name="Modello" placeholder="Es. Serie 3 320d Touring" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <label htmlFor={fid('modello')} className="text-[12px] font-bold text-[#061629] mb-2">Modello *</label>
+                    <input id={fid('modello')} type="text" name="Modello" placeholder="Es. Serie 3 320d Touring" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Anno immatricolazione *</label>
-                    <input type="number" name="Anno" min="1990" max="2026" placeholder="Es. 2020" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <label htmlFor={fid('anno')} className="text-[12px] font-bold text-[#061629] mb-2">Anno immatricolazione *</label>
+                    <input id={fid('anno')} type="number" name="Anno" min="1990" max="2026" placeholder="Es. 2020" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Chilometri *</label>
-                    <input type="number" name="Chilometri" min="0" placeholder="Es. 85000" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <label htmlFor={fid('chilometri')} className="text-[12px] font-bold text-[#061629] mb-2">Chilometri *</label>
+                    <input id={fid('chilometri')} type="number" name="Chilometri" min="0" placeholder="Es. 85000" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Alimentazione *</label>
-                    <select name="Alimentazione" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
+                    <label htmlFor={fid('alimentazione')} className="text-[12px] font-bold text-[#061629] mb-2">Alimentazione *</label>
+                    <select id={fid('alimentazione')} name="Alimentazione" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
                       <option value="">Seleziona...</option>
                       <option>Benzina</option>
                       <option>Diesel</option>
@@ -278,8 +280,8 @@ export default function TradeIn() {
                     </select>
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Condizioni generali *</label>
-                    <select name="Condizioni" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
+                    <label htmlFor={fid('condizioni')} className="text-[12px] font-bold text-[#061629] mb-2">Condizioni generali *</label>
+                    <select id={fid('condizioni')} name="Condizioni" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629] bg-white appearance-none" required>
                       <option value="">Seleziona...</option>
                       <option>Ottime — come nuova</option>
                       <option>Buone — segni d'uso normali</option>
@@ -291,16 +293,16 @@ export default function TradeIn() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Finanziamento attivo?</label>
-                    <select name="Finanziamento" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629] bg-white appearance-none">
+                    <label htmlFor={fid('finanziamento')} className="text-[12px] font-bold text-[#061629] mb-2">Finanziamento attivo?</label>
+                    <select id={fid('finanziamento')} name="Finanziamento" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629] bg-white appearance-none">
                       <option>No</option>
                       <option>Sì, da estinguere</option>
                       <option>Leasing in corso</option>
                     </select>
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Foto (opzionale)</label>
-                    <input type="file" name="Foto" accept="image/*" multiple className="w-full border border-gray-200 rounded-md h-[46px] px-3 text-[13px] file:mr-3 file:py-2 file:px-3 file:rounded-md file:border-0 file:text-[12px] file:font-bold file:bg-[#f6f8fb] file:text-[#061629]" />
+                    <label htmlFor={fid('foto')} className="text-[12px] font-bold text-[#061629] mb-2">Foto (opzionale)</label>
+                    <input id={fid('foto')} type="file" name="Foto" accept="image/*" multiple className="w-full border border-gray-200 rounded-md h-[46px] px-3 text-[13px] file:mr-3 file:py-2 file:px-3 file:rounded-md file:border-0 file:text-[12px] file:font-bold file:bg-[#f6f8fb] file:text-[#061629]" />
                   </div>
                 </div>
               </div>
@@ -309,8 +311,9 @@ export default function TradeIn() {
                 <div className="border-t border-[#e6ebf2] pt-6">
                   <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-4">La prossima auto che cerchi</p>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Cosa stai cercando?</label>
+                    <label htmlFor={fid('auto-cercata')} className="text-[12px] font-bold text-[#061629] mb-2">Cosa stai cercando?</label>
                     <textarea
+                      id={fid('auto-cercata')}
                       name="Auto cercata"
                       placeholder="Es. SUV diesel automatico, 4x4, budget 35.000-45.000€, preferibilmente del 2022..."
                       className="w-full border border-gray-200 rounded-md p-4 text-[14px] focus:outline-none focus:border-[#061629] min-h-[100px] resize-none"
@@ -327,20 +330,20 @@ export default function TradeIn() {
                 <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#0c438f] mb-4">I tuoi dati</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Nome e cognome *</label>
-                    <input type="text" name="Nome" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <label htmlFor={fid('nome')} className="text-[12px] font-bold text-[#061629] mb-2">Nome e cognome *</label>
+                    <input id={fid('nome')} type="text" name="Nome" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Email *</label>
-                    <input type="email" name="Email" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <label htmlFor={fid('email')} className="text-[12px] font-bold text-[#061629] mb-2">Email *</label>
+                    <input id={fid('email')} type="email" name="Email" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Telefono *</label>
-                    <input type="tel" name="Telefono" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
+                    <label htmlFor={fid('telefono')} className="text-[12px] font-bold text-[#061629] mb-2">Telefono *</label>
+                    <input id={fid('telefono')} type="tel" name="Telefono" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" required />
                   </div>
                   <div className="flex flex-col text-left">
-                    <label className="text-[12px] font-bold text-[#061629] mb-2">Città</label>
-                    <input type="text" name="Città" placeholder="Es. Roma" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" />
+                    <label htmlFor={fid('città')} className="text-[12px] font-bold text-[#061629] mb-2">Città</label>
+                    <input id={fid('città')} type="text" name="Città" placeholder="Es. Roma" className="w-full border border-gray-200 rounded-md h-[46px] px-4 text-[14px] focus:outline-none focus:border-[#061629]" />
                   </div>
                 </div>
               </div>

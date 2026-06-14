@@ -73,8 +73,15 @@ export function Header() {
 
             {/* Mobile Toggle */}
             <div className="lg:hidden flex items-center shrink-0">
-              <button className="p-2 text-white" onClick={() => setIsOpen(!isOpen)}>
-                {isOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
+              <button
+                type="button"
+                className="p-2 text-white"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label={isOpen ? 'Chiudi menu' : 'Apri menu'}
+                aria-expanded={isOpen}
+                aria-controls="mobile-menu"
+              >
+                {isOpen ? <X size={28} strokeWidth={1.5} aria-hidden="true" /> : <Menu size={28} strokeWidth={1.5} aria-hidden="true" />}
               </button>
             </div>
           </div>
@@ -85,6 +92,7 @@ export function Header() {
           backdrop-blur (backdrop-filter), che lo rende containing block per i
           figli `position: fixed`, facendo collassare il menu a 0px di altezza. */}
       <nav
+        id="mobile-menu"
         aria-hidden={!isOpen}
         className={`lg:hidden bg-[#061629] fixed top-[74px] left-0 right-0 bottom-0 z-50 overflow-y-auto transition-[opacity,transform] duration-300 ${
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3 pointer-events-none invisible'

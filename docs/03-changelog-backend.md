@@ -240,4 +240,21 @@ permuta), switch del sender con fallback FormSubmit, eventi GA4 `generate_lead`.
 - _Da completare (cliente/legale):_ dati societari nelle pagine legali; verifica in
   DevTools che nessun cookie di tracking parta prima dell'Accetta sulla preview.
 
+## Fase 9 — Accessibilità (WCAG 2.1 AA) — 2026-06-14
+
+- **Label↔input associati** (`htmlFor`/`id`) su tutti i form: `HeroLeadForm`
+  (con **`useId`** → id univoci anche col doppio montaggio desktop+mobile: niente
+  più id duplicati), `Contact` (10 campi + gruppo radio "permuta" in
+  `fieldset`/`legend`), `TradeIn` (13 campi). La checkbox Privacy era già associata.
+- **`focus-visible`** globale in `index.css`: ring accent visibile da tastiera su
+  link/bottoni/campi (WCAG 2.4.7).
+- **Skip-link** "Salta al contenuto" in `Layout` + `id="main-content"` sul `<main>`.
+- **Menu mobile accessibile**: toggle con `aria-label` dinamico, `aria-expanded`,
+  `aria-controls="mobile-menu"`; icone Menu/X `aria-hidden`.
+- **Landmark** completi: `header`/`nav`/`main`/`footer`. **alt** presente su tutte
+  le immagini (decorative `alt=""`).
+- Verifica: `tsc` ✅ · build ✅ · 30 pagine · id form univoci (useId) · 0 img senza alt.
+- _Nota merge:_ `Navigation` (menu aria) tocca righe anche presenti su `design-polish`;
+  i social `#` del footer restano qui (li nasconde `design-polish`).
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_

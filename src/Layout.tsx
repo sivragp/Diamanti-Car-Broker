@@ -36,8 +36,14 @@ export function Layout() {
   return (
     <div className="flex flex-col min-h-screen bg-neutral-soft">
       <ScrollToTop />
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-[200] focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-[14px] focus:font-bold focus:text-brand-dark focus:shadow-lg"
+      >
+        Salta al contenuto
+      </a>
       <Header />
-      <main className="flex-grow overflow-x-hidden">
+      <main id="main-content" className="flex-grow overflow-x-hidden">
         <Outlet />
       </main>
       <Footer />
