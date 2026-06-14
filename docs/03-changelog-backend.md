@@ -218,4 +218,26 @@ permuta), switch del sender con fallback FormSubmit, eventi GA4 `generate_lead`.
 - Verifica: `tsc` ✅ · build ✅ · preload corretti · 0 doppio-download hero.
 - _Nota review visiva preview:_ l'hero ora è `<picture>` (resa attesa identica).
 
+## Fase 8 — GDPR: consenso + Consent Mode v2 (CRITICO go-live) — 2026-06-14
+
+- **`public/analytics.js`** (esternalizzato, niente inline): **Google Consent Mode v2**
+  con default **DENIED**; GA4 e Contentsquare **NON partono finché non c'è consenso**.
+  IP anonimizzato. Caricamento tracker solo su "Accetta" (e nelle visite successive
+  se già acconsentito).
+- **`index.html`**: rimosso lo snippet GA inline + lo script Contentsquare; ora solo
+  `<script defer src="/analytics.js">`. → **0 script inline eseguibili** nel build.
+- **CSP**: tolto `'unsafe-inline'` da `script-src` (resta solo in `style-src` per gli
+  inline-style di React). **CSP resta in Report-Only** per il lancio; enforce dopo
+  aver verificato 0 violazioni in produzione.
+- **`ConsentBanner`** (in `Layout`, su tutte le pagine): SSR-safe (renderizza dopo
+  l'idratazione → nessun tracking prima del consenso), Accetta/Rifiuta, link alla
+  Cookie Policy, riapribile via evento `da:open-consent`.
+- **Pagine legali (BOZZA)**: `privacy-policy` e `cookie-policy` (placeholder per i dati
+  societari, da validare legalmente), prerenderizzate, in sitemap (priority 0.2) e
+  **linkate nel footer** + pulsante "Gestisci cookie".
+- Verifica: `tsc` ✅ · build ✅ · 30 pagine · `analytics.js` servito · banner assente
+  dal'HTML statico (nessun cookie prima del consenso) · footer con link legali.
+- _Da completare (cliente/legale):_ dati societari nelle pagine legali; verifica in
+  DevTools che nessun cookie di tracking parta prima dell'Accetta sulla preview.
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_

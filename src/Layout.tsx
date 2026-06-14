@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Header, Footer } from './components/Navigation';
+import { ConsentBanner } from './components/ConsentBanner';
 
 /**
  * Riporta in cima a ogni cambio rotta; se l'URL ha un hash (es. #form) scrolla
@@ -40,6 +41,7 @@ export function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <ConsentBanner />
     </div>
   );
 }

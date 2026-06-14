@@ -6,17 +6,11 @@
     <meta name="theme-color" content="#061629" />
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- Google tag (gtag.js) — GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RYV2J7P6D5"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RYV2J7P6D5');
-    </script>
-
-    <!-- Hotjar / Contentsquare -->
-    <script async src="https://t.contentsquare.net/uxa/6a1581bcc044a.js"></script>
+    <!-- Analytics consent-gated: Google Consent Mode v2 (default DENIED).
+         GA4 + Contentsquare partono SOLO dopo consenso (banner). Esternalizzato
+         (niente snippet inline) → la CSP può togliere 'unsafe-inline' da script-src.
+         Vedi public/analytics.js e src/components/ConsentBanner.tsx. -->
+    <script defer src="/analytics.js"></script>
 
     <!--
       title / description / robots / canonical / og:title|url|image / twitter:*
