@@ -257,4 +257,17 @@ permuta), switch del sender con fallback FormSubmit, eventi GA4 `generate_lead`.
 - _Nota merge:_ `Navigation` (menu aria) tocca righe anche presenti su `design-polish`;
   i social `#` del footer restano qui (li nasconde `design-polish`).
 
+## Fase 10 — Canonicalizzazione host + indicizzabilità — 2026-06-14
+
+- **Redirect 308 non-www → www** in `vercel.json` (`has` host ancorato
+  `^diamantiautomobili\.com$` per evitare loop su www); HTTPS forzato da Vercel +
+  HSTS. Coerente coi canonical (sempre `https://www.…`).
+- **Preview noindex, produzione indicizzabile**: header `X-Robots-Tag: noindex`
+  applicato **solo** agli host `*.vercel.app` (preview) via `has` host. Le pagine
+  di produzione mantengono il meta robots `index, follow` baked → la produzione è
+  indicizzabile; il noindex non finisce in prod. (Il 404 resta `noindex` baked.)
+- Sitemap/robots/404 reale già a posto (Fasi 2/4/10-parziale).
+- Verifica: `vercel.json` JSON valido · prod `index,follow` · build ✅. _Redirect e
+  header condizionati per host si verificano sul deploy Vercel (non in locale)._
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_
