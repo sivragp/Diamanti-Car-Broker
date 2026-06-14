@@ -270,4 +270,21 @@ permuta), switch del sender con fallback FormSubmit, eventi GA4 `generate_lead`.
 - Verifica: `vercel.json` JSON valido · prod `index,follow` · build ✅. _Redirect e
   header condizionati per host si verificano sul deploy Vercel (non in locale)._
 
+## Fase 11 — DX / qualità codice — 2026-06-14
+
+- **ESLint 10** (flat config `eslint.config.js`): `@eslint/js` + `typescript-eslint`
+  + `react-hooks` + `react-refresh`. Regole stilistiche a `warning`, hook-rules a
+  `error`. **`npm run lint` verde** (0 errori).
+- **Prettier** (`.prettierrc.json` + `.prettierignore`) e script `format`. _(Il
+  codice esistente non è stato riformattato in massa per non generare un diff enorme
+  e conflitti con `design-polish`: il team può lanciare `npm run format` quando vuole.)_
+- **Script**: `typecheck` (`tsc --noEmit`), `lint`, `format`, `format:check`.
+- **Fix emersi dal lint**: rimossi import inutilizzati (`X` in Home, `Link` in
+  TradeIn); la sezione "Pronta consegna" disabilitata ora usa un flag nominato
+  `SHOW_PRONTA_CONSEGNA` invece di `{false && …}` (più leggibile, lint pulito).
+- **README** riscritto (stack, dev su porta ≠ 3000, pipeline build SSG, deploy,
+  env) e **`.env.example`** (documenta `RESEND_API_KEY` per la Fase 7b; chiarisce
+  che l'ID GA4 è pubblico).
+- Verifica: `npm run lint` ✅ (0 errori, 1 warning innocuo) · `typecheck` ✅ · build ✅.
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_

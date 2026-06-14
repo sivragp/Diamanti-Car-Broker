@@ -1,10 +1,13 @@
-import { Search, Check, X, ShieldCheck, Star, MapPin, Settings, CheckCircle2, ArrowRight, Heart, Repeat, CreditCard, Truck, Wrench } from 'lucide-react';
+import { Search, Check, ShieldCheck, Star, MapPin, Settings, CheckCircle2, ArrowRight, Heart, Repeat, CreditCard, Truck, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useHead } from '@unhead/react';
 import { SEO } from '../components/SEO';
 import { ContactCTA } from '../components/ContactCTA';
 import { HeroLeadForm } from '../components/HeroLeadForm';
 import { Reveal } from '../components/Reveal';
+
+// Toggle: sezione "Pronta consegna" nascosta finché non c'è stock reale.
+const SHOW_PRONTA_CONSEGNA = false;
 
 export default function Home() {
   // Preload media-aware dell'LCP hero (combacia con il <picture>): su mobile
@@ -196,8 +199,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. PRONTA CONSEGNA — nascosta per ora (nessuno stock reale). Per riattivarla: {true && ( ... )} */}
-      {false && (
+      {/* 4. PRONTA CONSEGNA — nascosta per ora (nessuno stock reale). Riattiva con SHOW_PRONTA_CONSEGNA. */}
+      {SHOW_PRONTA_CONSEGNA && (
       <section className="py-16 bg-[#f6f8fb] border-y border-[#e6ebf2] overflow-hidden">
         <div className="ds-container">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
