@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, MapPin, Facebook, Instagram, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, Phone, MapPin, Mail } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { PHONE_DISPLAY, PHONE_HREF, EMAIL, EMAIL_HREF } from '../lib/contact';
 
@@ -70,8 +70,15 @@ export function Header() {
 
             {/* Mobile Toggle */}
             <div className="lg:hidden flex items-center shrink-0">
-              <button className="p-2 text-white" onClick={() => setIsOpen(!isOpen)}>
-                {isOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
+              <button
+                type="button"
+                className="p-2 text-white"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label={isOpen ? 'Chiudi menu' : 'Apri menu'}
+                aria-expanded={isOpen}
+                aria-controls="mobile-menu"
+              >
+                {isOpen ? <X size={28} strokeWidth={1.5} aria-hidden="true" /> : <Menu size={28} strokeWidth={1.5} aria-hidden="true" />}
               </button>
             </div>
           </div>
@@ -82,6 +89,7 @@ export function Header() {
           backdrop-blur (backdrop-filter), che lo rende containing block per i
           figli `position: fixed`, facendo collassare il menu a 0px di altezza. */}
       <nav
+        id="mobile-menu"
         aria-hidden={!isOpen}
         className={`lg:hidden bg-[#061629] fixed top-[74px] left-0 right-0 bottom-0 z-50 overflow-y-auto transition-[opacity,transform] duration-300 ${
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3 pointer-events-none invisible'
@@ -128,23 +136,19 @@ export function Footer() {
             <p className="text-[13px] leading-relaxed mb-5 max-w-xs">
               Il consulente che cerca, verifica e consegna la tua prossima auto. Da Roma, in tutta Italia.
             </p>
-            <div className="flex gap-3 mb-7">
-              <a href="#" aria-label="Facebook" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Facebook size={14} /></a>
-              <a href="#" aria-label="Instagram" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Instagram size={14} /></a>
-              <a href="#" aria-label="LinkedIn" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors"><Linkedin size={14} /></a>
-            </div>
-            {/* Contatti — sotto i social */}
+            {/* Contatti
+                (link social rimossi: erano placeholder a "#"; reintrodurli con URL reali) */}
             <ul className="flex flex-col gap-3 text-[13px]">
               <li className="flex items-center gap-3">
-                <Phone size={15} className="text-white/50 shrink-0" />
+                <Phone size={16} aria-hidden="true" className="text-white/50 shrink-0" />
                 <a href={PHONE_HREF} className="hover:text-white transition-colors">{PHONE_DISPLAY}</a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={15} className="text-white/50 shrink-0" />
+                <Mail size={16} aria-hidden="true" className="text-white/50 shrink-0" />
                 <a href={EMAIL_HREF} className="hover:text-white transition-colors break-all">{EMAIL}</a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin size={15} className="text-white/50 shrink-0 mt-0.5" />
+                <MapPin size={16} aria-hidden="true" className="text-white/50 shrink-0 mt-0.5" />
                 <span className="leading-relaxed">Operiamo in tutta Italia e in Europa</span>
               </li>
             </ul>

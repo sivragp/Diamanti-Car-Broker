@@ -103,7 +103,7 @@ export default function Article() {
           <h1 className="text-[28px] md:text-[40px] font-extrabold leading-[1.12] mb-5 text-white">{article.h1}</h1>
           <div className="flex items-center gap-4 text-[12px] text-white/60">
             <time dateTime={article.datePublished}>{formatDate(article.dateModified)}</time>
-            <span className="inline-flex items-center gap-1.5"><Clock size={13} /> {article.readingMinutes} min di lettura</span>
+            <span className="inline-flex items-center gap-1.5"><Clock size={14} /> {article.readingMinutes} min di lettura</span>
           </div>
         </div>
       </header>

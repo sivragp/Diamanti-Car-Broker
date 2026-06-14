@@ -80,7 +80,7 @@ export default function Services() {
               <div key={i} className="flex flex-col">
                 <div className="bg-white border border-gray-100 rounded-lg p-6 sm:p-8 h-full flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow">
                   <div className="w-12 h-12 rounded-full bg-[#0b2b5b]/8 text-[#0b2b5b] flex items-center justify-center mb-5">
-                    <step.icon size={22} strokeWidth={1.6} />
+                    <step.icon size={22} strokeWidth={1.5} />
                   </div>
                   <h3 className="text-[16px] font-extrabold text-[#061629] mb-3 leading-tight">{step.title}</h3>
                   <p className="text-[14px] text-muted leading-relaxed mb-6">{step.text}</p>
@@ -145,7 +145,7 @@ export default function Services() {
               <div key={i} className="bg-white border border-gray-100 rounded-lg p-6 sm:p-8 md:p-10 shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow flex flex-col">
                 <div className="flex items-start gap-5 mb-5">
                   <div className="w-14 h-14 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center shrink-0">
-                    <item.icon size={24} strokeWidth={1.6} />
+                    <item.icon size={24} strokeWidth={1.5} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <span className="inline-flex rounded-full bg-[#0c438f]/8 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#0c438f] mb-2">
@@ -191,7 +191,7 @@ export default function Services() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link to="/valuta-la-tua-auto" className="inline-flex h-[48px] items-center justify-center rounded-full bg-white px-7 text-[13px] font-bold text-[#061629] hover:bg-[#eef3f8] transition-colors gap-2">
-                  Richiedi valutazione gratuita <ArrowRight size={15} />
+                  Richiedi valutazione gratuita <ArrowRight size={16} />
                 </Link>
                 <Link to="/valuta-la-tua-auto" className="inline-flex h-[48px] items-center justify-center rounded-full bg-transparent border border-white/30 px-7 text-[13px] font-bold text-white hover:bg-white/10 transition-colors">
                   Come funziona la permuta

@@ -92,7 +92,7 @@ export default function About() {
             {valori.map((val, i) => (
               <Reveal key={i} delay={i * 0.06} className="flex items-center gap-4 text-left p-4 bg-white border border-[#e6ebf2] rounded-xl shadow-[0_10px_24px_-22px_rgba(6,22,41,0.3)]">
                 <div className="w-12 h-12 rounded-full border border-[#d7e2ef] flex items-center justify-center text-[#0b2b5b] shrink-0">
-                  <val.icon size={22} strokeWidth={1.6} />
+                  <val.icon size={22} strokeWidth={1.5} />
                 </div>
                 <div className="min-w-0">
                   <h4 className="text-[15px] font-bold text-[#061629] mb-1 leading-tight">{val.title}</h4>

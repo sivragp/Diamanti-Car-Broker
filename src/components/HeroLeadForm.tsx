@@ -80,7 +80,7 @@ export function HeroLeadForm() {
             disabled={status === 'submitting'}
             className="md:flex-none bg-[#0b2b5b] hover:bg-[#0c438f] disabled:opacity-60 disabled:cursor-not-allowed text-white h-[44px] md:h-[42px] px-5 rounded-md text-[13px] font-bold whitespace-nowrap transition-colors flex items-center justify-center gap-2"
           >
-            {status === 'submitting' ? 'Invio…' : (<>Richiedi consulenza <ArrowRight size={15} /></>)}
+            {status === 'submitting' ? 'Invio…' : (<>Richiedi consulenza <ArrowRight size={16} /></>)}
           </button>
         </div>
 

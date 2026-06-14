@@ -58,7 +58,7 @@ export default function Risorse() {
                 <p className="text-[14px] text-muted leading-[1.65] mb-6 flex-1">{a.excerpt}</p>
                 <div className="flex items-center justify-between">
                   <span className="inline-flex items-center gap-1.5 text-[12px] text-[#7b8794]">
-                    <Clock size={13} /> {a.readingMinutes} min
+                    <Clock size={14} /> {a.readingMinutes} min
                   </span>
                   <span className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#0b2b5b]">
                     Leggi <ArrowRight size={14} />

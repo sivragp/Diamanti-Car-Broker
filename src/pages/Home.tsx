@@ -87,7 +87,7 @@ export default function Home() {
             <div className="animate-hero-rise md:hidden mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5" style={{ animationDelay: '0.22s' }}>
               {['Permuta', 'Finanziamento 120 mesi', 'Consegna in tutta Italia'].map((t, i) => (
                 <span key={i} className="inline-flex items-center gap-1.5 text-[11.5px] font-medium text-white/85 [text-shadow:_0_1px_8px_rgb(0_0_0_/_0.5)]">
-                  <Check size={13} className="text-[#7ba6e4] shrink-0" strokeWidth={3} /> {t}
+                  <Check size={14} className="text-[#7ba6e4] shrink-0" strokeWidth={3} /> {t}
                 </span>
               ))}
             </div>
@@ -197,7 +197,7 @@ export default function Home() {
               <h2 className="text-[30px] md:text-[34px] font-extrabold text-[#061629] leading-tight">Auto disponibili ora</h2>
             </div>
             <Link to="/contatti" className="inline-flex h-[42px] items-center justify-center rounded-full bg-white px-5 text-[13px] font-bold text-[#0b2b5b] border border-[#d7e2ef] hover:bg-[#eef3f8] transition-colors">
-              Richiedi disponibilità <ArrowRight size={15} className="ml-2" />
+              Richiedi disponibilità <ArrowRight size={16} className="ml-2" />
             </Link>
           </div>
 
@@ -257,7 +257,7 @@ export default function Home() {
                   <img src={car.image} alt={car.name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                   <span className="absolute top-3 left-3 rounded-full bg-[#1156bf] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wide text-white">{car.tag}</span>
                   <button className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/88 text-[#061629] flex items-center justify-center backdrop-blur-sm" aria-label="Salva auto">
-                    <Heart size={16} strokeWidth={1.8} />
+                    <Heart size={16} strokeWidth={1.5} />
                   </button>
                 </div>
                 <div className="p-5">
@@ -342,7 +342,7 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <Link to="/contatti" className="inline-flex h-[46px] items-center justify-center rounded-full bg-[#0b2b5b] px-7 text-[13px] font-bold text-white hover:bg-[#0c438f] transition-colors gap-2">
-              Inizia con un consulente <ArrowRight size={15} />
+              Inizia con un consulente <ArrowRight size={16} />
             </Link>
           </div>
         </div>
@@ -375,7 +375,7 @@ export default function Home() {
             {tuttoIncluso.map((item, i) => (
               <Reveal key={i} delay={i * 0.06} className="flex items-center gap-4 text-left p-4 bg-white border border-[#e6ebf2] rounded-xl shadow-[0_10px_24px_-22px_rgba(6,22,41,0.3)]">
                 <div className="w-12 h-12 rounded-full border border-[#d7e2ef] flex items-center justify-center text-[#0b2b5b] shrink-0">
-                  <item.icon size={22} strokeWidth={1.6} />
+                  <item.icon size={22} strokeWidth={1.5} />
                 </div>
                 <div className="min-w-0">
                   <h3 className="text-[15px] font-bold text-[#061629] mb-1 leading-tight">{item.title}</h3>
@@ -402,7 +402,7 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <Link to="/servizi" className="inline-flex h-[46px] items-center justify-center rounded-full bg-[#0b2b5b] px-7 text-[13px] font-bold text-white hover:bg-[#0c438f] transition-colors gap-2">
-              Scopri tutti i vantaggi inclusi <ArrowRight size={15} />
+              Scopri tutti i vantaggi inclusi <ArrowRight size={16} />
             </Link>
           </div>
         </div>
@@ -443,7 +443,7 @@ export default function Home() {
                   to="/valuta-la-tua-auto"
                   className="inline-flex h-[48px] items-center justify-center rounded-full bg-white px-7 text-[13px] font-bold text-[#061629] hover:bg-[#eef3f8] transition-colors gap-2"
                 >
-                  Richiedi valutazione gratuita <ArrowRight size={15} />
+                  Richiedi valutazione gratuita <ArrowRight size={16} />
                 </Link>
                 <Link
                   to="/valuta-la-tua-auto"
@@ -551,12 +551,12 @@ export default function Home() {
                 {i !== 3 && (
                   <div className="hidden md:flex absolute top-[19px] left-[calc(50%+38px)] right-[calc(-50%+38px)] items-center z-0">
                     <div className="h-px flex-1 border-t border-dotted border-[#cfd9e6]"></div>
-                    <ArrowRight size={14} className="mx-2 text-[#0b2b5b]" strokeWidth={2.2} />
+                    <ArrowRight size={14} className="mx-2 text-[#0b2b5b]" strokeWidth={2} />
                     <div className="h-px flex-1 border-t border-dotted border-[#cfd9e6]"></div>
                   </div>
                 )}
                 <div className="relative z-10 w-10 h-10 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-4 shadow-[0_10px_24px_-16px_rgba(6,22,41,0.5)]">
-                  <step.icon size={18} strokeWidth={1.9} />
+                  <step.icon size={18} strokeWidth={1.5} />
                 </div>
                 <h3 className="text-[14px] font-extrabold text-[#061629] mb-2 leading-tight">{step.title}</h3>
                 <p className="text-[12px] text-muted leading-relaxed max-w-[210px]">{step.text}</p>
