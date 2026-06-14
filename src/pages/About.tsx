@@ -1,9 +1,18 @@
 import { CheckCircle2, Target, Search, ShieldCheck, Star, Users, Globe, Settings, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { SEO } from '../components/SEO';
+import { SEO, SITE_URL, breadcrumbLd } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
 import { ContactCTA } from '../components/ContactCTA';
 import { Reveal } from '../components/Reveal';
+
+const ABOUT_JSONLD = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'Chi siamo — Diamanti Automobili',
+  description: 'Team di consulenti indipendenti per la ricerca, verifica e acquisto di auto. Sede a Roma, attivi in tutta Italia.',
+  url: `${SITE_URL}/chi-siamo`,
+  mainEntity: { '@id': `${SITE_URL}/#business` },
+};
 
 export default function About() {
   const valori = [
@@ -26,6 +35,8 @@ export default function About() {
         title="Chi siamo — Diamanti Automobili | Consulenti acquisto auto"
         description="Diamanti Automobili è un team di consulenti indipendenti specializzati nella ricerca, verifica e acquisto di auto premium. Sede a Roma, attivi in tutta Italia ed Europa."
         path="/chi-siamo"
+        jsonLd={[ABOUT_JSONLD, breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Chi siamo', path: '/chi-siamo' }])]}
+        jsonLdId="chi-siamo"
       />
 
       {/* 1. HERO unificato — Chi siamo */}

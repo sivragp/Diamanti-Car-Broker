@@ -44,6 +44,22 @@
     <!-- Font self-hostato: preload del peso critico (latin) per LCP rapido -->
     <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
 
+    <!-- JSON-LD globale: WebSite (entità sito, publisher = AutomotiveBusiness).
+         Niente SearchAction: il sito non ha una ricerca interna (lo aggiungeremo
+         se/quando ci sarà, per non dichiarare una sitelinks searchbox inesistente). -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://www.diamantiautomobili.com/#website",
+      "url": "https://www.diamantiautomobili.com/",
+      "name": "Diamanti Automobili",
+      "description": "Consulente per l'acquisto di auto su misura a Roma e in tutta Italia.",
+      "inLanguage": "it-IT",
+      "publisher": { "@id": "https://www.diamantiautomobili.com/#business" }
+    }
+    </script>
+
     <!-- JSON-LD globale: Organization / AutomotiveBusiness -->
     <script type="application/ld+json">
     {

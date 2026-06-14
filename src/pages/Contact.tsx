@@ -1,7 +1,7 @@
 import { Phone, Mail, MapPin, Clock, CheckCircle2, Search, ShieldCheck, ChevronDown, Target, Star, MessageCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useRef } from 'react';
-import { SEO } from '../components/SEO';
+import { SEO, SITE_URL, breadcrumbLd } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
 import { ContactCTA } from '../components/ContactCTA';
 import { Reveal } from '../components/Reveal';
@@ -9,6 +9,15 @@ import { useIsMobile } from '../lib/useIsMobile';
 import { submitLead } from '../lib/forms';
 import { CAR_BRANDS } from '../lib/brands';
 import { PHONE_DISPLAY, PHONE_HREF, EMAIL, EMAIL_HREF, WHATSAPP_HREF } from '../lib/contact';
+
+const CONTACT_JSONLD = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contatti — Diamanti Automobili',
+  description: "Contatta Diamanti Automobili, consulente per l'acquisto auto a Roma e in tutta Italia.",
+  url: `${SITE_URL}/contatti`,
+  mainEntity: { '@id': `${SITE_URL}/#business` },
+};
 
 export default function Contact() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -37,6 +46,8 @@ export default function Contact() {
         title="Contatti — Richiedi una consulenza | Diamanti Automobili Roma"
         description="Parla con un consulente per l'acquisto auto. Sede a Roma, operiamo in tutta Italia. Prima consulenza gratuita, risposta entro 24 ore. Telefono, email, WhatsApp o call."
         path="/contatti"
+        jsonLd={[CONTACT_JSONLD, breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Contatti', path: '/contatti' }])]}
+        jsonLdId="contatti"
       />
 
       {/* 1. HERO unificato */}

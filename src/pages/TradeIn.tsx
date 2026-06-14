@@ -13,7 +13,7 @@ import {
   ArrowRight,
   ChevronDown,
 } from 'lucide-react';
-import { SEO, SITE_URL } from '../components/SEO';
+import { SEO, SITE_URL, breadcrumbLd } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
 import { ContactCTA } from '../components/ContactCTA';
 import { Reveal } from '../components/Reveal';
@@ -102,7 +102,7 @@ export default function TradeIn() {
         title="Valuta la tua auto — Permuta o acquisto diretto | Diamanti Automobili"
         description="Valutazione gratuita della tua auto in 24 ore. Permuta integrata con l'acquisto della nuova o vendita diretta con pagamento garantito. Ritiro a domicilio in tutta Italia."
         path="/valuta-la-tua-auto"
-        jsonLd={TRADEIN_JSONLD}
+        jsonLd={[TRADEIN_JSONLD, breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Valuta la tua auto', path: '/valuta-la-tua-auto' }])]}
         jsonLdId="tradein"
       />
 

@@ -185,4 +185,19 @@ cliente/Daniele): si fa quando saranno disponibili **dominio email verificato +
 `src/lib/forms.ts`). Da fare in Fase 7b: endpoint Resend, gestione allegati (foto
 permuta), switch del sender con fallback FormSubmit, eventi GA4 `generate_lead`.
 
+## Fase 3 — JSON-LD globale + breadcrumb — 2026-06-14
+
+- **`index.html`**: aggiunto JSON-LD globale **`WebSite`** (`@id #website`, publisher →
+  `#business`); la `AutomotiveBusiness` globale resta (è l'Organization/LocalBusiness).
+  _SearchAction omessa_: il sito non ha ricerca interna (dichiararla = sitelinks
+  searchbox inesistente). Da aggiungere se/quando ci sarà una ricerca.
+- **`SEO.tsx`**: helper `breadcrumbLd(items)` → `BreadcrumbList` per pagina.
+- **BreadcrumbList** aggiunto a Servizi, Valuta, FAQ, Risorse, Contatti, Chi-siamo
+  (gli articoli l'avevano già). **Contatti → `ContactPage`**, **Chi-siamo →
+  `AboutPage`** (prima senza JSON-LD di pagina).
+- Nessun duplicato: i globali (`WebSite`/`AutomotiveBusiness`) restano nel template;
+  i `provider` di pagina sono **riferimenti `@id`** a `#business`, non copie.
+- Verifica: `tsc` ✅ · build ✅ · 1 `<title>`/1 description per pagina · breadcrumb
+  e tipi corretti su tutte le rotte.
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_
