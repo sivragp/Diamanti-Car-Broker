@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, MessageSquare, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { SEO } from '../components/SEO';
+import { SEO, breadcrumbLd } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
 import { ContactCTA } from '../components/ContactCTA';
 
@@ -67,7 +67,7 @@ export default function FAQ() {
         title="Domande frequenti — Consulente acquisto auto | Diamanti Automobili"
         description="Quanto costa il servizio? Come funziona la ricerca auto? Importate dalla Germania? Tutte le risposte sul nostro servizio di consulenza per l'acquisto di auto."
         path="/faq"
-        jsonLd={FAQ_JSONLD}
+        jsonLd={[FAQ_JSONLD, breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Domande frequenti', path: '/faq' }])]}
         jsonLdId="faq"
       />
 

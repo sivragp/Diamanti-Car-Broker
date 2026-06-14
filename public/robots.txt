@@ -1,5 +1,19 @@
+# robots.txt — Diamanti Automobili
+
+# Indicizzazione classica + answer/search bot AI: consentiti.
+# Vogliamo essere trovati e CITATI (Google, Bing, GPTBot, OAI-SearchBot,
+# ChatGPT-User, ClaudeBot, PerplexityBot, Applebot, Google-Extended, ecc.).
 User-agent: *
 Allow: /
-Disallow:
+
+# Bot di PURO training: bloccati (decisione cliente 2026-06-14).
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
 
 Sitemap: https://www.diamantiautomobili.com/sitemap.xml

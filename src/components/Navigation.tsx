@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MapPin, Facebook, Instagram, Linkedin, Mail } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { PHONE_DISPLAY, PHONE_HREF, EMAIL, EMAIL_HREF } from '../lib/contact';
+import { OPEN_CONSENT_EVENT } from './ConsentBanner';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,6 +40,8 @@ export function Header() {
               <img
                 src="/logo-diamanti.png"
                 alt="Diamanti Automobili — Consulente per l'acquisto di auto a Roma"
+                width={600}
+                height={600}
                 className="h-[58px] w-auto"
               />
             </Link>
@@ -70,8 +73,15 @@ export function Header() {
 
             {/* Mobile Toggle */}
             <div className="lg:hidden flex items-center shrink-0">
-              <button className="p-2 text-white" onClick={() => setIsOpen(!isOpen)}>
-                {isOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
+              <button
+                type="button"
+                className="p-2 text-white"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label={isOpen ? 'Chiudi menu' : 'Apri menu'}
+                aria-expanded={isOpen}
+                aria-controls="mobile-menu"
+              >
+                {isOpen ? <X size={28} strokeWidth={1.5} aria-hidden="true" /> : <Menu size={28} strokeWidth={1.5} aria-hidden="true" />}
               </button>
             </div>
           </div>
@@ -82,6 +92,7 @@ export function Header() {
           backdrop-blur (backdrop-filter), che lo rende containing block per i
           figli `position: fixed`, facendo collassare il menu a 0px di altezza. */}
       <nav
+        id="mobile-menu"
         aria-hidden={!isOpen}
         className={`lg:hidden bg-[#061629] fixed top-[74px] left-0 right-0 bottom-0 z-50 overflow-y-auto transition-[opacity,transform] duration-300 ${
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3 pointer-events-none invisible'
@@ -122,6 +133,8 @@ export function Footer() {
               <img
                 src="/logo-diamanti.png"
                 alt="Diamanti Automobili — Consulente acquisto auto a Roma"
+                width={600}
+                height={600}
                 className="h-[52px] w-auto"
               />
             </Link>
@@ -178,8 +191,19 @@ export function Footer() {
 
         </div>
 
-        <div className="pt-8 border-t border-white/10 text-[11px] text-white/50 text-center sm:text-left">
+        <div className="pt-8 border-t border-white/10 text-[11px] text-white/50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-center sm:text-left">
           <p>© 2026 Diamanti Automobili — Tutti i diritti riservati.</p>
+          <nav aria-label="Note legali" className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event(OPEN_CONSENT_EVENT))}
+              className="hover:text-white transition-colors"
+            >
+              Gestisci cookie
+            </button>
+          </nav>
         </div>
       </div>
     </footer>

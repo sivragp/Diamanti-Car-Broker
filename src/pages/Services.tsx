@@ -1,7 +1,7 @@
 import { Search, ShieldCheck, MapPin, CheckCircle2, Star, Check, ChevronDown, Repeat, CreditCard, Truck, Wrench, FileCheck, BadgeCheck, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { SEO, SITE_URL } from '../components/SEO';
+import { SEO, SITE_URL, breadcrumbLd } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
 import { ContactCTA } from '../components/ContactCTA';
 
@@ -42,7 +42,7 @@ export default function Services() {
         title="Servizi — Ricerca auto, permuta, finanziamenti e consegna | Diamanti Automobili"
         description="Ricerca auto su misura, perizia tecnica, importazione, permuta, finanziamenti fino a 120 mesi, consegna a domicilio e primo tagliando incluso. I servizi del nostro consulente acquisto auto a Roma e in tutta Italia."
         path="/servizi"
-        jsonLd={SERVICES_JSONLD}
+        jsonLd={[SERVICES_JSONLD, breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Servizi', path: '/servizi' }])]}
         jsonLdId="services"
       />
 
@@ -205,6 +205,8 @@ export default function Services() {
             <img
               src="/images/fleet-overview.webp"
               alt="Parcheggio di auto premium pronto per la valutazione e il ritiro Diamanti Automobili"
+              width={1536}
+              height={1024}
               className="w-full h-full object-cover"
               loading="lazy"
               decoding="async"

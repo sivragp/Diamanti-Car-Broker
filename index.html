@@ -6,59 +6,57 @@
     <meta name="theme-color" content="#061629" />
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- Google tag (gtag.js) — GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RYV2J7P6D5"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RYV2J7P6D5');
-    </script>
+    <!-- Analytics consent-gated: Google Consent Mode v2 (default DENIED).
+         GA4 + Contentsquare partono SOLO dopo consenso (banner). Esternalizzato
+         (niente snippet inline) → la CSP può togliere 'unsafe-inline' da script-src.
+         Vedi public/analytics.js e src/components/ConsentBanner.tsx. -->
+    <script defer src="/analytics.js"></script>
 
-    <!-- Hotjar / Contentsquare -->
-    <script async src="https://t.contentsquare.net/uxa/6a1581bcc044a.js"></script>
-
-    <title>Diamanti Automobili — Consulente acquisto auto a Roma e in tutta Italia</title>
-    <meta name="description" content="Consulente per l'acquisto di auto su misura: ricerca, verifica tecnica, negoziazione e consegna a domicilio. Auto nuove, usate, km 0 e di importazione. Sede a Roma, operiamo in tutta Italia." />
-    <meta name="keywords" content="consulente acquisto auto, consulente automobilistico Roma, ricerca auto su misura, perizia auto usata, verifica auto usata, importazione auto Germania, auto km 0, auto usate garantite, consulenza acquisto auto, acquisto auto Roma" />
+    <!--
+      title / description / robots / canonical / og:title|url|image / twitter:*
+      sono gestiti PER-PAGINA da @unhead (componente SEO) e iniettati nell'HTML
+      statico al build. Qui restano solo i meta globali.
+    -->
     <meta name="author" content="Diamanti Automobili" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-    <!-- Geo (Roma) -->
+    <!-- Geo (Roma) — globale -->
     <meta name="geo.region" content="IT-RM" />
     <meta name="geo.placename" content="Roma" />
     <meta name="geo.position" content="41.9028;12.4964" />
     <meta name="ICBM" content="41.9028, 12.4964" />
 
-    <!-- Canonical (overridden per-page) -->
-    <link rel="canonical" href="https://www.diamantiautomobili.com/" />
-
-    <!-- Open Graph -->
+    <!-- Open Graph / Twitter — parti globali (titolo/descrizione/url/immagine per-pagina) -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta property="og:site_name" content="Diamanti Automobili" />
-    <meta property="og:title" content="Diamanti Automobili — Consulente acquisto auto a Roma e in tutta Italia" />
-    <meta property="og:description" content="Consulente per l'acquisto di auto su misura: ricerca, verifica tecnica e consegna a domicilio. Sede a Roma, attivi in tutta Italia." />
-    <meta property="og:url" content="https://www.diamantiautomobili.com/" />
-    <meta property="og:image" content="https://www.diamantiautomobili.com/images/og-cover.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="675" />
-
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Diamanti Automobili — Consulente acquisto auto" />
-    <meta name="twitter:description" content="Ricerca, verifica e consegna della tua prossima auto. Sede a Roma, attivi in tutta Italia." />
-    <meta name="twitter:image" content="https://www.diamantiautomobili.com/images/og-cover.jpg" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/logo-diamanti.png" />
-    <link rel="apple-touch-icon" href="/logo-diamanti.png" />
+    <!-- Favicon (emblema rombo Diamanti) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <!-- Preconnect font CDN (Inter + Fraunces caricati via CSS) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Font self-hostato: preload del peso critico (latin) per LCP rapido -->
+    <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
 
-    <!-- JSON-LD: Organization / AutomotiveBusiness -->
+    <!-- JSON-LD globale: WebSite (entità sito, publisher = AutomotiveBusiness).
+         Niente SearchAction: il sito non ha una ricerca interna (lo aggiungeremo
+         se/quando ci sarà, per non dichiarare una sitelinks searchbox inesistente). -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://www.diamantiautomobili.com/#website",
+      "url": "https://www.diamantiautomobili.com/",
+      "name": "Diamanti Automobili",
+      "description": "Consulente per l'acquisto di auto su misura a Roma e in tutta Italia.",
+      "inLanguage": "it-IT",
+      "publisher": { "@id": "https://www.diamantiautomobili.com/#business" }
+    }
+    </script>
+
+    <!-- JSON-LD globale: Organization / AutomotiveBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",

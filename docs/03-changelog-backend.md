@@ -1,0 +1,290 @@
+# Changelog tecnico — Diamanti Automobili (`backend-optimization`)
+
+Registro cronologico delle modifiche per fase. Ogni voce: cosa, perché, file,
+verifica (build/tsc/preview).
+
+---
+
+## Fase 1 — Baseline & audit (non distruttiva) — 2026-06-14
+
+- Verificata la *ground truth* del repo rispetto al brief (vedi
+  `docs/01-audit-baseline.md`, sezione "Scostamenti").
+- Misurata la baseline: build `npm run build` verde in ~3,6 s; `tsc --noEmit`
+  pulito; bundle JS 559 KB raw; chunk principali documentati; asset e origini
+  terze enumerati.
+- Confermato il blocco #1: HTML servito = shell CSR vuota (`<div id="root">`).
+- Creati: `docs/01-audit-baseline.md`, `docs/02-piano.md`,
+  `docs/03-changelog-backend.md`, `docs/adr/0001-rendering-strategy.md`.
+- Nessuna modifica al codice di produzione. Branch già `backend-optimization`.
+
+---
+
+## Fase 2 (gate) — ADR rendering ACCETTATO — 2026-06-14
+
+- Scelta confermata: **Opzione A `vite-react-ssg` + `@unhead/react`** (fallback
+  puppeteer). Approvati in parallelo i lavori indipendenti dal rendering.
+- `docs/adr/0001-rendering-strategy.md` aggiornato a stato ACCETTATA.
+
+## Fase 6a — Pulizia dipendenze e leak latente — 2026-06-14
+
+- **Rimosso il `define` GEMINI** da `vite.config.ts` (eliminato il leak potenziale;
+  semplificato il config, niente più `loadEnv`/`mode` inutilizzati).
+- **Rimosse dead-deps** da `package.json`: `@google/genai`, `express`, `dotenv`,
+  `@types/express` (nessun import in `src/`, verificato). `npm install` → lock
+  aggiornato; albero dipendenze senza i 4 pacchetti.
+- **Eliminato `src/constants.ts`** (codice morto: non importato, già tree-shaken;
+  conteneva gli unici URL Unsplash/Wikimedia, che non arrivavano in produzione).
+- **Metadati `package.json`**: `name` `react-example`→`diamanti-automobili`,
+  `version` `0.0.0`→`1.0.0`.
+- Verifica: `npm run build` ✅ · `tsc --noEmit` ✅ · `grep genai/GEMINI dist/` → 0.
+  Bundle invariato (559 KB) — atteso: era già dead code; il guadagno è superficie
+  dipendenze + leak rimosso. La riduzione bundle arriverà dall'intervento `motion`.
+
+## Fase 5a — Self-host font + reduced-motion — 2026-06-14
+
+- **Font self-hostati.** Rimosso `@import url(fonts.googleapis.com…)` render-blocking
+  da `src/index.css` e i 2 `preconnect` da `index.html`. Inter ora è servito da
+  `public/fonts/` come **Inter Variable** (subset `latin` 48 KB + `latin-ext` 85 KB,
+  da `@fontsource-variable/inter` v5; dipendenza npm rimossa dopo la copia).
+  `font-display: swap`; `unicode-range` → latin-ext scaricato solo se serve (es.
+  "Škoda"). Token `--font-sans`/`--font-serif` → `"Inter Variable"`.
+- **Preload** del peso critico (`/fonts/inter-latin-wght-normal.woff2`) in
+  `index.html` (path stabile, non hashed → preload affidabile).
+- **`prefers-reduced-motion`** ora rispettato nel markup CSS: disattiva ken-burns,
+  marquee e scroll loghi + azzera transizioni (a11y WCAG 2.3.3). Risolve il tema
+  trasversale n.6 dell'audit.
+- Effetto: −1 catena render-blocking, −2 origini esterne (googleapis, gstatic).
+  Verifica: build ✅ · tsc ✅ · 0 riferimenti Google Fonts in `dist/` · woff2 in
+  `dist/fonts/` · preload presente.
+
+## Fase 5b — Rimozione libreria `motion` (−120 KB) — 2026-06-14
+
+- Riscritto `src/components/Reveal.tsx` **senza `motion`**: stesso comportamento
+  (fade+rise solo mobile, `<div>` semplice su desktop/reduced-motion, API
+  invariata) ma con **IntersectionObserver + transizione CSS** su transform/opacity.
+- Rimossa la dipendenza `motion` (era importata solo da Reveal).
+- **Impatto bundle:** chunk `Reveal` **124,5 KB → 0,93 KB** (gzip 40,7 → 0,55 KB);
+  **JS totale 559,2 KB → 438,6 KB raw** (−120,6 KB, ~−40 KB gzip). Build ✅ · tsc ✅
+  · `motion` assente dal bundle.
+- Nota: l'animazione resta SSR-safe (parità col comportamento CSR attuale); la
+  hydration-safety di `useIsMobile` verrà gestita in Fase 2 (SSG).
+
+## Fase 6b — Security header HTTP + caching (`vercel.json`) — 2026-06-14
+
+- Aggiunto blocco `headers` su tutte le rotte:
+  `Strict-Transport-Security` (2 anni, includeSubDomains, preload),
+  `X-Content-Type-Options: nosniff`, `X-Frame-Options: SAMEORIGIN`,
+  `Referrer-Policy: strict-origin-when-cross-origin`,
+  `Permissions-Policy` (camera/microfono/geo/payment/usb/topics disattivati).
+- **CSP in `Content-Security-Policy-Report-Only`** (non blocca): consente `self`,
+  GA (`googletagmanager`, `*.google-analytics.com`), Contentsquare
+  (`*.contentsquare.net`), FormSubmit (`form-action`/`connect`), font `self`
+  (self-hostati), `object-src 'none'`, `frame-ancestors 'self'`,
+  `upgrade-insecure-requests`.
+- **Caching**: `/assets/*` e `/fonts/*` → `max-age=31536000, immutable`;
+  immagini (`webp/avif/jpg/png/svg/…`) → `max-age=2592000`. HTML lasciato ai
+  default Vercel (revalidate).
+- Rewrite SPA invariato. Verifica deploy (preview): securityheaders.com grado A,
+  e controllo violazioni CSP in console prima di passare la CSP da Report-Only a
+  enforced. _(non testabile in locale: gli header li applica Vercel, non `vite preview`.)_
+- TODO Fase 8: esternalizzare lo snippet GA inline per togliere `'unsafe-inline'`
+  da `script-src`; aggiungere consent-gate (Consent Mode v2) prima di enforce.
+
+## Fase 2 — Spike di compatibilità rendering — 2026-06-14
+
+- Verifica pre-refactor: **`vite-react-ssg` non è adatto a RR7** (peer
+  `react-router-dom ^6.14.1`, `latest` = beta, e il suo stesso README rimanda alla
+  SSG ufficiale di RR7; usa `react-helmet-async`, React-19-incerto).
+- Verificato che lo stack supporta una SSG custom robusta: RR7 espone
+  `createStaticHandler`/`createStaticRouter`; `@unhead/react@3` combacia coi peer
+  (React ≥19.2.4, Vite ≥6.4.2).
+- ADR 0001 aggiornato (sezione "Revisione"): nuova raccomandazione **C-bis — SSG
+  custom RR7 + @unhead/react**; alternativa B = RR7 framework mode (ufficiale, più
+  invasiva). In attesa di conferma cliente prima del refactor.
+
+## Fase 2 — SSG custom RR7 + @unhead (IL BLOCCO #1 RISOLTO) — 2026-06-14
+
+Il sito ora genera **HTML reale per ogni rotta** al build. Implementazione C-bis:
+
+- **Routing data-router condiviso** (`src/routes.tsx`): `RouteObject[]` con `Layout`
+  radice e `lazy` di RR7 (code-splitting mantenuto; lo static handler li risolve a
+  build-time). Estratto `src/Layout.tsx` (Header/Footer/Outlet + `ScrollToTop`) e
+  `src/pages/Storie.tsx` (placeholder, `noindex`). Rimosso `src/App.tsx`.
+- **Entry client** (`src/main.tsx`): pre-carica i moduli `lazy` della rotta iniziale,
+  poi `hydrateRoot` (prod, markup prerenderizzato) o `createRoot` (dev, `#root` vuoto).
+- **Entry server** (`src/entry-server.tsx`): `createStaticHandler`/`createStaticRouter`/
+  `StaticRouterProvider` (`hydrate={false}`) + `renderToString`; `<head>` baked con
+  `@unhead/react` (`renderSSRHead`). Espone `PRERENDER_ROUTES` (8 statiche + 19 articoli).
+- **`SEO.tsx` riscritto** su `useHead` (stessa firma, call-site invariati): title,
+  description, canonical, OG, Twitter, robots e JSON-LD ora **nell'HTML statico**.
+- **`index.html`**: template ripulito dai tag per-pagina (ora gestiti da @unhead),
+  conserva solo i meta globali, analytics e il JSON-LD Organization.
+- **`scripts/prerender.mjs`**: per ogni rotta scrive `dist/<rotta>/index.html`;
+  genera `dist/404.html` (NotFound `noindex`) per il 404 reale via Vercel.
+- **Build**: `build:client` + `build:server` + `prerender`. **`vercel.json`**: rimosso
+  il rewrite SPA (ora ci sono file statici per-rotta + 404.html); `cleanUrls: true`,
+  `trailingSlash: false`.
+- **SSR-safety**: `useIsMobile` reso false-first (niente hydration mismatch; l'HTML
+  statico contiene la variante desktop = form completo, ottimo per SEO/no-JS).
+
+**Accettazione (verificata sui file statici, senza JS):**
+- 28 pagine generate; ogni rotta ha **1 `<title>` unico, 1 `<h1>`, 1 canonical, 1
+  description**, OG/Twitter e **JSON-LD baked** (Service/OfferCatalog su Servizi;
+  FAQPage su FAQ; BlogPosting+FAQPage+BreadcrumbList su articoli).
+- `#root` pieno di HTML reale (home 128 KB, servizi 45 KB, articolo 18 KB); link
+  interni come `<a href>` crawlabili; `dist/404.html` con `noindex`.
+- `tsc` ✅ · build ✅ · `npm run dev` ✅ su porta ≠ 3000 (createRoot).
+- _Nota bundle:_ chunk `index` 248→314 KB raw (78,8→100,8 KB gzip) per data-router
+  + @unhead; compensato dal −120 KB di `motion` e dal first-paint immediato (HTML
+  prerenderizzato). Hydration runtime da riverificare sulla preview (no browser in locale).
+
+## Fase 10 (parziale) + Fase 4 (parziale) — sitemap auto + llms.txt — 2026-06-14
+
+- **`sitemap.xml` generato al build** (in `scripts/prerender.mjs` da `SITEMAP_ENTRIES`
+  in `entry-server.tsx`): 26 URL (7 pagine + 19 articoli con `lastmod` reale da
+  `dateModified`), `/storie` escluso (noindex). **Rimosso `public/sitemap.xml`
+  manuale** → niente più drift. (Il 404 reale era già stato risolto in Fase 2.)
+- **`public/llms.txt`** aggiunto (convenzione AI): sintesi attività, servizi, area
+  servita, contatti e link a pagine/risorse chiave, in markdown e voce automotive.
+- Verifica: build ✅ · `dist/sitemap.xml` 26 `<loc>`, articoli con `lastmod` ·
+  `dist/llms.txt` presente · tsc ✅.
+- _Rimandato (decisione cliente):_ in `robots.txt` il blocco esplicito dei crawler
+  di puro training (CCBot/anthropic-ai/Bytespider). Gli answer/search bot sono già
+  consentiti dal wildcard attuale.
+
+## Fase 4 — robots.txt: policy crawler AI — 2026-06-14
+
+- Decisione cliente: **bloccare i bot di puro training** (`CCBot`, `anthropic-ai`,
+  `Bytespider`) mantenendo answer/search bot (GPTBot, ClaudeBot, PerplexityBot,
+  Google-Extended, Applebot…) tramite il wildcard `Allow: /`. `robots.txt` aggiornato.
+
+## Fase 7a — Hardening form (FormSubmit come sender) — 2026-06-14
+
+Decisione cliente: per ora **si mantiene FormSubmit**; l'endpoint proprio è rimandato
+(vedi Fase 7b sotto). Hardening dei 3 form (`HeroLeadForm`, `Contact`, `TradeIn`):
+
+- **Verificati e già solidi**: honeypot `_honey` (anti-spam), `required` + validazione
+  nativa (`checkValidity`/`reportValidity` negli step di Contatti/Valuta), bottone
+  `disabled` durante l'invio, cattura di `e.currentTarget` **prima** dell'`await`
+  (nessun bug di evento async), `form.reset()` post-successo.
+- **Aggiunto `aria-live`** ai messaggi di esito: successo `role="status"`
+  (`aria-live="polite"`), errore `role="alert"` (`aria-live="assertive"`) → gli
+  screen reader annunciano l'esito (prima muti).
+- **Rinforzata la guardia anti doppio invio**: `if (status === 'submitting') return`
+  all'inizio dell'`onSubmit` (oltre al bottone disabilitato).
+- Verifica: `tsc` ✅ · build ✅ · 28 pagine.
+- _Rimandato a Fase 9:_ associazione `label`↔input via `htmlFor`/`id` (con `useId`
+  per `HeroLeadForm`, montato due volte) per evitare id duplicati.
+
+## Fase 7b — Resend (PENDING) — rimandata
+
+Scaffold dell'endpoint proprio `api/lead.ts` (Vercel Function + Resend, chiave
+`RESEND_API_KEY` server-side) **rimandato a un task separato** (decisione
+cliente/Daniele): si fa quando saranno disponibili **dominio email verificato +
+`RESEND_API_KEY`**. Fino ad allora il sender resta **FormSubmit** (vedi
+`src/lib/forms.ts`). Da fare in Fase 7b: endpoint Resend, gestione allegati (foto
+permuta), switch del sender con fallback FormSubmit, eventi GA4 `generate_lead`.
+
+## Fase 3 — JSON-LD globale + breadcrumb — 2026-06-14
+
+- **`index.html`**: aggiunto JSON-LD globale **`WebSite`** (`@id #website`, publisher →
+  `#business`); la `AutomotiveBusiness` globale resta (è l'Organization/LocalBusiness).
+  _SearchAction omessa_: il sito non ha ricerca interna (dichiararla = sitelinks
+  searchbox inesistente). Da aggiungere se/quando ci sarà una ricerca.
+- **`SEO.tsx`**: helper `breadcrumbLd(items)` → `BreadcrumbList` per pagina.
+- **BreadcrumbList** aggiunto a Servizi, Valuta, FAQ, Risorse, Contatti, Chi-siamo
+  (gli articoli l'avevano già). **Contatti → `ContactPage`**, **Chi-siamo →
+  `AboutPage`** (prima senza JSON-LD di pagina).
+- Nessun duplicato: i globali (`WebSite`/`AutomotiveBusiness`) restano nel template;
+  i `provider` di pagina sono **riferimenti `@id`** a `#business`, non copie.
+- Verifica: `tsc` ✅ · build ✅ · 1 `<title>`/1 description per pagina · breadcrumb
+  e tipi corretti su tutte le rotte.
+
+## Fase 5 — CLS / immagini / bundle — 2026-06-14
+
+- **`width`/`height` espliciti** su tutte le `<img>` renderizzate (logo 600×600,
+  hero, team 1080×1080, fleet 1536×1024, banner) → riserva spazio, **anti-CLS**.
+  Fix reali: logo (`w-auto`) e foto team (`w-full h-auto`); le full-bleed
+  `object-cover` ricevono dimensioni per l'audit (la CSS governa il rendering).
+- **`<picture>` art direction** su hero Home e `PageHero`: il browser scarica
+  **una sola variante** per viewport (prima `display:none` scaricava ENTRAMBE:
+  su mobile anche i 321 KB della hero desktop). ContactCTA resta a 2 `<img>`
+  perché `loading="lazy"` già carica solo la variante visibile.
+- **Preload LCP media-aware** (hero Home, via `useHead`): mobile precarica solo
+  la hero mobile (157 KB), desktop solo quella desktop. Niente più doppio preload
+  (React 19 non auto-precarica le `<img>` dentro `<picture>`).
+- **`manualChunks`** (solo build client): `react-vendor` (~284 KB, cacheabile a
+  parte), `unhead`, `icons`. Il chunk d'ingresso scende da ~314 KB a ~13 KB.
+- Verifica: `tsc` ✅ · build ✅ · preload corretti · 0 doppio-download hero.
+- _Nota review visiva preview:_ l'hero ora è `<picture>` (resa attesa identica).
+
+## Fase 8 — GDPR: consenso + Consent Mode v2 (CRITICO go-live) — 2026-06-14
+
+- **`public/analytics.js`** (esternalizzato, niente inline): **Google Consent Mode v2**
+  con default **DENIED**; GA4 e Contentsquare **NON partono finché non c'è consenso**.
+  IP anonimizzato. Caricamento tracker solo su "Accetta" (e nelle visite successive
+  se già acconsentito).
+- **`index.html`**: rimosso lo snippet GA inline + lo script Contentsquare; ora solo
+  `<script defer src="/analytics.js">`. → **0 script inline eseguibili** nel build.
+- **CSP**: tolto `'unsafe-inline'` da `script-src` (resta solo in `style-src` per gli
+  inline-style di React). **CSP resta in Report-Only** per il lancio; enforce dopo
+  aver verificato 0 violazioni in produzione.
+- **`ConsentBanner`** (in `Layout`, su tutte le pagine): SSR-safe (renderizza dopo
+  l'idratazione → nessun tracking prima del consenso), Accetta/Rifiuta, link alla
+  Cookie Policy, riapribile via evento `da:open-consent`.
+- **Pagine legali (BOZZA)**: `privacy-policy` e `cookie-policy` (placeholder per i dati
+  societari, da validare legalmente), prerenderizzate, in sitemap (priority 0.2) e
+  **linkate nel footer** + pulsante "Gestisci cookie".
+- Verifica: `tsc` ✅ · build ✅ · 30 pagine · `analytics.js` servito · banner assente
+  dal'HTML statico (nessun cookie prima del consenso) · footer con link legali.
+- _Da completare (cliente/legale):_ dati societari nelle pagine legali; verifica in
+  DevTools che nessun cookie di tracking parta prima dell'Accetta sulla preview.
+
+## Fase 9 — Accessibilità (WCAG 2.1 AA) — 2026-06-14
+
+- **Label↔input associati** (`htmlFor`/`id`) su tutti i form: `HeroLeadForm`
+  (con **`useId`** → id univoci anche col doppio montaggio desktop+mobile: niente
+  più id duplicati), `Contact` (10 campi + gruppo radio "permuta" in
+  `fieldset`/`legend`), `TradeIn` (13 campi). La checkbox Privacy era già associata.
+- **`focus-visible`** globale in `index.css`: ring accent visibile da tastiera su
+  link/bottoni/campi (WCAG 2.4.7).
+- **Skip-link** "Salta al contenuto" in `Layout` + `id="main-content"` sul `<main>`.
+- **Menu mobile accessibile**: toggle con `aria-label` dinamico, `aria-expanded`,
+  `aria-controls="mobile-menu"`; icone Menu/X `aria-hidden`.
+- **Landmark** completi: `header`/`nav`/`main`/`footer`. **alt** presente su tutte
+  le immagini (decorative `alt=""`).
+- Verifica: `tsc` ✅ · build ✅ · 30 pagine · id form univoci (useId) · 0 img senza alt.
+- _Nota merge:_ `Navigation` (menu aria) tocca righe anche presenti su `design-polish`;
+  i social `#` del footer restano qui (li nasconde `design-polish`).
+
+## Fase 10 — Canonicalizzazione host + indicizzabilità — 2026-06-14
+
+- **Redirect 308 non-www → www** in `vercel.json` (`has` host ancorato
+  `^diamantiautomobili\.com$` per evitare loop su www); HTTPS forzato da Vercel +
+  HSTS. Coerente coi canonical (sempre `https://www.…`).
+- **Preview noindex, produzione indicizzabile**: header `X-Robots-Tag: noindex`
+  applicato **solo** agli host `*.vercel.app` (preview) via `has` host. Le pagine
+  di produzione mantengono il meta robots `index, follow` baked → la produzione è
+  indicizzabile; il noindex non finisce in prod. (Il 404 resta `noindex` baked.)
+- Sitemap/robots/404 reale già a posto (Fasi 2/4/10-parziale).
+- Verifica: `vercel.json` JSON valido · prod `index,follow` · build ✅. _Redirect e
+  header condizionati per host si verificano sul deploy Vercel (non in locale)._
+
+## Fase 11 — DX / qualità codice — 2026-06-14
+
+- **ESLint 10** (flat config `eslint.config.js`): `@eslint/js` + `typescript-eslint`
+  + `react-hooks` + `react-refresh`. Regole stilistiche a `warning`, hook-rules a
+  `error`. **`npm run lint` verde** (0 errori).
+- **Prettier** (`.prettierrc.json` + `.prettierignore`) e script `format`. _(Il
+  codice esistente non è stato riformattato in massa per non generare un diff enorme
+  e conflitti con `design-polish`: il team può lanciare `npm run format` quando vuole.)_
+- **Script**: `typecheck` (`tsc --noEmit`), `lint`, `format`, `format:check`.
+- **Fix emersi dal lint**: rimossi import inutilizzati (`X` in Home, `Link` in
+  TradeIn); la sezione "Pronta consegna" disabilitata ora usa un flag nominato
+  `SHOW_PRONTA_CONSEGNA` invece di `{false && …}` (più leggibile, lint pulito).
+- **README** riscritto (stack, dev su porta ≠ 3000, pipeline build SSG, deploy,
+  env) e **`.env.example`** (documenta `RESEND_API_KEY` per la Fase 7b; chiarisce
+  che l'ID GA4 è pubblico).
+- Verifica: `npm run lint` ✅ (0 errori, 1 warning innocuo) · `typecheck` ✅ · build ✅.
+
+_(Le fasi successive verranno annotate qui sotto man mano.)_

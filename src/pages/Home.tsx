@@ -1,11 +1,24 @@
-import { Search, Check, X, ShieldCheck, Star, MapPin, Settings, CheckCircle2, ArrowRight, Heart, Repeat, CreditCard, Truck, Wrench } from 'lucide-react';
+import { Search, Check, ShieldCheck, Star, MapPin, Settings, CheckCircle2, ArrowRight, Heart, Repeat, CreditCard, Truck, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useHead } from '@unhead/react';
 import { SEO } from '../components/SEO';
 import { ContactCTA } from '../components/ContactCTA';
 import { HeroLeadForm } from '../components/HeroLeadForm';
 import { Reveal } from '../components/Reveal';
 
+// Toggle: sezione "Pronta consegna" nascosta finché non c'è stock reale.
+const SHOW_PRONTA_CONSEGNA = false;
+
 export default function Home() {
+  // Preload media-aware dell'LCP hero (combacia con il <picture>): su mobile
+  // precarica solo la variante mobile (157 KB), su desktop solo quella desktop.
+  useHead({
+    link: [
+      { rel: 'preload', as: 'image', href: '/images/hero-home-dealership.webp', media: '(max-width: 767px)', fetchpriority: 'high' },
+      { rel: 'preload', as: 'image', href: '/images/hero-bmw-road.webp', media: '(min-width: 768px)', fetchpriority: 'high' },
+    ],
+  });
+
   const whyUs = [
     { icon: <ShieldCheck size={24} strokeWidth={1.5} />, title: 'Indipendenza totale', text: 'Non siamo legati a marchi o concessionarie. Lavoriamo solo nel tuo interesse.' },
     { icon: <Star size={24} strokeWidth={1.5} />, title: 'Rete consolidata', text: 'Accesso a partner e canali selezionati in Italia e in Europa, anche fuori dai portali pubblici.' },
@@ -42,22 +55,21 @@ export default function Home() {
       <section className="relative flex flex-col items-center text-center justify-center min-h-[460px] md:min-h-[700px] py-14 md:py-0">
         {/* Background Image — zoom lento "ken burns" */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          {/* Mobile: flotta premium in concessionaria */}
-          <img
-            src="/images/hero-home-dealership.webp"
-            alt="Auto premium pronte davanti alla concessionaria — consulente acquisto auto Diamanti Automobili"
-            className="md:hidden absolute inset-0 w-full h-full object-cover object-center animate-ken-burns"
-            fetchPriority="high"
-            decoding="async"
-          />
-          {/* Desktop: flotta in viaggio */}
-          <img
-            src="/images/hero-bmw-road.webp"
-            alt="Consulente acquisto auto Diamanti Automobili — auto premium in viaggio"
-            className="hidden md:block absolute inset-0 w-full h-full object-cover animate-ken-burns"
-            fetchPriority="high"
-            decoding="async"
-          />
+          {/* Art direction: mobile = flotta in concessionaria, desktop = in viaggio.
+              <picture> → il browser scarica UNA sola variante (niente doppio download
+              della versione nascosta) e React precarica solo il fallback mobile. */}
+          <picture>
+            <source media="(min-width: 768px)" srcSet="/images/hero-bmw-road.webp" />
+            <img
+              src="/images/hero-home-dealership.webp"
+              alt="Consulente acquisto auto Diamanti Automobili — auto premium pronte e in viaggio"
+              width={1164}
+              height={1351}
+              className="absolute inset-0 w-full h-full object-cover object-center animate-ken-burns"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </picture>
           {/* Overlay scuro per contrasto titolo. Il "soffio" blu brand resta solo su mobile (rimosso su desktop). */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/85 via-[#061629]/40 to-[#061629]/80" />
           <div className="md:hidden absolute inset-0 bg-gradient-to-tr from-[#0c438f]/25 via-transparent to-transparent" />
@@ -187,8 +199,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. PRONTA CONSEGNA — nascosta per ora (nessuno stock reale). Per riattivarla: {true && ( ... )} */}
-      {false && (
+      {/* 4. PRONTA CONSEGNA — nascosta per ora (nessuno stock reale). Riattiva con SHOW_PRONTA_CONSEGNA. */}
+      {SHOW_PRONTA_CONSEGNA && (
       <section className="py-16 bg-[#f6f8fb] border-y border-[#e6ebf2] overflow-hidden">
         <div className="ds-container">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
@@ -415,6 +427,8 @@ export default function Home() {
             <img
               src="/images/fleet-overview.webp"
               alt="Parcheggio di auto premium pronto per la valutazione e il ritiro Diamanti Automobili"
+              width={1536}
+              height={1024}
               className="w-full h-full object-cover"
               loading="lazy"
               decoding="async"
