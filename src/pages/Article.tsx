@@ -147,7 +147,7 @@ export default function Article() {
                 <Link
                   key={r.slug}
                   to={`/risorse/${r.slug}`}
-                  className="block border border-[#e6ebf2] rounded-lg p-5 hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow"
+                  className="block border border-[#e6ebf2] rounded-lg p-5 hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] hover-lift"
                 >
                   <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#0c438f] mb-2">{r.category}</p>
                   <h3 className="text-[15px] font-bold text-[#061629] leading-snug">{r.h1}</h3>

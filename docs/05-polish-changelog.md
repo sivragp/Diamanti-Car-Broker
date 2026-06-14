@@ -20,6 +20,34 @@ Piano in `docs/04-polish-plan.md`.
 - Verifica: `tsc` ✅ · build ✅ · 28 pagine · 0 `href="#"` residui.
 - _Pass a11y completo sulle icone di pagina (aria-hidden diffuso): in Area B/Fase 9._
 
+## Area B — Micro-animazioni soft — 2026-06-14
+
+Solo `transform`/`opacity` (GPU), durate 150–350ms ease-out, zero impatto su
+CLS/INP. Tutto si disattiva con `prefers-reduced-motion: reduce`.
+
+- **Card lift su hover** (`src/index.css`): introdotta utility `.hover-lift`
+  (transizione `transform`+`box-shadow`, `translateY(-4px)` all'hover). Applicata
+  alle 10 card reali del sito (Services ×3, About ×3, Home ×2, Article, TradeIn)
+  sostituendo `transition-shadow`. L'ombra hover esistente di ogni card resta
+  invariata; si aggiunge solo il sollevamento. Aggiornata anche `.card-premium`
+  (lift + ombra `--shadow-premium-hover`) per coerenza/uso futuro.
+- **Bottoni** (`.btn-primary/.btn-outline/.btn-secondary`): aggiunti
+  `hover:-translate-y-0.5` + ombra hover + `ease-out`, con `active:translate-y-0`
+  per il feedback di pressione (resta `active:scale-95`).
+- **Nudge frecce**: la freccia lucide (`.lucide-arrow-right`) avanza di `3px`
+  all'hover del link/bottone che la contiene (`a:hover`/`button:hover` → scoped
+  alle sole CTA interattive, le frecce decorative non si muovono). Zero modifiche
+  ai componenti: regola CSS sulla classe che lucide assegna all'icona.
+- **Stagger griglia "Servizi"** (`Services.tsx`): il wrapper di ogni card è ora
+  `<Reveal delay={i*0.06}>` (stesso pattern già usato in Home/About/TradeIn).
+  DOM desktop identico (Reveal rende un `<div>` con le stesse classi); l'entrata
+  in dissolvenza+risalita è solo mobile.
+- **focus-visible**: invariato (già sobrio: outline `2px` accent + offset `2px`).
+- **prefers-reduced-motion**: il blocco in `index.css` ora azzera anche lo
+  *spostamento* (non solo la durata) di card-lift, bottoni e nudge frecce
+  (`transform: none !important`).
+- Verifica: `tsc` ✅ · build ✅ (30 pagine). Layout/struttura/copy/tipografia invariati.
+
 ## Area C (fix mirato) — Box form hero — 2026-06-14
 
 - **`HeroLeadForm` box desktop**: `md:bg-[#1156bf]/60` (blu medio slavato sull'hero)

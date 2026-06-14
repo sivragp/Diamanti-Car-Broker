@@ -187,7 +187,7 @@ export default function Home() {
               { icon: ShieldCheck, title: 'Verifica tecnica completa', text: 'Controlliamo storia, chilometraggio reale, condizioni e documenti prima di ogni acquisto.' },
               { icon: MapPin, title: 'Consegna a domicilio', text: "Ti consegniamo l'auto pronta all'uso direttamente a casa tua, in tutta Italia." }
             ].map((item, i) => (
-              <Reveal key={i} delay={i * 0.06} className="border border-[#e6ebf2] rounded-lg p-5 sm:p-7 text-center flex flex-col items-center shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow bg-white">
+              <Reveal key={i} delay={i * 0.06} className="border border-[#e6ebf2] rounded-lg p-5 sm:p-7 text-center flex flex-col items-center shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] hover-lift bg-white">
                 <div className="w-12 h-12 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center mb-6">
                   <item.icon size={22} strokeWidth={1.5} />
                 </div>
@@ -501,7 +501,7 @@ export default function Home() {
         <div className="ds-container hidden md:block">
           <div className="grid grid-cols-3 gap-6">
             {testimonials.slice(0, 3).map((review, i) => (
-              <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg p-8 hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] transition-shadow flex flex-col">
+              <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg p-8 hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] hover-lift flex flex-col">
                 <div className="flex gap-[2px] mb-5">
                   {[1,2,3,4,5].map(star => <Star key={star} size={14} fill="#F59E0B" color="#F59E0B" />)}
                 </div>
