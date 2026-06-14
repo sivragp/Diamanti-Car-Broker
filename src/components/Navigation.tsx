@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MapPin, Mail } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { PHONE_DISPLAY, PHONE_HREF, EMAIL, EMAIL_HREF } from '../lib/contact';
+import { OPEN_CONSENT_EVENT } from './ConsentBanner';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,6 +40,8 @@ export function Header() {
               <img
                 src="/logo-diamanti.png"
                 alt="Diamanti Automobili — Consulente per l'acquisto di auto a Roma"
+                width={600}
+                height={600}
                 className="h-[58px] w-auto"
               />
             </Link>
@@ -130,6 +133,8 @@ export function Footer() {
               <img
                 src="/logo-diamanti.png"
                 alt="Diamanti Automobili — Consulente acquisto auto a Roma"
+                width={600}
+                height={600}
                 className="h-[52px] w-auto"
               />
             </Link>
@@ -182,8 +187,19 @@ export function Footer() {
 
         </div>
 
-        <div className="pt-8 border-t border-white/10 text-[11px] text-white/50 text-center sm:text-left">
+        <div className="pt-8 border-t border-white/10 text-[11px] text-white/50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-center sm:text-left">
           <p>© 2026 Diamanti Automobili — Tutti i diritti riservati.</p>
+          <nav aria-label="Note legali" className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event(OPEN_CONSENT_EVENT))}
+              className="hover:text-white transition-colors"
+            >
+              Gestisci cookie
+            </button>
+          </nav>
         </div>
       </div>
     </footer>

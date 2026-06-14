@@ -3,6 +3,23 @@ import { useHead } from '@unhead/react';
 export const SITE_URL = 'https://www.diamantiautomobili.com';
 const DEFAULT_IMAGE = '/images/og-cover.jpg';
 
+/**
+ * Genera un JSON-LD `BreadcrumbList` da una lista ordinata di voci.
+ * Da combinare con il JSON-LD di pagina nell'array passato a `<SEO jsonLd>`.
+ */
+export function breadcrumbLd(items: { name: string; path: string }[]): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.name,
+      item: `${SITE_URL}${it.path}`,
+    })),
+  };
+}
+
 interface SEOProps {
   title: string;
   description: string;

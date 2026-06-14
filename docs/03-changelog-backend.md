@@ -185,4 +185,106 @@ cliente/Daniele): si fa quando saranno disponibili **dominio email verificato +
 `src/lib/forms.ts`). Da fare in Fase 7b: endpoint Resend, gestione allegati (foto
 permuta), switch del sender con fallback FormSubmit, eventi GA4 `generate_lead`.
 
+## Fase 3 — JSON-LD globale + breadcrumb — 2026-06-14
+
+- **`index.html`**: aggiunto JSON-LD globale **`WebSite`** (`@id #website`, publisher →
+  `#business`); la `AutomotiveBusiness` globale resta (è l'Organization/LocalBusiness).
+  _SearchAction omessa_: il sito non ha ricerca interna (dichiararla = sitelinks
+  searchbox inesistente). Da aggiungere se/quando ci sarà una ricerca.
+- **`SEO.tsx`**: helper `breadcrumbLd(items)` → `BreadcrumbList` per pagina.
+- **BreadcrumbList** aggiunto a Servizi, Valuta, FAQ, Risorse, Contatti, Chi-siamo
+  (gli articoli l'avevano già). **Contatti → `ContactPage`**, **Chi-siamo →
+  `AboutPage`** (prima senza JSON-LD di pagina).
+- Nessun duplicato: i globali (`WebSite`/`AutomotiveBusiness`) restano nel template;
+  i `provider` di pagina sono **riferimenti `@id`** a `#business`, non copie.
+- Verifica: `tsc` ✅ · build ✅ · 1 `<title>`/1 description per pagina · breadcrumb
+  e tipi corretti su tutte le rotte.
+
+## Fase 5 — CLS / immagini / bundle — 2026-06-14
+
+- **`width`/`height` espliciti** su tutte le `<img>` renderizzate (logo 600×600,
+  hero, team 1080×1080, fleet 1536×1024, banner) → riserva spazio, **anti-CLS**.
+  Fix reali: logo (`w-auto`) e foto team (`w-full h-auto`); le full-bleed
+  `object-cover` ricevono dimensioni per l'audit (la CSS governa il rendering).
+- **`<picture>` art direction** su hero Home e `PageHero`: il browser scarica
+  **una sola variante** per viewport (prima `display:none` scaricava ENTRAMBE:
+  su mobile anche i 321 KB della hero desktop). ContactCTA resta a 2 `<img>`
+  perché `loading="lazy"` già carica solo la variante visibile.
+- **Preload LCP media-aware** (hero Home, via `useHead`): mobile precarica solo
+  la hero mobile (157 KB), desktop solo quella desktop. Niente più doppio preload
+  (React 19 non auto-precarica le `<img>` dentro `<picture>`).
+- **`manualChunks`** (solo build client): `react-vendor` (~284 KB, cacheabile a
+  parte), `unhead`, `icons`. Il chunk d'ingresso scende da ~314 KB a ~13 KB.
+- Verifica: `tsc` ✅ · build ✅ · preload corretti · 0 doppio-download hero.
+- _Nota review visiva preview:_ l'hero ora è `<picture>` (resa attesa identica).
+
+## Fase 8 — GDPR: consenso + Consent Mode v2 (CRITICO go-live) — 2026-06-14
+
+- **`public/analytics.js`** (esternalizzato, niente inline): **Google Consent Mode v2**
+  con default **DENIED**; GA4 e Contentsquare **NON partono finché non c'è consenso**.
+  IP anonimizzato. Caricamento tracker solo su "Accetta" (e nelle visite successive
+  se già acconsentito).
+- **`index.html`**: rimosso lo snippet GA inline + lo script Contentsquare; ora solo
+  `<script defer src="/analytics.js">`. → **0 script inline eseguibili** nel build.
+- **CSP**: tolto `'unsafe-inline'` da `script-src` (resta solo in `style-src` per gli
+  inline-style di React). **CSP resta in Report-Only** per il lancio; enforce dopo
+  aver verificato 0 violazioni in produzione.
+- **`ConsentBanner`** (in `Layout`, su tutte le pagine): SSR-safe (renderizza dopo
+  l'idratazione → nessun tracking prima del consenso), Accetta/Rifiuta, link alla
+  Cookie Policy, riapribile via evento `da:open-consent`.
+- **Pagine legali (BOZZA)**: `privacy-policy` e `cookie-policy` (placeholder per i dati
+  societari, da validare legalmente), prerenderizzate, in sitemap (priority 0.2) e
+  **linkate nel footer** + pulsante "Gestisci cookie".
+- Verifica: `tsc` ✅ · build ✅ · 30 pagine · `analytics.js` servito · banner assente
+  dal'HTML statico (nessun cookie prima del consenso) · footer con link legali.
+- _Da completare (cliente/legale):_ dati societari nelle pagine legali; verifica in
+  DevTools che nessun cookie di tracking parta prima dell'Accetta sulla preview.
+
+## Fase 9 — Accessibilità (WCAG 2.1 AA) — 2026-06-14
+
+- **Label↔input associati** (`htmlFor`/`id`) su tutti i form: `HeroLeadForm`
+  (con **`useId`** → id univoci anche col doppio montaggio desktop+mobile: niente
+  più id duplicati), `Contact` (10 campi + gruppo radio "permuta" in
+  `fieldset`/`legend`), `TradeIn` (13 campi). La checkbox Privacy era già associata.
+- **`focus-visible`** globale in `index.css`: ring accent visibile da tastiera su
+  link/bottoni/campi (WCAG 2.4.7).
+- **Skip-link** "Salta al contenuto" in `Layout` + `id="main-content"` sul `<main>`.
+- **Menu mobile accessibile**: toggle con `aria-label` dinamico, `aria-expanded`,
+  `aria-controls="mobile-menu"`; icone Menu/X `aria-hidden`.
+- **Landmark** completi: `header`/`nav`/`main`/`footer`. **alt** presente su tutte
+  le immagini (decorative `alt=""`).
+- Verifica: `tsc` ✅ · build ✅ · 30 pagine · id form univoci (useId) · 0 img senza alt.
+- _Nota merge:_ `Navigation` (menu aria) tocca righe anche presenti su `design-polish`;
+  i social `#` del footer restano qui (li nasconde `design-polish`).
+
+## Fase 10 — Canonicalizzazione host + indicizzabilità — 2026-06-14
+
+- **Redirect 308 non-www → www** in `vercel.json` (`has` host ancorato
+  `^diamantiautomobili\.com$` per evitare loop su www); HTTPS forzato da Vercel +
+  HSTS. Coerente coi canonical (sempre `https://www.…`).
+- **Preview noindex, produzione indicizzabile**: header `X-Robots-Tag: noindex`
+  applicato **solo** agli host `*.vercel.app` (preview) via `has` host. Le pagine
+  di produzione mantengono il meta robots `index, follow` baked → la produzione è
+  indicizzabile; il noindex non finisce in prod. (Il 404 resta `noindex` baked.)
+- Sitemap/robots/404 reale già a posto (Fasi 2/4/10-parziale).
+- Verifica: `vercel.json` JSON valido · prod `index,follow` · build ✅. _Redirect e
+  header condizionati per host si verificano sul deploy Vercel (non in locale)._
+
+## Fase 11 — DX / qualità codice — 2026-06-14
+
+- **ESLint 10** (flat config `eslint.config.js`): `@eslint/js` + `typescript-eslint`
+  + `react-hooks` + `react-refresh`. Regole stilistiche a `warning`, hook-rules a
+  `error`. **`npm run lint` verde** (0 errori).
+- **Prettier** (`.prettierrc.json` + `.prettierignore`) e script `format`. _(Il
+  codice esistente non è stato riformattato in massa per non generare un diff enorme
+  e conflitti con `design-polish`: il team può lanciare `npm run format` quando vuole.)_
+- **Script**: `typecheck` (`tsc --noEmit`), `lint`, `format`, `format:check`.
+- **Fix emersi dal lint**: rimossi import inutilizzati (`X` in Home, `Link` in
+  TradeIn); la sezione "Pronta consegna" disabilitata ora usa un flag nominato
+  `SHOW_PRONTA_CONSEGNA` invece di `{false && …}` (più leggibile, lint pulito).
+- **README** riscritto (stack, dev su porta ≠ 3000, pipeline build SSG, deploy,
+  env) e **`.env.example`** (documenta `RESEND_API_KEY` per la Fase 7b; chiarisce
+  che l'ID GA4 è pubblico).
+- Verifica: `npm run lint` ✅ (0 errori, 1 warning innocuo) · `typecheck` ✅ · build ✅.
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_

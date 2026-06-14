@@ -6,17 +6,11 @@
     <meta name="theme-color" content="#061629" />
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- Google tag (gtag.js) — GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RYV2J7P6D5"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RYV2J7P6D5');
-    </script>
-
-    <!-- Hotjar / Contentsquare -->
-    <script async src="https://t.contentsquare.net/uxa/6a1581bcc044a.js"></script>
+    <!-- Analytics consent-gated: Google Consent Mode v2 (default DENIED).
+         GA4 + Contentsquare partono SOLO dopo consenso (banner). Esternalizzato
+         (niente snippet inline) → la CSP può togliere 'unsafe-inline' da script-src.
+         Vedi public/analytics.js e src/components/ConsentBanner.tsx. -->
+    <script defer src="/analytics.js"></script>
 
     <!--
       title / description / robots / canonical / og:title|url|image / twitter:*
@@ -37,12 +31,30 @@
     <meta property="og:site_name" content="Diamanti Automobili" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/logo-diamanti.png" />
-    <link rel="apple-touch-icon" href="/logo-diamanti.png" />
+    <!-- Favicon (emblema rombo Diamanti) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <!-- Font self-hostato: preload del peso critico (latin) per LCP rapido -->
     <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- JSON-LD globale: WebSite (entità sito, publisher = AutomotiveBusiness).
+         Niente SearchAction: il sito non ha una ricerca interna (lo aggiungeremo
+         se/quando ci sarà, per non dichiarare una sitelinks searchbox inesistente). -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://www.diamantiautomobili.com/#website",
+      "url": "https://www.diamantiautomobili.com/",
+      "name": "Diamanti Automobili",
+      "description": "Consulente per l'acquisto di auto su misura a Roma e in tutta Italia.",
+      "inLanguage": "it-IT",
+      "publisher": { "@id": "https://www.diamantiautomobili.com/#business" }
+    }
+    </script>
 
     <!-- JSON-LD globale: Organization / AutomotiveBusiness -->
     <script type="application/ld+json">

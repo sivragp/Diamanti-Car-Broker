@@ -15,6 +15,8 @@ const STATIC_ROUTES = [
   '/faq',
   '/contatti',
   '/risorse',
+  '/privacy-policy',
+  '/cookie-policy',
 ];
 
 /** Tutte le URL da generare al build: rotte statiche + 1 per ogni articolo. */
@@ -45,6 +47,8 @@ export const SITEMAP_ENTRIES: SitemapEntry[] = [
   { loc: '/contatti', changefreq: 'monthly', priority: '0.9' },
   { loc: '/faq', changefreq: 'monthly', priority: '0.7' },
   { loc: '/risorse', changefreq: 'weekly', priority: '0.7' },
+  { loc: '/privacy-policy', changefreq: 'yearly', priority: '0.2' },
+  { loc: '/cookie-policy', changefreq: 'yearly', priority: '0.2' },
   ...ARTICLES.map((a) => ({
     loc: `/risorse/${a.slug}`,
     lastmod: a.dateModified,

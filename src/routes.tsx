@@ -21,6 +21,8 @@ export const routes: RouteObject[] = [
       { path: 'contatti', lazy: async () => ({ Component: (await import('./pages/Contact')).default }) },
       { path: 'risorse', lazy: async () => ({ Component: (await import('./pages/Risorse')).default }) },
       { path: 'risorse/:slug', lazy: async () => ({ Component: (await import('./pages/Article')).default }) },
+      { path: 'privacy-policy', lazy: async () => ({ Component: (await import('./pages/Privacy')).default }) },
+      { path: 'cookie-policy', lazy: async () => ({ Component: (await import('./pages/CookiePolicy')).default }) },
       { path: '*', lazy: async () => ({ Component: (await import('./pages/NotFound')).default }) },
     ],
   },

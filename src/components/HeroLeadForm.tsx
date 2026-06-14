@@ -1,15 +1,18 @@
-import { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { useId, useState } from 'react';
+import { ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
 import { submitLead } from '../lib/forms';
 
 /**
  * Modulo contatti compatto usato sotto l'hero della home.
  * Su desktop è l'overlay orizzontale sovrapposto all'hero; su mobile è una
  * sezione a sé sotto l'hero. Stato interno: può essere montato due volte
- * (desktop + mobile) senza condividere lo stato.
+ * (desktop + mobile) senza condividere lo stato. `useId` garantisce id univoci
+ * per l'associazione label↔input anche con i due montaggi simultanei.
  */
 export function HeroLeadForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const uid = useId();
+  const id = (field: string) => `${uid}-${field}`;
 
   return (
     <div className="bg-white md:bg-[#061629]/85 rounded-lg shadow-[0_22px_48px_-26px_rgba(6,22,41,0.45)] p-4 md:p-5 border border-[#e6ebf2] md:border-white/30 relative z-10">
@@ -36,26 +39,27 @@ export function HeroLeadForm() {
         {/* Config FormSubmit + honeypot anti-spam */}
         <input type="hidden" name="_subject" value="Nuova richiesta dall'hero — sito Diamanti Automobili" />
         <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
         <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
         <input type="hidden" name="Provenienza" value="Form hero homepage" />
 
         {/* Campi: stack su mobile, UNA sola riga su desktop (campi più stretti) */}
         <div className="flex flex-col md:flex-row md:items-end gap-2.5 md:gap-2">
           <div className="flex flex-col text-left min-w-0 md:flex-1">
-            <label className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Nome e cognome *</label>
-            <input type="text" name="Nome" required placeholder="Mario Rossi" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
+            <label htmlFor={id('nome')} className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Nome e cognome *</label>
+            <input id={id('nome')} type="text" name="Nome" required placeholder="Mario Rossi" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
           </div>
           <div className="flex flex-col text-left min-w-0 md:flex-1">
-            <label className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Email *</label>
-            <input type="email" name="Email" required placeholder="mario@email.it" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
+            <label htmlFor={id('email')} className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Email *</label>
+            <input id={id('email')} type="email" name="Email" required placeholder="mario@email.it" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
           </div>
           <div className="flex flex-col text-left min-w-0 md:flex-1">
-            <label className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Telefono *</label>
-            <input type="tel" name="Telefono" required placeholder="345 678 9010" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
+            <label htmlFor={id('telefono')} className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Telefono *</label>
+            <input id={id('telefono')} type="tel" name="Telefono" required placeholder="345 678 9010" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#061629] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7]" />
           </div>
           <div className="flex flex-col text-left min-w-0 md:flex-1">
-            <label className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Tipologia auto</label>
-            <select name="Tipologia" defaultValue="" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
+            <label htmlFor={id('tipologia')} className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Tipologia auto</label>
+            <select id={id('tipologia')} name="Tipologia" defaultValue="" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
               <option value="">Seleziona...</option>
               <option>SUV</option>
               <option>Berlina</option>
@@ -65,8 +69,8 @@ export function HeroLeadForm() {
             </select>
           </div>
           <div className="flex flex-col text-left min-w-0 md:flex-1">
-            <label className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Budget</label>
-            <select name="Budget" defaultValue="" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
+            <label htmlFor={id('budget')} className="text-[11px] font-semibold text-[#7b8794] md:text-white/90 mb-1">Budget</label>
+            <select id={id('budget')} name="Budget" defaultValue="" className="w-full min-w-0 border border-[#dbe3ec] bg-white rounded-md h-[44px] md:h-[42px] px-3 text-[13px] text-[#5f6b7a] focus:outline-none focus:border-[#0b2b5b] focus:ring-2 focus:ring-[#d9e6f7] appearance-none">
               <option value="">Seleziona...</option>
               <option>Fino a 15.000€</option>
               <option>15.000€ - 25.000€</option>
@@ -86,20 +90,22 @@ export function HeroLeadForm() {
 
         {/* Privacy */}
         <div className="flex items-start gap-2 mt-3">
-          <input type="checkbox" name="Privacy" value="Accettata" required className="w-3.5 h-3.5 accent-[#061629] mt-[3px] shrink-0" />
-          <label className="text-[11px] text-[#7b8794] md:text-white/80 leading-snug text-left">
+          <input id={id('privacy')} type="checkbox" name="Privacy" value="Accettata" required className="w-3.5 h-3.5 accent-[#061629] mt-[3px] shrink-0" />
+          <label htmlFor={id('privacy')} className="text-[11px] text-[#7b8794] md:text-white/80 leading-snug text-left">
             Acconsento al trattamento dei dati personali per essere ricontattato.
           </label>
         </div>
 
         {status === 'success' && (
-          <p role="status" aria-live="polite" className="mt-3 text-[12.5px] font-semibold text-[#0c438f] bg-[#0c438f]/8 border border-[#0c438f]/20 rounded-md py-2.5 px-4 text-left">
-            Richiesta inviata! Ti ricontattiamo entro 24 ore lavorative.
+          <p role="status" aria-live="polite" className="mt-3 flex items-start gap-2 text-[12.5px] font-semibold text-white bg-emerald-600 rounded-md py-2.5 px-4 text-left">
+            <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5" aria-hidden="true" />
+            <span>Richiesta inviata! Ti ricontattiamo entro 24 ore lavorative.</span>
           </p>
         )}
         {status === 'error' && (
-          <p role="alert" aria-live="assertive" className="mt-3 text-[12.5px] font-semibold text-[#b42318] bg-[#b42318]/8 border border-[#b42318]/20 rounded-md py-2.5 px-4 text-left">
-            Invio non riuscito. Riprova tra poco oppure scrivici via email.
+          <p role="alert" aria-live="assertive" className="mt-3 flex items-start gap-2 text-[12.5px] font-semibold text-white bg-red-600 rounded-md py-2.5 px-4 text-left">
+            <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" aria-hidden="true" />
+            <span>Invio non riuscito. Riprova tra poco oppure scrivici via email.</span>
           </p>
         )}
       </form>

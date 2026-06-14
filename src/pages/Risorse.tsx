@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock } from 'lucide-react';
-import { SEO, SITE_URL } from '../components/SEO';
+import { SEO, SITE_URL, breadcrumbLd } from '../components/SEO';
 import { ARTICLES } from '../content/articles';
 
 const RISORSE_JSONLD = {
@@ -26,7 +26,7 @@ export default function Risorse() {
         title="Guide e risorse per comprare e vendere auto | Diamanti Automobili"
         description="Guide pratiche su acquisto, verifica, importazione dalla Germania e permuta di auto. Consigli chiari per comprare e vendere senza brutte sorprese."
         path="/risorse"
-        jsonLd={RISORSE_JSONLD}
+        jsonLd={[RISORSE_JSONLD, breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Risorse', path: '/risorse' }])]}
         jsonLdId="risorse"
       />
 
