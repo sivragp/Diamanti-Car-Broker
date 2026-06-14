@@ -17,7 +17,7 @@ commit atomici per fase; a fine lavoro PR senza merge.
 | 4 | GEO (AI search) | 🟡 Parziale | `llms.txt` ✅; robots AI (blocco training) = **decisione cliente**; contenuti answer-first |
 | 5 | Performance / CWV | 🟡 Parziale | font ✅, motion −120 KB ✅; manca immagini width/height (CLS), manualChunks, drop console |
 | 6 | Sicurezza / header / pulizia deps | ✅ Fatto | 6a (dead-deps/GEMINI/constants) + 6b (header+CSP Report-Only) |
-| 7 | Lead backend & conversioni | ⏳ **decisione** | `api/lead.ts` + provider email (default Resend); eventi GA4 |
+| 7 | Lead backend & conversioni | 🟡 7a fatto · 7b pending | 7a: hardening form (FormSubmit). **7b — Resend (pending)**: endpoint proprio quando ci saranno dominio verificato + `RESEND_API_KEY` |
 | 8 | Privacy / consent (GDPR) | ⏳ **decisione** | Consent Mode v2 + banner; bozze legali |
 | 9 | Accessibilità (WCAG 2.1 AA) | 🟢 Pronto | label form `htmlFor`, `aria-live`, accordion ARIA, skip-link |
 | 10 | Sitemap/robots automatici, canonical, 404 | 🟡 Parziale | sitemap auto ✅ + 404 reale ✅; manca canonical host (www, HTTPS) |

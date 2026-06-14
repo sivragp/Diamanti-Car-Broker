@@ -21,6 +21,7 @@ export function HeroLeadForm() {
       <form
         onSubmit={async (e) => {
           e.preventDefault();
+          if (status === 'submitting') return; // guardia anti doppio invio
           const form = e.currentTarget;
           setStatus('submitting');
           try {
@@ -92,12 +93,12 @@ export function HeroLeadForm() {
         </div>
 
         {status === 'success' && (
-          <p className="mt-3 text-[12.5px] font-semibold text-[#0c438f] bg-[#0c438f]/8 border border-[#0c438f]/20 rounded-md py-2.5 px-4 text-left">
+          <p role="status" aria-live="polite" className="mt-3 text-[12.5px] font-semibold text-[#0c438f] bg-[#0c438f]/8 border border-[#0c438f]/20 rounded-md py-2.5 px-4 text-left">
             Richiesta inviata! Ti ricontattiamo entro 24 ore lavorative.
           </p>
         )}
         {status === 'error' && (
-          <p className="mt-3 text-[12.5px] font-semibold text-[#b42318] bg-[#b42318]/8 border border-[#b42318]/20 rounded-md py-2.5 px-4 text-left">
+          <p role="alert" aria-live="assertive" className="mt-3 text-[12.5px] font-semibold text-[#b42318] bg-[#b42318]/8 border border-[#b42318]/20 rounded-md py-2.5 px-4 text-left">
             Invio non riuscito. Riprova tra poco oppure scrivici via email.
           </p>
         )}

@@ -66,6 +66,7 @@ export default function Contact() {
                 className="flex flex-col gap-6"
                 onSubmit={async (e) => {
                   e.preventDefault();
+                  if (status === 'submitting') return; // guardia anti doppio invio
                   const form = e.currentTarget;
                   setStatus('submitting');
                   try {
@@ -251,12 +252,12 @@ export default function Contact() {
                 </div>
 
                 {status === 'success' && (
-                  <p className="text-center text-[14px] font-semibold text-[#0c438f] bg-[#0c438f]/8 border border-[#0c438f]/20 rounded-md py-3 px-4">
+                  <p role="status" aria-live="polite" className="text-center text-[14px] font-semibold text-[#0c438f] bg-[#0c438f]/8 border border-[#0c438f]/20 rounded-md py-3 px-4">
                     Richiesta inviata! Ti ricontattiamo entro 24 ore lavorative.
                   </p>
                 )}
                 {status === 'error' && (
-                  <p className="text-center text-[14px] font-semibold text-[#b42318] bg-[#b42318]/8 border border-[#b42318]/20 rounded-md py-3 px-4">
+                  <p role="alert" aria-live="assertive" className="text-center text-[14px] font-semibold text-[#b42318] bg-[#b42318]/8 border border-[#b42318]/20 rounded-md py-3 px-4">
                     Invio non riuscito. Riprova tra poco oppure scrivici via email.
                   </p>
                 )}

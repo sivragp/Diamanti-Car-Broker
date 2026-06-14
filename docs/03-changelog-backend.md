@@ -158,4 +158,31 @@ Il sito ora genera **HTML reale per ogni rotta** al build. Implementazione C-bis
   `Bytespider`) mantenendo answer/search bot (GPTBot, ClaudeBot, PerplexityBot,
   Google-Extended, Applebot…) tramite il wildcard `Allow: /`. `robots.txt` aggiornato.
 
+## Fase 7a — Hardening form (FormSubmit come sender) — 2026-06-14
+
+Decisione cliente: per ora **si mantiene FormSubmit**; l'endpoint proprio è rimandato
+(vedi Fase 7b sotto). Hardening dei 3 form (`HeroLeadForm`, `Contact`, `TradeIn`):
+
+- **Verificati e già solidi**: honeypot `_honey` (anti-spam), `required` + validazione
+  nativa (`checkValidity`/`reportValidity` negli step di Contatti/Valuta), bottone
+  `disabled` durante l'invio, cattura di `e.currentTarget` **prima** dell'`await`
+  (nessun bug di evento async), `form.reset()` post-successo.
+- **Aggiunto `aria-live`** ai messaggi di esito: successo `role="status"`
+  (`aria-live="polite"`), errore `role="alert"` (`aria-live="assertive"`) → gli
+  screen reader annunciano l'esito (prima muti).
+- **Rinforzata la guardia anti doppio invio**: `if (status === 'submitting') return`
+  all'inizio dell'`onSubmit` (oltre al bottone disabilitato).
+- Verifica: `tsc` ✅ · build ✅ · 28 pagine.
+- _Rimandato a Fase 9:_ associazione `label`↔input via `htmlFor`/`id` (con `useId`
+  per `HeroLeadForm`, montato due volte) per evitare id duplicati.
+
+## Fase 7b — Resend (PENDING) — rimandata
+
+Scaffold dell'endpoint proprio `api/lead.ts` (Vercel Function + Resend, chiave
+`RESEND_API_KEY` server-side) **rimandato a un task separato** (decisione
+cliente/Daniele): si fa quando saranno disponibili **dominio email verificato +
+`RESEND_API_KEY`**. Fino ad allora il sender resta **FormSubmit** (vedi
+`src/lib/forms.ts`). Da fare in Fase 7b: endpoint Resend, gestione allegati (foto
+permuta), switch del sender con fallback FormSubmit, eventi GA4 `generate_lead`.
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_
