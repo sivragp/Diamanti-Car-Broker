@@ -152,4 +152,10 @@ Il sito ora genera **HTML reale per ogni rotta** al build. Implementazione C-bis
   di puro training (CCBot/anthropic-ai/Bytespider). Gli answer/search bot sono già
   consentiti dal wildcard attuale.
 
+## Fase 4 — robots.txt: policy crawler AI — 2026-06-14
+
+- Decisione cliente: **bloccare i bot di puro training** (`CCBot`, `anthropic-ai`,
+  `Bytespider`) mantenendo answer/search bot (GPTBot, ClaudeBot, PerplexityBot,
+  Google-Extended, Applebot…) tramite il wildcard `Allow: /`. `robots.txt` aggiornato.
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_
