@@ -195,6 +195,8 @@ export default function About() {
                 <img
                   src="/images/team-highfive.webp"
                   alt="Il team Diamanti Automobili celebra insieme un nuovo traguardo in ufficio"
+                  width={1080}
+                  height={1080}
                   className="block w-full h-auto md:h-full md:object-cover"
                   loading="lazy"
                   decoding="async"

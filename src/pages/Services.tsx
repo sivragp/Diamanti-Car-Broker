@@ -205,6 +205,8 @@ export default function Services() {
             <img
               src="/images/fleet-overview.webp"
               alt="Parcheggio di auto premium pronto per la valutazione e il ritiro Diamanti Automobili"
+              width={1536}
+              height={1024}
               className="w-full h-full object-cover"
               loading="lazy"
               decoding="async"

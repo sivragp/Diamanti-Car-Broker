@@ -38,8 +38,11 @@ export function PageHero({
   return (
     <section className="relative min-h-[500px] flex items-center py-12 bg-[#061629] overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img src={image} alt="" className="hidden md:block w-full h-full object-cover" fetchPriority="high" decoding="async" />
-        <img src={imageMobile ?? image} alt="" className="md:hidden w-full h-full object-cover" fetchPriority="high" decoding="async" />
+        {/* Art direction via <picture>: una sola variante scaricata per viewport. */}
+        <picture>
+          <source media="(min-width: 768px)" srcSet={image} />
+          <img src={imageMobile ?? image} alt="" width={1120} height={1400} className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" decoding="async" />
+        </picture>
         {/* Overlay: scuro ai bordi (fonde con header e sezione successiva),
             più trasparente al centro per far risaltare l'auto. */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#061629]/85 via-[#061629]/55 to-[#061629]/90" />

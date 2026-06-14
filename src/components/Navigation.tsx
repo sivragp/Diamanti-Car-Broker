@@ -39,6 +39,8 @@ export function Header() {
               <img
                 src="/logo-diamanti.png"
                 alt="Diamanti Automobili — Consulente per l'acquisto di auto a Roma"
+                width={600}
+                height={600}
                 className="h-[58px] w-auto"
               />
             </Link>
@@ -122,6 +124,8 @@ export function Footer() {
               <img
                 src="/logo-diamanti.png"
                 alt="Diamanti Automobili — Consulente acquisto auto a Roma"
+                width={600}
+                height={600}
                 className="h-[52px] w-auto"
               />
             </Link>

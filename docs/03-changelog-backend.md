@@ -200,4 +200,22 @@ permuta), switch del sender con fallback FormSubmit, eventi GA4 `generate_lead`.
 - Verifica: `tsc` ✅ · build ✅ · 1 `<title>`/1 description per pagina · breadcrumb
   e tipi corretti su tutte le rotte.
 
+## Fase 5 — CLS / immagini / bundle — 2026-06-14
+
+- **`width`/`height` espliciti** su tutte le `<img>` renderizzate (logo 600×600,
+  hero, team 1080×1080, fleet 1536×1024, banner) → riserva spazio, **anti-CLS**.
+  Fix reali: logo (`w-auto`) e foto team (`w-full h-auto`); le full-bleed
+  `object-cover` ricevono dimensioni per l'audit (la CSS governa il rendering).
+- **`<picture>` art direction** su hero Home e `PageHero`: il browser scarica
+  **una sola variante** per viewport (prima `display:none` scaricava ENTRAMBE:
+  su mobile anche i 321 KB della hero desktop). ContactCTA resta a 2 `<img>`
+  perché `loading="lazy"` già carica solo la variante visibile.
+- **Preload LCP media-aware** (hero Home, via `useHead`): mobile precarica solo
+  la hero mobile (157 KB), desktop solo quella desktop. Niente più doppio preload
+  (React 19 non auto-precarica le `<img>` dentro `<picture>`).
+- **`manualChunks`** (solo build client): `react-vendor` (~284 KB, cacheabile a
+  parte), `unhead`, `icons`. Il chunk d'ingresso scende da ~314 KB a ~13 KB.
+- Verifica: `tsc` ✅ · build ✅ · preload corretti · 0 doppio-download hero.
+- _Nota review visiva preview:_ l'hero ora è `<picture>` (resa attesa identica).
+
 _(Le fasi successive verranno annotate qui sotto man mano.)_
