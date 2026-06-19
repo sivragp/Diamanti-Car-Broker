@@ -22,7 +22,7 @@ function SoldCarCard({ car }: { car: SoldCar }) {
   const go = (n: number) => setIdx((n + total) % total);
 
   return (
-    <article className="snap-center shrink-0 w-[85%] sm:w-[60%] md:w-auto bg-white border border-[#e6ebf2] rounded-lg overflow-hidden flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.42)] hover-lift">
+    <article className="snap-center md:snap-start shrink-0 w-[85%] sm:w-[60%] md:w-[340px] bg-white border border-[#e6ebf2] rounded-lg overflow-hidden flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_22px_48px_-26px_rgba(6,22,41,0.42)] hover-lift">
       {/* Galleria foto */}
       <div className="relative aspect-[4/3] bg-[#eef2f7] overflow-hidden group">
         <div
@@ -139,8 +139,8 @@ export function SoldCars({
           )}
         </Reveal>
 
-        {/* Mobile: carosello swipe · Desktop: griglia 3 colonne */}
-        <div className="flex md:grid md:grid-cols-3 gap-5 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory hide-scrollbar -mx-5 px-5 md:mx-0 md:px-0">
+        {/* Carosello orizzontale a riga singola (mobile e desktop), swipe/scroll */}
+        <div className="flex gap-5 md:gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar -mx-5 px-5 md:-mx-8 md:px-8 pb-2">
           {cars.map((car, i) => (
             <SoldCarCard key={i} car={car} />
           ))}
