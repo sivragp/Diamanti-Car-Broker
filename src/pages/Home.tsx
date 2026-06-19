@@ -5,6 +5,7 @@ import { SEO } from '../components/SEO';
 import { ContactCTA } from '../components/ContactCTA';
 import { HeroLeadForm } from '../components/HeroLeadForm';
 import { Reveal } from '../components/Reveal';
+import { SoldCars } from '../components/SoldCars';
 
 // Toggle: sezione "Pronta consegna" nascosta finché non c'è stock reale.
 const SHOW_PRONTA_CONSEGNA = false;
@@ -25,15 +26,6 @@ export default function Home() {
     { icon: <CheckCircle2 size={24} strokeWidth={1.5} />, title: 'Competenza specialistica', text: 'Anni di esperienza nel settore auto al servizio della tua scelta.' },
     { icon: <Search size={24} strokeWidth={1.5} />, title: 'Perizia approfondita', text: 'Ogni veicolo è verificato nei dettagli prima di arrivare a te: tecnica, documenti, storia.' },
     { icon: <Settings size={24} strokeWidth={1.5} />, title: 'Supporto end-to-end', text: 'Ti seguiamo dalla ricerca alla consegna, e anche dopo.' },
-  ];
-
-  const testimonials = [
-    { initials: 'MR', text: "Servizio impeccabile. Il team Diamanti ha trovato l'auto perfetta in tempi record. Consigliatissimo!", name: 'Marco R.', car: 'BMW X5', city: 'Milano' },
-    { initials: 'LB', text: 'Professionale, trasparente e sempre disponibile. Consegna a domicilio puntuale e senza pensieri.', name: 'Luca B.', car: 'Audi Q5 Sportback', city: 'Roma' },
-    { initials: 'AT', text: 'Non avrei mai trovato questa auto a queste condizioni. Servizio top.', name: 'Alessandro T.', car: 'Mercedes GLC', city: 'Torino' },
-    { initials: 'GM', text: 'Mi hanno seguito dalla ricerca alla consegna senza stress. Auto verificata in ogni dettaglio.', name: 'Giorgio M.', car: 'BMW X3', city: 'Milano' },
-    { initials: 'EF', text: "Massima competenza e zero sorprese sui chilometri. Esattamente l'auto che cercavo.", name: 'Elena F.', car: 'Audi Q5', city: 'Roma' },
-    { initials: 'FP', text: 'Cercavo un SUV ibrido affidabile: trovato, verificato e consegnato a casa. Zero pensieri.', name: 'Francesca P.', car: 'Volvo XC60', city: 'Bologna' },
   ];
 
   const tuttoIncluso = [
@@ -491,63 +483,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. TESTIMONIALS */}
-      <section className="py-16 bg-[#f6f8fb] border-t border-[#e6ebf2] overflow-hidden">
-        <div className="ds-container">
-          <h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-12">Cosa dicono i clienti</h2>
-        </div>
-
-        {/* Desktop: griglia 3 colonne (invariata) */}
-        <div className="ds-container hidden md:block">
-          <div className="grid grid-cols-3 gap-6">
-            {testimonials.slice(0, 3).map((review, i) => (
-              <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg p-8 hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] hover-lift flex flex-col">
-                <div className="flex gap-[2px] mb-5">
-                  {[1,2,3,4,5].map(star => <Star key={star} size={14} fill="#F59E0B" color="#F59E0B" />)}
-                </div>
-                <p className="italic text-[18px] text-[#061629] mb-8 flex-1 leading-[1.5]">"{review.text}"</p>
-                <div className="flex items-center gap-4 pt-6 border-t border-[#f0f3f7]">
-                  <div className="w-11 h-11 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center font-bold text-[13px] tracking-wide shrink-0">
-                    {review.initials}
-                  </div>
-                  <div>
-                    <p className="text-[14px] font-bold text-[#061629] leading-tight">{review.name}</p>
-                    <p className="text-[12px] text-muted mt-0.5">{review.car} · {review.city}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile: due file (card più piccole) in marquee automatico, sensi opposti */}
-        <div className="md:hidden flex flex-col gap-4">
-          {[
-            { row: testimonials.slice(0, 3), anim: 'animate-marquee' },
-            { row: testimonials.slice(3, 6), anim: 'animate-marquee-reverse' },
-          ].map((line, li) => (
-            <div key={li} className={`flex w-max ${line.anim}`}>
-              {[...line.row, ...line.row].map((review, i) => (
-                <div key={i} className="shrink-0 w-[262px] mr-4 bg-white border border-[#e6ebf2] rounded-lg p-5 flex flex-col">
-                  <div className="flex gap-[2px] mb-3">
-                    {[1,2,3,4,5].map(star => <Star key={star} size={12} fill="#F59E0B" color="#F59E0B" />)}
-                  </div>
-                  <p className="italic text-[13.5px] text-[#061629] leading-[1.5] mb-4">"{review.text}"</p>
-                  <div className="flex items-center gap-3 mt-auto pt-3 border-t border-[#f0f3f7]">
-                    <div className="w-9 h-9 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center font-bold text-[12px] shrink-0">
-                      {review.initials}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-[12.5px] font-bold text-[#061629] leading-tight truncate">{review.name}</p>
-                      <p className="text-[11px] text-muted truncate">{review.car} · {review.city}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* 9. AUTO CONSEGNATE — vetrina con foto, specifiche e recensione */}
+      <SoldCars
+        eyebrow="Storie di consegna"
+        title="Auto che abbiamo consegnato"
+        subtitle="Alcune delle auto che abbiamo cercato, verificato e portato a casa dei nostri clienti, in tutta Italia."
+      />
 
       {/* COME FUNZIONA — spostata sotto le testimonianze */}
       <section className="py-14 bg-white relative overflow-hidden border-t border-[#e6ebf2]">

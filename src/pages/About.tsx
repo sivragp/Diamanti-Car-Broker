@@ -4,6 +4,7 @@ import { SEO, SITE_URL, breadcrumbLd } from '../components/SEO';
 import { PageHero } from '../components/PageHero';
 import { ContactCTA } from '../components/ContactCTA';
 import { Reveal } from '../components/Reveal';
+import { SoldCars } from '../components/SoldCars';
 
 const ABOUT_JSONLD = {
   '@context': 'https://schema.org',
@@ -21,12 +22,6 @@ export default function About() {
     { icon: ShieldCheck, title: 'Competenza', text: 'Conoscenza del mercato e analisi approfondite per scelte consapevoli.' },
     { icon: Search, title: 'Selezione accurata', text: 'Valutiamo ogni dettaglio per offrirti solo auto di qualità.' },
     { icon: CheckCircle2, title: 'Supporto completo', text: 'Ti seguiamo in ogni fase, fino alla consegna e oltre.' },
-  ];
-
-  const fiducia = [
-    { initials: 'GM', name: 'Giorgio M.', car: 'BMW X3', city: 'Milano', text: "Servizio impeccabile. Il team di Diamanti Automobili ha trovato l'auto perfetta per me. Trasparenti, professionali e sempre disponibili. Consigliatissimi!" },
-    { initials: 'EF', name: 'Elena F.', car: 'Audi Q5', city: 'Roma', text: "Mi hanno seguito in ogni fase, dalla ricerca alla consegna. Nessuno stress, massima competenza e un'auto che corrisponde esattamente alle mie aspettative." },
-    { initials: 'FP', name: 'Francesca P.', car: 'Volvo XC60', city: 'Bologna', text: 'Cercavo un SUV ibrido senza brutte sorprese sui chilometri. Me lo hanno trovato, verificato e consegnato a casa: zero stress, zero pensieri.' },
   ];
 
   return (
@@ -225,54 +220,11 @@ export default function About() {
         </div>
       </section>
 
-      {/* 7. LA FIDUCIA DEI CLIENTI */}
-      <section className="py-24 bg-[#f6f8fb] overflow-hidden">
-        <div className="ds-container">
-          <Reveal><h2 className="text-center text-[30px] md:text-[34px] font-extrabold text-[#061629] mb-10 md:mb-16">La fiducia dei clienti</h2></Reveal>
-
-          {/* Desktop: griglia 3 colonne invariata */}
-          <div className="hidden md:grid md:grid-cols-3 gap-6">
-            {fiducia.map((review, i) => (
-              <div key={i} className="bg-white border border-[#e6ebf2] rounded-lg p-8 flex flex-col shadow-[0_12px_28px_-24px_rgba(6,22,41,0.32)] hover:shadow-[0_18px_42px_-26px_rgba(6,22,41,0.38)] hover-lift">
-                <div className="flex gap-1 mb-5">
-                  {[1,2,3,4,5].map(star => <Star key={star} size={14} className="fill-[#F59E0B] text-[#F59E0B]" />)}
-                </div>
-                <p className="italic text-[18px] text-[#061629] leading-[1.5] mb-8 flex-grow">
-                  "{review.text}"
-                </p>
-                <div className="flex items-center gap-4 pt-6 border-t border-[#f0f3f7]">
-                  <div className="w-11 h-11 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center font-bold text-[13px] tracking-wide shrink-0">
-                    {review.initials}
-                  </div>
-                  <div>
-                    <p className="text-[14px] font-bold text-[#061629] leading-tight">{review.name}</p>
-                    <p className="text-[12px] text-muted mt-0.5">{review.car} · Consegnata a {review.city}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile: marquee automatico (card compatte) come in home */}
-        <div className="md:hidden flex w-max animate-marquee">
-          {[...fiducia, ...fiducia].map((review, i) => (
-            <div key={i} className="shrink-0 w-[280px] mr-4 bg-white border border-[#e6ebf2] rounded-lg p-5 flex flex-col">
-              <div className="flex gap-[2px] mb-3">
-                {[1,2,3,4,5].map(star => <Star key={star} size={12} className="fill-[#F59E0B] text-[#F59E0B]" />)}
-              </div>
-              <p className="italic text-[13.5px] text-[#061629] leading-[1.5] mb-4">"{review.text}"</p>
-              <div className="flex items-center gap-3 mt-auto pt-3 border-t border-[#f0f3f7]">
-                <div className="w-9 h-9 rounded-full bg-[#0b2b5b] text-white flex items-center justify-center font-bold text-[12px] shrink-0">{review.initials}</div>
-                <div className="min-w-0">
-                  <p className="text-[12.5px] font-bold text-[#061629] leading-tight truncate">{review.name}</p>
-                  <p className="text-[11px] text-muted truncate">{review.car} · {review.city}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* 7. AUTO CONSEGNATE — vetrina con foto, specifiche e recensione */}
+      <SoldCars
+        eyebrow="La fiducia dei clienti"
+        title="Auto che abbiamo consegnato"
+      />
 
       {/* 8. CTA PRE-FOOTER */}
       <ContactCTA image="/images/audi-a1-costiera.webp" imageMobile="/images/cta-mercedes-a.webp" />
