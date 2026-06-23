@@ -88,8 +88,18 @@ function SoldCarCard({ car }: { car: SoldCar }) {
       {/* Dettagli auto */}
       <div className="p-6 flex flex-col flex-1">
         <h3 className="text-[16px] font-extrabold text-[#061629] leading-tight">{car.model}</h3>
+        {car.details && <p className="text-[12px] font-semibold text-[#0c438f] mt-1">{car.details}</p>}
         {specs && <p className="text-[12.5px] text-muted mt-1.5">{specs}</p>}
         {car.price && <p className="text-[20px] font-extrabold text-[#061629] mt-2">{car.price}</p>}
+        {car.equipment && car.equipment.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mt-3">
+            {car.equipment.map((e, i) => (
+              <span key={i} className="rounded-full bg-[#eef2f7] text-[#0b2b5b] px-2.5 py-1 text-[11px] font-medium leading-none">
+                {e}
+              </span>
+            ))}
+          </div>
+        )}
 
         {/* Recensione del cliente (mostrata solo se presente) */}
         {(car.text || car.name || car.city) && (
