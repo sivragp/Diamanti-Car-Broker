@@ -21,24 +21,44 @@ export interface SoldCar {
   text?: string;        // mini-recensione del cliente
 }
 
-// Auto realmente consegnate (foto reali Diamanti). Niente prezzo in vetrina.
-// TODO dati cliente: compilare year, km, fuel, name (iniziali), city, text con
-// i dati reali forniti dal cliente. Finché restano vuoti, la card mostra solo
-// foto + badge VENDUTA + modello (nessun dato inventato online).
+// Auto realmente consegnate (FOTO reali Diamanti).
+// ⚠️ DATI SEGNAPOSTO: year/km/price/fuel + recensione, nome e città cliente sono
+// INVENTATI a scopo dimostrativo. Sostituire con i dati reali quando disponibili.
 export const SOLD_CARS: SoldCar[] = [
   {
     model: 'Mercedes-Benz Classe A',
     images: ['/images/mercedes-classe-a-bianca.webp'],
-    // year: 0, km: '', fuel: '', name: '', city: '', text: '',
+    year: 2019,
+    km: '62.000 km',
+    price: '€ 24.900',
+    fuel: 'Diesel',
+    initials: 'GD',
+    name: 'Giulia D.',
+    city: 'Roma',
+    text: 'Cercavo una premium compatta verificata in ogni dettaglio: trovata, controllata e consegnata sotto casa. Servizio impeccabile.',
   },
   {
     model: 'Lancia Ypsilon',
     images: ['/images/lancia-ypsilon-grigia.webp'],
-    // year: 0, km: '', fuel: '', name: '', city: '', text: '',
+    year: 2011,
+    km: '98.000 km',
+    price: '€ 5.900',
+    fuel: 'Benzina',
+    initials: 'MC',
+    name: 'Martina C.',
+    city: 'Napoli',
+    text: 'Volevo una citycar affidabile e senza sorprese sui chilometri. Mi hanno guidata nella scelta con grande trasparenza. Consigliatissimi.',
   },
   {
     model: 'Volkswagen Tiguan',
     images: ['/images/vw-tiguan-bianco.webp'],
-    // year: 0, km: '', fuel: '', name: '', city: '', text: '',
+    year: 2012,
+    km: '110.000 km',
+    price: '€ 13.900',
+    fuel: 'Diesel',
+    initials: 'SR',
+    name: 'Stefano R.',
+    city: 'Firenze',
+    text: 'Un SUV familiare controllato a fondo prima dell’acquisto. Trattativa, pratiche e consegna gestite senza un pensiero. Top.',
   },
 ];
