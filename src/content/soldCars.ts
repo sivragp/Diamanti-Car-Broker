@@ -85,7 +85,7 @@ export const SOLD_CARS: SoldCar[] = [
     images: ['/images/mercedes-classe-a-nera.webp'],
     year: 2023,
     km: '81.418 km',
-    price: '€ 30.900',
+    price: '€ 25.500',
     fuel: 'Ibrida plug-in',
     details: 'Ibrida (benzina/elettrica) · 218 CV',
     initials: 'CV',
