@@ -57,9 +57,9 @@ export const SOLD_CARS: SoldCar[] = [
   {
     model: 'Volkswagen Tiguan',
     images: ['/images/vw-tiguan-bianco.webp'],
-    year: 2012,
-    km: '110.000 km',
-    price: '€ 13.900',
+    year: 2008,
+    km: '140.000 km',
+    price: '€ 7.000',
     fuel: 'Diesel',
     initials: 'SR',
     name: 'Stefano R.',
