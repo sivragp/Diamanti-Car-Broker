@@ -72,7 +72,7 @@ export const SOLD_CARS: SoldCar[] = [
     year: 2024,
     km: '28.350 km',
     price: '€ 35.000',
-    fuel: 'Benzina',
+    fuel: 'Diesel',
     details: '1.5 · 116 CV · Premium',
     equipment: ['Full optional', 'Tettuccio apribile', 'Sedili riscaldati elettrici', 'Cerchi 19″'],
     initials: 'DL',
