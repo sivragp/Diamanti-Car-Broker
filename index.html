@@ -6,10 +6,11 @@
     <meta name="theme-color" content="#061629" />
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- Analytics consent-gated: Google Consent Mode v2 (default DENIED).
-         GA4 + Contentsquare partono SOLO dopo consenso (banner). Esternalizzato
-         (niente snippet inline) → la CSP può togliere 'unsafe-inline' da script-src.
-         Vedi public/analytics.js e src/components/ConsentBanner.tsx. -->
+    <!-- Analytics: Google Consent Mode v2 (default DENIED). Il Google tag
+         (GA4 + Google Ads AW-18210464219) si carica sempre ma senza cookie finché
+         non c'è consenso (ping cookieless); Contentsquare parte SOLO dopo "Accetta".
+         Esternalizzato (niente snippet inline) → la CSP può togliere 'unsafe-inline'
+         da script-src. Vedi public/analytics.js e src/components/ConsentBanner.tsx. -->
     <script defer src="/analytics.js"></script>
 
     <!--

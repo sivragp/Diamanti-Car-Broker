@@ -17,7 +17,7 @@
         },
         {
           "key": "Content-Security-Policy-Report-Only",
-          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://formsubmit.co; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://*.contentsquare.net; script-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://t.contentsquare.net https://*.contentsquare.net; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.contentsquare.net https://formsubmit.co; frame-src 'self'; manifest-src 'self'; upgrade-insecure-requests"
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://formsubmit.co; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://*.contentsquare.net https://www.googleadservices.com https://googleads.g.doubleclick.net https://*.doubleclick.net https://www.google.com; script-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://t.contentsquare.net https://*.contentsquare.net https://www.googleadservices.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.contentsquare.net https://formsubmit.co https://www.googleadservices.com https://googleads.g.doubleclick.net https://*.doubleclick.net https://www.google.com; frame-src 'self' https://td.doubleclick.net; manifest-src 'self'; upgrade-insecure-requests"
         }
       ]
     },
