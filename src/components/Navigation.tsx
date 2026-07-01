@@ -188,7 +188,10 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 text-[11px] text-white/50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-center sm:text-left">
-          <p>© 2026 Diamanti Automobili — Tutti i diritti riservati.</p>
+          <div className="flex flex-col gap-1">
+            <p>© 2026 Diamanti Automobili — Tutti i diritti riservati.</p>
+            <p>Designed and developed by <a href="https://sivragp.com" target="_blank" rel="noopener noreferrer" className="font-medium text-white/70 hover:text-[#7ba6e4] transition-colors">SIVRA Growth Partner</a></p>
+          </div>
           <nav aria-label="Note legali" className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
             <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link to="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
