@@ -11,11 +11,14 @@ const RISORSE_JSONLD = {
     'Guide pratiche di Diamanti Automobili su acquisto, verifica, importazione e permuta di auto usate e nuove.',
   url: `${SITE_URL}/risorse`,
   inLanguage: 'it-IT',
+  isPartOf: { '@id': `${SITE_URL}/#website` },
+  publisher: { '@id': `${SITE_URL}/#business` },
   hasPart: ARTICLES.map((a) => ({
     '@type': 'BlogPosting',
     headline: a.h1,
     url: `${SITE_URL}/risorse/${a.slug}`,
     datePublished: a.datePublished,
+    dateModified: a.dateModified,
   })),
 };
 
