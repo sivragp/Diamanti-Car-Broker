@@ -50,13 +50,19 @@ export default function Article() {
       datePublished: article.datePublished,
       dateModified: article.dateModified,
       inLanguage: 'it-IT',
+      articleSection: article.category,
+      keywords: article.keyword,
       image: `${SITE_URL}/images/og-cover.jpg`,
-      author: { '@type': 'Organization', name: 'Diamanti Automobili' },
+      // author/publisher referenziano via @id l'entità business globale (index.html
+      // #business) → consolida il grafo invece di creare Organization anonime.
+      author: { '@type': 'Organization', '@id': `${SITE_URL}/#business`, name: 'Diamanti Automobili' },
       publisher: {
         '@type': 'Organization',
+        '@id': `${SITE_URL}/#business`,
         name: 'Diamanti Automobili',
         logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo-diamanti.png` },
       },
+      isPartOf: { '@id': `${SITE_URL}/#website` },
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     },
     {
