@@ -37,6 +37,9 @@ export default function Article() {
   }
 
   const url = `${SITE_URL}/risorse/${article.slug}`;
+  // OG image dedicata per articolo (generata in public/og/<slug>.jpg); il generico
+  // /images/og-cover.jpg resta il fallback di default nel componente SEO.
+  const ogImage = `/og/${article.slug}.jpg`;
   const related = article.related
     .map((s) => ARTICLES.find((a) => a.slug === s))
     .filter((a): a is NonNullable<typeof a> => Boolean(a));
@@ -52,7 +55,7 @@ export default function Article() {
       inLanguage: 'it-IT',
       articleSection: article.category,
       keywords: article.keyword,
-      image: `${SITE_URL}/images/og-cover.jpg`,
+      image: `${SITE_URL}${ogImage}`,
       // author/publisher referenziano via @id l'entità business globale (index.html
       // #business) → consolida il grafo invece di creare Organization anonime.
       author: { '@type': 'Organization', '@id': `${SITE_URL}/#business`, name: 'Diamanti Automobili' },
@@ -91,6 +94,7 @@ export default function Article() {
         title={article.title}
         description={article.description}
         path={`/risorse/${article.slug}`}
+        image={ogImage}
         jsonLd={jsonLd}
         jsonLdId={`article-${article.slug}`}
       />
